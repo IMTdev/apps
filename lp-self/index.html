@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Концепция себя — Learning Path LP-SELF-01</title>
+    <style>
+        :root {
+            --bg: #f7f8fc;
+            --surface: #ffffff;
+            --surface-soft: #f0f3ff;
+            --surface-dark: #12172a;
+            --text: #0f172a;
+            --text-soft: #43506f;
+            --line: #dbe1f0;
+            --brand: #5b7cff;
+            --brand-dark: #3f5de0;
+            --ok: #12a150;
+            --warn: #b46c00;
+            --radius: 18px;
+            --radius-sm: 12px;
+            --shadow-soft: 0 8px 24px rgba(21, 31, 63, 0.08);
+            --shadow-card: 0 2px 14px rgba(20, 30, 60, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: radial-gradient(1000px 420px at 20% -20%, #e6ebff 0%, transparent 80%), var(--bg);
+        }
+
+        .container {
+            width: min(1160px, 100% - 32px);
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 72px 0;
+        }
+
+        .section + .section {
+            border-top: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        .section-title {
+            font-size: clamp(1.65rem, 2.4vw, 2.35rem);
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            margin-bottom: 10px;
+        }
+
+        .section-note {
+            color: var(--text-soft);
+            max-width: 760px;
+            margin-bottom: 28px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #c8d2ff;
+            background: #edf1ff;
+            color: #1c2960;
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+
+        .hero {
+            padding: 48px 0 56px;
+        }
+
+        .hero-wrap {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 22px;
+        }
+
+        .hero-card,
+        .hero-side {
+            background: var(--surface);
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero-card {
+            padding: 28px;
+        }
+
+        .hero-side {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.04;
+            letter-spacing: -0.02em;
+            margin-bottom: 14px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.12rem;
+            color: var(--text-soft);
+            max-width: 760px;
+            margin-bottom: 18px;
+        }
+
+        .hero-list {
+            display: grid;
+            gap: 8px;
+            margin: 0 0 20px;
+            color: #1f2b52;
+        }
+
+        .hero-list li {
+            margin-left: 20px;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            text-decoration: none;
+            border-radius: 12px;
+            padding: 11px 16px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+        }
+
+        .btn:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid rgba(91, 124, 255, 0.35);
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background: var(--brand);
+            color: #fff;
+            box-shadow: 0 8px 16px rgba(91, 124, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            background: var(--brand-dark);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: #2b3c79;
+            border-color: #cdd6f7;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-1px);
+            background: #f7f9ff;
+        }
+
+        .metric {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            background: #fbfcff;
+        }
+
+        .metric-kicker {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #4a5d9e;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 4px;
+        }
+
+        .metric-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .metric-note {
+            color: var(--text-soft);
+            font-size: 0.92rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #eef2ff 0%, #f6f8ff 100%);
+            border: 1px solid #cfd9ff;
+            border-radius: var(--radius);
+            padding: 22px;
+            margin-top: 20px;
+        }
+
+        .highlight p + p {
+            margin-top: 10px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-card);
+            padding: 20px;
+        }
+
+        .card h3,
+        .card h4 {
+            margin-bottom: 10px;
+            line-height: 1.25;
+        }
+
+        .card p {
+            color: var(--text-soft);
+            margin-bottom: 12px;
+        }
+
+        .card ul,
+        .card ol {
+            margin-left: 20px;
+            color: #1f2b52;
+            display: grid;
+            gap: 8px;
+        }
+
+        .card.bad {
+            border-color: #f3d8ba;
+            background: #fffaf3;
+        }
+
+        .card.good {
+            border-color: #cbe8d6;
+            background: #f5fff8;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+        }
+
+        .step .step-id {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #edf1ff;
+            color: #25346a;
+            border: 1px solid #cbd5ff;
+            margin-bottom: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .step p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 0.95rem;
+        }
+
+        .path-scheme {
+            background: #11172a;
+            color: #cfe0ff;
+            border: 1px solid #1f2847;
+            padding: 18px;
+            border-radius: 14px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            white-space: pre;
+            overflow-x: auto;
+            font-size: 0.86rem;
+            line-height: 1.5;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            background: #edf1ff;
+            border: 1px solid #cfd7ff;
+            color: #24336d;
+            border-radius: 8px;
+            padding: 2px 6px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .price-card {
+            border: 1px solid #d6def8;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .price-card.is-primary {
+            border-color: #b8c8ff;
+            background: linear-gradient(180deg, #f4f7ff 0%, #ffffff 100%);
+        }
+
+        .price-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .price-value {
+            font-size: clamp(2rem, 4vw, 2.6rem);
+            line-height: 1;
+            margin-bottom: 14px;
+            font-weight: 800;
+            color: #162d89;
+            letter-spacing: -0.02em;
+        }
+
+        .price-card p {
+            color: var(--text-soft);
+            margin-bottom: 10px;
+        }
+
+        .other-paths {
+            margin-top: 18px;
+            padding: 16px;
+            border: 1px dashed #cad3ef;
+            border-radius: 12px;
+            background: #fbfcff;
+        }
+
+        .other-paths ul {
+            margin: 10px 0 0 20px;
+            display: grid;
+            gap: 6px;
+        }
+
+        .accordion-wrap {
+            display: grid;
+            gap: 10px;
+        }
+
+        details {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fff;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        details:hover {
+            border-color: #c7d1f8;
+        }
+
+        details[open] {
+            border-color: #b7c3f4;
+            box-shadow: 0 4px 14px rgba(62, 85, 179, 0.08);
+        }
+
+        summary {
+            list-style: none;
+            cursor: pointer;
+            font-weight: 700;
+            padding: 14px 16px;
+            position: relative;
+            color: #1b2754;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #4a61b8;
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            padding: 0 16px 15px;
+            color: var(--text-soft);
+        }
+
+        .quote-box {
+            border-left: 3px solid #9eb0ff;
+            padding-left: 14px;
+            margin: 10px 0;
+            color: var(--text-soft);
+        }
+
+        .counterexample {
+            margin-top: 10px;
+            border: 1px solid #f0d8bf;
+            border-left: 4px solid #e1a252;
+            border-radius: 10px;
+            padding: 12px 14px;
+            background: #fff9f2;
+            color: #5c3d16;
+        }
+
+        .pay-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .pay-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .pay-card h4 {
+            margin-bottom: 8px;
+        }
+
+        .pay-card ul {
+            margin-left: 18px;
+            display: grid;
+            gap: 7px;
+            color: #243154;
+        }
+
+        .cta-final {
+            margin-top: 28px;
+            background: linear-gradient(130deg, #4b67e7 0%, #2f4dce 100%);
+            color: #fff;
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: 0 12px 26px rgba(48, 77, 206, 0.35);
+        }
+
+        .cta-final h2 {
+            margin-bottom: 8px;
+            font-size: clamp(1.5rem, 2.8vw, 2rem);
+            line-height: 1.2;
+        }
+
+        .cta-final p {
+            color: #dce5ff;
+            margin-bottom: 14px;
+        }
+
+        .small-muted {
+            color: var(--text-soft);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 1040px) {
+            .hero-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .step-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .section {
+                padding: 56px 0;
+            }
+
+            .pricing-grid,
+            .grid-2,
+            .grid-3,
+            .pay-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card,
+            .hero-side {
+                padding: 20px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container hero-wrap">
+            <div class="hero-card">
+                <div class="pill-row">
+                    <span class="pill">Learning Path</span>
+                    <span class="pill">LP-SELF-01</span>
+                    <span class="pill">Продвинутый уровень</span>
+                </div>
+                <h1>Концепция себя</h1>
+                <p class="hero-subtitle">
+                    Большинство людей не управляют своей жизнью — они запускают чужой код и называют это «характером».
+                    Ты чинишь железо, когда проблема в коде.
+                </p>
+                <ul class="hero-list">
+                    <li>Смена концепции о себе: не привычки и техники, а иерархия Дух–разум–тело.</li>
+                    <li>Карта уровней: тело как экран, разум как ОС, дух как тот, кто выбирает код.</li>
+                    <li>Один сдвиг: перестать спорить с результатами и начать менять функцию, которая их генерирует.</li>
+                </ul>
+                <div class="button-row">
+                    <a class="btn btn-primary" href="#pricing">Смотреть пакеты и цены</a>
+                    <a class="btn btn-secondary" href="#inside">Что внутри траектории</a>
+                </div>
+            </div>
+            <aside class="hero-side">
+                <div class="metric">
+                    <div class="metric-kicker">Формат</div>
+                    <div class="metric-value">7 лекций в одном Learning Path</div>
+                    <p class="metric-note">Старт → Ядро → Углубление. Learning Path продается только целиком.</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-kicker">Кому подходит</div>
+                    <div class="metric-value">Технари и руководители</div>
+                    <p class="metric-note">Тем, кто хочет видеть архитектуру причин, а не просто оптимизировать поведение.</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-kicker">Ключевой принцип</div>
+                    <div class="metric-value">Без смены концепции о себе результата не будет</div>
+                    <p class="metric-note">Записи дают новую концепцию; на 1:1 можно получать индивидуальные истины уже на этой базе.</p>
+                </div>
+            </aside>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Оффер</h2>
+                <p class="section-note">
+                    Этот learning path даёт смену концепции о себе: не привычки и техники, а иерархию Дух–разум–тело и понимание,
+                    что ты — программист, а не железо.
+                </p>
+                <div class="highlight">
+                    <p><strong>Большинство людей не управляют своей жизнью</strong> — они запускают чужой код и называют это «характером». Ты чинишь железо, когда проблема в коде.</p>
+                    <p><strong>Что получишь:</strong></p>
+                    <ul>
+                        <li>Карту уровней: тело как экран, разум как ОС, дух как тот, кто выбирает код.</li>
+                        <li>Три ловушки, которые держат на месте: отождествление с железом, невидение легаси-кода, защита эго.</li>
+                        <li>Один сдвиг: перестать спорить с результатами и начать менять функцию, которая их генерирует.</li>
+                    </ul>
+                    <p><strong>Без смены концепции о себе и жизни с результатами ничего не получится</strong> — это необходимая часть апдейта протокола. Записи дают новую концепцию; на 1:1 потом можно получать индивидуальные истины уже на этой базе.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Для кого / не для кого</h2>
+                <p class="section-note">Кому подходит траектория и кому лучше не заходить в этот формат.</p>
+                <div class="grid-2">
+                    <article class="card good">
+                        <h3>Подходит</h3>
+                        <ul>
+                            <li><strong>Технари и руководители</strong>, которые устали «оптимизировать поведение» и хотят видеть <strong>архитектуру причин</strong>: почему сценарии повторяются и какие внутренние правила их запускают.</li>
+                            <li>Кому важна <strong>причинность, а не успокаивающие объяснения</strong>: хочется понимать, какая логика внутри даёт текущие результаты — и что нужно менять на уровне модели.</li>
+                            <li>Кто готов к <strong>апдейту концепции себя</strong> (а не к очередной технике): иерархия Дух–разум–тело, ответственность за прошлое/будущее, время как фактор выбора, эволюция сознания.</li>
+                            <li>Кто понимает формат <strong>Learning Path как отобранную траекторию</strong> под задачу. Идти можно как вторым шагом после «Переобучения», а можно и с этого LP — если хочется сразу «в глубину».</li>
+                        </ul>
+                    </article>
+                    <article class="card bad">
+                        <h3>Не подходит</h3>
+                        <ul>
+                            <li>Тем, кто ждёт <strong>быстрых техник</strong> и лайфхаков без работы с концепциями.</li>
+                            <li>Те, кто <strong>не готов расстаться с эго</strong>: смена концепции о себе затрагивает идентичность; путь про синхронизацию с исходником, а не про защиту привычного образа себя.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Карта траектории (Learning Path)</h2>
+                <p class="section-note">Рекомендуемый порядок — последовательно по номерам лекций. Допускается и свой порядок прохождения.</p>
+
+                <div class="step-grid">
+                    <article class="step">
+                        <span class="step-id">Старт</span>
+                        <h3><code>KU-005.2</code> Иерархия целей</h3>
+                        <p>Входная рамка: кто ты в системе — железо, ОС или программист.</p>
+                    </article>
+                    <article class="step">
+                        <span class="step-id">Ядро</span>
+                        <h3><code>KU-016.1</code>, <code>KU-016.2</code>, <code>KU-018.1</code></h3>
+                        <p>Ключевые записи: ответственность за результаты и за себя, исходный код.</p>
+                    </article>
+                    <article class="step">
+                        <span class="step-id">Углубление</span>
+                        <h3><code>KU-022.1</code>, <code>KU-023.1</code>, <code>KU-023.2</code></h3>
+                        <p>Время, эволюция сознания, ответственность и единственность.</p>
+                    </article>
+                </div>
+
+                <pre class="path-scheme">СТАРТ
+  ↓
+[5.2 Иерархия целей (Дух–разум–тело)]
+  ↓
+ЯДРО
+  ├─ 16.1 Ответственность за результаты
+  ├─ 16.2 Ответственность за себя
+  └─ 18.1 Исходный код
+  ↓
+УГЛУБЛЕНИЕ
+  ├─ 22.1 Время
+  ├─ 23.1 Эволюция сознания
+  └─ 23.2 Ответственность и единственность</pre>
+            </div>
+        </section>
+
+        <section class="section" id="inside">
+            <div class="container">
+                <h2 class="section-title">Что внутри</h2>
+                <p class="section-note">Содержание траектории в формате модулей, чтобы быстро понять масштаб и последовательность.</p>
+                <div class="grid-3">
+                    <article class="card">
+                        <h3><code>KU-005.2</code> Иерархия целей (Дух-разум-тело)</h3>
+                        <p>Рамка: три уровня одной системы. Цели тела (комфорт, здоровье) — на последнем месте, цель духа — на первом, цели разума — посередине.</p>
+                    </article>
+                    <article class="card">
+                        <h3><code>KU-016.1</code> Ответственность за результаты</h3>
+                        <p>Причинность и результаты. Каждый человек полностью ответственен за собственную жизнь и свои результаты. Внешние обстоятельства не являются истинной причиной.</p>
+                    </article>
+                    <article class="card">
+                        <h3><code>KU-016.2</code> Ответственность за себя</h3>
+                        <p>Текущее развитие и движение в будущее. Принятие полной ответственности за свою жизнь и свои действия без перекладывания на внешние факторы.</p>
+                    </article>
+                    <article class="card">
+                        <h3><code>KU-018.1</code> Исходный код</h3>
+                        <p>Легаси и доступ к исходнику. Возврат к чистому исходному коду через осознанный дебаг и снятие слоёв ложных убеждений.</p>
+                    </article>
+                    <article class="card">
+                        <h3><code>KU-022.1</code> Время</h3>
+                        <p>Временная структура и выбор. На уровне духа времени не существует, и именно на этом уровне можно принимать решения, которые изменяют будущее. Прошлое нельзя изменить физически, но можно переинтерпретировать.</p>
+                    </article>
+                    <article class="card">
+                        <h3><code>KU-023.1</code> Эволюция сознания</h3>
+                        <p>От автопилота к осознанному дебагу. Эволюция сознания — индивидуальный процесс, основанный на выборе и усилиях.</p>
+                    </article>
+                    <article class="card">
+                        <h3><code>KU-023.2</code> Ответственность и единственность</h3>
+                        <p>Единственность и выбор. Независимость от внешних оценок, ответственность за решения и движение к внутренней целостности.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="pricing">
+            <div class="container">
+                <h2 class="section-title">Пакеты и цены</h2>
+                <p class="section-note">
+                    <strong>Отдельные ролики не продаются.</strong> Learning Paths доступны только целиком.
+                    Learning Paths — отобранная часть курса под конкретную сферу.
+                </p>
+                <div class="pricing-grid">
+                    <article class="price-card is-primary">
+                        <h3>Learning Path «Концепция себя» (7 лекций)</h3>
+                        <div class="price-value">$175</div>
+                        <p>Внутри: Старт → Ядро → Углубление (7 лекций).</p>
+                        <p>Внутри: Старт → Ядро → Углубление.</p>
+                    </article>
+                    <article class="price-card">
+                        <h3>Полный курс «Код Универсума» (KU-001…KU-024)</h3>
+                        <div class="price-value">$1000</div>
+                        <p>Самый эффективный подход для получения цельной картины.</p>
+                        <p>Проходить курс лучше последовательно, с 1-й по последнюю лекцию.</p>
+                    </article>
+                </div>
+                <div class="other-paths">
+                    <h4>Другие Learning Paths</h4>
+                    <ul>
+                        <li>Формула разума сознания</li>
+                        <li>Переобучение</li>
+                        <li>Паттерны</li>
+                        <li>Научный трек и концепция жизни</li>
+                        <li>Стресс и выражение</li>
+                        <li>Межличностное взаимодействие и концепция других</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Отзывы</h2>
+                <p class="section-note">Секция-заготовка (пока без реальных отзывов). Ниже — структура, чтобы тебе было легко потом подставить цитаты/скрины/кейсы.</p>
+                <div class="grid-2">
+                    <article class="card">
+                        <h3>[Имя / роль]</h3>
+                        <p>«[1–2 предложения: что было до → что стало иначе после. Конкретика: решение, поведение, результат.]»</p>
+                    </article>
+                    <article class="card">
+                        <h3>[Имя / роль]</h3>
+                        <p>«[Короткая цитата про главный сдвиг: ответственность / иерархия целей / исходный код / время.]»</p>
+                    </article>
+                    <article class="card">
+                        <h3>Варианты social proof</h3>
+                        <ul>
+                            <li>Скриншоты переписок/комментов</li>
+                            <li>Мини-кейсы «до/после» (1 абзац)</li>
+                            <li>Короткие видео-отзывы (позже)</li>
+                            <li>Цифры: «N людей прошли», «N часов контента» (когда будет)</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>Мягкий social proof</h3>
+                        <ul>
+                            <li>«Кому это обычно заходит» (портрет)</li>
+                            <li>«Что люди говорят после 1-й недели/после месяца»</li>
+                            <li>Публичные материалы: статьи, выступления, ссылки</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">FAQ</h2>
+                <p class="section-note">Ключевые вопросы по формату, глубине и отличиям от классических курсов по саморазвитию.</p>
+                <div class="accordion-wrap">
+                    <details>
+                        <summary>1. Чем этот путь отличается от курсов по саморазвитию и привычкам?</summary>
+                        <div class="faq-answer">Здесь упор не на «как заставить себя делать», а на какую модель себя ты запускаешь. Пока не поменялась концепция, техники дают временный эффект и откаты.</div>
+                    </details>
+                    <details>
+                        <summary>2. Нужно ли сначала пройти путь «Переобучение»?</summary>
+                        <div class="faq-answer">Learning Path продвинутый. Логично как второй шаг после «Переобучения», но можно заходить и сразу — если ты готов к глубине и хочешь начать именно с апдейта модели себя.</div>
+                    </details>
+                    <details>
+                        <summary>3. Что значит «расстаться с эго» — это про самооценку?</summary>
+                        <div class="faq-answer">Не про «унизить себя», а про перестать защищать привычный образ ценой реальности. В этом LP задача — вернуть доступ к исходнику, а не воевать с собой.</div>
+                    </details>
+                    <details>
+                        <summary>4. Почему «код», «железо», «ОС» — это не метафора для программистов?</summary>
+                        <div class="faq-answer">Это язык для точности: симптом vs причина, результат vs правило, баг vs костыль. Он помогает видеть механизм, а не только «самочувствие».</div>
+                    </details>
+                    <details>
+                        <summary>5. Чем записи отличаются от консультации 1:1?</summary>
+                        <div class="faq-answer">Записи дают базовую концептуальную рамку. 1:1 — это индивидуальные истины и переобучение твоих разумов/законов на этой базе. В итоге нужны обе части, и начинать логичнее с концепций.</div>
+                    </details>
+                    <details>
+                        <summary>6. Сколько времени занимает прохождение пути?</summary>
+                        <div class="faq-answer">Это индивидуальный параметр. Каждый ролик ориентировочно ~1 час, но на усвоение, домашние задания и применение у каждого уходит разное время. Нормальный ориентир — около месяца (в своём темпе).</div>
+                    </details>
+                    <details>
+                        <summary>7. Что такое Learning Path и чем он отличается от полного курса?</summary>
+                        <div class="faq-answer">Learning Path — это не «путь» в буквальном смысле, а <strong>отобранная траектория</strong>: часть курса, собранная под конкретную сферу. Если цель — полнота и цельная система, верный вариант — слушать весь курс последовательно с 1-й по последнюю лекцию.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Как оплатить</h2>
+                <p class="section-note">После подтверждения оплаты доступ обычно выдается в течение 24 часов.</p>
+                <div class="pay-grid">
+                    <article class="pay-card">
+                        <h4>Реквизиты</h4>
+                        <ul>
+                            <li>Моно: [номер — добавить]</li>
+                            <li>PayPal: [email — добавить]</li>
+                            <li>IBAN: [номер — добавить]</li>
+                            <li>USDT: [адрес — добавить]</li>
+                        </ul>
+                    </article>
+                    <article class="pay-card">
+                        <h4>Что прислать в подтверждение</h4>
+                        <ul>
+                            <li>Скриншот перевода/чека</li>
+                            <li>Email или Telegram для связи</li>
+                            <li>Указать: «Концепция себя» (LP-SELF-01) или «Код Универсума» (полный курс)</li>
+                        </ul>
+                    </article>
+                    <article class="pay-card">
+                        <h4>Срок выдачи доступа</h4>
+                        <p class="small-muted">Обычно в течение 24 часов после подтверждения оплаты. Ссылки придут на указанный email/Telegram.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Ключевые идеи / цитаты / контрпримеры</h2>
+                <p class="section-note">Чтобы это читалось как лендинг, а не как конспект, ниже блоки сделаны раскрывающимися.</p>
+                <div class="accordion-wrap">
+                    <details>
+                        <summary>Ключевые идеи (тезисы)</summary>
+                        <div class="faq-answer">
+                            <article class="card">
+                                <h4>Иерархия Дух–разум–тело</h4>
+                                <p>Тело — экран результатов; разум — личная ОС; дух — программист. Иерархия целей: цели тела — на последнем месте, цель духа — на первом; цели разума — посередине.</p>
+                            </article>
+                            <article class="card">
+                                <h4>Исходный код vs легаси</h4>
+                                <p>Повторяющиеся сбои — это не «я такой», а легаси. Исходный код — источник истины и естественного порядка; задача — очищение слоев отрицаний и эго.</p>
+                            </article>
+                            <article class="card">
+                                <h4>Ответственность (2 грани)</h4>
+                                <p>Ответственность за результаты (то, что уже есть, включая прошлое) и ответственность за себя (движение в будущее и полная ответственность за свою жизнь).</p>
+                            </article>
+                            <article class="card">
+                                <h4>Время и переинтерпретация прошлого</h4>
+                                <p>На уровне духа времени нет: решения меняют будущее. Прошлое нельзя изменить физически, но можно переинтерпретировать.</p>
+                            </article>
+                            <article class="card">
+                                <h4>Эволюция сознания и единственность</h4>
+                                <p>Эволюция индивидуальна: каждый проходит свой путь. Единственность — это независимость от внешних оценок и ответственность за выбор.</p>
+                            </article>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Цитаты (подпирающие идеи)</summary>
+                        <div class="faq-answer">
+                            <div class="quote-box">«Не выбирать невозможно. Если человек не делает выбора, то он сделал выбор — не выбирать.» — Джоэл Мари Тойч.</div>
+                            <div class="quote-box">«Каждый человек полностью ответственен за собственную жизнь и свои результаты.»</div>
+                            <div class="quote-box">«На уровне духа времени не существует, и именно на этом уровне можно принимать решения, которые изменяют будущее.»</div>
+                        </div>
+                    </details>
+                    <details>
+                        <summary>Контрпримеры (ошибочные трактовки)</summary>
+                        <div class="faq-answer">
+                            <div class="counterexample"><strong>«Достаточно техник и привычек»</strong> — без смены концепции будет временный эффект и откаты.</div>
+                            <div class="counterexample"><strong>«Записи заменят консультации / консультации заменят записи»</strong> — нужны обе части: концептуальная база + индивидуальное переобучение (1:1).</div>
+                            <div class="counterexample"><strong>«Расстаться с эго = потерять себя»</strong> — речь не об уничтожении личности, а о выходе из защиты образа ценой реальности.</div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="cta-final">
+                    <h2>Готов начать?</h2>
+                    <p>Выбери Learning Path или полный курс и отправь заявку на покупку. По вопросам приобретения полного курса пиши в Telegram.</p>
+                    <div class="button-row">
+                        <a class="btn btn-primary" href="#pricing">Выбрать пакет</a>
+                        <a class="btn btn-secondary" href="#inside">Посмотреть программу</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
