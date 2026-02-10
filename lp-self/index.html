@@ -227,6 +227,17 @@
             margin-top: 10px;
         }
 
+        .highlight ul {
+            margin: 10px 0 12px 22px;
+            display: grid;
+            gap: 8px;
+            color: #1f2b52;
+        }
+
+        .highlight li {
+            margin: 0;
+        }
+
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -382,9 +393,48 @@
         }
 
         .other-paths ul {
-            margin: 10px 0 0 20px;
+            margin: 12px 0 0;
+            list-style: none;
             display: grid;
-            gap: 6px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .other-paths a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #d6def8;
+            background: #fff;
+            color: #24336d;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .other-paths a:hover {
+            transform: translateY(-1px);
+            border-color: #b8c8ff;
+            background: #f5f8ff;
+        }
+
+        .telegram-cta {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #c8d2ff;
+            background: linear-gradient(180deg, #f2f5ff 0%, #ffffff 100%);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .telegram-cta p {
+            margin: 0;
+            color: #2c3f7c;
+            font-weight: 600;
         }
 
         .accordion-wrap {
@@ -528,7 +578,8 @@
             .pricing-grid,
             .grid-2,
             .grid-3,
-            .pay-grid {
+            .pay-grid,
+            .other-paths ul {
                 grid-template-columns: 1fr;
             }
 
@@ -733,13 +784,17 @@
                 <div class="other-paths">
                     <h4>Другие Learning Paths</h4>
                     <ul>
-                        <li>Формула разума сознания</li>
-                        <li>Переобучение</li>
-                        <li>Паттерны</li>
-                        <li>Научный трек и концепция жизни</li>
-                        <li>Стресс и выражение</li>
-                        <li>Межличностное взаимодействие и концепция других</li>
+                        <li><a href="/lp-self/">Формула разума сознания</a></li>
+                        <li><a href="/lp-self/">Переобучение</a></li>
+                        <li><a href="/lp-self/">Паттерны</a></li>
+                        <li><a href="/lp-self/">Научный трек и концепция жизни</a></li>
+                        <li><a href="/lp-self/">Стресс и выражение</a></li>
+                        <li><a href="/lp-self/">Межличностное взаимодействие и концепция других</a></li>
                     </ul>
+                </div>
+                <div class="telegram-cta">
+                    <p>Нужна помощь с выбором пакета? Напиши мне в Telegram.</p>
+                    <a class="btn btn-primary" href="https://t.me/dkompanets" target="_blank" rel="noopener noreferrer">Связаться в Telegram</a>
                 </div>
             </div>
         </section>
@@ -747,15 +802,15 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title">Отзывы</h2>
-                <p class="section-note">Секция-заготовка (пока без реальных отзывов). Ниже — структура, чтобы тебе было легко потом подставить цитаты/скрины/кейсы.</p>
+                <p class="section-note">Кейсы клиентов (имена изменены, так как работа конфиденциальная).</p>
                 <div class="grid-2">
                     <article class="card">
-                        <h3>[Имя / роль]</h3>
-                        <p>«[1–2 предложения: что было до → что стало иначе после. Конкретика: решение, поведение, результат.]»</p>
+                        <h3>Николай — инженер с 10-летним стажем</h3>
+                        <p>«На фоне стабильной работы усиливались апатия, ощущение бессмысленности и уход в игроманию. В серии консультаций нашли наследственный паттерн подавления желаний и жизни “как скажут авторитеты”. После переинтерпретации фактов и модификации убеждений вернулись энергия, цель и устойчивое движение вперед.»</p>
                     </article>
                     <article class="card">
-                        <h3>[Имя / роль]</h3>
-                        <p>«[Короткая цитата про главный сдвиг: ответственность / иерархия целей / исходный код / время.]»</p>
+                        <h3>Оля — Team Lead (20 подчиненных)</h3>
+                        <p>«При высокой реальной ценности специалиста сохранялись сильный страх руководителей и тревога потерять работу. Через работу с корневым паттерном и переобучение старых законов за 3 консультации ушли обморочные реакции на отчетных встречах, а на их место пришли устойчивость, признание и рост результатов команды.»</p>
                     </article>
                     <article class="card">
                         <h3>Варианты social proof</h3>
@@ -821,12 +876,12 @@
                 <p class="section-note">После подтверждения оплаты доступ обычно выдается в течение 24 часов.</p>
                 <div class="pay-grid">
                     <article class="pay-card">
-                        <h4>Реквизиты</h4>
+                        <h4>Способы оплаты</h4>
                         <ul>
-                            <li>Моно: [номер — добавить]</li>
-                            <li>PayPal: [email — добавить]</li>
-                            <li>IBAN: [номер — добавить]</li>
-                            <li>USDT: [адрес — добавить]</li>
+                            <li>Банковский перевод (Моно / IBAN)</li>
+                            <li>PayPal</li>
+                            <li>USDT</li>
+                            <li>Реквизиты отправляю после заявки в Telegram</li>
                         </ul>
                     </article>
                     <article class="pay-card">
@@ -898,7 +953,7 @@
                     <p>Выбери Learning Path или полный курс и отправь заявку на покупку. По вопросам приобретения полного курса пиши в Telegram.</p>
                     <div class="button-row">
                         <a class="btn btn-primary" href="#pricing">Выбрать пакет</a>
-                        <a class="btn btn-secondary" href="#inside">Посмотреть программу</a>
+                        <a class="btn btn-secondary" href="https://t.me/dkompanets" target="_blank" rel="noopener noreferrer">Связаться в Telegram</a>
                     </div>
                 </div>
             </div>
