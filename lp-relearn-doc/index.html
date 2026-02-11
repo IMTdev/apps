@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LP-RELEARN-DOC — Переобучение</title>
+    <style>
+        :root {
+            --bg: #fafbfc;
+            --panel: #ffffff;
+            --line: #dde3ea;
+            --text: #0f1720;
+            --muted: #4a5768;
+            --link: #1b4ed8;
+            --warn-bg: #fff8ef;
+            --warn-line: #f2c085;
+            --ok-bg: #f3fcf6;
+            --ok-line: #9ad4ad;
+            --radius: 12px;
+            --space-1: 8px;
+            --space-2: 12px;
+            --space-3: 16px;
+            --space-4: 24px;
+            --space-5: 40px;
+            --space-6: 64px;
+            --measure: 74ch;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            font-weight: 400;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.58;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .container {
+            width: min(1240px, 100% - 40px);
+            margin-inline: auto;
+        }
+
+        .page {
+            padding: var(--space-5) 0 110px;
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        .main {
+            grid-column: 1 / span 8;
+        }
+
+        .sidebar {
+            grid-column: 9 / span 4;
+            position: sticky;
+            top: 20px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .doc-header {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px;
+            margin-bottom: var(--space-5);
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: var(--space-3);
+        }
+
+        .meta-tag {
+            font-size: 0.8rem;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 4px 10px;
+            background: #fff;
+        }
+
+        h1 {
+            font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: clamp(1.32rem, 2.3vw, 1.74rem);
+            line-height: 1.2;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.08rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        p, li {
+            max-width: var(--measure);
+            color: var(--text);
+        }
+
+        .summary {
+            color: var(--muted);
+            max-width: var(--measure);
+        }
+
+        .hero-lines {
+            list-style: none;
+            margin-top: 12px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .hero-lines li {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 10px;
+            max-width: 100%;
+        }
+
+        .hero-lines .k {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .quick-specs {
+            margin-top: var(--space-3);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .spec {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 10px;
+            background: #fff;
+        }
+
+        .spec-label {
+            font-size: 0.77rem;
+            color: var(--muted);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .spec-value {
+            font-size: 0.96rem;
+            font-weight: 600;
+        }
+
+        .section {
+            padding: var(--space-6) 0;
+            border-top: 1px solid var(--line);
+            position: relative;
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px dashed #edf1f5;
+            transform: translateY(-8px);
+        }
+
+        .section-intro {
+            color: var(--muted);
+            margin-bottom: var(--space-3);
+            max-width: var(--measure);
+        }
+
+        .section-intro strong {
+            color: var(--text);
+        }
+
+        .callout {
+            border: 1px solid var(--line);
+            border-left-width: 4px;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: var(--space-3);
+            background: #fff;
+        }
+
+        .callout .callout-title {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .callout.note {
+            border-left-color: #7a94d9;
+        }
+
+        .callout.tip {
+            border-left-color: var(--ok-line);
+            background: var(--ok-bg);
+        }
+
+        .callout.warning {
+            border-left-color: var(--warn-line);
+            background: var(--warn-bg);
+        }
+
+        .callout.example {
+            border-left-color: #9ca8b8;
+            background: #f8fafc;
+        }
+
+        .checklist {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .checklist li {
+            display: grid;
+            grid-template-columns: 20px 1fr;
+            gap: 10px;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: #117a3e;
+            font-weight: 700;
+            border: 1px solid #97cfad;
+            background: #edf9f1;
+            border-radius: 999px;
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+            font-size: 0.78rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 16px;
+        }
+
+        .panel ul {
+            margin-left: 20px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .architecture {
+            display: grid;
+            gap: 12px;
+        }
+
+        .arch-node {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            padding: 12px;
+        }
+
+        .arch-arrow {
+            color: var(--muted);
+            font-size: 0.88rem;
+            text-align: center;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+
+        .module-card {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 3px 8px;
+            color: var(--muted);
+            background: #f8fafc;
+        }
+
+        .module-card ul {
+            margin-left: 18px;
+            margin-top: 8px;
+            display: grid;
+            gap: 6px;
+        }
+
+        .packages-table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .packages {
+            width: 100%;
+            min-width: 460px;
+            border-collapse: collapse;
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            table-layout: fixed;
+        }
+
+        .packages col:nth-child(1) { width: 22%; }
+        .packages col:nth-child(2) { width: 39%; }
+        .packages col:nth-child(3) { width: 39%; }
+
+        .packages th,
+        .packages td {
+            border-bottom: 1px solid var(--line);
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 0.93rem;
+        }
+
+        .packages th {
+            font-weight: 600;
+            background: #f8fafc;
+            color: #22324f;
+        }
+
+        .packages th.recommended {
+            background: #eef3ff;
+            border-left: 3px solid var(--link);
+            color: #173f9f;
+        }
+
+        .packages th.recommended .tag {
+            background: #d4e2ff;
+            border-color: var(--link);
+            color: #173f9f;
+            font-size: 0.7rem;
+        }
+
+        .packages td.recommended {
+            background: #fafbff;
+            border-left: 3px solid var(--link);
+        }
+
+        .packages tr:last-child td,
+        .packages tr:last-child th {
+            border-bottom: none;
+        }
+
+        .packages .param {
+            font-weight: 600;
+            color: #22324f;
+        }
+
+        .diff {
+            background: #f9fbff;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 12px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.88rem;
+            overflow-x: auto;
+            line-height: 1.45;
+        }
+
+        .diff .old { color: #8a1c1c; }
+        .diff .new { color: #135c32; }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .testimonial {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .t-role {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .t-row strong {
+            display: inline-block;
+            min-width: 95px;
+            color: #22324f;
+            font-weight: 600;
+        }
+
+        details {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 12px 14px;
+            font-weight: 600;
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details p {
+            padding: 0 14px 12px;
+            color: var(--muted);
+        }
+
+        .steps {
+            counter-reset: step;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .steps li {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px;
+            display: grid;
+            grid-template-columns: 36px 1fr;
+            gap: 10px;
+        }
+
+        .steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #f8fafc;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            font-weight: 600;
+        }
+
+        .product-card,
+        .toc-card {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 14px;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin: 6px 0 8px;
+        }
+
+        .product-meta {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-bottom: 10px;
+        }
+
+        .stack-buttons {
+            display: grid;
+            gap: 8px;
+        }
+
+        .btn {
+            border: 1px solid transparent;
+            border-radius: 10px;
+            padding: 10px 12px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+        }
+
+        .btn-primary {
+            background: var(--link);
+            border-color: var(--link);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            border-color: var(--line);
+            color: var(--text);
+        }
+
+        .toc-card ul {
+            list-style: none;
+            display: grid;
+            gap: 4px;
+        }
+
+        .toc-card a {
+            display: block;
+            padding: 6px 8px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2f415f;
+            border: 1px solid transparent;
+            font-size: 0.93rem;
+        }
+
+        .toc-card a.active {
+            border-color: #b9c8eb;
+            background: #eef3ff;
+            color: #173f9f;
+            font-weight: 600;
+        }
+
+        .mobile-cta {
+            display: none;
+        }
+
+        @media (max-width: 1080px) {
+            .main {
+                grid-column: 1 / span 12;
+            }
+
+            .sidebar {
+                position: static;
+                grid-column: 1 / span 12;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 840px) {
+            .quick-specs,
+            .two-col,
+            .module-grid,
+            .testimonial-grid,
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .mobile-cta {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 14px;
+                border-top: 1px solid var(--line);
+                background: #fff;
+                z-index: 30;
+            }
+
+            .mobile-cta .price {
+                font-size: 1.05rem;
+                font-weight: 700;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="container page-grid">
+            <main class="main">
+                <header class="doc-header" id="hero">
+                    <div class="meta-row">
+                        <span class="meta-tag">version: LP-RELEARN-DOC v1.0</span>
+                        <span class="meta-tag">last updated: 2026-02-11</span>
+                        <span class="meta-tag">level: practical</span>
+                    </div>
+                    <h1>Переобучение</h1>
+                    <p class="summary">Траектория обучения для устойчивого изменения внутренних законов и результатов</p>
+                    <ul class="hero-lines">
+                        <li><span class="k">Что это</span><span>Learning Path из 8 лекций.</span></li>
+                        <li><span class="k">Для кого</span><span>Технари, руководители и предприниматели, которые хотят перестать лечить симптомы и начать менять код мышления на уровне причин.</span></li>
+                        <li><span class="k">Результат</span><span>Рабочий контур: способность → привычка → иммунитет → дебаг → Идеальное Я → изменение разум-закона.</span></li>
+                        <li><span class="k">Формат</span><span>8 часов видео, доступ к материалам, конспект и задания для внедрения.</span></li>
+                        <li><span class="k">Цена</span><span>$200 за полный Learning Path.</span></li>
+                    </ul>
+                    <div class="quick-specs">
+                        <div class="spec">
+                            <div class="spec-label">Формат</div>
+                            <div class="spec-value">8 видео × 60 минут</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Итог</div>
+                            <div class="spec-value">Устойчивые изменения без откатов</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Доступ</div>
+                            <div class="spec-value">Постоянный доступ с учётом будущих обновлений</div>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="section" id="for-who">
+                    <h2>Кому подходит / не подходит</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> точное позиционирование, чтобы сразу понять, твой ли это формат.</p>
+                    <div class="two-col">
+                        <article class="panel">
+                            <h3>Для кого</h3>
+                            <ul>
+                                <li><strong>Технари, руководители, предприниматели</strong>, которые хотят перестать лечить симптомы и начать менять код мышления на уровне причин.</li>
+                                <li>Те, кто застрял в повторяющихся сценариях: прокрастинация, срывы дисциплины, внутренний саботаж, откаты после «нового старта».</li>
+                                <li>Те, кому нужен <strong>инструментальный путь</strong>: привычки, дебаг, ментальный иммунитет, работа с законами разума, а не «вдохновляющие разговоры».</li>
+                                <li>Кто готов проходить Learning Path как систему: <strong>Старт → Ядро → Углубление</strong>, с внедрением между лекциями.</li>
+                            </ul>
+                        </article>
+                        <article class="panel" style="border-color: var(--warn-line); background: var(--warn-bg);">
+                            <h3>Кому не подойдет</h3>
+                            <ul>
+                                <li>Тем, кто ищет «волшебную кнопку» без практики и не готов проверять новые концепции на действиях.</li>
+                                <li>Тем, кто хочет только теорию без изменения повседневных решений и поведенческих паттернов.</li>
+                                <li>Тем, кто не готов брать ответственность за результаты и продолжает объяснять всё внешними обстоятельствами.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="architecture">
+                    <h2>Карта траектории</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> последовательность прохождения в том виде, в котором она наиболее эффективна.</p>
+                    <pre class="diff" aria-label="ASCII карта">СТАРТ
+  ↓
+[KU-004.2 Я могу → KU-011.1 Полезная привычка]
+  ↓
+ЯДРО
+  ├─ KU-011.2 Ментальный иммунитет и трос консультанта
+  ├─ KU-014.2 Очистка кода. Дебаг
+  ├─ KU-009.1 Характеристики Идеального Я
+  └─ KU-009.2 Достижение Идеального Я
+  ↓
+УГЛУБЛЕНИЕ
+  ├─ KU-021.1 Разум-закон
+  └─ KU-021.2 Изменение разума-закона</pre>
+                </section>
+
+                <section class="section" id="modules">
+                    <h2>Модули</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> описание каждого модуля с короткими тезисами “что внутри”.</p>
+                    <div class="module-grid">
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: START</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-004.2 — Я могу. Способность</h3>
+                            <ul>
+                                <li>Точка включения действия. Восстановление «мышцы возможности».</li>
+                                <li>Переход от внутреннего «не получится» к рабочему «могу и делаю».</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: START</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-011.1 — Привычка делать привычку из полезного</h3>
+                            <ul>
+                                <li>Конструктор устойчивого поведения.</li>
+                                <li>Как собрать привычку, которая не держится на мотивации и не разваливается через неделю.</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-011.2 — Ментальный иммунитет и трос консультанта</h3>
+                            <ul>
+                                <li>Защита от откатов и срывов.</li>
+                                <li>Опора, чтобы старые паттерны не возвращали в прежний сценарий.</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-014.2 — Очистка кода. Дебаг</h3>
+                            <ul>
+                                <li>Поиск и удаление ложных концепций.</li>
+                                <li>Где в системе баг, какой закон его поддерживает и как его переписать.</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-009.1 — Характеристики Идеального Я</h3>
+                            <ul>
+                                <li>Архитектура целевого состояния.</li>
+                                <li>Что должно быть в «новой версии себя», чтобы изменения были проверяемыми.</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-009.2 — Достижение Идеального Я</h3>
+                            <ul>
+                                <li>Путь к целевой сборке.</li>
+                                <li>Как переводить идеальный образ в реальные решения, ритм и поведение.</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: DEEP</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-021.1 — Разум-закон</h3>
+                            <ul>
+                                <li>Фундаментальный уровень причинности.</li>
+                                <li>Какие внутренние законы порождают повторяющиеся результаты.</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: DEEP</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-021.2 — Изменение разума-закона</h3>
+                            <ul>
+                                <li>Перепрошивка закона и закрепление изменений.</li>
+                                <li>Как удерживать новый контур в реальной жизни.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="packages">
+                    <h2>Пакеты</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> сравнение вариантов, чтобы выбрать подходящий формат обучения.</p>
+                    <div class="packages-table-scroll">
+                        <table class="packages">
+                            <colgroup><col><col><col></colgroup>
+                            <thead>
+                                <tr><th class="param">Параметр</th><th class="recommended">Learning Path «Переобучение» <span class="tag">Рекомендую</span></th><th>Полный курс «Код Универсума»</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="param">Цена</td><td class="recommended"><strong>$200</strong></td><td><strong>$1000</strong></td></tr>
+                                <tr><td class="param">Что входит</td><td class="recommended">8 лекций (Старт → Ядро → Углубление), конспект, задания.</td><td>KU-001…KU-024, вся траектория курса.</td></tr>
+                                <tr><td class="param">Доступ</td><td class="recommended">Навсегда, только целиком.</td><td>Навсегда, последовательно с 1-й по 24-ю.</td></tr>
+                                <tr><td class="param">Для кого</td><td class="recommended">Хочешь инструментальный вход и устойчивые изменения.</td><td>Цель — цельная система без пробелов.</td></tr>
+                                <tr><td class="param">Правило выбора</td><td class="recommended">Если нужна полная картина → полный курс.</td><td>Если фокус только переобучение → LP.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section" id="proof">
+                    <h2>Отзывы и результаты</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> кейсы в формате проблема → действие → результат.</p>
+                    <div class="testimonial-grid">
+                        <article class="testimonial">
+                            <div class="t-role">Инженер, 10+ лет стажа</div>
+                            <h3>Николай</h3>
+                            <div class="t-row"><strong>Контекст:</strong> стабильная работа, но апатия и потеря смысла вставать по утрам.</div>
+                            <div class="t-row"><strong>Проблема:</strong> автоматический сценарий подавления желаний и жизни в угождении «авторитету».</div>
+                            <div class="t-row"><strong>Действие:</strong> переинтерпретация фактов + модификация убеждений о себе.</div>
+                            <div class="t-row"><strong>Результат:</strong> энтузиазма стало раза в 2 больше, прояснилась цель.</div>
+                        </article>
+                        <article class="testimonial">
+                            <div class="t-role">Team Lead, 20 подчиненных</div>
+                            <h3>Оля</h3>
+                            <div class="t-row"><strong>Контекст:</strong> знания и теория заходили на 5% из-за языка книг из прошлого века.</div>
+                            <div class="t-row"><strong>Проблема:</strong> убеждения и концепции не менялись и развитие сознания стояло на месте.</div>
+                            <div class="t-row"><strong>Действие:</strong> научный и понятный язык курса позволил, наконец, понять самое важное.</div>
+                            <div class="t-row"><strong>Результат:</strong> теория стала понятной на 80-90%, тепрь чёткий план переобучения.</div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="faq">
+                    <h2>FAQ</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> ответы на частые вопросы.</p>
+                    <details>
+                        <summary>1. Чем этот путь отличается от обычных курсов по привычкам?</summary>
+                        <p>Здесь привычки — только один слой. Ядро пути — это иммунитет к откатам, дебаг ложных концепций, сборка Идеального Я и изменение разум-закона.</p>
+                    </details>
+                    <details>
+                        <summary>2. С какого модуля лучше начать, если нет дисциплины?</summary>
+                        <p>Со Старт-блока: KU-004.2 и KU-011.1. Сначала восстанавливаешь способность действовать, затем фиксируешь полезный ритм.</p>
+                    </details>
+                    <details>
+                        <summary>3. Почему в пути есть блок про разум-закон, если нужен практический результат?</summary>
+                        <p>Потому что без изменения закона результат нестабилен. Практика без смены закона даёт краткосрочный эффект и возврат к старому сценарию.</p>
+                    </details>
+                    <details>
+                        <summary>4. Можно ли проходить этот LP как первый?</summary>
+                        <p>Да. По стратегии это один из самых понятных входов: инструментальный, с чёткой причинностью и полным набором готовых лекций.</p>
+                    </details>
+                    <details>
+                        <summary>5. Чем записи отличаются от консультации 1:1?</summary>
+                        <p>Записи дают систему и маршрут. 1:1 — индивидуальная настройка под твой контекст уже на базе этой системы.</p>
+                    </details>
+                    <details>
+                        <summary>6. Сколько времени занимает прохождение?</summary>
+                        <p>Индивидуально. Базовый контур — около 8 часов видео плюс время на внедрение между лекциями.</p>
+                    </details>
+                    <details>
+                        <summary>7. Можно ли купить только часть роликов?</summary>
+                        <p>Нет. Learning Paths продаются только целиком. Если нужна максимально полная картина — полный курс «Код Универсума» за $1000.</p>
+                    </details>
+                </section>
+
+                <section class="section" id="payment">
+                    <h2>Оплата и доступ</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> протокол доступа в формате последовательных шагов.</p>
+                    <ol class="steps">
+                        <li><div><strong>Напиши в Telegram.</strong><br>Подтвердим пакет (LP или полный курс), ответим на вопросы и зафиксируем старт.</div></li>
+                        <li><div><strong>Выбери способ оплаты.</strong><br>Банковский перевод (Моно), IBAN Euro, PayPal или USDT.</div></li>
+                        <li><div><strong>Отправь подтверждение.</strong><br>Скрин перевода + контакт для доступа + выбранный пакет.</div></li>
+                        <li><div><strong>Получи доступ.</strong><br>Обычно в течение 24 часов после подтверждения.</div></li>
+                    </ol>
+                    <div class="callout example">
+                        <div class="callout-title">EXAMPLE</div>
+                        Формат заявки: «LP-RELEARN-01, оплата PayPal, контакт @username».
+                    </div>
+                </section>
+
+                <section class="section" id="final-cta">
+                    <h2>Запуск траектории</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> как перейти к покупке и закрепить за собой место в программе.</p>
+                    <div class="meta-row">
+                        <a class="btn btn-primary" href="https://t.me/dkompanets" target="_blank" rel="noopener noreferrer">Купить через Telegram</a>
+                        <a class="btn btn-secondary" href="https://t.me/dkompanets" target="_blank" rel="noopener noreferrer">Вопросы в Telegram</a>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="sidebar">
+                <article class="product-card">
+                    <h3>Купить LP-RELEARN-01</h3>
+                    <div class="product-price">$200</div>
+                    <div class="product-meta">8 роликов × 60 минут · 8 часов · practical</div>
+                    <div class="stack-buttons">
+                        <a class="btn btn-primary" href="https://t.me/dkompanets" target="_blank" rel="noopener noreferrer">Купить через Telegram</a>
+                    </div>
+                </article>
+
+                <nav class="toc-card">
+                    <h3>Оглавление</h3>
+                    <ul id="toc">
+                        <li><a href="#hero">О программе</a></li>
+                        <li><a href="#for-who">Кому подходит</a></li>
+                        <li><a href="#architecture">Карта траектории</a></li>
+                        <li><a href="#modules">Что внутри</a></li>
+                        <li><a href="#packages">Пакеты</a></li>
+                        <li><a href="#proof">Отзывы</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#payment">Оплата</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+    </div>
+
+    <div class="mobile-cta">
+        <div class="price">$200 · 8 часов</div>
+        <a class="btn btn-primary" href="https://t.me/dkompanets" target="_blank" rel="noopener noreferrer">Купить</a>
+    </div>
+
+    <script>
+        const links = Array.from(document.querySelectorAll('#toc a'));
+        const targets = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+        const setActive = (id) => {
+            links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        };
+
+        const updateTocOnScroll = () => {
+            const threshold = 160;
+            let current = targets[0] ? targets[0].id : '';
+
+            targets.forEach((target) => {
+                const top = target.getBoundingClientRect().top;
+                if (top <= threshold) current = target.id;
+            });
+
+            if (current) setActive(current);
+        };
+
+        window.addEventListener('scroll', updateTocOnScroll, { passive: true });
+        window.addEventListener('resize', updateTocOnScroll);
+        updateTocOnScroll();
+    </script>
+</body>
+</html>
