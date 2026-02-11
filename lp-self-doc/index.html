@@ -407,6 +407,44 @@
             color: #22324f;
         }
 
+        .other-paths {
+            margin-top: var(--space-4);
+            padding-top: var(--space-3);
+            border-top: 1px solid var(--line);
+        }
+
+        .other-paths h4 {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-bottom: var(--space-2);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .other-paths-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .other-paths-grid a {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .other-paths-grid a:hover {
+            border-color: var(--link);
+            background: #f8faff;
+        }
+
         .diff {
             background: #f9fbff;
             border: 1px solid var(--line);
@@ -629,7 +667,7 @@
                 <header class="doc-header" id="hero">
                     <div class="meta-row">
                         <span class="meta-tag">version: LP-SELF-DOC v1.0</span>
-                        <span class="meta-tag">last updated: 2026-02-08</span>
+                        <span class="meta-tag">last updated: 2026-02-11</span>
                         <span class="meta-tag">level: advanced</span>
                     </div>
                     <h1>Концепция себя</h1>
@@ -791,10 +829,21 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="other-paths">
+                        <h4>Другие Learning Paths</h4>
+                        <div class="other-paths-grid">
+                            <a href="https://app.imt.dev/lp-science-doc">Научный трек</a>
+                            <a href="https://app.imt.dev/lp-relearn-doc">Переобучение</a>
+                            <a href="#">Формула сознания</a>
+                            <a href="#">Паттерны</a>
+                            <a href="#">Стресс</a>
+                            <a href="#">Межличностное</a>
+                        </div>
+                    </div>
                 </section>
 
                 <section class="section" id="proof">
-                    <h2>Proof: отзывы и результаты</h2>
+                    <h2>Отзывы и результаты</h2>
                     <p class="section-intro"><strong>В этом разделе:</strong> кейсы в формате проблема → действие → результат.</p>
                     <div class="testimonial-grid">
                         <article class="testimonial">
@@ -818,7 +867,7 @@
 
                 <section class="section" id="faq">
                     <h2>FAQ</h2>
-                    <p class="section-intro"><strong>В этом разделе:</strong> полный FAQ из основной версии лендинга.</p>
+                    <p class="section-intro"><strong>В этом разделе:</strong> ответы на частые вопросы.</p>
                     <details>
                         <summary>1. Чем этот путь отличается от курсов по саморазвитию и привычкам?</summary>
                         <p>Здесь упор не на «как заставить себя делать», а на какую модель себя ты запускаешь. Пока не поменялась концепция, техники дают временный эффект и откаты.</p>
