@@ -344,26 +344,67 @@
             gap: 6px;
         }
 
+        .packages-table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .packages {
             width: 100%;
+            min-width: 460px;
             border-collapse: collapse;
             border: 1px solid var(--line);
             background: #fff;
             border-radius: 12px;
             overflow: hidden;
+            table-layout: fixed;
         }
+
+        .packages col:nth-child(1) { width: 22%; }
+        .packages col:nth-child(2) { width: 39%; }
+        .packages col:nth-child(3) { width: 39%; }
 
         .packages th,
         .packages td {
             border-bottom: 1px solid var(--line);
-            padding: 12px;
+            padding: 12px 14px;
             text-align: left;
             vertical-align: top;
+            font-size: 0.93rem;
         }
 
         .packages th {
             font-weight: 600;
             background: #f8fafc;
+            color: #22324f;
+        }
+
+        .packages th.recommended {
+            background: #eef3ff;
+            border-left: 3px solid var(--link);
+            color: #173f9f;
+        }
+
+        .packages th.recommended .tag {
+            background: #d4e2ff;
+            border-color: var(--link);
+            color: #173f9f;
+            font-size: 0.7rem;
+        }
+
+        .packages td.recommended {
+            background: #fafbff;
+            border-left: 3px solid var(--link);
+        }
+
+        .packages tr:last-child td,
+        .packages tr:last-child th {
+            border-bottom: none;
+        }
+
+        .packages .param {
+            font-weight: 600;
+            color: #22324f;
         }
 
         .diff {
@@ -735,17 +776,21 @@
                 <section class="section" id="packages">
                     <h2>Пакеты</h2>
                     <p class="section-intro"><strong>В этом разделе:</strong> сравнение вариантов, чтобы выбрать подходящий формат обучения.</p>
-                    <table class="packages">
-                        <thead>
-                            <tr><th>Параметр</th><th>Learning Path «Концепция себя»</th><th>Полный курс «Код Универсума»</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Цена</td><td><strong>$175</strong></td><td><strong>$1000</strong></td></tr>
-                            <tr><td>Описание</td><td>Внутри: Старт → Ядро → Углубление (7 лекций).</td><td>Самый эффективный подход для получения цельной картины.</td></tr>
-                            <tr><td>Формат</td><td>Learning Paths — отобранная часть курса под конкретную сферу.</td><td>Проходить курс лучше последовательно, с 1-й по последнюю лекцию.</td></tr>
-                            <tr><td>Доступ</td><td>Learning Paths доступны только целиком.</td><td>KU-001…KU-024</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="packages-table-scroll">
+                        <table class="packages">
+                            <colgroup><col><col><col></colgroup>
+                            <thead>
+                                <tr><th class="param">Параметр</th><th class="recommended">Learning Path «Концепция себя» <span class="tag">Рекомендую</span></th><th>Полный курс «Код Универсума»</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="param">Цена</td><td class="recommended"><strong>$175</strong></td><td><strong>$1000</strong></td></tr>
+                                <tr><td class="param">Что входит</td><td class="recommended">7 лекций (Старт → Ядро → Углубление), конспект, задания.</td><td>KU-001…KU-024, вся траектория курса.</td></tr>
+                                <tr><td class="param">Доступ</td><td class="recommended">К выборочным роликам курса.</td><td>Последовательно с 1-й по 48-ю лекцию.</td></tr>
+                                <tr><td class="param">Для кого</td><td class="recommended">Хочешь апдейт модели себя без всего курса.</td><td>Цельная система без пробелов.</td></tr>
+                                <tr><td class="param">Правило выбора</td><td class="recommended">Если нужна полная картина → полный курс.</td><td>Если фокус только концепция себя → LP.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
                 <section class="section" id="proof">
@@ -755,18 +800,18 @@
                         <article class="testimonial">
                             <div class="t-role">Инженер, 10+ лет стажа</div>
                             <h3>Николай</h3>
-                            <div class="t-row"><strong>Контекст:</strong> стабильная работа, но апатия и потеря смысла.</div>
+                            <div class="t-row"><strong>Контекст:</strong> стабильная работа, но апатия и потеря смысла вставать по утрам.</div>
                             <div class="t-row"><strong>Проблема:</strong> автоматический сценарий подавления желаний и жизни в угождении «авторитету».</div>
                             <div class="t-row"><strong>Действие:</strong> переинтерпретация фактов + модификация убеждений о себе.</div>
-                            <div class="t-row"><strong>Результат:</strong> вернулись энергия и прояснилась цель.</div>
+                            <div class="t-row"><strong>Результат:</strong> энтузиазма стало раза в 2 больше, прояснилась цель.</div>
                         </article>
                         <article class="testimonial">
                             <div class="t-role">Team Lead, 20 подчиненных</div>
                             <h3>Оля</h3>
-                            <div class="t-row"><strong>Контекст:</strong> знания и теория не заходили на языке книг из прошлого века.</div>
+                            <div class="t-row"><strong>Контекст:</strong> знания и теория заходили на 5% из-за языка книг из прошлого века.</div>
                             <div class="t-row"><strong>Проблема:</strong> убеждения и концепции не менялись и развитие сознания стояло на месте.</div>
                             <div class="t-row"><strong>Действие:</strong> научный и понятный язык курса позволил, наконец, понять самое важное.</div>
-                            <div class="t-row"><strong>Результат:</strong> чёткий план переобучения и энтузиазм двигаться вперед.</div>
+                            <div class="t-row"><strong>Результат:</strong> теория стала понятной на 80-90%, тепрь чёткий план переобучения.</div>
                         </article>
                     </div>
                 </section>
