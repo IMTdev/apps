@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LP-SELF-DOC — Концепция себя</title>
+    <title>LP-PATTERNS-DOC — Паттерны</title>
     <style>
         :root {
             --bg: #fafbfc;
@@ -222,52 +222,9 @@
             margin-bottom: 5px;
         }
 
-        .callout.note {
-            border-left-color: #7a94d9;
-        }
-
-        .callout.tip {
-            border-left-color: var(--ok-line);
-            background: var(--ok-bg);
-        }
-
-        .callout.warning {
-            border-left-color: var(--warn-line);
-            background: var(--warn-bg);
-        }
-
         .callout.example {
             border-left-color: #9ca8b8;
             background: #f8fafc;
-        }
-
-        .checklist {
-            list-style: none;
-            display: grid;
-            gap: 10px;
-            margin-top: 8px;
-        }
-
-        .checklist li {
-            display: grid;
-            grid-template-columns: 20px 1fr;
-            gap: 10px;
-        }
-
-        .checklist li::before {
-            content: "✓";
-            color: #117a3e;
-            font-weight: 700;
-            border: 1px solid #97cfad;
-            background: #edf9f1;
-            border-radius: 999px;
-            width: 18px;
-            height: 18px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 2px;
-            font-size: 0.78rem;
         }
 
         .two-col {
@@ -289,30 +246,11 @@
             gap: 8px;
         }
 
-        .architecture {
-            display: grid;
-            gap: 12px;
-        }
-
-        .arch-node {
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: #fff;
-            padding: 12px;
-        }
-
-        .arch-arrow {
-            color: var(--muted);
-            font-size: 0.88rem;
-            text-align: center;
-        }
-
         .module-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
         }
-
 
         .module-card {
             border: 1px solid var(--line);
@@ -467,9 +405,6 @@
             overflow-x: auto;
             line-height: 1.45;
         }
-
-        .diff .old { color: #8a1c1c; }
-        .diff .new { color: #135c32; }
 
         .testimonial-grid {
             display: grid;
@@ -678,27 +613,27 @@
             <main class="main">
                 <header class="doc-header" id="hero">
                     <div class="meta-row">
-                        <span class="meta-tag">version: LP-SELF-DOC v1.0</span>
-                        <span class="meta-tag">last updated: 2026-02-11</span>
-                        <span class="meta-tag">level: advanced</span>
+                        <span class="meta-tag">version: LP-PATTERNS-DOC v1.0</span>
+                        <span class="meta-tag">last updated: 2026-02-12</span>
+                        <span class="meta-tag">level: practical</span>
                     </div>
-                    <h1>Концепция себя</h1>
-                    <p class="summary">Траектория обучения для прочного фундамента знаний о себе</p>
+                    <h1>Паттерны</h1>
+                    <p class="summary">Траектория обучения для перепрошивки повторяющихся сценариев и устойчивого прогресса</p>
                     <ul class="hero-lines">
-                        <li><span class="k">Что это</span><span>Learning Path из 7 лекций.</span></li>
-                        <li><span class="k">Для кого</span><span>Для принявших решение стать программистом своей жизни и стремящихся к исходной ОС.</span></li>
-                        <li><span class="k">Результат</span><span>Пересоберешь модель себя, чтобы картина происходящего стала яснее и багфикс шёл эффективнее.</span></li>
-                        <li><span class="k">Формат</span><span>7 часов видео, доступ к материалам, конспект и задания для внедрения.</span></li>
-                        <li><span class="k">Цена</span><span>$175 за полный Learning Path.</span></li>
+                        <li><span class="k">Что это</span><span>Learning Path из 8 лекций.</span></li>
+                        <li><span class="k">Для кого</span><span>Для тех, кто устал от повторяющихся откатов и хочет разбирать причины, а не симптомы.</span></li>
+                        <li><span class="k">Результат</span><span>Понимание, какие паттерны запускают повтор сценариев, и как перепрошивать их в действии.</span></li>
+                        <li><span class="k">Формат</span><span>8 часов видео, доступ к материалам, конспект и задания для внедрения.</span></li>
+                        <li><span class="k">Цена</span><span>$200 за полный Learning Path.</span></li>
                     </ul>
                     <div class="quick-specs">
                         <div class="spec">
                             <div class="spec-label">Формат</div>
-                            <div class="spec-value">7 видео × 60 минут</div>
+                            <div class="spec-value">8 видео × 60 минут</div>
                         </div>
                         <div class="spec">
                             <div class="spec-label">Итог</div>
-                            <div class="spec-value">Глубокое понимание кто ты есть на самом деле</div>
+                            <div class="spec-value">Карта причин и перепрошивка паттернов</div>
                         </div>
                         <div class="spec">
                             <div class="spec-label">Доступ</div>
@@ -732,19 +667,19 @@
                 <section class="section" id="architecture">
                     <h2>Карта траектории</h2>
                     <p class="section-intro"><strong>В этом разделе:</strong> последовательность прохождения в том виде, в котором она наиболее эффективна.</p>
-                    <pre class="diff" aria-label="ASCII карта">СТАРТ
+                    <pre class="diff" aria-label="ASCII карта">СТАРТ (рамка)
   ↓
-[5.2 Иерархия целей (Дух–разум–тело)]
+[KU-012.1 Относительность и критика] -> [KU-020.1 Двойственность как расфокус]
   ↓
-ЯДРО
-  ├─ 16.1 Ответственность за результаты
-  ├─ 16.2 Ответственность за себя
-  └─ 18.1 Исходный код
+ЯДРО (эмо-узлы и смысловые паттерны)
+  ├─ KU-008.2 Ложное Я
+  ├─ KU-015.1 Сожаление или радость
+  ├─ KU-015.2 Прогресс
+  └─ KU-019.2 Нехватка vs Изобилие
   ↓
-УГЛУБЛЕНИЕ
-  ├─ 22.1 Время
-  ├─ 23.1 Эволюция сознания
-  └─ 23.2 Ответственность и единственность</pre>
+УГЛУБЛЕНИЕ (закрепление нового поведения)
+  ├─ KU-017.1 Правильное место
+  └─ KU-017.2 Прерывание и неверность</pre>
                 </section>
 
                 <section class="section" id="modules">
@@ -752,72 +687,67 @@
                     <p class="section-intro"><strong>В этом разделе:</strong> описание каждого модуля с короткими тезисами “что внутри”.</p>
                     <div class="module-grid">
                         <article class="module-card">
-                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: ADVANCED</span></div>
-                            <h3>KU-005.2 — Иерархия целей</h3>
+                            <div class="tag-row"><span class="tag">LAYER: START</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-012.1 — Принцип относительности и критика и ТПС</h3>
                             <ul>
-                                <li>Рамка: три уровня одной системы.</li>
-                                <li>Цели тела (комфорт, здоровье) должны быть на последнем месте, а главная цель — цель духа — на первом.</li>
-                                <li>Цели разума (привычки, ментальный комфорт) занимают среднее положение.</li>
-                                <li>Помогает ускорить достижение результатов и наполнить жизнь смыслом.</li>
+                                <li>Базовая рамка: как интерпретации закрепляют повтор сценариев.</li>
+                                <li>Переход от хаотичной критики к точной причинности.</li>
                             </ul>
                         </article>
                         <article class="module-card">
-                            <div class="tag-row"><span class="tag">LAYER: RUNTIME</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: ADVANCED</span></div>
-                            <h3>KU-016.1 — Ответственность за результаты</h3>
+                            <div class="tag-row"><span class="tag">LAYER: START</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-020.1 — Двойственность как расфокус</h3>
                             <ul>
-                                <li>Причинность и результаты.</li>
-                                <li>Каждый человек полностью ответственен за собственную жизнь и свои результаты.</li>
-                                <li>Внешние обстоятельства не являются истинной причиной наших результатов.</li>
-                                <li>Правильность — способность принимать и признавать справедливость получения результатов в соответствии с поступками.</li>
+                                <li>Где "черно-белая" оптика расшатывает устойчивые решения.</li>
+                                <li>Сборка целостного фокуса вместо эмоциональных качелей.</li>
                             </ul>
                         </article>
                         <article class="module-card">
-                            <div class="tag-row"><span class="tag">LAYER: RUNTIME</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: ADVANCED</span></div>
-                            <h3>KU-016.2 — Ответственность за себя</h3>
+                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-008.2 — Ложное Я</h3>
                             <ul>
-                                <li>Текущее развитие и движение в будущее, принятие полной ответственности за свою жизнь и свои действия.</li>
-                                <li>Взрослый человек становится ответственным, когда берёт на себя полную ответственность за свою жизнь, независимо от обстоятельств.</li>
-                                <li>Важно не брать на себя чужую ответственность и не скидывать свою.</li>
+                                <li>Распознавание образа, который удерживает неэффективный сценарий.</li>
+                                <li>Смена опоры на более конструктивную идентичность.</li>
                             </ul>
                         </article>
                         <article class="module-card">
-                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: ADVANCED</span></div>
-                            <h3>KU-018.1 — Исходный код</h3>
+                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-015.1 — Сожаление или радость</h3>
                             <ul>
-                                <li>Легаси и доступ к исходнику.</li>
-                                <li>Исходный код — источник истины и естественного порядка, заложенного «программистом» всей жизни.</li>
-                                <li>В человеке есть наложенные слои отрицаний, ложных убеждений и эго, мешающие реализации чистого исходного кода.</li>
-                                <li>Задача сознательного дебага — очищение этих слоев, возвращение к исходному коду.</li>
+                                <li>Работа с эмоциональным контуром прошлого опыта.</li>
+                                <li>Выбор состояния, из которого строится следующее действие.</li>
                             </ul>
                         </article>
                         <article class="module-card">
-                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: ADVANCED</span></div>
-                            <h3>KU-022.1 — Время</h3>
+                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-015.2 — Прогресс</h3>
                             <ul>
-                                <li>Временная структура и выбор.</li>
-                                <li>На уровне духа времени не существует, и именно на этом уровне можно принимать решения, которые изменяют будущее.</li>
-                                <li>Мы не можем изменить прошлое физически, но можем переинтерпретировать его.</li>
-                                <li>Цель — привести свою систему ценностей к абсолютной, где все стимулы вызывают реакцию любви.</li>
+                                <li>Как измерять устойчивые изменения, а не временное облегчение.</li>
+                                <li>Контур проверки: что действительно двигает вперед.</li>
                             </ul>
                         </article>
                         <article class="module-card">
-                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: ADVANCED</span></div>
-                            <h3>KU-023.1 — Эволюция сознания</h3>
+                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-019.2 — Нехватка vs Изобилие</h3>
                             <ul>
-                                <li>От автопилота к осознанному дебагу.</li>
-                                <li>Эволюция сознания требует осознанного выбора и усилий.</li>
-                                <li>Человек должен осознать себя духом, который выбирает, каким пониманием пользоваться в конкретный момент.</li>
-                                <li>Эволюция сознания — индивидуальный процесс; коллективная эволюция невозможна.</li>
+                                <li>Смена дефицитной рамки на изобилие как фактор решений.</li>
+                                <li>Снижение тревожного давления и реактивности.</li>
                             </ul>
                         </article>
                         <article class="module-card">
-                            <div class="tag-row"><span class="tag">LAYER: KERNEL</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: ADVANCED</span></div>
-                            <h3>KU-023.2 — Единственность</h3>
+                            <div class="tag-row"><span class="tag">LAYER: DEEP</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-017.1 — Правильное место</h3>
                             <ul>
-                                <li>Единственность и выбор.</li>
-                                <li>Становясь сознательным, человек осознает свою единственность и ответственность за свои поступки.</li>
-                                <li>Это не одиночество, а осознание своей уникальности и независимости от внешних оценок.</li>
-                                <li>Эго разрушается, когда человек остается наедине с собой, и это ведет к единению с универсом.</li>
+                                <li>Контекст и среда: где новый сценарий усиливается, а где ломается.</li>
+                                <li>Точки роста вместо привычной траектории отката.</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAYER: DEEP</span><span class="tag">TIME: 60m</span><span class="tag">LEVEL: PRACTICAL</span></div>
+                            <h3>KU-017.2 — Прерывание и неверность</h3>
+                            <ul>
+                                <li>Где происходит срыв нового курса и почему.</li>
+                                <li>Принципы удержания верности выбранной траектории.</li>
                             </ul>
                         </article>
                     </div>
@@ -834,21 +764,21 @@
                             </thead>
                             <tbody>
                                 <tr><td class="param">Цена</td><td class="recommended"><strong>$175</strong></td><td><strong>$1000</strong></td></tr>
-                                <tr><td class="param">Что входит</td><td class="recommended">7 лекций (Старт → Ядро → Углубление), конспект, задания.</td><td>KU-001…KU-024, вся траектория курса.</td></tr>
+                                <tr><td class="param">Что входит</td><td class="recommended">7 лекций (Старт -> Ядро -> Углубление), конспект, задания.</td><td>KU-001...KU-024, вся траектория курса.</td></tr>
                                 <tr><td class="param">Доступ</td><td class="recommended">К выборочным роликам курса.</td><td>Последовательно с 1-й по 48-ю лекцию.</td></tr>
                                 <tr><td class="param">Для кого</td><td class="recommended">Хочешь апдейт модели себя без всего курса.</td><td>Цельная система без пробелов.</td></tr>
-                                <tr><td class="param">Правило выбора</td><td class="recommended">Если нужна полная картина → полный курс.</td><td>Если фокус только концепция себя → LP.</td></tr>
+                                <tr><td class="param">Правило выбора</td><td class="recommended">Если нужна полная картина -> полный курс.</td><td>Если фокус только концепция себя -> LP.</td></tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="other-paths">
                         <h4>Другие Learning Paths</h4>
                         <div class="other-paths-grid">
-                            <span class="current">Концепция себя</span>
+                            <a href="https://app.imt.dev/lp-self-doc">Концепция себя</a>
                             <a href="https://app.imt.dev/lp-science-doc">Научный трек</a>
                             <a href="https://app.imt.dev/lp-relearn-doc">Переобучение</a>
                             <a href="https://app.imt.dev/lp-marn-doc">Формула сознания</a>
-                            <a href="https://app.imt.dev/lp-patterns-doc">Паттерны</a>
+                            <span class="current">Паттерны</span>
                             <a href="#">Стресс</a>
                             <a href="#">Межличностное</a>
                         </div>
@@ -857,13 +787,13 @@
 
                 <section class="section" id="proof">
                     <h2>Отзывы и результаты</h2>
-                    <p class="section-intro"><strong>В этом разделе:</strong> кейсы в формате проблема → действие → результат.</p>
+                    <p class="section-intro"><strong>В этом разделе:</strong> кейсы в формате проблема -> действие -> результат.</p>
                     <div class="testimonial-grid">
                         <article class="testimonial">
                             <div class="t-role">Инженер, 10+ лет стажа</div>
                             <h3>Николай</h3>
                             <div class="t-row"><strong>Контекст:</strong> стабильная работа, но апатия и потеря смысла вставать по утрам.</div>
-                            <div class="t-row"><strong>Проблема:</strong> автоматический сценарий подавления желаний и жизни в угождении «авторитету».</div>
+                            <div class="t-row"><strong>Проблема:</strong> автоматический сценарий подавления желаний и жизни в угождении "авторитету".</div>
                             <div class="t-row"><strong>Действие:</strong> переинтерпретация фактов + модификация убеждений о себе.</div>
                             <div class="t-row"><strong>Результат:</strong> энтузиазма стало раза в 2 больше, прояснилась цель.</div>
                         </article>
@@ -882,32 +812,32 @@
                     <h2>FAQ</h2>
                     <p class="section-intro"><strong>В этом разделе:</strong> ответы на частые вопросы.</p>
                     <details>
-                        <summary>1. Чем этот путь отличается от курсов по саморазвитию и привычкам?</summary>
-                        <p>Здесь упор не на «как заставить себя делать», а на какую модель себя ты запускаешь. Пока не поменялась концепция, техники дают временный эффект и откаты.</p>
+                        <summary>1. Что такое LP «Паттерны» простыми словами?</summary>
+                        <p>Это маршрут, который показывает, почему повторяются одни и те же сценарии, и как перепрошивать их на уровне причины, а не симптома.</p>
                     </details>
                     <details>
-                        <summary>2. Нужно ли сначала пройти путь «Переобучение»?</summary>
-                        <p>Learning Path продвинутый. Логично как второй шаг после «Переобучения», но можно заходить и сразу — если ты готов к глубине и хочешь начать именно с апдейта модели себя.</p>
+                        <summary>2. Чем этот путь отличается от LP «Переобучение»?</summary>
+                        <p>«Переобучение» шире и более инструментальный, а «Паттерны» глубже фокусируется на устойчивых эмоциональных и поведенческих циклах.</p>
                     </details>
                     <details>
-                        <summary>3. Что значит «расстаться с эго» — это про самооценку?</summary>
-                        <p>Не про «унизить себя», а про перестать защищать привычный образ ценой реальности. В этом LP задача — вернуть доступ к исходнику, а не воевать с собой.</p>
+                        <summary>3. Почему в треке есть и когнитивные, и эмоциональные темы?</summary>
+                        <p>Потому что паттерны держатся сразу на двух слоях: интерпретации (рамка) и эмоциональное закрепление (реакции/срывы).</p>
                     </details>
                     <details>
-                        <summary>4. Почему «код», «железо», «ОС» — это не метафора для программистов?</summary>
-                        <p>Это язык для точности: симптом vs причина, результат vs правило, баг vs костыль. Он помогает видеть механизм, а не только «самочувствие».</p>
+                        <summary>4. Нужно ли проходить по порядку?</summary>
+                        <p>Да, лучше идти последовательно: сначала рамка, потом узлы, затем закрепление. Так быстрее появляется устойчивый результат.</p>
                     </details>
                     <details>
-                        <summary>5. Чем записи отличаются от консультации 1:1?</summary>
-                        <p>Записи дают базовую концептуальную рамку. 1:1 — это индивидуальные истины и переобучение твоих разумов/законов на этой базе. В итоге нужны обе части, и начинать логичнее с концепций.</p>
+                        <summary>5. Это теоретический путь или практический?</summary>
+                        <p>Практический: каждый модуль нужен для диагностики и изменения конкретных сценариев в жизни и работе.</p>
                     </details>
                     <details>
-                        <summary>6. Сколько времени занимает прохождение пути?</summary>
-                        <p>Это индивидуальный параметр. Каждый ролик ориентировочно ~1 час, но на усвоение, домашние задания и применение у каждого уходит разное время. Нормальный ориентир — около месяца (в своём темпе).</p>
+                        <summary>6. Сколько времени занимает прохождение?</summary>
+                        <p>Ориентир — около 8 часов видео плюс время на внедрение между лекциями.</p>
                     </details>
                     <details>
-                        <summary>7. Что такое Learning Path и чем он отличается от полного курса?</summary>
-                        <p>Learning Path — это не «путь» в буквальном смысле, а <strong>отобранная траектория</strong>: часть курса, собранная под конкретную сферу. Если цель — полнота и цельная система, верный вариант — слушать весь курс последовательно с 1-й по последнюю лекцию.</p>
+                        <summary>7. Можно ли купить отдельные лекции из этого LP?</summary>
+                        <p>Нет. Learning Paths продаются только целиком. Для полной системы доступен полный курс за $1000.</p>
                     </details>
                 </section>
 
@@ -922,7 +852,7 @@
                     </ol>
                     <div class="callout example">
                         <div class="callout-title">EXAMPLE</div>
-                        Формат заявки: «LP-SELF-01, оплата PayPal, контакт @username».
+                        Формат заявки: «LP-PATTERNS-01, оплата PayPal, контакт @username».
                     </div>
                 </section>
 
@@ -938,9 +868,9 @@
 
             <aside class="sidebar">
                 <article class="product-card">
-                    <h3>Купить LP-SELF-01</h3>
-                    <div class="product-price">$175</div>
-                    <div class="product-meta">7 роликов × 60 минут · 7 часов · advanced</div>
+                    <h3>Купить LP-PATTERNS-01</h3>
+                    <div class="product-price">$200</div>
+                    <div class="product-meta">8 роликов × 60 минут · 8 часов · practical</div>
                     <div class="stack-buttons">
                         <a class="btn btn-primary" href="https://t.me/dkompanets" target="_blank" rel="noopener noreferrer">Купить через Telegram</a>
                     </div>
@@ -964,7 +894,7 @@
     </div>
 
     <div class="mobile-cta">
-        <div class="price">$175 · 7 часов</div>
+        <div class="price">$200 · 8 часов</div>
         <a class="btn btn-primary" href="https://t.me/dkompanets" target="_blank" rel="noopener noreferrer">Купить</a>
     </div>
 
