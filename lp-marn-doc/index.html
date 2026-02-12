@@ -345,6 +345,56 @@
             color: #22324f;
         }
 
+        .other-paths {
+            margin-top: var(--space-4);
+            padding-top: var(--space-3);
+            border-top: 1px solid var(--line);
+        }
+
+        .other-paths h4 {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-bottom: var(--space-2);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .other-paths-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .other-paths-grid a {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .other-paths-grid a:hover {
+            border-color: var(--link);
+            background: #f8faff;
+        }
+
+        .other-paths-grid .current {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid #b9c8eb;
+            border-radius: 10px;
+            background: #eef3ff;
+            color: #173f9f;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
         .diff {
             background: #f9fbff;
             border: 1px solid var(--line);
@@ -734,9 +784,10 @@
                     <div class="other-paths">
                         <h4>Другие Learning Paths</h4>
                         <div class="other-paths-grid">
+                            <a href="https://app.imt.dev/lp-self-doc">Концепция себя</a>
                             <a href="https://app.imt.dev/lp-science-doc">Научный трек</a>
                             <a href="https://app.imt.dev/lp-relearn-doc">Переобучение</a>
-                            <a href="#">Формула сознания</a>
+                            <span class="current">Формула сознания</span>
                             <a href="#">Паттерны</a>
                             <a href="#">Стресс</a>
                             <a href="#">Межличностное</a>
