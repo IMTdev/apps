@@ -75,12 +75,26 @@
         }
 
         .doc-header {
+            position: relative;
             background: var(--panel);
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            padding: 22px;
+            padding: 22px 100px 22px 22px;
             margin-bottom: var(--space-5);
         }
+
+        .hero-metaphor {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            width: 72px;
+            height: 72px;
+            color: var(--muted);
+        }
+
+        .hero-metaphor svg { width: 100%; height: 100%; display: block; }
+        .hero-metaphor .focus-center { fill: var(--link); animation: focus-pulse 1.5s ease-in-out infinite; }
+        @keyframes focus-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
         .meta-row {
             display: flex;
@@ -576,6 +590,14 @@
             }
         }
 
+        @media (max-width: 640px) {
+            .doc-header { padding: 18px 80px 18px 18px; }
+            .hero-metaphor { top: 18px; right: 18px; width: 56px; height: 56px; }
+        }
+        @media (max-width: 400px) {
+            .doc-header { padding: 16px 68px 16px 16px; }
+            .hero-metaphor { top: 16px; right: 16px; width: 48px; height: 48px; }
+        }
         @media (max-width: 840px) {
             .quick-specs,
             .two-col,
@@ -612,9 +634,19 @@
         <div class="container page-grid">
             <main class="main">
                 <header class="doc-header" id="hero">
+                    <div class="hero-metaphor" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" focusable="false">
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                            <line x1="50" y1="20" x2="50" y2="40" stroke="var(--link)" stroke-width="2"/>
+                            <line x1="50" y1="60" x2="50" y2="80" stroke="var(--link)" stroke-width="2"/>
+                            <line x1="20" y1="50" x2="40" y2="50" stroke="var(--link)" stroke-width="2"/>
+                            <line x1="60" y1="50" x2="80" y2="50" stroke="var(--link)" stroke-width="2"/>
+                            <circle class="focus-center" cx="50" cy="50" r="5"/>
+                        </svg>
+                    </div>
                     <div class="meta-row">
                         <span class="meta-tag">version: LP-PATTERNS-DOC v1.0</span>
-                        <span class="meta-tag">last updated: 2026-02-12</span>
+                        <span class="meta-tag">last updated: 2026-02-13</span>
                         <span class="meta-tag">level: practical</span>
                     </div>
                     <h1>Паттерны</h1>

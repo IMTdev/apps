@@ -75,12 +75,26 @@
         }
 
         .doc-header {
+            position: relative;
             background: var(--panel);
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            padding: 22px;
+            padding: 22px 100px 22px 22px;
             margin-bottom: var(--space-5);
         }
+
+        .hero-metaphor {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            width: 72px;
+            height: 72px;
+            color: var(--muted);
+        }
+
+        .hero-metaphor svg { width: 100%; height: 100%; display: block; }
+        .hero-metaphor .filter-dot { fill: var(--link); animation: filter-pulse 2s ease-in-out infinite; }
+        @keyframes filter-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
         .meta-row {
             display: flex;
@@ -576,6 +590,14 @@
             }
         }
 
+        @media (max-width: 640px) {
+            .doc-header { padding: 18px 80px 18px 18px; }
+            .hero-metaphor { top: 18px; right: 18px; width: 56px; height: 56px; }
+        }
+        @media (max-width: 400px) {
+            .doc-header { padding: 16px 68px 16px 16px; }
+            .hero-metaphor { top: 16px; right: 16px; width: 48px; height: 48px; }
+        }
         @media (max-width: 840px) {
             .quick-specs,
             .two-col,
@@ -612,9 +634,20 @@
         <div class="container page-grid">
             <main class="main">
                 <header class="doc-header" id="hero">
+                    <div class="hero-metaphor" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" focusable="false">
+                            <circle cx="20" cy="15" r="3" fill="currentColor" opacity="0.3"/>
+                            <circle cx="35" cy="15" r="3" fill="currentColor" opacity="0.3"/>
+                            <circle cx="50" cy="15" r="3" fill="currentColor" opacity="0.3"/>
+                            <circle cx="65" cy="15" r="3" fill="currentColor" opacity="0.3"/>
+                            <circle cx="80" cy="15" r="3" fill="currentColor" opacity="0.3"/>
+                            <line x1="10" y1="50" x2="90" y2="50" stroke="var(--link)" stroke-width="2" stroke-dasharray="4 4"/>
+                            <circle class="filter-dot" cx="50" cy="75" r="8"/>
+                        </svg>
+                    </div>
                     <div class="meta-row">
                         <span class="meta-tag">version: LP-MARN-DOC v1.0</span>
-                        <span class="meta-tag">last updated: 2026-02-11</span>
+                        <span class="meta-tag">last updated: 2026-02-13</span>
                         <span class="meta-tag">level: practical</span>
                     </div>
                     <h1>Формула сознания</h1>

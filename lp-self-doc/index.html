@@ -75,11 +75,45 @@
         }
 
         .doc-header {
+            position: relative;
             background: var(--panel);
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            padding: 22px;
+            padding: 22px 100px 22px 22px;
             margin-bottom: var(--space-5);
+        }
+
+        .hero-pyramid {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            width: 72px;
+            height: 72px;
+            color: var(--muted);
+        }
+
+        .hero-pyramid svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .hero-pyramid .pyramid-layer { stroke: currentColor; stroke-width: 1; }
+        .hero-pyramid .pyramid-bottom { animation: pyramid-bottom 4.5s ease-in-out infinite; }
+        .hero-pyramid .pyramid-middle { animation: pyramid-middle 4.5s ease-in-out infinite; }
+        .hero-pyramid .pyramid-top { animation: pyramid-top 4.5s ease-in-out infinite; }
+        @keyframes pyramid-bottom {
+            0%, 28% { fill: var(--link); }
+            29%, 100% { fill: none; }
+        }
+        @keyframes pyramid-middle {
+            0%, 28% { fill: none; }
+            29%, 57% { fill: var(--link); }
+            58%, 100% { fill: none; }
+        }
+        @keyframes pyramid-top {
+            0%, 57% { fill: none; }
+            58%, 100% { fill: var(--link); }
         }
 
         .meta-row {
@@ -641,6 +675,32 @@
             }
         }
 
+        @media (max-width: 640px) {
+            .doc-header {
+                padding: 18px 80px 18px 18px;
+            }
+
+            .hero-pyramid {
+                top: 18px;
+                right: 18px;
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .doc-header {
+                padding: 16px 68px 16px 16px;
+            }
+
+            .hero-pyramid {
+                top: 16px;
+                right: 16px;
+                width: 48px;
+                height: 48px;
+            }
+        }
+
         @media (max-width: 840px) {
             .quick-specs,
             .two-col,
@@ -677,9 +737,16 @@
         <div class="container page-grid">
             <main class="main">
                 <header class="doc-header" id="hero">
+                    <div class="hero-pyramid" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" focusable="false">
+                            <path class="pyramid-layer pyramid-bottom" d="M40 68 L60 68 L50 92 Z" fill="none"/>
+                            <path class="pyramid-layer pyramid-middle" d="M25 38 L75 38 L60 68 L40 68 Z" fill="none"/>
+                            <path class="pyramid-layer pyramid-top" d="M10 8 L90 8 L75 38 L25 38 Z" fill="none"/>
+                        </svg>
+                    </div>
                     <div class="meta-row">
                         <span class="meta-tag">version: LP-SELF-DOC v1.0</span>
-                        <span class="meta-tag">last updated: 2026-02-11</span>
+                        <span class="meta-tag">last updated: 2026-02-13</span>
                         <span class="meta-tag">level: advanced</span>
                     </div>
                     <h1>Концепция себя</h1>
