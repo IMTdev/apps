@@ -1,0 +1,67 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&amp;display=swap');
+      .text { font-family: 'IBM Plex Mono', monospace; font-size: 24px; fill: #171717; }
+      .label { font-size: 16px; font-weight: 700; text-anchor: middle; }
+      .red { fill: #DC2626; stroke: #DC2626; }
+      .black { fill: #171717; stroke: #171717; }
+      
+      @keyframes flow {
+        0% { stroke-dashoffset: 40; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes expand {
+        0% { r: 30; }
+        50% { r: 40; }
+        100% { r: 30; }
+      }
+    </style>
+  </defs>
+  
+  <rect width="800" height="800" fill="#FFFFFF"/>
+  
+  <!-- Left Side: Attention Economy (scattered) -->
+  <g opacity="0.4">
+    <circle cx="150" cy="200" r="10" fill="#171717"/>
+    <circle cx="200" cy="250" r="8" fill="#171717"/>
+    <circle cx="120" cy="300" r="6" fill="#171717"/>
+    <circle cx="180" cy="350" r="12" fill="#171717"/>
+    <circle cx="220" cy="400" r="7" fill="#171717"/>
+    <circle cx="140" cy="450" r="9" fill="#171717"/>
+    <circle cx="190" cy="500" r="5" fill="#171717"/>
+    <circle cx="160" cy="550" r="11" fill="#171717"/>
+    <text x="170" y="650" class="text label" fill="#999">ATTENTION</text>
+    <text x="170" y="680" class="text" style="font-size: 12px; text-anchor: middle; fill: #999;">scattered</text>
+  </g>
+  
+  <!-- Center Arrow -->
+  <path d="M300 400 H500" stroke="#DC2626" stroke-width="4" stroke-dasharray="10,5" style="animation: flow 1s linear infinite;"/>
+  <path d="M480 380 L520 400 L480 420" fill="none" stroke="#DC2626" stroke-width="4"/>
+  
+  <!-- Right Side: Intent Economy (focused) -->
+  <g>
+    <!-- Central Focus -->
+    <circle cx="630" cy="400" r="30" fill="none" stroke="#DC2626" stroke-width="4" style="animation: expand 3s ease-in-out infinite;"/>
+    <circle cx="630" cy="400" r="15" fill="#DC2626"/>
+    
+    <!-- Orbiting elements -->
+    <circle cx="630" cy="300" r="8" fill="#171717"/>
+    <circle cx="730" cy="400" r="8" fill="#171717"/>
+    <circle cx="630" cy="500" r="8" fill="#171717"/>
+    <circle cx="530" cy="400" r="8" fill="#171717"/>
+    
+    <!-- Connection lines -->
+    <line x1="630" y1="315" x2="630" y2="370" stroke="#171717" stroke-width="2"/>
+    <line x1="715" y1="400" x2="660" y2="400" stroke="#171717" stroke-width="2"/>
+    <line x1="630" y1="485" x2="630" y2="430" stroke="#171717" stroke-width="2"/>
+    <line x1="545" y1="400" x2="600" y2="400" stroke="#171717" stroke-width="2"/>
+    
+    <text x="630" y="650" class="text label" fill="#DC2626">INTENT</text>
+    <text x="630" y="680" class="text" style="font-size: 12px; text-anchor: middle; fill: #DC2626;">focused</text>
+  </g>
+
+  <text x="40" y="760" class="text" style="font-weight: 700;">INTENT ECONOMY</text>
+  <text x="680" y="760" class="text">05/05</text>
+</svg>

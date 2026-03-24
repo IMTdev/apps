@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .stroke { stroke: #4a5768; stroke-width: 4; fill: none; }
+      .accent { fill: #1b4ed8; }
+      .label { fill: #4a5768; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 22px; font-weight: 600; text-anchor: middle; }
+      @keyframes fade1 { 0%, 25% { opacity: 1; } 26%, 100% { opacity: 0.3; } }
+      @keyframes fade2 { 0%, 25% { opacity: 0.3; } 26%, 50% { opacity: 1; } 51%, 100% { opacity: 0.3; } }
+      @keyframes fade3 { 0%, 50% { opacity: 0.3; } 51%, 75% { opacity: 1; } 76%, 100% { opacity: 0.3; } }
+      @keyframes fade4 { 0%, 75% { opacity: 0.3; } 76%, 99% { opacity: 1; } 100% { opacity: 0.3; } }
+    </style>
+  </defs>
+
+  <rect width="800" height="800" fill="#FFFFFF"/>
+  <line x1="100" y1="400" x2="700" y2="400" stroke="#E5E5E5" stroke-width="2"/>
+
+  <g style="animation: fade1 4s infinite steps(1);">
+    <rect x="50" y="350" width="100" height="100" class="stroke"/>
+  </g>
+  <text x="100" y="490" class="label">&#1090;&#1088;&#1080;&#1075;&#1075;&#1077;&#1088;</text>
+
+  <g transform="translate(200, 0)" style="animation: fade2 4s infinite steps(1);">
+    <rect x="50" y="350" width="100" height="100" class="stroke"/>
+    <path d="M70 370 H130 M70 400 H130 M70 430 H130" stroke="#4a5768" stroke-width="2"/>
+  </g>
+  <text x="300" y="490" class="label">&#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103;</text>
+
+  <g transform="translate(400, 0)" style="animation: fade3 4s infinite steps(1);">
+    <circle cx="100" cy="400" r="50" class="stroke"/>
+    <circle cx="100" cy="400" r="25" stroke="#4a5768" stroke-width="2"/>
+  </g>
+  <text x="500" y="490" class="label">&#1073;&#1072;&#1075;</text>
+
+  <g transform="translate(600, 0)" style="animation: fade4 4s infinite steps(1);">
+    <path d="M100 350 L120 400 L100 450 L80 400 Z" class="stroke"/>
+  </g>
+  <text x="700" y="490" class="label">&#1079;&#1072;&#1084;&#1077;&#1085;&#1072;</text>
+
+  <circle cx="100" cy="550" r="10" fill="#1b4ed8">
+    <animate attributeName="cx" values="100;300;500;700;100" keyTimes="0;0.25;0.5;0.75;1" dur="4s" calcMode="discrete" repeatCount="indefinite"/>
+  </circle>
+</svg>

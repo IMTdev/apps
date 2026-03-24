@@ -1,0 +1,60 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .accent { fill: #1b4ed8; stroke: #1b4ed8; }
+      .neutral { fill: #4a5768; stroke: #4a5768; }
+      .bg { fill: #FFFFFF; }
+      
+      @keyframes expand {
+        0% { transform: scaleY(1); }
+        50% { transform: scaleY(1.2); }
+        100% { transform: scaleY(1); }
+      }
+      
+      @keyframes pulse {
+        0% { opacity: 0.5; r: 10; }
+        50% { opacity: 1; r: 15; }
+        100% { opacity: 0.5; r: 10; }
+      }
+
+      .limb { transform-origin: center; animation: expand 4s ease-in-out infinite; }
+      .joint { animation: pulse 2s ease-in-out infinite; }
+    </style>
+  </defs>
+  
+  <rect width="800" height="800" class="bg"/>
+  
+  <!-- Grid Background -->
+  <path d="M400 0V800 M0 400H800" stroke="#F3F4F6" stroke-width="2"/>
+  
+  <!-- Core Structure (Human) - Neutral Line -->
+  <rect x="390" y="200" width="20" height="400" class="neutral" rx="2"/>
+  
+  <!-- Exoskeleton Parts - Accent Brackets -->
+  <g class="limb">
+    <!-- Top Bracket -->
+    <path d="M300 200 H500 V220 H300 Z" class="accent" fill-opacity="0.1"/>
+    <path d="M300 200 V250" stroke="#1b4ed8" stroke-width="8"/>
+    <path d="M500 200 V250" stroke="#1b4ed8" stroke-width="8"/>
+  </g>
+
+  <g class="limb" style="animation-delay: -1s;">
+    <!-- Bottom Bracket -->
+    <path d="M300 600 H500 V580 H300 Z" class="accent" fill-opacity="0.1"/>
+    <path d="M300 600 V550" stroke="#1b4ed8" stroke-width="8"/>
+    <path d="M500 600 V550" stroke="#1b4ed8" stroke-width="8"/>
+  </g>
+
+  <!-- Horizontal Ribs -->
+  <rect x="350" y="300" width="100" height="8" class="neutral"/>
+  <rect x="350" y="350" width="100" height="8" class="neutral"/>
+  <rect x="350" y="400" width="100" height="8" class="neutral"/>
+  <rect x="350" y="450" width="100" height="8" class="neutral"/>
+  <rect x="350" y="500" width="100" height="8" class="neutral"/>
+
+  <!-- Active Joints -->
+  <circle cx="300" cy="200" class="accent joint" />
+  <circle cx="500" cy="200" class="accent joint" />
+  <circle cx="300" cy="600" class="accent joint" />
+  <circle cx="500" cy="600" class="accent joint" />
+</svg>

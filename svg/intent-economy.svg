@@ -1,0 +1,53 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .accent { fill: #1b4ed8; stroke: #1b4ed8; }
+      .neutral { fill: #4a5768; stroke: #4a5768; }
+      
+      @keyframes flow {
+        0% { stroke-dashoffset: 40; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes expand {
+        0% { r: 30; }
+        50% { r: 40; }
+        100% { r: 30; }
+      }
+    </style>
+  </defs>
+  
+  <rect width="800" height="800" fill="#FFFFFF"/>
+  
+  <!-- Left Side: Attention Economy (scattered) -->
+  <g opacity="0.4">
+    <circle cx="150" cy="200" r="10" fill="#4a5768"/>
+    <circle cx="200" cy="250" r="8" fill="#4a5768"/>
+    <circle cx="120" cy="300" r="6" fill="#4a5768"/>
+    <circle cx="180" cy="350" r="12" fill="#4a5768"/>
+    <circle cx="220" cy="400" r="7" fill="#4a5768"/>
+    <circle cx="140" cy="450" r="9" fill="#4a5768"/>
+    <circle cx="190" cy="500" r="5" fill="#4a5768"/>
+    <circle cx="160" cy="550" r="11" fill="#4a5768"/>
+  </g>
+  
+  <!-- Center Arrow -->
+  <path d="M300 400 H500" stroke="#1b4ed8" stroke-width="4" stroke-dasharray="10,5" style="animation: flow 1s linear infinite;"/>
+  <path d="M480 380 L520 400 L480 420" fill="none" stroke="#1b4ed8" stroke-width="4"/>
+  
+  <!-- Right Side: Intent Economy (focused) -->
+  <g>
+    <circle cx="630" cy="400" r="30" fill="none" stroke="#1b4ed8" stroke-width="4" style="animation: expand 3s ease-in-out infinite;"/>
+    <circle cx="630" cy="400" r="15" fill="#1b4ed8"/>
+    
+    <circle cx="630" cy="300" r="8" fill="#4a5768"/>
+    <circle cx="730" cy="400" r="8" fill="#4a5768"/>
+    <circle cx="630" cy="500" r="8" fill="#4a5768"/>
+    <circle cx="530" cy="400" r="8" fill="#4a5768"/>
+    
+    <line x1="630" y1="315" x2="630" y2="370" stroke="#4a5768" stroke-width="2"/>
+    <line x1="715" y1="400" x2="660" y2="400" stroke="#4a5768" stroke-width="2"/>
+    <line x1="630" y1="485" x2="630" y2="430" stroke="#4a5768" stroke-width="2"/>
+    <line x1="545" y1="400" x2="600" y2="400" stroke="#4a5768" stroke-width="2"/>
+  </g>
+</svg>

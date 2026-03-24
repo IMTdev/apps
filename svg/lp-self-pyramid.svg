@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Pyramid">
+  <defs>
+    <style>
+      .pyramid-layer { stroke: #4a5768; stroke-width: 1; }
+      .pyramid-bottom { animation: pyramid-bottom 4.5s ease-in-out infinite; }
+      .pyramid-middle { animation: pyramid-middle 4.5s ease-in-out infinite; }
+      .pyramid-top { animation: pyramid-top 4.5s ease-in-out infinite; }
+      @keyframes pyramid-bottom { 0%, 28% { fill: #1b4ed8; } 29%, 100% { fill: none; } }
+      @keyframes pyramid-middle { 0%, 28% { fill: none; } 29%, 57% { fill: #1b4ed8; } 58%, 100% { fill: none; } }
+      @keyframes pyramid-top { 0%, 57% { fill: none; } 58%, 100% { fill: #1b4ed8; } }
+    </style>
+  </defs>
+  <path class="pyramid-layer pyramid-bottom" d="M40 68 L60 68 L50 92 Z" fill="none"/>
+  <path class="pyramid-layer pyramid-middle" d="M25 38 L75 38 L60 68 L40 68 Z" fill="none"/>
+  <path class="pyramid-layer pyramid-top" d="M10 8 L90 8 L75 38 L25 38 Z" fill="none"/>
+</svg>

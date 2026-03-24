@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" width="680" height="160" fill="none" role="img" aria-label="IMT.DEV">
+  <defs>
+    <style>
+      .bracket { stroke: #1b4ed8; stroke-width: 3; stroke-linecap: square; fill: none; }
+      .letter { fill: #4a5768; font-family: 'IBM Plex Mono', 'SF Mono', Consolas, monospace; font-size: 36px; font-weight: 700; }
+      .dot { fill: #1b4ed8; }
+      .bracket-left {
+        transform-origin: 45px 40px;
+        animation: brackets-breathe-left 3s ease-in-out infinite;
+      }
+      .bracket-right {
+        transform-origin: 288px 40px;
+        animation: brackets-breathe-right 3s ease-in-out infinite;
+      }
+      @keyframes brackets-breathe-left {
+        0%, 100% { transform: translateX(0) scale(1); }
+        50% { transform: translateX(6px) scale(1.12); }
+      }
+      @keyframes brackets-breathe-right {
+        0%, 100% { transform: translateX(0) scale(1); }
+        50% { transform: translateX(-6px) scale(1.12); }
+      }
+    </style>
+  </defs>
+  <g id="logo">
+    <g class="bracket bracket-left">
+      <path d="M 44.8 24 L 28 24 L 28 32" />
+      <path d="M 44.8 56 L 28 56 L 28 48" />
+    </g>
+    <g class="bracket bracket-right">
+      <path d="M 288 24 L 304.8 24 L 304.8 32" />
+      <path d="M 288 56 L 304.8 56 L 304.8 48" />
+    </g>
+    <g class="text-group" text-anchor="middle" style="font-family: 'IBM Plex Mono', 'SF Mono', Consolas, monospace; font-size: 36px; font-weight: 700; text-transform: uppercase;">
+      <text x="95" y="52" class="letter">I</text>
+      <text x="118" y="52" class="letter">M</text>
+      <text x="141" y="52" class="letter">T</text>
+      <text x="164" y="52" class="dot">.</text>
+      <text x="187" y="52" class="letter">D</text>
+      <text x="210" y="52" class="letter">E</text>
+      <text x="233" y="52" class="letter">V</text>
+    </g>
+  </g>
+</svg>

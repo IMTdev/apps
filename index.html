@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMT Case Catalog</title>
+    <meta name="description" content="Каталог кейсов IMT: 14 обезличенных клиентских историй с фильтром по глубине входа.">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f3efe7;
+            --panel: rgba(255, 255, 255, 0.82);
+            --panel-strong: rgba(255, 255, 255, 0.92);
+            --line: rgba(27, 36, 48, 0.12);
+            --text: #18202b;
+            --muted: #667283;
+            --soft: #8f98a7;
+            --blue: #1b4ed8;
+            --teal: #0d5f63;
+            --amber: #bc7a17;
+            --rose: #9f5350;
+            --shadow: 0 24px 60px rgba(24, 32, 43, 0.08);
+            --radius-xl: 34px;
+            --radius-lg: 28px;
+            --radius-md: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 14% 12%, rgba(27, 78, 216, 0.12), transparent 22%),
+                radial-gradient(circle at 86% 10%, rgba(188, 122, 23, 0.12), transparent 18%),
+                radial-gradient(circle at 50% 88%, rgba(13, 95, 99, 0.08), transparent 24%),
+                linear-gradient(180deg, #faf7f1 0%, var(--bg) 100%);
+            color: var(--text);
+            font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(24, 32, 43, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(24, 32, 43, 0.03) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.82), transparent 88%);
+        }
+
+        .wrap {
+            position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 20px 88px;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--line);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.76)),
+                linear-gradient(135deg, rgba(27, 78, 216, 0.06), rgba(13, 95, 99, 0.04));
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 26px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -120px;
+            top: -160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(27, 78, 216, 0.14), transparent 68%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.88fr);
+            gap: 26px;
+            align-items: stretch;
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .meta-tag,
+        .filter-btn,
+        .case-meta span {
+            font-family: "SF Pro Text", "Segoe UI", sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .meta-tag {
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--muted);
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            color: #1a2432;
+        }
+
+        h1 {
+            max-width: 760px;
+            margin-bottom: 16px;
+            font-size: clamp(44px, 7vw, 82px);
+            line-height: 0.9;
+        }
+
+        .lead {
+            max-width: 760px;
+            margin: 0 0 22px;
+            font-size: 20px;
+            line-height: 1.66;
+            color: var(--muted);
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            appearance: none;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 11px 16px;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--muted);
+            cursor: pointer;
+            transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease, color 0.16s ease;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-1px);
+            border-color: rgba(27, 78, 216, 0.22);
+            color: var(--text);
+        }
+
+        .filter-btn.is-active {
+            background: #18202b;
+            color: #fff;
+            border-color: #18202b;
+        }
+
+        .hero-side {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            align-content: stretch;
+        }
+
+        .art-card {
+            appearance: none;
+            position: relative;
+            overflow: hidden;
+            min-height: 168px;
+            padding: 18px;
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 240, 232, 0.9));
+            display: grid;
+            place-items: center;
+            font: inherit;
+            text-align: left;
+        }
+
+        .art-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 15%, rgba(27, 78, 216, 0.08), transparent 34%);
+            pointer-events: none;
+        }
+
+        .art-card img {
+            width: 100%;
+            max-width: 138px;
+            max-height: 120px;
+            object-fit: contain;
+        }
+
+        .lp-filter {
+            cursor: pointer;
+            transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+        }
+
+        .lp-filter:hover {
+            transform: translateY(-2px);
+            border-color: rgba(27, 78, 216, 0.22);
+            box-shadow: 0 18px 42px rgba(24, 32, 43, 0.08);
+        }
+
+        .lp-filter.is-active {
+            border-color: rgba(27, 78, 216, 0.28);
+            box-shadow: 0 20px 48px rgba(27, 78, 216, 0.12);
+        }
+
+        .art-label {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            color: var(--soft);
+        }
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .case-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: 132px minmax(0, 1fr);
+            gap: 18px;
+            min-height: 240px;
+            padding: 18px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            background: var(--panel);
+            box-shadow: var(--shadow);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(27, 78, 216, 0.22);
+            box-shadow: 0 30px 70px rgba(24, 32, 43, 0.11);
+        }
+
+        .case-card.is-hidden {
+            display: none;
+        }
+
+        .case-card[data-level="basic"] {
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(238, 247, 255, 0.86));
+        }
+
+        .case-card[data-level="advanced"] {
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(250, 243, 226, 0.9));
+        }
+
+        .case-card[data-level="expert"] {
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(244, 239, 246, 0.9));
+        }
+
+        .case-art {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 237, 229, 0.94));
+            display: grid;
+            place-items: center;
+            padding: 16px;
+        }
+
+        .case-art img {
+            width: 100%;
+            max-width: 96px;
+            max-height: 96px;
+            object-fit: contain;
+        }
+
+        .case-copy {
+            display: grid;
+            align-content: start;
+            gap: 10px;
+        }
+
+        .case-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .case-meta span {
+            border-radius: 999px;
+            padding: 6px 10px;
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--muted);
+            border: 1px solid rgba(24, 32, 43, 0.08);
+        }
+
+        .case-meta span.lp-chip {
+            color: var(--blue);
+            border-color: rgba(27, 78, 216, 0.16);
+            background: rgba(238, 244, 255, 0.9);
+        }
+
+        .case-copy h3 {
+            font-size: 28px;
+            line-height: 0.96;
+        }
+
+        .case-copy p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.62;
+            color: var(--muted);
+        }
+
+        .case-bug {
+            margin-top: auto;
+            padding-top: 3px;
+            color: var(--soft);
+            font-family: "SF Pro Text", "Segoe UI", sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .case-card[data-level="basic"] .case-art {
+            background:
+                radial-gradient(circle at top left, rgba(27, 78, 216, 0.16), transparent 42%),
+                linear-gradient(180deg, #ffffff, #edf5ff);
+        }
+
+        .case-card[data-level="advanced"] .case-art {
+            background:
+                radial-gradient(circle at top left, rgba(188, 122, 23, 0.16), transparent 42%),
+                linear-gradient(180deg, #ffffff, #fbf3e4);
+        }
+
+        .case-card[data-level="expert"] .case-art {
+            background:
+                radial-gradient(circle at top left, rgba(112, 73, 160, 0.14), transparent 42%),
+                linear-gradient(180deg, #ffffff, #f3effa);
+        }
+
+        .case-card:nth-child(4n + 1) {
+            grid-column: span 2;
+            grid-template-columns: 180px minmax(0, 1fr);
+        }
+
+        .case-card:nth-child(4n + 1) .case-art img {
+            max-width: 122px;
+            max-height: 122px;
+        }
+
+        @media (max-width: 1080px) {
+            .hero-grid,
+            .catalog,
+            .case-card,
+            .case-card:nth-child(4n + 1) {
+                grid-template-columns: 1fr;
+            }
+
+            .case-card:nth-child(4n + 1) {
+                grid-column: span 1;
+            }
+
+            .hero-side {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .case-art {
+                min-height: 164px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .wrap {
+                padding: 16px 14px 68px;
+            }
+
+            .hero {
+                padding: 18px;
+                border-radius: 24px;
+            }
+
+            h1 {
+                font-size: clamp(36px, 15vw, 56px);
+            }
+
+            .lead {
+                font-size: 18px;
+            }
+
+            .hero-side {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .art-card,
+            .case-card {
+                border-radius: 22px;
+            }
+
+            .case-card {
+                min-height: auto;
+                padding: 16px;
+            }
+
+            .case-copy h3 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <section class="hero">
+            <div class="hero-grid">
+                <div>
+                    <div class="meta-row">
+                        <span class="meta-tag">14 кейсов</span>
+                        <span class="meta-tag">обезличенные истории</span>
+                        <span class="meta-tag">фильтр по глубине</span>
+                        <span class="meta-tag">updated 2026-03-24</span>
+                    </div>
+                    <h1>Каталог кейсов IMT</h1>
+                    <p class="lead">
+                        Подборка обезличенных клиентских историй, собранных как отдельные кейсы.
+                        Можно отфильтровать их по глубине входа: от базовых к экспертным.
+                    </p>
+
+                    <div class="filters" aria-label="Фильтр глубины">
+                        <button class="filter-btn is-active" type="button" data-filter="all">Все</button>
+                        <button class="filter-btn" type="button" data-filter="basic">Базовые</button>
+                        <button class="filter-btn" type="button" data-filter="advanced">Продвинутые</button>
+                        <button class="filter-btn" type="button" data-filter="expert">Экспертные</button>
+                    </div>
+                </div>
+
+                <div class="hero-side" aria-label="Фильтр по Learning Path">
+                    <button class="art-card lp-filter" type="button" data-lp-filter="LP-PATTERNS-01">
+                        <img src="./svg/lp-patterns-focus.svg" alt="Фильтр по LP Patterns">
+                        <span class="art-label">patterns</span>
+                    </button>
+                    <button class="art-card lp-filter" type="button" data-lp-filter="LP-SELF-01">
+                        <img src="./svg/lp-self-pyramid.svg" alt="Фильтр по LP Self">
+                        <span class="art-label">self</span>
+                    </button>
+                    <button class="art-card lp-filter" type="button" data-lp-filter="LP-RELEARN-01">
+                        <img src="./svg/lp-relearn-pipeline.svg" alt="Фильтр по LP Relearn">
+                        <span class="art-label">relearn</span>
+                    </button>
+                    <button class="art-card lp-filter is-active" type="button" data-lp-filter="all">
+                        <img src="./svg/four-weeks.svg" alt="Показать все кейсы">
+                        <span class="art-label">all paths</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog" id="catalog">
+            <a class="case-card" data-case-id="CASE-WHERE-RESULT-01" data-level="basic" href="./case-where-result-01/">
+                <div class="case-art">
+                    <img src="./svg/lp-patterns-focus.svg" alt="Кейс про внутренний вопрос результата">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Мирон</span>
+                        <span>Базовый</span>
+                        <span>2026-03-02</span>
+                    </div>
+                    <h3>Где результат?</h3>
+                    <p>Внутренний судья перестает маскироваться под здравый смысл и распознается как баг, который срывает клиента из жизни в самопроверку.</p>
+                    <div class="case-bug">Баг: внутренний судья про результат</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-DIGNITY-RATING-01" data-level="advanced" href="./case-dignity-rating-01/">
+                <div class="case-art">
+                    <img src="./svg/lp-self-pyramid.svg" alt="Кейс про внешний рейтинг и достоинство">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Аврора</span>
+                        <span>Продвинутый</span>
+                        <span>2026-03-23</span>
+                    </div>
+                    <h3>Когда достоинство живет в чужих глазах</h3>
+                    <p>Похвала, тишина и спор перестают быть приговором, когда клиент вынимает свое достоинство из чужого рейтинга и возвращает его в критерий живости.</p>
+                    <div class="case-bug">Баг: высокий рейтинг в чужих глазах</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-SYSTEM-INSTEAD-SELF-01" data-level="expert" href="./case-system-instead-self-01/">
+                <div class="case-art">
+                    <img src="./svg/second-brain.svg" alt="Кейс про инфраструктуру вместо применения">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Тимур</span>
+                        <span>Экспертный</span>
+                        <span>2026-03-09</span>
+                    </div>
+                    <h3>Сначала допилю систему, потом применю к себе</h3>
+                    <p>Красивые инструменты перестают подменять собой личное применение, когда клиент снова подчиняет систему реальному росту жизни, а не наоборот.</p>
+                    <div class="case-bug">Баг: автоматизированный фарисей</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-PLAN-IDOL-01" data-level="basic" href="./case-plan-idol-01/">
+                <div class="case-art">
+                    <img src="./svg/intent-economy.svg" alt="Кейс про поклонение плану">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Лея</span>
+                        <span>Базовый</span>
+                        <span>2026-02-02</span>
+                    </div>
+                    <h3>Когда план становится лжебогом</h3>
+                    <p>Бытовые сбои вскрывают скрытую зависимость от маршрута, пока любовь не возвращается на позицию цели номер один прямо внутри дня.</p>
+                    <div class="case-bug">Баг: счастье привязано к плану</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-REALIZATION-FLAG-01" data-level="expert" href="./case-realization-flag-01/">
+                <div class="case-art">
+                    <img src="./svg/lp-relearn-pipeline.svg" alt="Кейс про перегруз в реализации">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Савва</span>
+                        <span>Экспертный</span>
+                        <span>2026-02-16</span>
+                    </div>
+                    <h3>Как только началась реализация, меня не стало</h3>
+                    <p>Реализация перестает быть тоннелем к флажку, когда главным KPI снова становится количество жизни в процессе, а не только итог.</p>
+                    <div class="case-bug">Баг: реализация ради флажка</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-RIGHT-PLAN-01" data-level="advanced" href="./case-right-plan-01/">
+                <div class="case-art">
+                    <img src="./svg/lp-marn-filter.svg" alt="Фильтр живого импульса перед построением плана">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Инга</span>
+                        <span>Продвинутый</span>
+                        <span>2026-02-09</span>
+                    </div>
+                    <h3>Правильный план без меня</h3>
+                    <p>Внешняя правильность уступает место внутреннему «хочу», и план снова становится гипотезой живого человека, а не схемой без хозяина.</p>
+                    <div class="case-bug">Баг: внешняя правильность вместо своего «хочу»</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-FEEDBACK-TRUTH-01" data-level="basic" href="./case-feedback-truth-01/">
+                <div class="case-art">
+                    <img src="./svg/context-ai.svg" alt="Кейс про внешний фидбек и самоценность">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Нора</span>
+                        <span>Базовый</span>
+                        <span>2026-03-17</span>
+                    </div>
+                    <h3>Когда чужая оценка становится моей правдой</h3>
+                    <p>Шумный внешний фидбек теряет силу приговора, когда клиентка возвращает себе факты доверия, свою ценность и собственный стандарт качества.</p>
+                    <div class="case-bug">Баг: внешняя оценка вместо собственной ценности</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-PERMISSION-REST-01" data-level="basic" href="./case-permission-rest-01/">
+                <div class="case-art">
+                    <img src="./svg/exoskeleton.svg" alt="Кейс про право на отдых и паузу">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Эрик</span>
+                        <span>Базовый</span>
+                        <span>2026-03-02</span>
+                    </div>
+                    <h3>Я могу отдыхать только когда разрешат</h3>
+                    <p>Болезнь и перегруз перестают быть моральным поражением, когда внутренний сигнал становится достаточным основанием для восстановления без внешней санкции.</p>
+                    <div class="case-bug">Баг: разрешение на себя извне</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-GIVE-RESULT-01" data-level="advanced" href="./case-give-result-01/">
+                <div class="case-art">
+                    <img src="./svg/cm-mkuypomn-uhzhbr.svg" alt="Передача результата и динамика двух сторон">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Веста</span>
+                        <span>Продвинутый</span>
+                        <span>2026-02-09</span>
+                    </div>
+                    <h3>Я должна дать людям результат</h3>
+                    <p>Любимое дело перестает выгорать, когда клиентка разводит передачу понимания и обязанность своими руками производить чужой результат.</p>
+                    <div class="case-bug">Баг: чужие результаты на моих плечах</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-CAN-MUST-01" data-level="advanced" href="./case-can-must-01/">
+                <div class="case-art">
+                    <img src="./svg/lp-science-network.svg" alt="Сеть обязанностей и центр собственной ответственности">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Ася</span>
+                        <span>Продвинутый</span>
+                        <span>2026-01-12</span>
+                    </div>
+                    <h3>Если умею — значит должна</h3>
+                    <p>Собственная сила перестает автоматически вести в самопотерю, когда клиентка снова различает «умею», «люблю» и «хочу».</p>
+                    <div class="case-bug">Баг: тащить чужую ответственность</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-TIME-BELONGS-01" data-level="basic" href="./case-time-belongs-01/">
+                <div class="case-art">
+                    <img src="./svg/four-weeks.svg" alt="Ритм и возврат хозяина своему времени">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Таир</span>
+                        <span>Базовый</span>
+                        <span>2025-11-10</span>
+                    </div>
+                    <h3>Мое время принадлежит всем</h3>
+                    <p>Личное время снова получает хозяина, когда коммуникации переводятся в асинхрон, а границы задаются заранее, а не через поздний срыв.</p>
+                    <div class="case-bug">Баг: обязана быть доступной сразу</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-NEGATIVITY-DRAIN-01" data-level="basic" href="./case-negativity-drain-01/">
+                <div class="case-art">
+                    <img src="./svg/digital-twin.svg" alt="Свое состояние рядом с чужим эмоциональным полем">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Рада</span>
+                        <span>Базовый</span>
+                        <span>2025-11-10</span>
+                    </div>
+                    <h3>Когда чужой негатив становится моим состоянием</h3>
+                    <p>Холодный контакт перестает выбрасывать клиента из жизни, когда чужой климат больше не принимается за свою внутреннюю правду.</p>
+                    <div class="case-bug">Баг: автоматическое заражение чужим негативом</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-CLUB-IMPULSE-01" data-level="advanced" href="./case-club-impulse-01/">
+                <div class="case-art">
+                    <img src="./svg/lp-science-network.svg" alt="Живая идея клуба и сеть возможных связей">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Дина</span>
+                        <span>Продвинутый</span>
+                        <span>2025-11-24</span>
+                    </div>
+                    <h3>Когда калькулятор гасит живую идею</h3>
+                    <p>Живое желание перестает проигрывать внутреннему совету директоров, когда расчеты снова обслуживают импульс, а не выносят ему приговор.</p>
+                    <div class="case-bug">Баг: рациональный совет директоров против живого импульса</div>
+                </div>
+            </a>
+
+            <a class="case-card" data-case-id="CASE-PRICE-SHAME-01" data-level="advanced" href="./case-price-shame-01/">
+                <div class="case-art">
+                    <img src="./svg/lp-self-pyramid.svg" alt="Право занимать место и спокойно называть цену">
+                </div>
+                <div class="case-copy">
+                    <div class="case-meta">
+                        <span>Глеб</span>
+                        <span>Продвинутый</span>
+                        <span>2025-12-17</span>
+                    </div>
+                    <h3>Когда цена ощущается стыдом</h3>
+                    <p>Оплата перестает звучать как моральная неловкость, когда клиентка отделяет стоимость услуги от оценки собственной личности.</p>
+                    <div class="case-bug">Баг: недостойна брать оплату</div>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <script src="./case-assets.js"></script>
+    <script>
+        const levelButtons = Array.from(document.querySelectorAll(".filter-btn"));
+        const lpButtons = Array.from(document.querySelectorAll(".lp-filter"));
+        const cards = Array.from(document.querySelectorAll(".case-card"));
+        const assets = window.caseAssets || {};
+        const lpFilters = window.caseLpFilters || [];
+        const state = { level: "all", lp: "all" };
+
+        const applyCardAssets = () => {
+            cards.forEach((card) => {
+                const asset = assets[card.dataset.caseId];
+                if (!asset) return;
+
+                card.dataset.lp = asset.lp;
+
+                const img = card.querySelector(".case-art img");
+                if (img) {
+                    img.src = `./svg/${asset.svg}`;
+                    img.alt = asset.alt;
+                }
+
+                const metaRow = card.querySelector(".case-meta");
+                if (!metaRow) return;
+
+                let chip = metaRow.querySelector(".lp-chip");
+                if (!chip) {
+                    chip = document.createElement("span");
+                    chip.className = "lp-chip";
+                    metaRow.appendChild(chip);
+                }
+
+                chip.textContent = asset.lpLabel;
+            });
+        };
+
+        const applyLpTiles = () => {
+            lpButtons.forEach((button) => {
+                const config = lpFilters.find((item) => item.key === button.dataset.lpFilter);
+                if (!config) return;
+
+                const img = button.querySelector("img");
+                const label = button.querySelector(".art-label");
+
+                if (img) {
+                    img.src = `./svg/${config.svg}`;
+                    img.alt = config.alt;
+                }
+
+                if (label) label.textContent = config.label;
+                button.title = config.title;
+            });
+        };
+
+        const applyFilters = () => {
+            cards.forEach((card) => {
+                const levelOk = state.level === "all" || card.dataset.level === state.level;
+                const lpOk = state.lp === "all" || card.dataset.lp === state.lp;
+                card.classList.toggle("is-hidden", !(levelOk && lpOk));
+            });
+
+            levelButtons.forEach((button) => {
+                button.classList.toggle("is-active", button.dataset.filter === state.level);
+            });
+
+            lpButtons.forEach((button) => {
+                button.classList.toggle("is-active", button.dataset.lpFilter === state.lp);
+            });
+        };
+
+        applyCardAssets();
+        applyLpTiles();
+        applyFilters();
+
+        levelButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                state.level = button.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        lpButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                state.lp = button.dataset.lpFilter;
+                applyFilters();
+            });
+        });
+    </script>
+</body>
+</html>
