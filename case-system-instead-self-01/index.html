@@ -1,21 +1,2029 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMT Case</title>
-    <meta name="description" content="IMT case page">
-    <link rel="stylesheet" href="./styles.css">
-    <script defer src="../case-assets.js"></script>
-    <script defer src="./case-data.js"></script>
-    <script defer src="./app.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      CASE-SYSTEM-INSTEAD-SELF-01 — Сначала допилю систему, потом применю к себе
+      — Вариант v2
+    </title>
+    <meta
+      name="description"
+      content="Кейс о том, как клиент переставал подменять личное применение инфраструктурой, ботами и красивыми системами."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --page-bg: #f3f0e8;
+        --page-ink: #11151d;
+        --page-muted: #5c6472;
+        --page-line: rgba(17, 21, 29, 0.11);
+        --panel: rgba(255, 255, 255, 0.82);
+        --hero-dark: #0d1320;
+        --hero-soft: #182239;
+        --accent: #7ea6ff;
+        --accent-2: #79d6c0;
+        --accent-ink: #dbe6ff;
+        --accent-glow: rgba(126, 166, 255, 0.34);
+        --tone-red: #ba6f70;
+        --tone-slate: #6d7a8f;
+        --tone-amber: #c99642;
+        --tone-blue: #4d8fc4;
+        --tone-green: #4b9067;
+        --shadow-soft: 0 24px 80px rgba(17, 21, 29, 0.1);
+        --radius-xl: 32px;
+        --radius-lg: 26px;
+        --radius-md: 18px;
+        --content-width: 1320px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--page-ink);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(239, 235, 219, 0.86),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(255, 255, 255, 0.7),
+            transparent 30%
+          ),
+          var(--page-bg);
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page {
+        overflow-x: clip;
+      }
+
+      .poster {
+        position: relative;
+        min-height: 100svh;
+        padding: clamp(28px, 4vw, 48px);
+        color: #f5f7fb;
+        background:
+          radial-gradient(
+            circle at top left,
+            color-mix(in srgb, var(--accent) 24%, transparent),
+            transparent 34%
+          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
+          linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
+      }
+
+      .poster::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 84px 84px;
+        mask-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.85),
+          transparent 92%
+        );
+        pointer-events: none;
+      }
+
+      .poster-inner,
+      .story-shell,
+      .footer-shell {
+        position: relative;
+        z-index: 1;
+        width: min(var(--content-width), 100%);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 4;
+        display: flex;
+        justify-content: flex-end;
+        width: min(100%, 420px);
+      }
+
+      .brand-copy,
+      .meta-chip,
+      .jump-link,
+      .chapter-kicker,
+      .rail-title,
+      .rail-nav span:first-child,
+      .quote-label,
+      .compare-label,
+      .section-callout-kicker,
+      .inner-callout-kicker,
+      .footer-kicker {
+        font-family: "IBM Plex Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .jump-link,
+      .rail-back,
+      .footer-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .jump-link,
+      .rail-back {
+        gap: 10px;
+        max-width: 100%;
+        padding-inline: 20px;
+        border-color: rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f7fb;
+        font-size: 0.8rem;
+        line-height: 1.2;
+        text-align: left;
+        white-space: normal;
+      }
+
+      .jump-link-arrow {
+        flex: 0 0 auto;
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      .jump-link-text {
+        text-wrap: balance;
+      }
+
+      .jump-link:hover,
+      .rail-back:hover,
+      .footer-action:hover,
+      .rail-nav a:hover {
+        transform: translateY(-1px);
+      }
+
+      .poster-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+        gap: clamp(32px, 6vw, 80px);
+        align-items: center;
+        padding-top: clamp(10px, 2vw, 18px);
+      }
+
+      .hero-copy {
+        max-width: 720px;
+      }
+
+      .meta-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .meta-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(245, 247, 251, 0.82);
+        font-size: 0.68rem;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 9ch;
+        font-size: clamp(3.5rem, 11vw, 8rem);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      .hero-lead {
+        margin: 22px 0 0;
+        max-width: 56ch;
+        font-size: clamp(1.02rem, 2vw, 1.2rem);
+        color: rgba(245, 247, 251, 0.82);
+      }
+
+      .hero-lines {
+        list-style: none;
+        margin: 28px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+        max-width: 62ch;
+      }
+
+      .hero-lines li {
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr);
+        gap: 14px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-lines .k {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(245, 247, 251, 0.62);
+      }
+
+      .hero-lines span:last-child {
+        color: rgba(245, 247, 251, 0.82);
+      }
+
+      .hero-specs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .hero-spec {
+        padding: 16px 18px 18px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero-spec-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(245, 247, 251, 0.6);
+      }
+
+      .hero-spec-value {
+        margin-top: 10px;
+        color: #f5f7fb;
+        font-size: 0.98rem;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: clamp(420px, 48vw, 620px);
+      }
+
+      .hero-visual::before,
+      .hero-visual::after {
+        content: "";
+        position: absolute;
+        inset: auto;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        pointer-events: none;
+      }
+
+      .hero-visual::before {
+        inset: 4% 4% 2% 8%;
+        border-radius: 999px;
+      }
+
+      .hero-visual::after {
+        inset: 12% 18% 16% 12%;
+      }
+
+      .hero-rings,
+      .hero-glow {
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .hero-rings {
+        inset: -8% -6% -10% -12%;
+      }
+
+      .hero-rings::before,
+      .hero-rings::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .hero-rings::before {
+        inset: 0 4% 0 0;
+      }
+
+      .hero-rings::after {
+        inset: 18% 18% 18% 16%;
+      }
+
+      .hero-glow {
+        width: clamp(180px, 25vw, 280px);
+        height: clamp(180px, 25vw, 280px);
+        right: 10%;
+        bottom: 14%;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          var(--accent-glow),
+          transparent 72%
+        );
+        filter: blur(6px);
+      }
+
+      .hero-figure {
+        position: absolute;
+        inset: 12% 10% 16% 10%;
+        display: grid;
+        place-items: center;
+      }
+
+      .hero-figure-frame {
+        width: min(100%, 540px);
+        color: var(--accent-ink);
+        filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.18));
+      }
+
+      .hero-figure-frame svg {
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+      }
+
+      .hero-quote {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: min(390px, 78%);
+        padding: 24px 28px 26px;
+        border-radius: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.14),
+            rgba(255, 255, 255, 0.06)
+          ),
+          rgba(17, 21, 29, 0.5);
+        backdrop-filter: blur(24px);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+      }
+
+      .hero-quote p {
+        margin: 0;
+        font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-quote .quote-label {
+        display: block;
+        margin-bottom: 18px;
+        color: rgba(245, 247, 251, 0.66);
+        font-size: 0.76rem;
+      }
+
+      .story-shell {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: clamp(28px, 4vw, 46px);
+        margin-top: clamp(44px, 8vw, 84px);
+        margin-bottom: 72px;
+      }
+
+      .story-rail-inner {
+        position: sticky;
+        top: 28px;
+        padding: 24px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        backdrop-filter: blur(16px);
+      }
+
+      .rail-title {
+        margin: 0 0 18px;
+        color: var(--page-muted);
+        font-size: 0.74rem;
+      }
+
+      .rail-nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .rail-nav a {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 16px;
+        text-decoration: none;
+        color: var(--page-muted);
+        transition:
+          transform 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .rail-nav a.is-active {
+        background: rgba(17, 21, 29, 0.06);
+        color: var(--page-ink);
+      }
+
+      .rail-nav span:first-child {
+        font-size: 0.7rem;
+        color: var(--page-muted);
+      }
+
+      .rail-back {
+        margin-top: 18px;
+        width: 100%;
+        border-color: rgba(17, 21, 29, 0.08);
+        background: rgba(17, 21, 29, 0.04);
+        color: var(--page-ink);
+      }
+
+      .story-content {
+        display: grid;
+        gap: 26px;
+      }
+
+      .chapter {
+        position: relative;
+        padding: clamp(28px, 5vw, 42px);
+        padding-left: clamp(34px, 6vw, 50px);
+        border-radius: var(--radius-xl);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.76),
+          rgba(255, 255, 255, 0.9)
+        );
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .chapter::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 36px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--tone);
+        box-shadow: 0 0 0 8px color-mix(in srgb, var(--tone) 15%, transparent);
+      }
+
+      .chapter::after {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 58px;
+        bottom: -26px;
+        width: 2px;
+        background: color-mix(in srgb, var(--tone) 22%, transparent);
+      }
+
+      .story-content .chapter:last-child::after {
+        display: none;
+      }
+
+      .tone-red {
+        --tone: var(--tone-red);
+      }
+
+      .tone-slate {
+        --tone: var(--tone-slate);
+      }
+
+      .tone-amber {
+        --tone: var(--tone-amber);
+      }
+
+      .tone-blue {
+        --tone: var(--tone-blue);
+      }
+
+      .tone-green {
+        --tone: var(--tone-green);
+      }
+
+      .chapter-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 34%);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .chapter-kicker {
+        color: var(--tone);
+        font-size: 0.8rem;
+      }
+
+      h2 {
+        margin: 14px 0 0;
+        font-size: clamp(2rem, 5vw, 4.2rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
+
+      .chapter-intro {
+        margin: 0;
+        color: var(--page-muted);
+        font-size: clamp(1rem, 1.5vw, 1.14rem);
+      }
+
+      .chapter-body {
+        margin-top: 28px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .chapter-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .line-block {
+        padding: 22px 24px 24px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+      }
+
+      .line-block-soft {
+        background: color-mix(in srgb, var(--tone) 7%, white);
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.28rem;
+        letter-spacing: -0.03em;
+      }
+
+      .line-block p {
+        margin: 12px 0 0;
+        color: var(--page-muted);
+      }
+
+      .line-block ul,
+      .compare-card ul {
+        margin: 18px 0 0;
+        padding-left: 22px;
+        color: var(--page-ink);
+      }
+
+      .line-block li,
+      .compare-card li {
+        margin-top: 8px;
+      }
+
+      .section-callout,
+      .inner-callout {
+        position: relative;
+        padding: 22px 24px 24px;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+
+      .section-callout::before,
+      .inner-callout::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      }
+
+      .section-callout {
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--tone) 12%, white),
+          rgba(255, 255, 255, 0.86)
+        );
+      }
+
+      .inner-callout {
+        margin-top: 18px;
+      }
+
+      .invariant-callout {
+        border: 1px solid
+          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        background:
+          radial-gradient(
+            circle at top right,
+            color-mix(in srgb, var(--accent-2) 18%, transparent),
+            transparent 44%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(17, 21, 29, 0.96),
+            rgba(21, 29, 49, 0.92)
+          );
+        color: #f5f7fb;
+        box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
+      }
+
+      .invariant-callout::before {
+        width: 6px;
+      }
+
+      .section-callout-kicker,
+      .inner-callout-kicker {
+        position: relative;
+        z-index: 1;
+        font-size: 0.74rem;
+      }
+
+      .section-callout p,
+      .inner-callout p {
+        position: relative;
+        z-index: 1;
+        margin: 12px 0 0;
+        font-size: 1.06rem;
+      }
+
+      .quote-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .quote-card {
+        padding: 24px;
+        border-radius: 24px;
+        background: rgba(17, 21, 29, 0.04);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+      }
+
+      .quote-card blockquote {
+        margin: 14px 0 0;
+        font-size: 1.18rem;
+        line-height: 1.35;
+        letter-spacing: -0.03em;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 90px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+      }
+
+      .compare-card {
+        padding: 24px 26px 26px;
+        border-radius: 30px;
+        border: 1px solid rgba(17, 21, 29, 0.08);
+      }
+
+      .compare-card.before {
+        background: color-mix(in srgb, var(--tone-red) 8%, white);
+      }
+
+      .compare-card.after {
+        background: color-mix(in srgb, var(--tone-green) 11%, white);
+      }
+
+      .compare-label {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        font-size: 0.68rem;
+        background: rgba(17, 21, 29, 0.05);
+      }
+
+      .compare-card p {
+        margin: 14px 0 0;
+        font-size: 1.04rem;
+      }
+
+      .compare-arrow {
+        display: grid;
+        place-items: center;
+        font-size: 2rem;
+        color: var(--tone-green);
+      }
+
+      .compare-arrow .arrow-mobile {
+        display: none;
+      }
+
+      .result-callout {
+        margin-top: 4px;
+      }
+
+      .footer {
+        padding: 0 18px 64px;
+      }
+
+      .cta-shell {
+        padding: clamp(28px, 5vw, 44px);
+        border-radius: 34px;
+        background:
+          radial-gradient(
+            circle at top right,
+            color-mix(in srgb, var(--accent) 18%, transparent),
+            transparent 28%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(13, 19, 32, 0.96),
+            rgba(21, 29, 49, 0.96)
+          );
+        color: #f5f7fb;
+      }
+
+      .footer-kicker {
+        font-size: 0.74rem;
+        color: rgba(245, 247, 251, 0.64);
+      }
+
+      .cta-shell h2 {
+        margin-top: 14px;
+        max-width: 16ch;
+        font-size: clamp(2.2rem, 5vw, 4.6rem);
+        color: #f5f7fb;
+      }
+
+      .cta-shell p {
+        max-width: 58ch;
+        color: rgba(245, 247, 251, 0.8);
+      }
+
+      .footer-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .footer-action {
+        padding-inline: 22px;
+      }
+
+      .footer-action-secondary {
+        border-color: rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f7fb;
+      }
+
+      .footer-action-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #11151d;
+      }
+
+      .footer-return {
+        margin-top: 18px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 520ms ease,
+          transform 520ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero-seq {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: hero-rise 680ms ease forwards;
+      }
+
+      .hero-seq-1 {
+        animation-delay: 100ms;
+      }
+
+      .hero-seq-2 {
+        animation-delay: 180ms;
+      }
+
+      .hero-seq-3 {
+        animation-delay: 260ms;
+      }
+
+      .hero-seq-4 {
+        animation-delay: 340ms;
+      }
+
+      .hero-seq-5 {
+        animation-delay: 420ms;
+      }
+
+      .hero-seq-6 {
+        animation-delay: 500ms;
+      }
+
+      @keyframes hero-rise {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1180px) {
+        .story-shell {
+          grid-template-columns: 1fr;
+          margin-top: 42px;
+        }
+
+        .story-rail-inner {
+          position: static;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .topbar {
+          width: min(100%, 240px);
+        }
+
+        .poster {
+          min-height: auto;
+          padding-top: 96px;
+          padding-inline: 18px;
+          padding-bottom: 34px;
+        }
+
+        .poster-grid,
+        .chapter-head,
+        .compare-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 380px;
+        }
+
+        .hero-quote {
+          right: 0;
+          bottom: 0;
+          width: min(340px, 82%);
+        }
+
+        .hero-specs,
+        .chapter-grid,
+        .detail-grid,
+        .quote-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .compare-arrow {
+          min-height: 52px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .topbar {
+          width: min(100%, 232px);
+        }
+
+        .jump-link {
+          min-height: 42px;
+          padding: 10px 14px;
+          justify-content: flex-start;
+          align-items: flex-start;
+          font-size: 0.74rem;
+          border-color: rgba(255, 255, 255, 0.22);
+          background: rgba(255, 255, 255, 0.07);
+        }
+
+        .hero-lines li {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+
+        .hero-figure {
+          inset: 12% 8% 22% 8%;
+        }
+
+        .hero-quote {
+          padding: 20px 22px 22px;
+        }
+
+        .hero-quote p {
+          font-size: clamp(1.26rem, 6vw, 1.7rem);
+        }
+
+        .chapter {
+          padding-left: 28px;
+        }
+
+        .chapter::before {
+          left: 12px;
+          width: 12px;
+          height: 12px;
+          box-shadow: 0 0 0 7px color-mix(in srgb, var(--tone) 14%, transparent);
+        }
+
+        .chapter::after {
+          left: 17px;
+        }
+
+        .compare-arrow {
+          font-size: 1.8rem;
+        }
+
+        .compare-arrow .arrow-desktop {
+          display: none;
+        }
+
+        .compare-arrow .arrow-mobile {
+          display: inline;
+        }
+
+        .story-rail-inner {
+          padding: 20px;
+        }
+
+        .footer-actions {
+          flex-direction: column;
+        }
+
+        .footer-action {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal,
+        .hero-seq {
+          opacity: 1;
+          transform: none;
+          animation: none;
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <div class="page">
-        <div class="container page-grid">
-            <main class="main" id="main-root"></main>
-            <aside class="sidebar" id="sidebar-root"></aside>
+      <section class="poster" id="hero">
+        <div class="poster-inner">
+          <div class="topbar hero-seq hero-seq-1">
+            <a class="jump-link" href="../">
+              <span class="jump-link-arrow" aria-hidden="true">←</span>
+              <span class="jump-link-text">Вернуться к каталогу кейсов</span>
+            </a>
+          </div>
+
+          <div class="poster-grid">
+            <div class="hero-copy">
+              <div class="meta-strip hero-seq hero-seq-2">
+                <span class="meta-chip">case: CASE-SYSTEM-INSTEAD-SELF-01</span>
+                <span class="meta-chip">based on summary: 2026-03-09</span>
+                <span class="meta-chip">read time: 9 minutes</span>
+              </div>
+
+              <h1 class="hero-seq hero-seq-3">
+                Сначала допилю систему, потом применю к себе
+              </h1>
+              <p class="hero-lead hero-seq hero-seq-4">
+                Клиент много созидал: бот, личный кабинет, автоматизации,
+                каталогизацию. В моменте это давало кайф и ощущение движения, но
+                на расстоянии недели оставляло внутренний конфликт. На
+                консультации стало видно, что проблема была не в нехватке
+                времени, а в подмене обновления понимания инфраструктурным
+                бурлением.
+              </p>
+
+              <ul class="hero-lines hero-seq hero-seq-5">
+                <li>
+                  <span class="k">Что здесь</span>
+                  <span
+                    >Один кейс о том, как полезные инструменты превращались в
+                    замену применения к себе.</span
+                  >
+                </li>
+
+                <li>
+                  <span class="k">Что ломалось</span>
+                  <span
+                    >Рост инфраструктуры шел быстрее, чем рост личной практики и
+                    закрепления новых пониманий.</span
+                  >
+                </li>
+
+                <li>
+                  <span class="k">Что менялось</span>
+                  <span
+                    >Инструменты переставали быть самоцелью и подчинялись
+                    вопросу: расширяют ли они понимание и жизнь.</span
+                  >
+                </li>
+
+                <li>
+                  <span class="k">Основа</span>
+                  <span
+                    >Source summary про автоматизированного фарисея, нехватку
+                    времени и обновление Духа вместо процедур.</span
+                  >
+                </li>
+              </ul>
+
+              <div class="hero-specs hero-seq hero-seq-6">
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Баг</div>
+                  <div class="hero-spec-value">Автоматизированный фарисей</div>
+                </article>
+
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Цена дефекта</div>
+                  <div class="hero-spec-value">
+                    Послевкусие пустоты, стратегическое недоприменение к себе
+                  </div>
+                </article>
+
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Новая опора</div>
+                  <div class="hero-spec-value">
+                    Инструмент имел смысл только если расширял понимание и
+                    жизнеспособность
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="hero-visual hero-seq hero-seq-3">
+              <div class="hero-rings" aria-hidden="true"></div>
+              <div class="hero-glow" aria-hidden="true"></div>
+              <div class="hero-figure">
+                <div
+                  class="hero-figure-frame"
+                  role="img"
+                  aria-label="Второй мозг и перегруз инфраструктурой"
+                >
+                  <svg
+                    width="800"
+                    height="800"
+                    viewBox="0 0 800 800"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <style>
+                        .accent {
+                          fill: #1b4ed8;
+                          stroke: #1b4ed8;
+                        }
+                        .neutral {
+                          fill: #4a5768;
+                          stroke: #4a5768;
+                        }
+                        .gray {
+                          fill: #4a5768;
+                          stroke: #4a5768;
+                        }
+                        .bg {
+                          fill: #ffffff;
+                        }
+
+                        @keyframes pulse {
+                          0%,
+                          100% {
+                            opacity: 0.4;
+                          }
+                          50% {
+                            opacity: 1;
+                          }
+                        }
+
+                        @keyframes flow {
+                          0% {
+                            stroke-dashoffset: 20;
+                          }
+                          100% {
+                            stroke-dashoffset: 0;
+                          }
+                        }
+
+                        .node-pulse {
+                          animation: pulse 3s ease-in-out infinite;
+                        }
+                        .connection {
+                          stroke-dasharray: 5 5;
+                          animation: flow 1s linear infinite;
+                        }
+                      </style>
+                    </defs>
+
+                    <rect width="800" height="800" class="bg" />
+
+                    <!-- Grid Background -->
+                    <path
+                      d="M400 0V800 M0 400H800"
+                      stroke="#F3F4F6"
+                      stroke-width="2"
+                    />
+
+                    <!-- Central Document / About Me File -->
+                    <rect
+                      x="330"
+                      y="300"
+                      width="140"
+                      height="180"
+                      rx="4"
+                      fill="#4a5768"
+                    />
+                    <rect
+                      x="345"
+                      y="320"
+                      width="110"
+                      height="8"
+                      rx="1"
+                      fill="#1b4ed8"
+                    />
+                    <rect
+                      x="345"
+                      y="340"
+                      width="90"
+                      height="4"
+                      rx="1"
+                      fill="#4a5768"
+                    />
+                    <rect
+                      x="345"
+                      y="352"
+                      width="100"
+                      height="4"
+                      rx="1"
+                      fill="#4a5768"
+                    />
+                    <rect
+                      x="345"
+                      y="364"
+                      width="80"
+                      height="4"
+                      rx="1"
+                      fill="#4a5768"
+                    />
+                    <rect
+                      x="345"
+                      y="380"
+                      width="110"
+                      height="6"
+                      rx="1"
+                      fill="#1b4ed8"
+                      opacity="0.6"
+                    />
+                    <rect
+                      x="345"
+                      y="396"
+                      width="95"
+                      height="4"
+                      rx="1"
+                      fill="#4a5768"
+                    />
+                    <rect
+                      x="345"
+                      y="408"
+                      width="105"
+                      height="4"
+                      rx="1"
+                      fill="#4a5768"
+                    />
+                    <rect
+                      x="345"
+                      y="424"
+                      width="75"
+                      height="4"
+                      rx="1"
+                      fill="#4a5768"
+                    />
+                    <rect
+                      x="345"
+                      y="440"
+                      width="110"
+                      height="6"
+                      rx="1"
+                      fill="#1b4ed8"
+                      opacity="0.6"
+                    />
+                    <rect
+                      x="345"
+                      y="456"
+                      width="85"
+                      height="4"
+                      rx="1"
+                      fill="#4a5768"
+                    />
+
+                    <!-- Neural Network Nodes around the document -->
+                    <circle
+                      cx="400"
+                      cy="180"
+                      r="20"
+                      fill="none"
+                      stroke="#1b4ed8"
+                      stroke-width="3"
+                      class="node-pulse"
+                    />
+                    <circle cx="400" cy="180" r="8" fill="#1b4ed8" />
+
+                    <circle
+                      cx="280"
+                      cy="220"
+                      r="16"
+                      fill="none"
+                      stroke="#4a5768"
+                      stroke-width="2"
+                      class="node-pulse"
+                      style="animation-delay: -0.5s"
+                    />
+                    <circle cx="280" cy="220" r="6" fill="#4a5768" />
+
+                    <circle
+                      cx="520"
+                      cy="220"
+                      r="16"
+                      fill="none"
+                      stroke="#4a5768"
+                      stroke-width="2"
+                      class="node-pulse"
+                      style="animation-delay: -1s"
+                    />
+                    <circle cx="520" cy="220" r="6" fill="#4a5768" />
+
+                    <circle
+                      cx="180"
+                      cy="400"
+                      r="18"
+                      fill="none"
+                      stroke="#1b4ed8"
+                      stroke-width="2"
+                      class="node-pulse"
+                      style="animation-delay: -1.5s"
+                    />
+                    <circle cx="180" cy="400" r="7" fill="#1b4ed8" />
+
+                    <circle
+                      cx="620"
+                      cy="400"
+                      r="18"
+                      fill="none"
+                      stroke="#1b4ed8"
+                      stroke-width="2"
+                      class="node-pulse"
+                      style="animation-delay: -2s"
+                    />
+                    <circle cx="620" cy="400" r="7" fill="#1b4ed8" />
+
+                    <circle
+                      cx="280"
+                      cy="580"
+                      r="16"
+                      fill="none"
+                      stroke="#4a5768"
+                      stroke-width="2"
+                      class="node-pulse"
+                      style="animation-delay: -2.5s"
+                    />
+                    <circle cx="280" cy="580" r="6" fill="#4a5768" />
+
+                    <circle
+                      cx="520"
+                      cy="580"
+                      r="16"
+                      fill="none"
+                      stroke="#4a5768"
+                      stroke-width="2"
+                      class="node-pulse"
+                      style="animation-delay: -3s"
+                    />
+                    <circle cx="520" cy="580" r="6" fill="#4a5768" />
+
+                    <circle
+                      cx="400"
+                      cy="620"
+                      r="20"
+                      fill="none"
+                      stroke="#1b4ed8"
+                      stroke-width="3"
+                      class="node-pulse"
+                      style="animation-delay: -0.7s"
+                    />
+                    <circle cx="400" cy="620" r="8" fill="#1b4ed8" />
+
+                    <!-- Connections -->
+                    <line
+                      x1="400"
+                      y1="200"
+                      x2="400"
+                      y2="300"
+                      stroke="#1b4ed8"
+                      stroke-width="2"
+                      class="connection"
+                    />
+                    <line
+                      x1="295"
+                      y1="230"
+                      x2="330"
+                      y2="310"
+                      stroke="#4a5768"
+                      stroke-width="1.5"
+                      class="connection"
+                      style="animation-delay: -0.3s"
+                    />
+                    <line
+                      x1="505"
+                      y1="230"
+                      x2="470"
+                      y2="310"
+                      stroke="#4a5768"
+                      stroke-width="1.5"
+                      class="connection"
+                      style="animation-delay: -0.6s"
+                    />
+                    <line
+                      x1="200"
+                      y1="400"
+                      x2="330"
+                      y2="390"
+                      stroke="#1b4ed8"
+                      stroke-width="2"
+                      class="connection"
+                      style="animation-delay: -0.9s"
+                    />
+                    <line
+                      x1="600"
+                      y1="400"
+                      x2="470"
+                      y2="390"
+                      stroke="#1b4ed8"
+                      stroke-width="2"
+                      class="connection"
+                      style="animation-delay: -1.2s"
+                    />
+                    <line
+                      x1="295"
+                      y1="570"
+                      x2="340"
+                      y2="480"
+                      stroke="#4a5768"
+                      stroke-width="1.5"
+                      class="connection"
+                      style="animation-delay: -1.5s"
+                    />
+                    <line
+                      x1="505"
+                      y1="570"
+                      x2="460"
+                      y2="480"
+                      stroke="#4a5768"
+                      stroke-width="1.5"
+                      class="connection"
+                      style="animation-delay: -1.8s"
+                    />
+                    <line
+                      x1="400"
+                      y1="600"
+                      x2="400"
+                      y2="480"
+                      stroke="#1b4ed8"
+                      stroke-width="2"
+                      class="connection"
+                      style="animation-delay: -2.1s"
+                    />
+
+                    <!-- Outer orbit connections -->
+                    <line
+                      x1="280"
+                      y1="236"
+                      x2="180"
+                      y2="382"
+                      stroke="#4a5768"
+                      stroke-width="1"
+                      opacity="0.5"
+                    />
+                    <line
+                      x1="520"
+                      y1="236"
+                      x2="620"
+                      y2="382"
+                      stroke="#4a5768"
+                      stroke-width="1"
+                      opacity="0.5"
+                    />
+                    <line
+                      x1="180"
+                      y1="418"
+                      x2="280"
+                      y2="564"
+                      stroke="#4a5768"
+                      stroke-width="1"
+                      opacity="0.5"
+                    />
+                    <line
+                      x1="620"
+                      y1="418"
+                      x2="520"
+                      y2="564"
+                      stroke="#4a5768"
+                      stroke-width="1"
+                      opacity="0.5"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <aside class="hero-quote">
+                <span class="quote-label">Цитата клиента</span>
+                <p>
+                  «я... создаю... инструменты, но не успеваю применить к себе»
+                </p>
+              </aside>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <div class="story-shell">
+        <aside class="story-rail">
+          <div class="story-rail-inner">
+            <p class="rail-title">Навигация по кейсу</p>
+            <nav class="rail-nav" aria-label="Разделы кейса">
+              <a href="#stimulus" data-target="stimulus">
+                <span>01</span>
+                <span>Стимул</span>
+              </a>
+
+              <a href="#consultation" data-target="consultation">
+                <span>02</span>
+                <span>Консультация</span>
+              </a>
+
+              <a href="#support" data-target="support">
+                <span>03</span>
+                <span>Сопровождение</span>
+              </a>
+
+              <a href="#training" data-target="training">
+                <span>04</span>
+                <span>Обучение</span>
+              </a>
+
+              <a href="#result" data-target="result">
+                <span>05</span>
+                <span>Результат</span>
+              </a>
+            </nav>
+            <a class="rail-back" href="#hero">Наверх</a>
+          </div>
+        </aside>
+
+        <main class="story-content">
+          <section class="chapter tone-red reveal" id="stimulus">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">Начальный стимул-реакция</div>
+                <h2>
+                  Снаружи было много созидания, внутри росло ощущение
+                  недоприменения
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                Проблема начиналась не с лени и не с отсутствия идей. Наоборот,
+                клиенту нравилось строить большие системы, улучшать кабинеты,
+                интеграции и анализ. Но чем мощнее становилась инфраструктура,
+                тем яснее в конце недели проявлялось неприятное расхождение:
+                инструментов стало больше, а собственная жизнь не поменялась
+                сопоставимо.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="chapter-grid">
+                <article class="line-block">
+                  <h3>Как это выглядело в реальности</h3>
+                  <ul>
+                    <li>
+                      Клиент быстро собирал бота-напоминатель, кабинет,
+                      аналитические слои и каталогизацию.
+                    </li>
+                    <li>В моменте процесс нравился и казался очень живым.</li>
+                    <li>
+                      На длинной дистанции оставалось чувство, что применение к
+                      себе запаздывает.
+                    </li>
+                    <li>
+                      Появлялся внутренний конфликт между удовольствием от
+                      движухи и стратегической пустотой.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="line-block line-block-soft">
+                  <h3>Что клиент пробовал по старому</h3>
+                  <ul>
+                    <li>
+                      Добавлять еще больше процедур, напоминаний и
+                      автоматизаций.
+                    </li>
+                    <li>
+                      Давить применение на уровне разума, как будто понимание
+                      можно впихнуть силой.
+                    </li>
+                    <li>Считать нехватку времени объективным дефицитом.</li>
+                    <li>
+                      Надеяться, что сама сложность и масштаб системы
+                      автоматически решат вопрос роста.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+
+              <div class="section-callout">
+                <div class="section-callout-kicker">Цена дефекта</div>
+                <p>
+                  Росла не только инфраструктура. Рос и разрыв между красивой
+                  системой и реальным обновлением жизни. Внешне это выглядело
+                  как бурная деятельность, а по ощущениям становилось все
+                  заметнее, что первопричина осталась на месте.
+                </p>
+              </div>
+
+              <div class="quote-grid">
+                <article class="quote-card">
+                  <span class="quote-label">Цитаты клиента</span>
+                  <blockquote>
+                    «я... создаю... инструменты, но не успеваю применить к себе»
+                  </blockquote>
+                </article>
+
+                <article class="quote-card">
+                  <span class="quote-label">Цитаты клиента</span>
+                  <blockquote>
+                    «в моменте мне это нравится... в конце недели... внутренний
+                    конфликт»
+                  </blockquote>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="chapter tone-slate reveal" id="consultation">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">Консультация</div>
+                <h2>
+                  На консультации стало видно, что инструмент не равен
+                  применению
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                Ключевой разворот случился там, где консультант отделил
+                обновление понимания от процедурного контроля. То, что выглядело
+                как дисциплина и развитие, оказалось слишком часто движением на
+                уровне разума без обновления более глубокого слоя.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="detail-grid">
+                <article class="line-block">
+                  <h3>1. Какой сидел баг</h3>
+                  <p>
+                    Баг был назван прямо:
+                    <strong>автоматизированный фарисей</strong>. Вместо того
+                    чтобы применять новое понимание к своей жизни, клиент все
+                    больше усиливал аппарат, который должен был когда-нибудь это
+                    сделать за него.
+                  </p>
+                </article>
+
+                <article class="line-block">
+                  <h3>2. Откуда он в легаси-коде</h3>
+                  <p>
+                    В легаси уже жила вера, что нехватка времени объективна, а
+                    правильные процедуры и контроль способны вытянуть человека
+                    сами по себе. Из этого естественно росла привычка латать
+                    жизнь инструментами вместо обновления понимания.
+                  </p>
+                </article>
+
+                <article class="line-block">
+                  <h3>3. Воздействие консультанта</h3>
+                  <p>
+                    Консультант сместил фокус с вопроса «как все успеть» на
+                    вопрос «что реально увеличивает жизнеспособность». Он
+                    показал, что процедуры на уровне разума не обновляют Дух и
+                    легко создают вид бурной деятельности при неизменной
+                    первопричине.
+                  </p>
+                </article>
+
+                <article class="line-block">
+                  <h3>4. Патч и новый инвариант</h3>
+                  <p>
+                    Новый патч был очень прикладным: перед любой доработкой
+                    инструмента спрашивать, как именно это расширяет понимание и
+                    повышает качество или количество жизни на длинном горизонте.
+                    Если ответа нет, значит система начала служить самой себе.
+                  </p>
+                  <div class="inner-callout invariant-callout">
+                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+                    <p>
+                      Я не улучшаю инструмент ради инструмента. Я использую его
+                      там, где он помогает быстрее применять понимание и
+                      расширять жизнь.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="chapter tone-amber reveal" id="support">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">Сопровождение и новая привычка</div>
+                <h2>
+                  Первый stage-результат был в том, что инфраструктура потеряла
+                  сакральность
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                После консультации клиент не отказался от системного мышления и
+                не обесценил свои таланты. Изменилось другое: красивые сложные
+                конструкции перестали автоматически считаться добром. Сначала
+                это работало как ручная проверка перед каждым новым улучшением.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="chapter-grid">
+                <article class="line-block">
+                  <h3>Первый ручной результат</h3>
+                  <ul>
+                    <li>
+                      Клиент начал тормозить доработку инструмента, если не
+                      видел прямого эффекта на свое понимание.
+                    </li>
+                    <li>
+                      Вопрос «где я реально не знаю, как повысить
+                      жизнеспособность?» стал важнее, чем «что еще можно
+                      автоматизировать?».
+                    </li>
+                    <li>
+                      Повторяемые новые понимания начали восприниматься как то,
+                      что хочется применить сразу, а не когда-нибудь потом.
+                    </li>
+                    <li>
+                      Нехватка времени стала рассматриваться как следствие
+                      ложного фокуса, а не как объективный факт.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="line-block line-block-soft">
+                  <h3>Что менялось в привычке</h3>
+                  <ul>
+                    <li>
+                      Кайф от системы переставал быть достаточным оправданием ее
+                      существования.
+                    </li>
+                    <li>
+                      Личная выгода от понимания возвращалась в центр внимания.
+                    </li>
+                    <li>
+                      Инструмент начинал обслуживать расширение на новые сферы,
+                      а не отодвигать его.
+                    </li>
+                    <li>
+                      Стало легче видеть, где движуха тактическая, а где
+                      действительно стратегическая.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+
+              <div class="quote-grid">
+                <article class="quote-card">
+                  <span class="quote-label">Цитаты клиента</span>
+                  <blockquote>
+                    «Я там уже нафигачил штук 400 таких каталогизированных
+                    эпизодов»
+                  </blockquote>
+                </article>
+
+                <article class="quote-card">
+                  <span class="quote-label">Цитаты клиента</span>
+                  <blockquote>
+                    «я вижу, что вот эта вот штука как сильно запаздывает»
+                  </blockquote>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="chapter tone-blue reveal" id="training">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">Обучение</div>
+                <h2>
+                  Обучение строилось вокруг переноса понимания, а не вокруг еще
+                  одного слоя контроля
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                Новый контур закреплялся в повторениях. Инфраструктура не
+                выбрасывалась, но занимала уже другое место: она помогала видеть
+                незакрытые зоны и переносить понимание туда, где клиент раньше
+                не знал, как действовать.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="detail-grid">
+                <article class="line-block">
+                  <h3>Что отрабатывалось</h3>
+                  <ul>
+                    <li>
+                      Проверять любую доработку инструментов на длинный
+                      стратегический эффект.
+                    </li>
+                    <li>
+                      Трекать системы и группы, с которыми клиент пока не знает,
+                      как повысить жизнеспособность.
+                    </li>
+                    <li>
+                      Использовать ИИ и бота не как костыль контроля, а как
+                      способ расширить понимание на новую сферу.
+                    </li>
+                    <li>
+                      Возвращать применение к себе в тот же день, когда
+                      понимание уже действительно зашло.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="line-block">
+                  <h3>Какой LP поддерживал обучение</h3>
+                  <p>
+                    Лучшей теоретической опорой для этого кейса был
+                    <strong>LP-RELEARN-01</strong>. Он держал фокус на
+                    переобучении, переносе новых пониманий в практику и на
+                    различении живого применения от процедурной имитации.
+                  </p>
+                  <p>
+                    Именно этот LP лучше всего удерживал разницу между полезным
+                    инструментом и сложной системой, которая только выглядит как
+                    рост.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="chapter tone-green reveal" id="result">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">
+                  Новый стимул-реакция и результат
+                </div>
+                <h2>
+                  Новый результат проявился как подчинение системы жизни, а не
+                  наоборот
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                Наблюдаемый эффект был не в том, что клиент перестал любить
+                системы. Наоборот, его системность сохранилась. Но теперь она
+                стала работать на применение и расширение понимания, а не на
+                бесконечную достройку самого механизма.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="compare-grid">
+                <article class="compare-card before">
+                  <span class="compare-label">До</span>
+                  <p>
+                    Система росла быстрее, чем собственное применение: бот,
+                    кабинет и инфраструктура расширялись, а личная практика
+                    снова откладывалась.
+                  </p>
+                  <ul>
+                    <li>Новые инструменты: да</li>
+                    <li>Применение к себе: запаздывает</li>
+                    <li>Рост ощущается как обслуживание системы</li>
+                  </ul>
+                </article>
+                <div class="compare-arrow" aria-hidden="true">
+                  <span class="arrow-desktop">→</span>
+                  <span class="arrow-mobile">↓</span>
+                </div>
+                <article class="compare-card after">
+                  <span class="compare-label">После</span>
+                  <p>
+                    Инструменты включаются только там, где реально ускоряют
+                    понимание и применение, а не подменяют собой рост жизни.
+                  </p>
+                  <ul>
+                    <li>Сначала применение, потом автоматизация</li>
+                    <li>Лишние ветки режутся раньше</li>
+                    <li>Жизнеспособность растет вместе с системой</li>
+                  </ul>
+                </article>
+              </div>
+              <div class="chapter-grid">
+                <article class="line-block">
+                  <h3>Что стало наблюдаемым</h3>
+                  <ul>
+                    <li>
+                      Стало меньше бессмысленных улучшений ради самого процесса
+                      улучшения.
+                    </li>
+                    <li>
+                      Появилась более прямая связка между новым пониманием и
+                      действием.
+                    </li>
+                    <li>
+                      Инструменты перестали оправдывать стратегический застой.
+                    </li>
+                    <li>
+                      Клиент точнее видел, где нет нехватки времени, а есть
+                      нехватка правильного фокуса.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="line-block line-block-soft">
+                  <h3>Что стало новой опорой</h3>
+                  <ul>
+                    <li>
+                      Инфраструктура полезна, только если повышает
+                      жизнеспособность.
+                    </li>
+                    <li>Процедуры не заменяют обновление понимания.</li>
+                    <li>
+                      Если понимание реально зашло, его хочется применить, а не
+                      вбивать в себя.
+                    </li>
+                    <li>
+                      Нужно расширять любовь на новые сферы, а не усложнять
+                      систему вокруг старых.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+              <div class="section-callout result-callout">
+                <div class="section-callout-kicker">Новый KPI</div>
+                <p>
+                  Не количество автоматизаций, а степень, в которой новое
+                  понимание уже применяется и меняет качество жизни клиента на
+                  длинной дистанции.
+                </p>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-shell">
+          <section class="cta-shell reveal" id="next-step">
+            <div class="footer-kicker">Следующий шаг</div>
+            <h2>Если знакома подмена жизни инфраструктурой</h2>
+            <p>
+              Этот кейс полезен тем, кто умеет собирать сложные системы, но
+              замечает, что собственная практика почему-то снова остается на
+              потом.
+            </p>
+            <div class="footer-actions">
+              <a
+                class="footer-action footer-action-secondary"
+                href="https://app.imt.dev/lp-relearn-doc"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Открыть LP-RELEARN-01</a
+              >
+              <a
+                class="footer-action footer-action-primary"
+                href="https://imt.dev/typkd"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Разобрать похожий кейс</a
+              >
+            </div>
+            <div class="footer-return">
+              <a class="jump-link" href="../">
+                <span class="jump-link-arrow" aria-hidden="true">←</span>
+                <span class="jump-link-text">Вернуться к каталогу кейсов</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </footer>
     </div>
-</body>
+
+    <script>
+      (() => {
+        const reduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const revealNodes = [...document.querySelectorAll(".reveal")];
+
+        if (!reduced && "IntersectionObserver" in window) {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              });
+            },
+            { threshold: 0.16 },
+          );
+
+          revealNodes.forEach((node) => revealObserver.observe(node));
+        } else {
+          revealNodes.forEach((node) => node.classList.add("is-visible"));
+        }
+
+        const links = [...document.querySelectorAll(".rail-nav a")];
+        const linkMap = new Map(
+          links.map((link) => [link.dataset.target, link]),
+        );
+        const chapters = [...document.querySelectorAll(".chapter[id]")];
+
+        const setActive = (id) => {
+          links.forEach((link) => {
+            link.classList.toggle("is-active", link.dataset.target === id);
+          });
+        };
+
+        if (chapters.length && "IntersectionObserver" in window) {
+          const navObserver = new IntersectionObserver(
+            (entries) => {
+              const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+              if (visible && linkMap.has(visible.target.id)) {
+                setActive(visible.target.id);
+              }
+            },
+            {
+              rootMargin: "-28% 0px -52% 0px",
+              threshold: [0.12, 0.3, 0.6],
+            },
+          );
+
+          chapters.forEach((chapter) => navObserver.observe(chapter));
+          setActive(chapters[0].id);
+        }
+      })();
+    </script>
+  </body>
 </html>

@@ -175,6 +175,26 @@
         color: #f5f7fb;
       }
 
+      .jump-link {
+        gap: 10px;
+        max-width: min(100%, 420px);
+        padding-inline: 20px;
+        font-size: 0.8rem;
+        line-height: 1.2;
+        text-align: left;
+        white-space: normal;
+      }
+
+      .jump-link-arrow {
+        flex: 0 0 auto;
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      .jump-link-text {
+        text-wrap: balance;
+      }
+
       .jump-link:hover,
       .rail-back:hover,
       .poster-action:hover,
@@ -814,6 +834,10 @@
         color: var(--tone-green);
       }
 
+      .compare-arrow .arrow-mobile {
+        display: none;
+      }
+
       .result-band {
         margin-top: 18px;
         padding: 20px 22px 22px;
@@ -946,14 +970,19 @@
 
       @media (max-width: 920px) {
         .topbar {
-          position: static;
-          justify-content: flex-start;
-          margin-bottom: 22px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: auto;
+          width: min(100%, 240px);
+          justify-content: flex-end;
+          margin-bottom: 0;
         }
 
         .poster {
           min-height: auto;
           padding-inline: 18px;
+          padding-top: 96px;
           padding-bottom: 28px;
         }
 
@@ -984,8 +1013,17 @@
 
       @media (max-width: 680px) {
         .topbar {
+          width: min(100%, 232px);
+        }
+
+        .jump-link {
+          min-height: 42px;
+          padding: 10px 14px;
+          font-size: 0.74rem;
+          justify-content: flex-start;
           align-items: flex-start;
-          flex-direction: column;
+          border-color: rgba(255, 255, 255, 0.22);
+          background: rgba(255, 255, 255, 0.07);
         }
 
         .story-shell {
@@ -1021,6 +1059,18 @@
           grid-template-columns: 1fr;
         }
 
+        .compare-arrow {
+          font-size: 1.8rem;
+        }
+
+        .compare-arrow .arrow-desktop {
+          display: none;
+        }
+
+        .compare-arrow .arrow-mobile {
+          display: inline;
+        }
+
         .story-rail-inner {
           padding: 20px;
         }
@@ -1032,7 +1082,10 @@
       <section class="poster" id="hero">
         <div class="poster-inner">
           <div class="topbar hero-seq-1">
-            <a class="jump-link" href="../">← Вернуться к каталогу кейсов</a>
+            <a class="jump-link" href="../">
+              <span class="jump-link-arrow" aria-hidden="true">←</span>
+              <span class="jump-link-text">Вернуться к каталогу кейсов</span>
+            </a>
           </div>
 
           <div class="poster-grid">
@@ -1570,7 +1623,10 @@
                   </ul>
                 </article>
 
-                <div class="compare-arrow" aria-hidden="true">→</div>
+                <div class="compare-arrow" aria-hidden="true">
+                  <span class="arrow-desktop">→</span>
+                  <span class="arrow-mobile">↓</span>
+                </div>
 
                 <article class="compare-card after">
                   <span class="compare-label">После</span>
