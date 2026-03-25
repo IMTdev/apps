@@ -83,6 +83,48 @@ window.caseAssets = {
     lp: "LP-SELF-01",
     lpLabel: "self",
   },
+  "CASE-IMPULSE-LATER-01": {
+    svg: "second-brain.svg",
+    alt: "Живой импульс, который нельзя оставлять только во втором мозге",
+    lp: "LP-SELF-01",
+    lpLabel: "self",
+  },
+  "CASE-SUCCESS-SHAME-01": {
+    svg: "exoskeleton.svg",
+    alt: "Внешний уровень жизни и внутреннее право на него",
+    lp: "LP-SELF-01",
+    lpLabel: "self",
+  },
+  "CASE-CREDIT-LOOP-01": {
+    svg: "intent-economy.svg",
+    alt: "Денежная петля, где нехватка автоматически превращается в заем",
+    lp: "LP-PATTERNS-01",
+    lpLabel: "patterns",
+  },
+  "CASE-RESTART-ZERO-01": {
+    svg: "four-weeks.svg",
+    alt: "Ритм, который возвращается после паузы без обнуления",
+    lp: "LP-RELEARN-01",
+    lpLabel: "relearn",
+  },
+  "CASE-BUYIN-NOD-01": {
+    svg: "context-ai.svg",
+    alt: "Контекст и артефакты против пустого внешнего согласия",
+    lp: "LP-RELEARN-01",
+    lpLabel: "relearn",
+  },
+  "CASE-MICROMANAGE-FEAR-01": {
+    svg: "cm-mkuypomn-uhzhbr.svg",
+    alt: "Две стороны игры и рамка вместо ручного контроля",
+    lp: "LP-PATTERNS-01",
+    lpLabel: "patterns",
+  },
+  "CASE-SCROLL-RELIEF-01": {
+    svg: "digital-twin.svg",
+    alt: "Цифровой двойник как поздний сброс накопленного перегруза",
+    lp: "LP-PATTERNS-01",
+    lpLabel: "patterns",
+  },
 };
 
 window.caseLpFilters = [

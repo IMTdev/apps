@@ -391,6 +391,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const override = transitionOverrides[data.meta.caseId] || {};
     const beforeText = override.beforeText || section.before;
     const afterText = override.afterText || section.after;
+    const beforeMetrics = override.beforeMetrics || section.beforeMetrics || [];
+    const afterMetrics = override.afterMetrics || section.afterMetrics || [];
 
     return `
       <section class="timeline-step tone-green" id="result">
@@ -402,13 +404,13 @@ document.addEventListener("DOMContentLoaded", () => {
                   <div class="compare-card compare-before">
                       <span class="compare-label">До</span>
                       <p class="compare-text">${beforeText}</p>
-                      ${renderMetricList(override.beforeMetrics)}
+                      ${renderMetricList(beforeMetrics)}
                   </div>
                   <div class="compare-arrow" aria-hidden="true">→</div>
                   <div class="compare-card compare-after">
                       <span class="compare-label">После</span>
                       <p class="compare-text">${afterText}</p>
-                      ${renderMetricList(override.afterMetrics)}
+                      ${renderMetricList(afterMetrics)}
                   </div>
               </div>
               <div class="two-col result-panels">
