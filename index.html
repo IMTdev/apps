@@ -1,913 +1,2114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IMT Case Catalog</title>
-    <meta name="description" content="Каталог кейсов IMT: 21 обезличенная клиентская история с фильтрами по глубине входа и Learning Path.">
+    <meta
+      name="description"
+      content="Каталог кейсов IMT: 21 обезличенная клиентская история в обновленном LP-формате с фильтрами по глубине и Learning Path."
+    />
     <style>
-        :root {
-            color-scheme: light;
-            --bg: #f3efe7;
-            --panel: rgba(255, 255, 255, 0.82);
-            --panel-strong: rgba(255, 255, 255, 0.92);
-            --line: rgba(27, 36, 48, 0.12);
-            --text: #18202b;
-            --muted: #667283;
-            --soft: #8f98a7;
-            --blue: #1b4ed8;
-            --teal: #0d5f63;
-            --amber: #bc7a17;
-            --rose: #9f5350;
-            --shadow: 0 24px 60px rgba(24, 32, 43, 0.08);
-            --radius-xl: 34px;
-            --radius-lg: 28px;
-            --radius-md: 22px;
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --page-bg: #f3f0e8;
+        --page-ink: #11151d;
+        --page-muted: #5c6472;
+        --page-line: rgba(17, 21, 29, 0.1);
+        --panel: rgba(255, 255, 255, 0.82);
+        --hero-dark: #0d1320;
+        --hero-soft: #182239;
+        --shadow-soft: 0 24px 80px rgba(17, 21, 29, 0.1);
+        --radius-xl: 34px;
+        --radius-lg: 26px;
+        --radius-md: 20px;
+        --content-width: 1360px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--page-ink);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(239, 235, 219, 0.86),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(255, 255, 255, 0.7),
+            transparent 30%
+          ),
+          var(--page-bg);
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page {
+        overflow-x: clip;
+      }
+
+      .poster {
+        position: relative;
+        min-height: min(100svh, 980px);
+        padding: clamp(24px, 4vw, 44px);
+        color: #f5f7fb;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(126, 166, 255, 0.18),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(127, 211, 157, 0.16),
+            transparent 30%
+          ),
+          linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
+      }
+
+      .poster::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 84px 84px;
+        mask-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.85),
+          transparent 92%
+        );
+        pointer-events: none;
+      }
+
+      .poster-inner,
+      .catalog-inner,
+      .footer-inner {
+        position: relative;
+        z-index: 1;
+        width: min(var(--content-width), 100%);
+        margin: 0 auto;
+      }
+
+      .brand-row,
+      .meta-chip,
+      .filter-btn,
+      .result-chip,
+      .path-kicker,
+      .case-meta span,
+      .case-bug,
+      .doc-kicker,
+      .doc-count,
+      .section-kicker {
+        font-family: "IBM Plex Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .brand-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 26px;
+        color: rgba(245, 247, 251, 0.72);
+        font-size: 0.8rem;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #7ea6ff, #79d6c0);
+        box-shadow: 0 0 20px rgba(126, 166, 255, 0.6);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+        gap: clamp(30px, 5vw, 72px);
+        align-items: end;
+      }
+
+      .meta-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .meta-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(245, 247, 251, 0.82);
+        font-size: 0.68rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 9ch;
+        font-size: clamp(3.8rem, 11vw, 8rem);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      .hero-lead {
+        max-width: 58ch;
+        margin-top: 22px;
+        color: rgba(245, 247, 251, 0.82);
+        font-size: clamp(1.05rem, 2vw, 1.22rem);
+      }
+
+      .hero-points {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+        margin: 28px 0 0;
+        padding: 0;
+        max-width: 60ch;
+      }
+
+      .hero-points li {
+        display: grid;
+        grid-template-columns: 142px minmax(0, 1fr);
+        gap: 14px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-points .key {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(245, 247, 251, 0.6);
+      }
+
+      .hero-points span:last-child {
+        color: rgba(245, 247, 251, 0.86);
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .hero-stat {
+        padding: 16px 18px 18px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .hero-stat strong {
+        display: block;
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        line-height: 1;
+      }
+
+      .hero-stat span {
+        display: block;
+        margin-top: 10px;
+        color: rgba(245, 247, 251, 0.66);
+        font-size: 0.82rem;
+      }
+
+      .hero-side {
+        position: relative;
+        min-height: 560px;
+      }
+
+      .hero-side::before,
+      .hero-side::after {
+        content: "";
+        position: absolute;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        pointer-events: none;
+      }
+
+      .hero-side::before {
+        inset: 0 4% 4% 6%;
+        border-radius: 999px;
+      }
+
+      .hero-side::after {
+        inset: 8% 12% 16% 12%;
+      }
+
+      .hero-side-glow {
+        position: absolute;
+        width: clamp(180px, 24vw, 260px);
+        height: clamp(180px, 24vw, 260px);
+        right: 4%;
+        bottom: 0;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(239, 191, 124, 0.32),
+          transparent 72%
+        );
+        filter: blur(8px);
+        pointer-events: none;
+      }
+
+      .path-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        padding: 42px 18px 24px;
+      }
+
+      .path-tile {
+        appearance: none;
+        position: relative;
+        overflow: hidden;
+        min-height: 196px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 26px;
+        background:
+          radial-gradient(
+            circle at top left,
+            var(--tone-glow),
+            transparent 42%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.04)
+          );
+        text-align: left;
+        color: #f5f7fb;
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
+      }
+
+      .path-tile:hover,
+      .path-tile.is-active {
+        transform: translateY(-2px);
+        border-color: color-mix(
+          in srgb,
+          var(--tone) 54%,
+          rgba(255, 255, 255, 0.18)
+        );
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.22);
+      }
+
+      .path-tile img {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        width: min(48%, 132px);
+        max-height: 120px;
+        object-fit: contain;
+        filter: drop-shadow(0 22px 42px rgba(0, 0, 0, 0.16));
+      }
+
+      .path-tile-copy {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 8px;
+        max-width: 60%;
+      }
+
+      .path-kicker {
+        color: rgba(245, 247, 251, 0.58);
+        font-size: 0.7rem;
+      }
+
+      .path-tile strong {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .path-count {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        width: fit-content;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(245, 247, 251, 0.82);
+      }
+
+      .catalog-shell {
+        padding: 26px 16px 82px;
+      }
+
+      .filter-dock {
+        position: sticky;
+        top: 14px;
+        z-index: 4;
+        margin-top: -36px;
+        margin-bottom: 30px;
+        padding: 18px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .filter-dock-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .filter-btn {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        background: rgba(17, 21, 29, 0.04);
+        color: var(--page-muted);
+        font-size: 0.76rem;
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.is-active {
+        transform: translateY(-1px);
+        border-color: rgba(17, 21, 29, 0.14);
+        background: #11151d;
+        color: #f5f7fb;
+      }
+
+      .result-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: rgba(17, 21, 29, 0.04);
+        color: var(--page-muted);
+        font-size: 0.76rem;
+      }
+
+      .result-chip strong {
+        margin: 0 0.28em;
+        color: var(--page-ink);
+      }
+
+      .catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .case-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 18px;
+        min-height: 264px;
+        padding: 18px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--page-line);
+        background:
+          radial-gradient(
+            circle at top left,
+            var(--tone-surface),
+            transparent 36%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.84),
+            rgba(255, 255, 255, 0.94)
+          );
+        box-shadow: var(--shadow-soft);
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          opacity 180ms ease;
+      }
+
+      .case-card:hover {
+        transform: translateY(-3px);
+        border-color: color-mix(
+          in srgb,
+          var(--tone) 28%,
+          rgba(17, 21, 29, 0.08)
+        );
+        box-shadow: 0 32px 78px rgba(17, 21, 29, 0.12);
+      }
+
+      .case-card.is-hidden {
+        display: none;
+      }
+
+      .case-card-wide {
+        grid-column: span 2;
+        grid-template-columns: 220px minmax(0, 1fr);
+      }
+
+      .case-art {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        background:
+          radial-gradient(
+            circle at top left,
+            var(--tone-glow),
+            transparent 42%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.96),
+            rgba(241, 237, 229, 0.92)
+          );
+        display: grid;
+        place-items: center;
+        min-height: 100%;
+        padding: 20px;
+      }
+
+      .case-art img {
+        width: 100%;
+        max-width: 120px;
+        max-height: 120px;
+        object-fit: contain;
+      }
+
+      .case-card-wide .case-art img {
+        max-width: 142px;
+        max-height: 142px;
+      }
+
+      .case-copy {
+        display: grid;
+        gap: 12px;
+        align-content: start;
+      }
+
+      .case-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .case-meta span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        color: var(--page-muted);
+        font-size: 0.66rem;
+      }
+
+      .case-meta .lp-chip {
+        color: var(--page-ink);
+        border-color: color-mix(
+          in srgb,
+          var(--tone) 28%,
+          rgba(17, 21, 29, 0.08)
+        );
+        background: color-mix(in srgb, var(--tone) 12%, white);
+      }
+
+      .case-copy h3 {
+        max-width: 18ch;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .case-copy p {
+        max-width: 56ch;
+        color: var(--page-muted);
+        font-size: 1rem;
+      }
+
+      .case-footer {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .case-bug {
+        color: var(--page-muted);
+        font-size: 0.68rem;
+      }
+
+      .case-open {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 36px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: rgba(17, 21, 29, 0.04);
+        color: var(--page-ink);
+      }
+
+      .case-open::after {
+        content: "↗";
+      }
+
+      .empty-state {
+        display: none;
+        padding: 34px 24px;
+        border-radius: 28px;
+        border: 1px solid var(--page-line);
+        background: rgba(255, 255, 255, 0.76);
+        color: var(--page-muted);
+        text-align: center;
+      }
+
+      .empty-state.is-visible {
+        display: block;
+      }
+
+      .footer {
+        padding: 0 16px 72px;
+      }
+
+      .footer-shell {
+        padding: clamp(28px, 5vw, 42px);
+        border-radius: var(--radius-xl);
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(126, 166, 255, 0.12),
+            transparent 26%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(13, 19, 32, 0.96),
+            rgba(21, 29, 49, 0.96)
+          );
+        color: #f5f7fb;
+      }
+
+      .section-kicker {
+        color: rgba(245, 247, 251, 0.62);
+        font-size: 0.74rem;
+      }
+
+      .footer-shell h2 {
+        margin-top: 14px;
+        max-width: 14ch;
+        font-size: clamp(2.4rem, 5vw, 4.8rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .footer-shell > p {
+        max-width: 60ch;
+        margin-top: 18px;
+        color: rgba(245, 247, 251, 0.8);
+      }
+
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .doc-card {
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        gap: 16px;
+        align-content: start;
+        min-height: 244px;
+        padding: 22px;
+        border-radius: 28px;
+        text-decoration: none;
+        color: #f5f7fb;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          radial-gradient(
+            circle at top left,
+            var(--tone-glow),
+            transparent 40%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.03)
+          );
+      }
+
+      .doc-card img {
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: min(42%, 112px);
+        max-height: 112px;
+        object-fit: contain;
+      }
+
+      .doc-copy {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 10px;
+        max-width: 72%;
+      }
+
+      .doc-kicker {
+        color: rgba(245, 247, 251, 0.56);
+        font-size: 0.7rem;
+      }
+
+      .doc-card h3 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .doc-card p {
+        color: rgba(245, 247, 251, 0.82);
+      }
+
+      .doc-count {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(245, 247, 251, 0.84);
+        font-size: 0.66rem;
+      }
+
+      .hero-seq,
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      .hero-seq {
+        animation: hero-rise 680ms ease forwards;
+      }
+
+      .hero-seq-1 {
+        animation-delay: 80ms;
+      }
+
+      .hero-seq-2 {
+        animation-delay: 160ms;
+      }
+
+      .hero-seq-3 {
+        animation-delay: 240ms;
+      }
+
+      .hero-seq-4 {
+        animation-delay: 320ms;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+          opacity 520ms ease,
+          transform 520ms ease;
+      }
+
+      @keyframes hero-rise {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .hero-grid,
+        .filter-dock-grid,
+        .catalog-grid,
+        .case-card,
+        .case-card-wide,
+        .doc-grid {
+          grid-template-columns: 1fr;
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background:
-                radial-gradient(circle at 14% 12%, rgba(27, 78, 216, 0.12), transparent 22%),
-                radial-gradient(circle at 86% 10%, rgba(188, 122, 23, 0.12), transparent 18%),
-                radial-gradient(circle at 50% 88%, rgba(13, 95, 99, 0.08), transparent 24%),
-                linear-gradient(180deg, #faf7f1 0%, var(--bg) 100%);
-            color: var(--text);
-            font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            background-image:
-                linear-gradient(rgba(24, 32, 43, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(24, 32, 43, 0.03) 1px, transparent 1px);
-            background-size: 44px 44px;
-            mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.82), transparent 88%);
-        }
-
-        .wrap {
-            position: relative;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 24px 20px 88px;
-        }
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--line);
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.76)),
-                linear-gradient(135deg, rgba(27, 78, 216, 0.06), rgba(13, 95, 99, 0.04));
-            box-shadow: var(--shadow);
-            padding: 30px;
-            margin-bottom: 26px;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 420px;
-            height: 420px;
-            right: -120px;
-            top: -160px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(27, 78, 216, 0.14), transparent 68%);
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.88fr);
-            gap: 26px;
-            align-items: stretch;
-        }
-
-        .meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 18px;
-        }
-
-        .meta-tag,
-        .filter-btn,
-        .case-meta span {
-            font-family: "SF Pro Text", "Segoe UI", sans-serif;
-            font-size: 12px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .meta-tag {
-            padding: 8px 12px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.72);
-            color: var(--muted);
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin: 0;
-            font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.05em;
-            color: #1a2432;
-        }
-
-        h1 {
-            max-width: 760px;
-            margin-bottom: 16px;
-            font-size: clamp(44px, 7vw, 82px);
-            line-height: 0.9;
-        }
-
-        .lead {
-            max-width: 760px;
-            margin: 0 0 22px;
-            font-size: 20px;
-            line-height: 1.66;
-            color: var(--muted);
-        }
-
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .filter-btn {
-            appearance: none;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            padding: 11px 16px;
-            background: rgba(255, 255, 255, 0.7);
-            color: var(--muted);
-            cursor: pointer;
-            transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease, color 0.16s ease;
-        }
-
-        .filter-btn:hover {
-            transform: translateY(-1px);
-            border-color: rgba(27, 78, 216, 0.22);
-            color: var(--text);
-        }
-
-        .filter-btn.is-active {
-            background: #18202b;
-            color: #fff;
-            border-color: #18202b;
+        .case-card,
+        .case-card-wide {
+          grid-column: span 1;
         }
 
         .hero-side {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            align-content: stretch;
+          min-height: auto;
         }
 
-        .art-card {
-            appearance: none;
-            position: relative;
-            overflow: hidden;
-            min-height: 168px;
-            padding: 18px;
-            border-radius: 24px;
-            border: 1px solid var(--line);
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 240, 232, 0.9));
-            display: grid;
-            place-items: center;
-            font: inherit;
-            text-align: left;
+        .path-grid {
+          padding-inline: 0;
+        }
+      }
+
+      @media (max-width: 780px) {
+        .poster,
+        .catalog-shell,
+        .footer {
+          padding-inline: 14px;
         }
 
-        .art-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 15%, rgba(27, 78, 216, 0.08), transparent 34%);
-            pointer-events: none;
+        .hero-points li {
+          grid-template-columns: 1fr;
+          gap: 6px;
         }
 
-        .art-card img {
-            width: 100%;
-            max-width: 138px;
-            max-height: 120px;
-            object-fit: contain;
+        .hero-stats,
+        .path-grid {
+          grid-template-columns: 1fr;
         }
 
-        .lp-filter {
-            cursor: pointer;
-            transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+        .path-tile {
+          min-height: 168px;
         }
 
-        .lp-filter:hover {
-            transform: translateY(-2px);
-            border-color: rgba(27, 78, 216, 0.22);
-            box-shadow: 0 18px 42px rgba(24, 32, 43, 0.08);
+        .path-tile-copy {
+          max-width: 68%;
         }
 
-        .lp-filter.is-active {
-            border-color: rgba(27, 78, 216, 0.28);
-            box-shadow: 0 20px 48px rgba(27, 78, 216, 0.12);
+        .filter-dock {
+          margin-top: -22px;
+          padding: 14px;
+          border-radius: 24px;
         }
 
-        .art-label {
-            position: absolute;
-            left: 14px;
-            bottom: 14px;
-            color: var(--soft);
-        }
-
-        .catalog {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .case-card {
-            position: relative;
-            display: grid;
-            grid-template-columns: 132px minmax(0, 1fr);
-            gap: 18px;
-            min-height: 240px;
-            padding: 18px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--line);
-            background: var(--panel);
-            box-shadow: var(--shadow);
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
-        }
-
-        .case-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(27, 78, 216, 0.22);
-            box-shadow: 0 30px 70px rgba(24, 32, 43, 0.11);
-        }
-
-        .case-card.is-hidden {
-            display: none;
-        }
-
-        .case-card[data-level="basic"] {
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(238, 247, 255, 0.86));
-        }
-
-        .case-card[data-level="advanced"] {
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(250, 243, 226, 0.9));
-        }
-
-        .case-card[data-level="expert"] {
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(244, 239, 246, 0.9));
-        }
-
-        .case-art {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--line);
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 237, 229, 0.94));
-            display: grid;
-            place-items: center;
-            padding: 16px;
-        }
-
-        .case-art img {
-            width: 100%;
-            max-width: 96px;
-            max-height: 96px;
-            object-fit: contain;
-        }
-
-        .case-copy {
-            display: grid;
-            align-content: start;
-            gap: 10px;
-        }
-
-        .case-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .case-meta span {
-            border-radius: 999px;
-            padding: 6px 10px;
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--muted);
-            border: 1px solid rgba(24, 32, 43, 0.08);
-        }
-
-        .case-meta span.lp-chip {
-            color: var(--blue);
-            border-color: rgba(27, 78, 216, 0.16);
-            background: rgba(238, 244, 255, 0.9);
+        .case-card,
+        .case-card-wide {
+          min-height: auto;
+          padding: 16px;
         }
 
         .case-copy h3 {
-            font-size: 28px;
-            line-height: 0.96;
+          font-size: clamp(1.6rem, 8vw, 2rem);
         }
 
-        .case-copy p {
-            margin: 0;
-            font-size: 15px;
-            line-height: 1.62;
-            color: var(--muted);
+        .doc-copy {
+          max-width: 74%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
         }
 
-        .case-bug {
-            margin-top: auto;
-            padding-top: 3px;
-            color: var(--soft);
-            font-family: "SF Pro Text", "Segoe UI", sans-serif;
-            font-size: 12px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+        .hero-seq,
+        .reveal {
+          opacity: 1;
+          transform: none;
+          animation: none;
+          transition: none;
         }
-
-        .case-card[data-level="basic"] .case-art {
-            background:
-                radial-gradient(circle at top left, rgba(27, 78, 216, 0.16), transparent 42%),
-                linear-gradient(180deg, #ffffff, #edf5ff);
-        }
-
-        .case-card[data-level="advanced"] .case-art {
-            background:
-                radial-gradient(circle at top left, rgba(188, 122, 23, 0.16), transparent 42%),
-                linear-gradient(180deg, #ffffff, #fbf3e4);
-        }
-
-        .case-card[data-level="expert"] .case-art {
-            background:
-                radial-gradient(circle at top left, rgba(112, 73, 160, 0.14), transparent 42%),
-                linear-gradient(180deg, #ffffff, #f3effa);
-        }
-
-        .case-card:nth-child(4n + 1) {
-            grid-column: span 2;
-            grid-template-columns: 180px minmax(0, 1fr);
-        }
-
-        .case-card:nth-child(4n + 1) .case-art img {
-            max-width: 122px;
-            max-height: 122px;
-        }
-
-        @media (max-width: 1080px) {
-            .hero-grid,
-            .catalog,
-            .case-card,
-            .case-card:nth-child(4n + 1) {
-                grid-template-columns: 1fr;
-            }
-
-            .case-card:nth-child(4n + 1) {
-                grid-column: span 1;
-            }
-
-            .hero-side {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .case-art {
-                min-height: 164px;
-            }
-        }
-
-        @media (max-width: 720px) {
-            .wrap {
-                padding: 16px 14px 68px;
-            }
-
-            .hero {
-                padding: 18px;
-                border-radius: 24px;
-            }
-
-            h1 {
-                font-size: clamp(36px, 15vw, 56px);
-            }
-
-            .lead {
-                font-size: 18px;
-            }
-
-            .hero-side {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-
-            .art-card,
-            .case-card {
-                border-radius: 22px;
-            }
-
-            .case-card {
-                min-height: auto;
-                padding: 16px;
-            }
-
-            .case-copy h3 {
-                font-size: 24px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <main class="wrap">
-        <section class="hero">
-            <div class="hero-grid">
-                <div>
-                    <div class="meta-row">
-                        <span class="meta-tag">21 кейс</span>
-                        <span class="meta-tag">обезличенные истории</span>
-                        <span class="meta-tag">фильтр по глубине</span>
-                        <span class="meta-tag">updated 2026-03-25</span>
-                    </div>
-                    <h1>Каталог кейсов IMT</h1>
-                    <p class="lead">
-                        Подборка обезличенных клиентских историй, собранных как отдельные кейсы.
-                        Можно отфильтровать их по глубине входа: от базовых к экспертным.
-                    </p>
+  </head>
+  <body>
+    <div class="page">
+      <section class="poster">
+        <div class="poster-inner">
+          <div class="brand-row hero-seq hero-seq-1">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <span>IMT Case Catalog</span>
+          </div>
 
-                    <div class="filters" aria-label="Фильтр глубины">
-                        <button class="filter-btn is-active" type="button" data-filter="all">Все</button>
-                        <button class="filter-btn" type="button" data-filter="basic">Базовые</button>
-                        <button class="filter-btn" type="button" data-filter="advanced">Продвинутые</button>
-                        <button class="filter-btn" type="button" data-filter="expert">Экспертные</button>
-                    </div>
-                </div>
+          <div class="hero-grid">
+            <div>
+              <div class="meta-strip hero-seq hero-seq-2">
+                <span class="meta-chip">21 кейс</span>
+                <span class="meta-chip"
+                  >9 базовых / 9 продвинутых / 3 экспертных</span
+                >
+                <span class="meta-chip">updated 2026-03-25</span>
+              </div>
 
-                <div class="hero-side" aria-label="Фильтр по Learning Path">
-                    <button class="art-card lp-filter" type="button" data-lp-filter="LP-PATTERNS-01">
-                        <img src="./svg/lp-patterns-focus.svg" alt="Фильтр по LP Patterns">
-                        <span class="art-label">patterns</span>
-                    </button>
-                    <button class="art-card lp-filter" type="button" data-lp-filter="LP-SELF-01">
-                        <img src="./svg/lp-self-pyramid.svg" alt="Фильтр по LP Self">
-                        <span class="art-label">self</span>
-                    </button>
-                    <button class="art-card lp-filter" type="button" data-lp-filter="LP-RELEARN-01">
-                        <img src="./svg/lp-relearn-pipeline.svg" alt="Фильтр по LP Relearn">
-                        <span class="art-label">relearn</span>
-                    </button>
-                    <button class="art-card lp-filter is-active" type="button" data-lp-filter="all">
-                        <img src="./svg/four-weeks.svg" alt="Показать все кейсы">
-                        <span class="art-label">all paths</span>
-                    </button>
-                </div>
+              <h1 class="hero-seq hero-seq-3">Каталог кейсов IMT</h1>
+              <p class="hero-lead hero-seq hero-seq-4">
+                21 обезличенная клиентская история в production-формате. Один
+                каталог, три learning paths и фильтр по глубине входа: от
+                раннего распознавания паттерна до более сложных управленческих и
+                инфраструктурных сбоев.
+              </p>
+
+              <ul class="hero-points hero-seq hero-seq-4">
+                <li>
+                  <span class="key">Что здесь</span>
+                  <span
+                    >Собранный каталог всех текущих case-pages в одном месте без
+                    рассыпанной навигации.</span
+                  >
+                </li>
+                <li>
+                  <span class="key">Как читать</span>
+                  <span
+                    >Сначала фильтр по depth, затем срез по Learning Path:
+                    patterns, self или relearn.</span
+                  >
+                </li>
+                <li>
+                  <span class="key">Последний кейс</span>
+                  <span
+                    >2026-03-23. Новые кейсы больше не живут отдельно от общей
+                    витрины.</span
+                  >
+                </li>
+              </ul>
+
+              <div class="hero-stats hero-seq hero-seq-4">
+                <article class="hero-stat">
+                  <strong>21</strong>
+                  <span>обезличенная история</span>
+                </article>
+                <article class="hero-stat">
+                  <strong>3</strong>
+                  <span>основных learning path</span>
+                </article>
+                <article class="hero-stat">
+                  <strong>2026-03-23</strong>
+                  <span>самый свежий кейс в каталоге</span>
+                </article>
+              </div>
             </div>
-        </section>
 
-        <section class="catalog" id="catalog">
-            <a class="case-card" data-case-id="CASE-WHERE-RESULT-01" data-level="basic" href="./case-where-result-01/">
-                <div class="case-art">
-                    <img src="./svg/lp-patterns-focus.svg" alt="Кейс про внутренний вопрос результата">
+            <div class="hero-side hero-seq hero-seq-3">
+              <div class="hero-side-glow" aria-hidden="true"></div>
+              <div class="path-grid" aria-label="Фильтр по Learning Path">
+                <button
+                  class="path-tile"
+                  type="button"
+                  data-lp-filter="LP-PATTERNS-01"
+                  style="
+                    --tone: #7fd39d;
+                    --tone-2: #8cb2ff;
+                    --tone-ink: #d8f5e1;
+                    --tone-surface: rgba(127, 211, 157, 0.08);
+                    --tone-glow: rgba(127, 211, 157, 0.28);
+                  "
+                >
+                  <div class="path-tile-copy">
+                    <span class="path-kicker">LP-PATTERNS-01</span>
+                    <strong>patterns</strong>
+                    <span class="path-count">6 кейсов</span>
+                  </div>
+                  <img
+                    src="./svg/lp-patterns-focus.svg"
+                    alt="Фильтр кейсов по Learning Path Patterns"
+                  />
+                </button>
+
+                <button
+                  class="path-tile"
+                  type="button"
+                  data-lp-filter="LP-SELF-01"
+                  style="
+                    --tone: #efbf7c;
+                    --tone-2: #f09393;
+                    --tone-ink: #ffe7c3;
+                    --tone-surface: rgba(239, 191, 124, 0.08);
+                    --tone-glow: rgba(239, 191, 124, 0.28);
+                  "
+                >
+                  <div class="path-tile-copy">
+                    <span class="path-kicker">LP-SELF-01</span>
+                    <strong>self</strong>
+                    <span class="path-count">9 кейсов</span>
+                  </div>
+                  <img
+                    src="./svg/lp-self-pyramid.svg"
+                    alt="Фильтр кейсов по Learning Path Self"
+                  />
+                </button>
+
+                <button
+                  class="path-tile"
+                  type="button"
+                  data-lp-filter="LP-RELEARN-01"
+                  style="
+                    --tone: #7ea6ff;
+                    --tone-2: #79d6c0;
+                    --tone-ink: #dbe6ff;
+                    --tone-surface: rgba(126, 166, 255, 0.08);
+                    --tone-glow: rgba(126, 166, 255, 0.28);
+                  "
+                >
+                  <div class="path-tile-copy">
+                    <span class="path-kicker">LP-RELEARN-01</span>
+                    <strong>relearn</strong>
+                    <span class="path-count">6 кейсов</span>
+                  </div>
+                  <img
+                    src="./svg/lp-relearn-pipeline.svg"
+                    alt="Фильтр кейсов по Learning Path Relearn"
+                  />
+                </button>
+
+                <button
+                  class="path-tile is-active"
+                  type="button"
+                  data-lp-filter="all"
+                  style="
+                    --tone: #b6bfd1;
+                    --tone-2: #ffffff;
+                    --tone-ink: #f1f4fb;
+                    --tone-surface: rgba(255, 255, 255, 0.08);
+                    --tone-glow: rgba(182, 191, 209, 0.22);
+                  "
+                >
+                  <div class="path-tile-copy">
+                    <span class="path-kicker">Case Catalog</span>
+                    <strong>all paths</strong>
+                    <span class="path-count">21 кейсов</span>
+                  </div>
+                  <img
+                    src="./svg/four-weeks.svg"
+                    alt="Сброс LP-фильтра и показ всех кейсов"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-shell">
+        <div class="catalog-inner">
+          <div class="filter-dock reveal is-visible">
+            <div class="filter-dock-grid">
+              <div class="filter-group" aria-label="Фильтр глубины">
+                <button
+                  class="filter-btn is-active"
+                  type="button"
+                  data-filter="all"
+                >
+                  Все
+                </button>
+                <button class="filter-btn" type="button" data-filter="basic">
+                  Базовые
+                </button>
+                <button class="filter-btn" type="button" data-filter="advanced">
+                  Продвинутые
+                </button>
+                <button class="filter-btn" type="button" data-filter="expert">
+                  Экспертные
+                </button>
+              </div>
+              <div class="result-chip">
+                Показано <strong id="visible-count">21</strong> из
+                <strong>21</strong> кейсов
+              </div>
+            </div>
+          </div>
+
+          <section class="catalog-grid" id="catalog-grid">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-where-result-01/"
+              data-case-id="CASE-WHERE-RESULT-01"
+              data-level="basic"
+              data-lp="LP-PATTERNS-01"
+              data-index="0"
+              style="
+                --tone: #7fd39d;
+                --tone-2: #8cb2ff;
+                --tone-surface: rgba(127, 211, 157, 0.08);
+                --tone-glow: rgba(127, 211, 157, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/lp-patterns-focus.svg"
+                  alt="Фокус на паттерне вопроса про результат"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Мирон</span>
+                  <span>Базовый</span>
+                  <span>2026-03-02</span>
+                  <span class="lp-chip">patterns</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Мирон</span>
-                        <span>Базовый</span>
-                        <span>2026-03-02</span>
-                    </div>
-                    <h3>Где результат?</h3>
-                    <p>Внутренний судья перестает маскироваться под здравый смысл и распознается как баг, который срывает клиента из жизни в самопроверку.</p>
-                    <div class="case-bug">Баг: внутренний судья про результат</div>
+                <h3>Где результат?</h3>
+                <p>
+                  Внутренний судья перестает маскироваться под здравый смысл и
+                  распознается как баг, который срывает клиента из жизни в
+                  самопроверку.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: внутренний судья про результат
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-DIGNITY-RATING-01" data-level="advanced" href="./case-dignity-rating-01/">
-                <div class="case-art">
-                    <img src="./svg/lp-self-pyramid.svg" alt="Кейс про внешний рейтинг и достоинство">
+            <a
+              class="case-card reveal"
+              href="./case-dignity-rating-01/"
+              data-case-id="CASE-DIGNITY-RATING-01"
+              data-level="advanced"
+              data-lp="LP-SELF-01"
+              data-index="1"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/lp-self-pyramid.svg"
+                  alt="Пирамида собственной ценности и достоинства"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Аврора</span>
+                  <span>Продвинутый</span>
+                  <span>2026-03-23</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Аврора</span>
-                        <span>Продвинутый</span>
-                        <span>2026-03-23</span>
-                    </div>
-                    <h3>Когда достоинство живет в чужих глазах</h3>
-                    <p>Похвала, тишина и спор перестают быть приговором, когда клиент вынимает свое достоинство из чужого рейтинга и возвращает его в критерий живости.</p>
-                    <div class="case-bug">Баг: высокий рейтинг в чужих глазах</div>
+                <h3>Когда достоинство живет в чужих глазах</h3>
+                <p>
+                  Похвала, тишина и спор перестают быть приговором, когда клиент
+                  вынимает свое достоинство из чужого рейтинга и возвращает его
+                  в критерий живости.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: высокий рейтинг в чужих глазах
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-SYSTEM-INSTEAD-SELF-01" data-level="expert" href="./case-system-instead-self-01/">
-                <div class="case-art">
-                    <img src="./svg/second-brain.svg" alt="Кейс про инфраструктуру вместо применения">
+            <a
+              class="case-card reveal"
+              href="./case-system-instead-self-01/"
+              data-case-id="CASE-SYSTEM-INSTEAD-SELF-01"
+              data-level="expert"
+              data-lp="LP-RELEARN-01"
+              data-index="2"
+              style="
+                --tone: #7ea6ff;
+                --tone-2: #79d6c0;
+                --tone-surface: rgba(126, 166, 255, 0.08);
+                --tone-glow: rgba(126, 166, 255, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/second-brain.svg"
+                  alt="Второй мозг и перегруз инфраструктурой"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Тимур</span>
+                  <span>Экспертный</span>
+                  <span>2026-03-09</span>
+                  <span class="lp-chip">relearn</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Тимур</span>
-                        <span>Экспертный</span>
-                        <span>2026-03-09</span>
-                    </div>
-                    <h3>Сначала допилю систему, потом применю к себе</h3>
-                    <p>Красивые инструменты перестают подменять собой личное применение, когда клиент снова подчиняет систему реальному росту жизни, а не наоборот.</p>
-                    <div class="case-bug">Баг: автоматизированный фарисей</div>
+                <h3>Сначала допилю систему, потом применю к себе</h3>
+                <p>
+                  Красивые инструменты перестают подменять собой личное
+                  применение, когда клиент снова подчиняет систему реальному
+                  росту жизни, а не наоборот.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: автоматизированный фарисей</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-PLAN-IDOL-01" data-level="basic" href="./case-plan-idol-01/">
-                <div class="case-art">
-                    <img src="./svg/intent-economy.svg" alt="Кейс про поклонение плану">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-plan-idol-01/"
+              data-case-id="CASE-PLAN-IDOL-01"
+              data-level="basic"
+              data-lp="LP-PATTERNS-01"
+              data-index="3"
+              style="
+                --tone: #7fd39d;
+                --tone-2: #8cb2ff;
+                --tone-surface: rgba(127, 211, 157, 0.08);
+                --tone-glow: rgba(127, 211, 157, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/intent-economy.svg"
+                  alt="Экономика намерения и подмена цели планом"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Лея</span>
+                  <span>Базовый</span>
+                  <span>2026-02-02</span>
+                  <span class="lp-chip">patterns</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Лея</span>
-                        <span>Базовый</span>
-                        <span>2026-02-02</span>
-                    </div>
-                    <h3>Когда план становится лжебогом</h3>
-                    <p>Бытовые сбои вскрывают скрытую зависимость от маршрута, пока любовь не возвращается на позицию цели номер один прямо внутри дня.</p>
-                    <div class="case-bug">Баг: счастье привязано к плану</div>
+                <h3>Когда план становится лжебогом</h3>
+                <p>
+                  Бытовые сбои вскрывают скрытую зависимость от маршрута, пока
+                  любовь не возвращается на позицию цели номер один прямо внутри
+                  дня.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: счастье привязано к плану</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-REALIZATION-FLAG-01" data-level="expert" href="./case-realization-flag-01/">
-                <div class="case-art">
-                    <img src="./svg/lp-relearn-pipeline.svg" alt="Кейс про перегруз в реализации">
+            <a
+              class="case-card reveal"
+              href="./case-realization-flag-01/"
+              data-case-id="CASE-REALIZATION-FLAG-01"
+              data-level="expert"
+              data-lp="LP-RELEARN-01"
+              data-index="4"
+              style="
+                --tone: #7ea6ff;
+                --tone-2: #79d6c0;
+                --tone-surface: rgba(126, 166, 255, 0.08);
+                --tone-glow: rgba(126, 166, 255, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/lp-relearn-pipeline.svg"
+                  alt="Переобучение реализации шаг за шагом"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Савва</span>
+                  <span>Экспертный</span>
+                  <span>2026-02-16</span>
+                  <span class="lp-chip">relearn</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Савва</span>
-                        <span>Экспертный</span>
-                        <span>2026-02-16</span>
-                    </div>
-                    <h3>Как только началась реализация, меня не стало</h3>
-                    <p>Реализация перестает быть тоннелем к флажку, когда главным KPI снова становится количество жизни в процессе, а не только итог.</p>
-                    <div class="case-bug">Баг: реализация ради флажка</div>
+                <h3>Как только началась реализация, меня не стало</h3>
+                <p>
+                  Реализация перестает быть тоннелем к флажку, когда главным KPI
+                  снова становится количество жизни в процессе, а не только
+                  итог.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: реализация ради флажка</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-RIGHT-PLAN-01" data-level="advanced" href="./case-right-plan-01/">
-                <div class="case-art">
-                    <img src="./svg/lp-marn-filter.svg" alt="Фильтр живого импульса перед построением плана">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-right-plan-01/"
+              data-case-id="CASE-RIGHT-PLAN-01"
+              data-level="advanced"
+              data-lp="LP-SELF-01"
+              data-index="5"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/lp-marn-filter.svg"
+                  alt="Фильтр живого импульса перед построением плана"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Инга</span>
+                  <span>Продвинутый</span>
+                  <span>2026-02-09</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Инга</span>
-                        <span>Продвинутый</span>
-                        <span>2026-02-09</span>
-                    </div>
-                    <h3>Правильный план без меня</h3>
-                    <p>Внешняя правильность уступает место внутреннему «хочу», и план снова становится гипотезой живого человека, а не схемой без хозяина.</p>
-                    <div class="case-bug">Баг: внешняя правильность вместо своего «хочу»</div>
+                <h3>Правильный план без меня</h3>
+                <p>
+                  Внешняя правильность уступает место внутреннему «хочу», и план
+                  снова становится гипотезой живого человека, а не схемой без
+                  хозяина.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: внешняя правильность вместо своего «хочу»
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-FEEDBACK-TRUTH-01" data-level="basic" href="./case-feedback-truth-01/">
-                <div class="case-art">
-                    <img src="./svg/context-ai.svg" alt="Кейс про внешний фидбек и самоценность">
+            <a
+              class="case-card reveal"
+              href="./case-feedback-truth-01/"
+              data-case-id="CASE-FEEDBACK-TRUTH-01"
+              data-level="basic"
+              data-lp="LP-SELF-01"
+              data-index="6"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/context-ai.svg"
+                  alt="Внешний контекст и чтение собственной ценности"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Нора</span>
+                  <span>Базовый</span>
+                  <span>2026-03-17</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Нора</span>
-                        <span>Базовый</span>
-                        <span>2026-03-17</span>
-                    </div>
-                    <h3>Когда чужая оценка становится моей правдой</h3>
-                    <p>Шумный внешний фидбек теряет силу приговора, когда клиентка возвращает себе факты доверия, свою ценность и собственный стандарт качества.</p>
-                    <div class="case-bug">Баг: внешняя оценка вместо собственной ценности</div>
+                <h3>Когда чужая оценка становится моей правдой</h3>
+                <p>
+                  Шумный внешний фидбек теряет силу приговора, когда клиентка
+                  возвращает себе факты доверия, свою ценность и собственный
+                  стандарт качества.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: внешняя оценка вместо собственной ценности
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-PERMISSION-REST-01" data-level="basic" href="./case-permission-rest-01/">
-                <div class="case-art">
-                    <img src="./svg/exoskeleton.svg" alt="Кейс про право на отдых и паузу">
+            <a
+              class="case-card reveal"
+              href="./case-permission-rest-01/"
+              data-case-id="CASE-PERMISSION-REST-01"
+              data-level="basic"
+              data-lp="LP-SELF-01"
+              data-index="7"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/exoskeleton.svg"
+                  alt="Право на отдых без внешнего экзоскелета одобрения"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Эрик</span>
+                  <span>Базовый</span>
+                  <span>2026-03-02</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Эрик</span>
-                        <span>Базовый</span>
-                        <span>2026-03-02</span>
-                    </div>
-                    <h3>Я могу отдыхать только когда разрешат</h3>
-                    <p>Болезнь и перегруз перестают быть моральным поражением, когда внутренний сигнал становится достаточным основанием для восстановления без внешней санкции.</p>
-                    <div class="case-bug">Баг: разрешение на себя извне</div>
+                <h3>Я могу отдыхать только когда разрешат</h3>
+                <p>
+                  Болезнь и перегруз перестают быть моральным поражением, когда
+                  внутренний сигнал становится достаточным основанием для
+                  восстановления без внешней санкции.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: разрешение на себя извне</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-GIVE-RESULT-01" data-level="advanced" href="./case-give-result-01/">
-                <div class="case-art">
-                    <img src="./svg/cm-mkuypomn-uhzhbr.svg" alt="Передача результата и динамика двух сторон">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-give-result-01/"
+              data-case-id="CASE-GIVE-RESULT-01"
+              data-level="advanced"
+              data-lp="LP-RELEARN-01"
+              data-index="8"
+              style="
+                --tone: #7ea6ff;
+                --tone-2: #79d6c0;
+                --tone-surface: rgba(126, 166, 255, 0.08);
+                --tone-glow: rgba(126, 166, 255, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/cm-mkuypomn-uhzhbr.svg"
+                  alt="Передача результата и динамика двух сторон"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Веста</span>
+                  <span>Продвинутый</span>
+                  <span>2026-02-09</span>
+                  <span class="lp-chip">relearn</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Веста</span>
-                        <span>Продвинутый</span>
-                        <span>2026-02-09</span>
-                    </div>
-                    <h3>Я должна дать людям результат</h3>
-                    <p>Любимое дело перестает выгорать, когда клиентка разводит передачу понимания и обязанность своими руками производить чужой результат.</p>
-                    <div class="case-bug">Баг: чужие результаты на моих плечах</div>
+                <h3>Я должна дать людям результат</h3>
+                <p>
+                  Любимое дело перестает выгорать, когда клиентка разводит
+                  передачу понимания и обязанность своими руками производить
+                  чужой результат.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: чужие результаты на моих плечах
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-CAN-MUST-01" data-level="advanced" href="./case-can-must-01/">
-                <div class="case-art">
-                    <img src="./svg/lp-science-network.svg" alt="Сеть обязанностей и центр собственной ответственности">
+            <a
+              class="case-card reveal"
+              href="./case-can-must-01/"
+              data-case-id="CASE-CAN-MUST-01"
+              data-level="advanced"
+              data-lp="LP-SELF-01"
+              data-index="9"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/lp-science-network.svg"
+                  alt="Сеть обязанностей и центр собственной ответственности"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Ася</span>
+                  <span>Продвинутый</span>
+                  <span>2026-01-12</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Ася</span>
-                        <span>Продвинутый</span>
-                        <span>2026-01-12</span>
-                    </div>
-                    <h3>Если умею — значит должна</h3>
-                    <p>Собственная сила перестает автоматически вести в самопотерю, когда клиентка снова различает «умею», «люблю» и «хочу».</p>
-                    <div class="case-bug">Баг: тащить чужую ответственность</div>
+                <h3>Если умею — значит должна</h3>
+                <p>
+                  Собственная сила перестает автоматически вести в самопотерю,
+                  когда клиентка снова различает «умею», «люблю» и «хочу».
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: тащить чужую ответственность</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-TIME-BELONGS-01" data-level="basic" href="./case-time-belongs-01/">
-                <div class="case-art">
-                    <img src="./svg/four-weeks.svg" alt="Ритм и возврат хозяина своему времени">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-time-belongs-01/"
+              data-case-id="CASE-TIME-BELONGS-01"
+              data-level="basic"
+              data-lp="LP-RELEARN-01"
+              data-index="10"
+              style="
+                --tone: #7ea6ff;
+                --tone-2: #79d6c0;
+                --tone-surface: rgba(126, 166, 255, 0.08);
+                --tone-glow: rgba(126, 166, 255, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/four-weeks.svg"
+                  alt="Ритм и возврат хозяина своему времени"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Таир</span>
+                  <span>Базовый</span>
+                  <span>2025-11-10</span>
+                  <span class="lp-chip">relearn</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Таир</span>
-                        <span>Базовый</span>
-                        <span>2025-11-10</span>
-                    </div>
-                    <h3>Мое время принадлежит всем</h3>
-                    <p>Личное время снова получает хозяина, когда коммуникации переводятся в асинхрон, а границы задаются заранее, а не через поздний срыв.</p>
-                    <div class="case-bug">Баг: обязана быть доступной сразу</div>
+                <h3>Мое время принадлежит всем</h3>
+                <p>
+                  Личное время снова получает хозяина, когда коммуникации
+                  переводятся в асинхрон, а границы задаются заранее, а не через
+                  поздний срыв.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: обязана быть доступной сразу</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-NEGATIVITY-DRAIN-01" data-level="basic" href="./case-negativity-drain-01/">
-                <div class="case-art">
-                    <img src="./svg/digital-twin.svg" alt="Свое состояние рядом с чужим эмоциональным полем">
+            <a
+              class="case-card reveal"
+              href="./case-negativity-drain-01/"
+              data-case-id="CASE-NEGATIVITY-DRAIN-01"
+              data-level="basic"
+              data-lp="LP-PATTERNS-01"
+              data-index="11"
+              style="
+                --tone: #7fd39d;
+                --tone-2: #8cb2ff;
+                --tone-surface: rgba(127, 211, 157, 0.08);
+                --tone-glow: rgba(127, 211, 157, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/digital-twin.svg"
+                  alt="Свое состояние рядом с чужим эмоциональным полем"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Рада</span>
+                  <span>Базовый</span>
+                  <span>2025-11-10</span>
+                  <span class="lp-chip">patterns</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Рада</span>
-                        <span>Базовый</span>
-                        <span>2025-11-10</span>
-                    </div>
-                    <h3>Когда чужой негатив становится моим состоянием</h3>
-                    <p>Холодный контакт перестает выбрасывать клиента из жизни, когда чужой климат больше не принимается за свою внутреннюю правду.</p>
-                    <div class="case-bug">Баг: автоматическое заражение чужим негативом</div>
+                <h3>Когда чужой негатив становится моим состоянием</h3>
+                <p>
+                  Холодный контакт перестает выбрасывать клиента из жизни, когда
+                  чужой климат больше не принимается за свою внутреннюю правду.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: автоматическое заражение чужим негативом
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-CLUB-IMPULSE-01" data-level="advanced" href="./case-club-impulse-01/">
-                <div class="case-art">
-                    <img src="./svg/lp-science-network.svg" alt="Живая идея клуба и сеть возможных связей">
+            <a
+              class="case-card reveal"
+              href="./case-club-impulse-01/"
+              data-case-id="CASE-CLUB-IMPULSE-01"
+              data-level="advanced"
+              data-lp="LP-SELF-01"
+              data-index="12"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/lp-science-network.svg"
+                  alt="Живая идея клуба и сеть возможных связей"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Дина</span>
+                  <span>Продвинутый</span>
+                  <span>2025-11-24</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Дина</span>
-                        <span>Продвинутый</span>
-                        <span>2025-11-24</span>
-                    </div>
-                    <h3>Когда калькулятор гасит живую идею</h3>
-                    <p>Живое желание перестает проигрывать внутреннему совету директоров, когда расчеты снова обслуживают импульс, а не выносят ему приговор.</p>
-                    <div class="case-bug">Баг: рациональный совет директоров против живого импульса</div>
+                <h3>Когда калькулятор гасит живую идею</h3>
+                <p>
+                  Живое желание перестает проигрывать внутреннему совету
+                  директоров, когда расчеты снова обслуживают импульс, а не
+                  выносят ему приговор.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: рациональный совет директоров против живого импульса
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-PRICE-SHAME-01" data-level="advanced" href="./case-price-shame-01/">
-                <div class="case-art">
-                    <img src="./svg/lp-self-pyramid.svg" alt="Право занимать место и спокойно называть цену">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-price-shame-01/"
+              data-case-id="CASE-PRICE-SHAME-01"
+              data-level="advanced"
+              data-lp="LP-SELF-01"
+              data-index="13"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/lp-self-pyramid.svg"
+                  alt="Право занимать место и спокойно называть цену"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Глеб</span>
+                  <span>Продвинутый</span>
+                  <span>2025-12-17</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Глеб</span>
-                        <span>Продвинутый</span>
-                        <span>2025-12-17</span>
-                    </div>
-                    <h3>Когда цена ощущается стыдом</h3>
-                    <p>Оплата перестает звучать как моральная неловкость, когда клиентка отделяет стоимость услуги от оценки собственной личности.</p>
-                    <div class="case-bug">Баг: недостойна брать оплату</div>
+                <h3>Когда цена ощущается стыдом</h3>
+                <p>
+                  Оплата перестает звучать как моральная неловкость, когда
+                  клиентка отделяет стоимость услуги от оценки собственной
+                  личности.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: недостойна брать оплату</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-IMPULSE-LATER-01" data-level="advanced" href="./case-impulse-later-01/">
-                <div class="case-art">
-                    <img src="./svg/second-brain.svg" alt="Живой импульс и архив на потом">
+            <a
+              class="case-card reveal"
+              href="./case-impulse-later-01/"
+              data-case-id="CASE-IMPULSE-LATER-01"
+              data-level="advanced"
+              data-lp="LP-SELF-01"
+              data-index="14"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/second-brain.svg"
+                  alt="Живой импульс, который нельзя оставлять только во втором мозге"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Злата</span>
+                  <span>Продвинутый</span>
+                  <span>2026-02-07</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Злата</span>
-                        <span>Продвинутый</span>
-                        <span>2026-02-07</span>
-                    </div>
-                    <h3>Я складирую жизнь на потом</h3>
-                    <p>Живая идея перестает уходить в архив, когда клиент сначала делает короткий шаг, а уже потом строит вокруг него систему.</p>
-                    <div class="case-bug">Баг: складирование жизни в папки на потом</div>
+                <h3>Я складирую жизнь на потом</h3>
+                <p>
+                  Живая идея перестает уходить в архив, когда клиент сначала
+                  делает короткий шаг, а уже потом строит вокруг него систему.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: складирование жизни в папки на потом
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-SUCCESS-SHAME-01" data-level="advanced" href="./case-success-shame-01/">
-                <div class="case-art">
-                    <img src="./svg/exoskeleton.svg" alt="Внешний успех и внутреннее право на него">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-success-shame-01/"
+              data-case-id="CASE-SUCCESS-SHAME-01"
+              data-level="advanced"
+              data-lp="LP-SELF-01"
+              data-index="15"
+              style="
+                --tone: #efbf7c;
+                --tone-2: #f09393;
+                --tone-surface: rgba(239, 191, 124, 0.08);
+                --tone-glow: rgba(239, 191, 124, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/exoskeleton.svg"
+                  alt="Внешний уровень жизни и внутреннее право на него"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Марк</span>
+                  <span>Продвинутый</span>
+                  <span>2025-11-14</span>
+                  <span class="lp-chip">self</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Марк</span>
-                        <span>Продвинутый</span>
-                        <span>2025-11-14</span>
-                    </div>
-                    <h3>Когда заработанное кажется незаслуженным</h3>
-                    <p>Рост дохода и Tesla перестают переживаться как временная ошибка, когда клиент возвращает себе право на уже созданный результат.</p>
-                    <div class="case-bug">Баг: стыд за заработанный успех</div>
+                <h3>Когда заработанное кажется незаслуженным</h3>
+                <p>
+                  Рост дохода и Tesla перестают переживаться как временная
+                  ошибка, когда клиент возвращает себе право на уже созданный
+                  результат.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: стыд за заработанный успех</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-CREDIT-LOOP-01" data-level="basic" href="./case-credit-loop-01/">
-                <div class="case-art">
-                    <img src="./svg/intent-economy.svg" alt="Кредитная петля и автоматическая нехватка">
+            <a
+              class="case-card reveal"
+              href="./case-credit-loop-01/"
+              data-case-id="CASE-CREDIT-LOOP-01"
+              data-level="basic"
+              data-lp="LP-PATTERNS-01"
+              data-index="16"
+              style="
+                --tone: #7fd39d;
+                --tone-2: #8cb2ff;
+                --tone-surface: rgba(127, 211, 157, 0.08);
+                --tone-glow: rgba(127, 211, 157, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/intent-economy.svg"
+                  alt="Денежная петля, где нехватка автоматически превращается в заем"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Ева</span>
+                  <span>Базовый</span>
+                  <span>2026-03-21</span>
+                  <span class="lp-chip">patterns</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Ева</span>
-                        <span>Базовый</span>
-                        <span>2026-03-21</span>
-                    </div>
-                    <h3>Быстрый займ превращается в петлю</h3>
-                    <p>Маленькая нехватка больше не маскируется под безобидный мостик, когда быстрый займ распознается как повтор старой кредитной игры.</p>
-                    <div class="case-bug">Баг: дофаминовый кредитный шаблон</div>
+                <h3>Быстрый займ превращается в петлю</h3>
+                <p>
+                  Маленькая нехватка больше не маскируется под безобидный
+                  мостик, когда быстрый займ распознается как повтор старой
+                  кредитной игры.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: дофаминовый кредитный шаблон</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-RESTART-ZERO-01" data-level="basic" href="./case-restart-zero-01/">
-                <div class="case-art">
-                    <img src="./svg/four-weeks.svg" alt="Ритм, который возвращается без обнуления">
+            <a
+              class="case-card reveal"
+              href="./case-restart-zero-01/"
+              data-case-id="CASE-RESTART-ZERO-01"
+              data-level="basic"
+              data-lp="LP-RELEARN-01"
+              data-index="17"
+              style="
+                --tone: #7ea6ff;
+                --tone-2: #79d6c0;
+                --tone-surface: rgba(126, 166, 255, 0.08);
+                --tone-glow: rgba(126, 166, 255, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/four-weeks.svg"
+                  alt="Ритм, который возвращается после паузы без обнуления"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Кай</span>
+                  <span>Базовый</span>
+                  <span>2026-01-25</span>
+                  <span class="lp-chip">relearn</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Кай</span>
-                        <span>Базовый</span>
-                        <span>2026-01-25</span>
-                    </div>
-                    <h3>Если выпал из ритма, не значит вернулся в ноль</h3>
-                    <p>Пауза перестает обнулять путь, когда возврат строится не через идеальный рестарт, а через маленький живой вход обратно в процесс.</p>
-                    <div class="case-bug">Баг: рестарт с нуля после паузы</div>
+                <h3>Если выпал из ритма, не значит вернулся в ноль</h3>
+                <p>
+                  Пауза перестает обнулять путь, когда возврат строится не через
+                  идеальный рестарт, а через маленький живой вход обратно в
+                  процесс.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: рестарт с нуля после паузы</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-BUYIN-NOD-01" data-level="advanced" href="./case-buyin-nod-01/">
-                <div class="case-art">
-                    <img src="./svg/context-ai.svg" alt="Внешний кивок и настоящая включенность">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-buyin-nod-01/"
+              data-case-id="CASE-BUYIN-NOD-01"
+              data-level="advanced"
+              data-lp="LP-RELEARN-01"
+              data-index="18"
+              style="
+                --tone: #7ea6ff;
+                --tone-2: #79d6c0;
+                --tone-surface: rgba(126, 166, 255, 0.08);
+                --tone-glow: rgba(126, 166, 255, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/context-ai.svg"
+                  alt="Контекст и артефакты против пустого внешнего согласия"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Лина</span>
+                  <span>Продвинутый</span>
+                  <span>2026-03-06</span>
+                  <span class="lp-chip">relearn</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Лина</span>
-                        <span>Продвинутый</span>
-                        <span>2026-03-06</span>
-                    </div>
-                    <h3>Кивок не значит, что человек включился</h3>
-                    <p>Командный кивок перестает обманывать, когда клиент больше не путает вежливое согласие с настоящей включенностью.</p>
-                    <div class="case-bug">Баг: ожидание мгновенной веры после одного разговора</div>
+                <h3>Кивок не значит, что человек включился</h3>
+                <p>
+                  Командный кивок перестает обманывать, когда клиент больше не
+                  путает вежливое согласие с настоящей включенностью.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: ожидание мгновенной веры после одного разговора
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-MICROMANAGE-FEAR-01" data-level="expert" href="./case-micromanage-fear-01/">
-                <div class="case-art">
-                    <img src="./svg/cm-mkuypomn-uhzhbr.svg" alt="Страх и сжатие роли до микроменеджмента">
+            <a
+              class="case-card reveal"
+              href="./case-micromanage-fear-01/"
+              data-case-id="CASE-MICROMANAGE-FEAR-01"
+              data-level="expert"
+              data-lp="LP-PATTERNS-01"
+              data-index="19"
+              style="
+                --tone: #7fd39d;
+                --tone-2: #8cb2ff;
+                --tone-surface: rgba(127, 211, 157, 0.08);
+                --tone-glow: rgba(127, 211, 157, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/cm-mkuypomn-uhzhbr.svg"
+                  alt="Две стороны игры и рамка вместо ручного контроля"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Оскар</span>
+                  <span>Экспертный</span>
+                  <span>2025-11-28</span>
+                  <span class="lp-chip">patterns</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Оскар</span>
-                        <span>Экспертный</span>
-                        <span>2025-11-28</span>
-                    </div>
-                    <h3>Когда страх сжимает роль до микроменеджмента</h3>
-                    <p>Риск перестает стягивать клиента в кнопочки и ставки, когда страх переводится в рамку, волны запуска и ясные условия игры.</p>
-                    <div class="case-bug">Баг: страх сжимает роль до ручного контроля</div>
+                <h3>Когда страх сжимает роль до микроменеджмента</h3>
+                <p>
+                  Риск перестает стягивать клиента в кнопочки и ставки, когда
+                  страх переводится в рамку, волны запуска и ясные условия игры.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">
+                    Баг: страх сжимает роль до ручного контроля
+                  </div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
 
-            <a class="case-card" data-case-id="CASE-SCROLL-RELIEF-01" data-level="basic" href="./case-scroll-relief-01/">
-                <div class="case-art">
-                    <img src="./svg/digital-twin.svg" alt="Вечерний скролл как сброс перегруза">
+            <a
+              class="case-card reveal case-card-wide"
+              href="./case-scroll-relief-01/"
+              data-case-id="CASE-SCROLL-RELIEF-01"
+              data-level="basic"
+              data-lp="LP-PATTERNS-01"
+              data-index="20"
+              style="
+                --tone: #7fd39d;
+                --tone-2: #8cb2ff;
+                --tone-surface: rgba(127, 211, 157, 0.08);
+                --tone-glow: rgba(127, 211, 157, 0.28);
+              "
+            >
+              <div class="case-art">
+                <img
+                  src="./svg/digital-twin.svg"
+                  alt="Цифровой двойник как поздний сброс накопленного перегруза"
+                />
+              </div>
+              <div class="case-copy">
+                <div class="case-meta">
+                  <span>Яна</span>
+                  <span>Базовый</span>
+                  <span>2026-01-30</span>
+                  <span class="lp-chip">patterns</span>
                 </div>
-                <div class="case-copy">
-                    <div class="case-meta">
-                        <span>Яна</span>
-                        <span>Базовый</span>
-                        <span>2026-01-30</span>
-                    </div>
-                    <h3>Думскроллинг не про слабую волю</h3>
-                    <p>Вечерний скролл теряет роль аварийного клапана, когда напряжение начинают выражать раньше, чем оно успевает попроситься в экран.</p>
-                    <div class="case-bug">Баг: скролл как слив перегруза</div>
+                <h3>Думскроллинг не про слабую волю</h3>
+                <p>
+                  Вечерний скролл теряет роль аварийного клапана, когда
+                  напряжение начинают выражать раньше, чем оно успевает
+                  попроситься в экран.
+                </p>
+                <div class="case-footer">
+                  <div class="case-bug">Баг: скролл как слив перегруза</div>
+                  <span class="case-open">Открыть кейс</span>
                 </div>
+              </div>
             </a>
-        </section>
-    </main>
+          </section>
 
-    <script src="./case-assets.js"></script>
+          <div class="empty-state" id="empty-state">
+            По этой комбинации фильтров кейсы пока не показываются.
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <section class="footer-shell reveal">
+            <div class="section-kicker">Learning Paths</div>
+            <h2>Траектории, через которые читаются кейсы</h2>
+            <p>
+              Каталог теперь синхронизирован с path-логикой: можно смотреть
+              кейсы как витрину, а можно сразу перейти в документ траектории и
+              читать теорию инвариантов на стороне LP.
+            </p>
+            <div class="doc-grid">
+              <a
+                class="doc-card reveal"
+                href="./lp-patterns-doc/"
+                style="
+                  --tone: #7fd39d;
+                  --tone-2: #8cb2ff;
+                  --tone-surface: rgba(127, 211, 157, 0.08);
+                  --tone-glow: rgba(127, 211, 157, 0.28);
+                "
+              >
+                <div class="doc-copy">
+                  <span class="doc-kicker">LP-PATTERNS-01</span>
+                  <h3>Patterns</h3>
+                  <p>
+                    Повторяющиеся схемы, которые перестают быть фоном и
+                    становятся читаемыми багами.
+                  </p>
+                  <span class="doc-count">6 связанных кейсов</span>
+                </div>
+                <img
+                  src="./svg/lp-patterns-focus.svg"
+                  alt="Фильтр кейсов по Learning Path Patterns"
+                />
+              </a>
+
+              <a
+                class="doc-card reveal"
+                href="./lp-self-doc/"
+                style="
+                  --tone: #efbf7c;
+                  --tone-2: #f09393;
+                  --tone-surface: rgba(239, 191, 124, 0.08);
+                  --tone-glow: rgba(239, 191, 124, 0.28);
+                "
+              >
+                <div class="doc-copy">
+                  <span class="doc-kicker">LP-SELF-01</span>
+                  <h3>Self</h3>
+                  <p>
+                    Собственная ценность, право занимать место и выход из жизни
+                    по чужому стандарту.
+                  </p>
+                  <span class="doc-count">9 связанных кейсов</span>
+                </div>
+                <img
+                  src="./svg/lp-self-pyramid.svg"
+                  alt="Фильтр кейсов по Learning Path Self"
+                />
+              </a>
+
+              <a
+                class="doc-card reveal"
+                href="./lp-relearn-doc/"
+                style="
+                  --tone: #7ea6ff;
+                  --tone-2: #79d6c0;
+                  --tone-surface: rgba(126, 166, 255, 0.08);
+                  --tone-glow: rgba(126, 166, 255, 0.28);
+                "
+              >
+                <div class="doc-copy">
+                  <span class="doc-kicker">LP-RELEARN-01</span>
+                  <h3>Relearn</h3>
+                  <p>
+                    Переобучение реакции через повтор, перенос в практику и
+                    закрепление нового контура.
+                  </p>
+                  <span class="doc-count">6 связанных кейсов</span>
+                </div>
+                <img
+                  src="./svg/lp-relearn-pipeline.svg"
+                  alt="Фильтр кейсов по Learning Path Relearn"
+                />
+              </a>
+            </div>
+          </section>
+        </div>
+      </footer>
+    </div>
+
     <script>
-        const levelButtons = Array.from(document.querySelectorAll(".filter-btn"));
-        const lpButtons = Array.from(document.querySelectorAll(".lp-filter"));
-        const cards = Array.from(document.querySelectorAll(".case-card"));
-        const assets = window.caseAssets || {};
-        const lpFilters = window.caseLpFilters || [];
+      (() => {
+        const levelButtons = [...document.querySelectorAll(".filter-btn")];
+        const lpButtons = [...document.querySelectorAll(".path-tile")];
+        const cards = [...document.querySelectorAll(".case-card")];
+        const visibleCount = document.querySelector("#visible-count");
+        const emptyState = document.querySelector("#empty-state");
         const state = { level: "all", lp: "all" };
 
-        const applyCardAssets = () => {
-            cards.forEach((card) => {
-                const asset = assets[card.dataset.caseId];
-                if (!asset) return;
-
-                card.dataset.lp = asset.lp;
-
-                const img = card.querySelector(".case-art img");
-                if (img) {
-                    img.src = `./svg/${asset.svg}`;
-                    img.alt = asset.alt;
-                }
-
-                const metaRow = card.querySelector(".case-meta");
-                if (!metaRow) return;
-
-                let chip = metaRow.querySelector(".lp-chip");
-                if (!chip) {
-                    chip = document.createElement("span");
-                    chip.className = "lp-chip";
-                    metaRow.appendChild(chip);
-                }
-
-                chip.textContent = asset.lpLabel;
-            });
-        };
-
-        const applyLpTiles = () => {
-            lpButtons.forEach((button) => {
-                const config = lpFilters.find((item) => item.key === button.dataset.lpFilter);
-                if (!config) return;
-
-                const img = button.querySelector("img");
-                const label = button.querySelector(".art-label");
-
-                if (img) {
-                    img.src = `./svg/${config.svg}`;
-                    img.alt = config.alt;
-                }
-
-                if (label) label.textContent = config.label;
-                button.title = config.title;
-            });
-        };
-
         const applyFilters = () => {
-            cards.forEach((card) => {
-                const levelOk = state.level === "all" || card.dataset.level === state.level;
-                const lpOk = state.lp === "all" || card.dataset.lp === state.lp;
-                card.classList.toggle("is-hidden", !(levelOk && lpOk));
-            });
+          let visible = 0;
 
-            levelButtons.forEach((button) => {
-                button.classList.toggle("is-active", button.dataset.filter === state.level);
-            });
+          cards.forEach((card) => {
+            const levelOk =
+              state.level === "all" || card.dataset.level === state.level;
+            const lpOk = state.lp === "all" || card.dataset.lp === state.lp;
+            const show = levelOk && lpOk;
+            card.classList.toggle("is-hidden", !show);
+            if (show) visible += 1;
+          });
 
-            lpButtons.forEach((button) => {
-                button.classList.toggle("is-active", button.dataset.lpFilter === state.lp);
-            });
+          levelButtons.forEach((button) => {
+            button.classList.toggle(
+              "is-active",
+              button.dataset.filter === state.level,
+            );
+          });
+
+          lpButtons.forEach((button) => {
+            button.classList.toggle(
+              "is-active",
+              button.dataset.lpFilter === state.lp,
+            );
+          });
+
+          if (visibleCount) visibleCount.textContent = String(visible);
+          if (emptyState)
+            emptyState.classList.toggle("is-visible", visible === 0);
         };
-
-        applyCardAssets();
-        applyLpTiles();
-        applyFilters();
 
         levelButtons.forEach((button) => {
-            button.addEventListener("click", () => {
-                state.level = button.dataset.filter;
-                applyFilters();
-            });
+          button.addEventListener("click", () => {
+            state.level = button.dataset.filter;
+            applyFilters();
+          });
         });
 
         lpButtons.forEach((button) => {
-            button.addEventListener("click", () => {
-                state.lp = button.dataset.lpFilter;
-                applyFilters();
-            });
+          button.addEventListener("click", () => {
+            state.lp = button.dataset.lpFilter;
+            applyFilters();
+            if (window.innerWidth < 980) {
+              document.querySelector(".filter-dock")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
         });
+
+        const reduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const revealNodes = [...document.querySelectorAll(".reveal")].filter(
+          (node) => !node.classList.contains("is-visible"),
+        );
+
+        if (!reduced && "IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries, obs) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+              });
+            },
+            { threshold: 0.14 },
+          );
+
+          revealNodes.forEach((node) => observer.observe(node));
+        } else {
+          revealNodes.forEach((node) => node.classList.add("is-visible"));
+        }
+
+        applyFilters();
+      })();
     </script>
-</body>
+  </body>
 </html>
