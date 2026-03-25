@@ -75,7 +75,7 @@
 
       .poster {
         position: relative;
-        min-height: 100svh;
+        min-height: auto;
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
@@ -207,7 +207,7 @@
         display: grid;
         grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
         gap: clamp(32px, 6vw, 80px);
-        align-items: center;
+        align-items: end;
         padding-top: clamp(8px, 2vw, 16px);
       }
 
@@ -289,33 +289,47 @@
         background: transparent;
       }
 
-      .hero-notes {
+      .hero-specs {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-        margin-top: clamp(32px, 5vw, 72px);
+        gap: 16px;
+        margin-top: 24px;
       }
 
-      .hero-note {
-        padding-top: 16px;
-        border-top: 1px solid rgba(255, 255, 255, 0.14);
+      .hero-spec {
+        min-height: 156px;
+        padding: 18px 18px 20px;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.04)
+          ),
+          rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(18px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
       }
 
-      .hero-note strong {
-        display: block;
-        margin-bottom: 8px;
-        font-size: 0.86rem;
-        color: rgba(245, 247, 251, 0.98);
+      .hero-spec-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(245, 247, 251, 0.6);
       }
 
-      .hero-note p {
-        margin: 0;
-        color: rgba(245, 247, 251, 0.74);
+      .hero-spec-value {
+        margin-top: 12px;
+        color: #f5f7fb;
+        font-size: 1rem;
+        line-height: 1.45;
       }
 
       .hero-visual {
         position: relative;
-        min-height: 460px;
+        min-height: clamp(360px, 40vw, 520px);
         display: grid;
         place-items: center;
       }
@@ -1007,7 +1021,7 @@
           bottom: 0;
         }
 
-        .hero-notes {
+        .hero-specs {
           grid-template-columns: 1fr;
         }
 
@@ -1144,24 +1158,26 @@
                 </li>
               </ul>
 
-              <div class="hero-notes hero-seq-4">
-                <div class="hero-note">
-                  <strong>Баг</strong>
-                  <p>Внутренний судья: «Где результат?»</p>
-                </div>
-                <div class="hero-note">
-                  <strong>Цена дефекта</strong>
-                  <p>
+              <div class="hero-specs hero-seq-4">
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Баг</div>
+                  <div class="hero-spec-value">
+                    Внутренний судья: «Где результат?»
+                  </div>
+                </article>
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Цена дефекта</div>
+                  <div class="hero-spec-value">
                     Тревога, самонаказание, возврат к угождению ради ресурса
-                  </p>
-                </div>
-                <div class="hero-note">
-                  <strong>Новая опора</strong>
-                  <p>
+                  </div>
+                </article>
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Новая опора</div>
+                  <div class="hero-spec-value">
                     Привычка созидать из любви вместо доказательства права на
                     жизнь
-                  </p>
-                </div>
+                  </div>
+                </article>
               </div>
             </div>
 
