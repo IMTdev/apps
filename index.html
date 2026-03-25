@@ -178,8 +178,8 @@
       }
 
       h1 {
-        max-width: 9ch;
-        font-size: clamp(3.8rem, 11vw, 8rem);
+        max-width: none;
+        font-size: clamp(2.8rem, 5vw, 3.7rem);
         line-height: 0.92;
         letter-spacing: -0.06em;
       }
@@ -819,6 +819,11 @@
           padding-inline: 14px;
         }
 
+        h1 {
+          max-width: 8ch;
+          font-size: clamp(2.6rem, 14vw, 3.4rem);
+        }
+
         .hero-points li {
           grid-template-columns: 1fr;
           gap: 6px;
@@ -855,6 +860,12 @@
 
         .doc-copy {
           max-width: 74%;
+        }
+      }
+
+      @media (min-width: 960px) {
+        h1 {
+          white-space: nowrap;
         }
       }
 

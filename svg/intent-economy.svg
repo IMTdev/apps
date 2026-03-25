@@ -17,8 +17,6 @@
     </style>
   </defs>
   
-  <rect width="800" height="800" fill="#FFFFFF"/>
-  
   <!-- Left Side: Attention Economy (scattered) -->
   <g opacity="0.4">
     <circle cx="150" cy="200" r="10" fill="#4a5768"/>

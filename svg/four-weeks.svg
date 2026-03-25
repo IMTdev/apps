@@ -19,8 +19,6 @@
     </style>
   </defs>
   
-  <rect width="800" height="800" fill="#FFFFFF"/>
-  
   <!-- Base Line -->
   <line x1="100" y1="400" x2="700" y2="400" stroke="#E5E5E5" stroke-width="2"/>
   

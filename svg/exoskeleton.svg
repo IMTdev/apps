@@ -3,7 +3,7 @@
     <style>
       .accent { fill: #1b4ed8; stroke: #1b4ed8; }
       .neutral { fill: #4a5768; stroke: #4a5768; }
-      .bg { fill: #FFFFFF; }
+      .bg { fill: transparent; }
       
       @keyframes expand {
         0% { transform: scaleY(1); }

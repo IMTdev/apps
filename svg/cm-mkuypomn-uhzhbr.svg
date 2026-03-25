@@ -13,8 +13,6 @@
     </style>
   </defs>
   
-  <rect width="800" height="800" fill="#FFFFFF" />
-  
   <!-- Trampoline Structure -->
   <line x1="150" y1="550" x2="150" y2="600" class="line" />
   <line x1="650" y1="550" x2="650" y2="600" class="line" />

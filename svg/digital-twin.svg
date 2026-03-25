@@ -14,8 +14,6 @@
     </style>
   </defs>
   
-  <rect width="800" height="800" fill="#FFFFFF"/>
-  
   <!-- Divider -->
   <line x1="400" y1="100" x2="400" y2="700" stroke="#E5E5E5" stroke-dasharray="8 8"/>
   

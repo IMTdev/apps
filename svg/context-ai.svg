@@ -20,8 +20,6 @@
     </style>
   </defs>
 
-  <rect width="800" height="800" fill="#FFFFFF"/>
-
   <!-- Subtle grid lines -->
   <g opacity="0.1">
     <line x1="200" y1="100" x2="200" y2="620" stroke="#4a5768" stroke-width="1"/>
