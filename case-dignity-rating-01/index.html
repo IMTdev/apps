@@ -227,8 +227,8 @@
 
       h1 {
         margin: 0;
-        max-width: 9ch;
-        font-size: clamp(3.5rem, 11vw, 8rem);
+        max-width: none;
+        font-size: clamp(2.8rem, 5vw, 3.7rem);
         line-height: 0.92;
         letter-spacing: -0.06em;
       }
@@ -885,6 +885,11 @@
       }
 
       @media (max-width: 920px) {
+        h1 {
+          max-width: 8ch;
+          font-size: clamp(2.6rem, 14vw, 3.4rem);
+        }
+
         .topbar {
           width: min(100%, 240px);
         }
