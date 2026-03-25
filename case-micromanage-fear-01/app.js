@@ -278,9 +278,16 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
 
+  const renderCatalogLink = (className = "") => `
+    <a class="catalog-link${className ? ` ${className}` : ""}" href="../">← Вернуться к каталогу кейсов</a>
+  `;
+
   const renderHero = () => `
     <header class="doc-header" id="hero">
         <div class="hero-copy">
+            <nav class="case-nav" aria-label="Навигация по кейсу">
+                ${renderCatalogLink()}
+            </nav>
             <div class="meta-row">
                 <span class="meta-tag">case: ${data.meta.caseId}</span>
                 <span class="meta-tag">based on summary: ${data.meta.basedOn}</span>
@@ -432,6 +439,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="meta-row">
             <a class="btn btn-secondary" href="${data.cta.secondary.url}" target="_blank" rel="noopener noreferrer">${data.cta.secondary.label}</a>
             <a class="btn btn-primary" href="${data.cta.primary.url}" target="_blank" rel="noopener noreferrer">${data.cta.primary.label}</a>
+        </div>
+        <div class="catalog-return">
+            ${renderCatalogLink("catalog-link-muted")}
         </div>
     </section>
   `;
