@@ -1,21 +1,2254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMT Case</title>
-    <meta name="description" content="IMT case page">
-    <link rel="stylesheet" href="./styles.css">
-    <script defer src="../case-assets.js"></script>
-    <script defer src="./case-data.js"></script>
-    <script defer src="./app.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      CASE-FEEDBACK-TRUTH-01 — Когда чужая оценка становится моей правдой —
+      Вариант v2
+    </title>
+    <meta
+      name="description"
+      content="Кейс о том, как хаотичная рабочая оценка и чужие выпады превращались для клиента в приговор о собственной ценности."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --page-bg: #f3f0e8;
+        --page-ink: #11151d;
+        --page-muted: #5c6472;
+        --page-line: rgba(17, 21, 29, 0.11);
+        --panel: rgba(255, 255, 255, 0.82);
+        --hero-dark: #0d1320;
+        --hero-soft: #182239;
+        --accent: #efbf7c;
+        --accent-2: #f09393;
+        --accent-ink: #ffe7c3;
+        --accent-glow: rgba(239, 191, 124, 0.34);
+        --tone-red: #ba6f70;
+        --tone-slate: #6d7a8f;
+        --tone-amber: #c99642;
+        --tone-blue: #4d8fc4;
+        --tone-green: #4b9067;
+        --shadow-soft: 0 24px 80px rgba(17, 21, 29, 0.1);
+        --radius-xl: 32px;
+        --radius-lg: 26px;
+        --radius-md: 18px;
+        --content-width: 1320px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--page-ink);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(239, 235, 219, 0.86),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(255, 255, 255, 0.7),
+            transparent 30%
+          ),
+          var(--page-bg);
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page {
+        overflow-x: clip;
+      }
+
+      .poster {
+        position: relative;
+        min-height: 100svh;
+        padding: clamp(28px, 4vw, 48px);
+        color: #f5f7fb;
+        background:
+          radial-gradient(
+            circle at top left,
+            color-mix(in srgb, var(--accent) 24%, transparent),
+            transparent 34%
+          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
+          linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
+      }
+
+      .poster::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 84px 84px;
+        mask-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.85),
+          transparent 92%
+        );
+        pointer-events: none;
+      }
+
+      .poster-inner,
+      .story-shell,
+      .footer-shell {
+        position: relative;
+        z-index: 1;
+        width: min(var(--content-width), 100%);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 4;
+        display: flex;
+        justify-content: flex-end;
+        width: min(100%, 420px);
+      }
+
+      .brand-copy,
+      .meta-chip,
+      .jump-link,
+      .chapter-kicker,
+      .rail-title,
+      .rail-nav span:first-child,
+      .quote-label,
+      .compare-label,
+      .section-callout-kicker,
+      .inner-callout-kicker,
+      .footer-kicker {
+        font-family: "IBM Plex Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .jump-link,
+      .rail-back,
+      .footer-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .jump-link,
+      .rail-back {
+        gap: 10px;
+        max-width: 100%;
+        padding-inline: 20px;
+        border-color: rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f7fb;
+        font-size: 0.8rem;
+        line-height: 1.2;
+        text-align: left;
+        white-space: normal;
+      }
+
+      .jump-link-arrow {
+        flex: 0 0 auto;
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      .jump-link-text {
+        text-wrap: balance;
+      }
+
+      .jump-link:hover,
+      .rail-back:hover,
+      .footer-action:hover,
+      .rail-nav a:hover {
+        transform: translateY(-1px);
+      }
+
+      .poster-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+        gap: clamp(32px, 6vw, 80px);
+        align-items: center;
+        padding-top: clamp(10px, 2vw, 18px);
+      }
+
+      .hero-copy {
+        max-width: 720px;
+      }
+
+      .meta-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .meta-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(245, 247, 251, 0.82);
+        font-size: 0.68rem;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 9ch;
+        font-size: clamp(3.5rem, 11vw, 8rem);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      .hero-lead {
+        margin: 22px 0 0;
+        max-width: 56ch;
+        font-size: clamp(1.02rem, 2vw, 1.2rem);
+        color: rgba(245, 247, 251, 0.82);
+      }
+
+      .hero-lines {
+        list-style: none;
+        margin: 28px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+        max-width: 62ch;
+      }
+
+      .hero-lines li {
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr);
+        gap: 14px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-lines .k {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(245, 247, 251, 0.62);
+      }
+
+      .hero-lines span:last-child {
+        color: rgba(245, 247, 251, 0.82);
+      }
+
+      .hero-specs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .hero-spec {
+        padding: 16px 18px 18px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero-spec-label {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(245, 247, 251, 0.6);
+      }
+
+      .hero-spec-value {
+        margin-top: 10px;
+        color: #f5f7fb;
+        font-size: 0.98rem;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: clamp(420px, 48vw, 620px);
+      }
+
+      .hero-visual::before,
+      .hero-visual::after {
+        content: "";
+        position: absolute;
+        inset: auto;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        pointer-events: none;
+      }
+
+      .hero-visual::before {
+        inset: 4% 4% 2% 8%;
+        border-radius: 999px;
+      }
+
+      .hero-visual::after {
+        inset: 12% 18% 16% 12%;
+      }
+
+      .hero-rings,
+      .hero-glow {
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .hero-rings {
+        inset: -8% -6% -10% -12%;
+      }
+
+      .hero-rings::before,
+      .hero-rings::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .hero-rings::before {
+        inset: 0 4% 0 0;
+      }
+
+      .hero-rings::after {
+        inset: 18% 18% 18% 16%;
+      }
+
+      .hero-glow {
+        width: clamp(180px, 25vw, 280px);
+        height: clamp(180px, 25vw, 280px);
+        right: 10%;
+        bottom: 14%;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          var(--accent-glow),
+          transparent 72%
+        );
+        filter: blur(6px);
+      }
+
+      .hero-figure {
+        position: absolute;
+        inset: 12% 10% 16% 10%;
+        display: grid;
+        place-items: center;
+      }
+
+      .hero-figure-frame {
+        width: min(100%, 540px);
+        color: var(--accent-ink);
+        filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.18));
+      }
+
+      .hero-figure-frame svg {
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+      }
+
+      .hero-quote {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: min(390px, 78%);
+        padding: 24px 28px 26px;
+        border-radius: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.14),
+            rgba(255, 255, 255, 0.06)
+          ),
+          rgba(17, 21, 29, 0.5);
+        backdrop-filter: blur(24px);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+      }
+
+      .hero-quote p {
+        margin: 0;
+        font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-quote .quote-label {
+        display: block;
+        margin-bottom: 18px;
+        color: rgba(245, 247, 251, 0.66);
+        font-size: 0.76rem;
+      }
+
+      .story-shell {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: clamp(28px, 4vw, 46px);
+        margin-top: clamp(44px, 8vw, 84px);
+        margin-bottom: 72px;
+      }
+
+      .story-rail-inner {
+        position: sticky;
+        top: 28px;
+        padding: 24px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        backdrop-filter: blur(16px);
+      }
+
+      .rail-title {
+        margin: 0 0 18px;
+        color: var(--page-muted);
+        font-size: 0.74rem;
+      }
+
+      .rail-nav {
+        display: grid;
+        gap: 8px;
+      }
+
+      .rail-nav a {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 16px;
+        text-decoration: none;
+        color: var(--page-muted);
+        transition:
+          transform 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .rail-nav a.is-active {
+        background: rgba(17, 21, 29, 0.06);
+        color: var(--page-ink);
+      }
+
+      .rail-nav span:first-child {
+        font-size: 0.7rem;
+        color: var(--page-muted);
+      }
+
+      .rail-back {
+        margin-top: 18px;
+        width: 100%;
+        border-color: rgba(17, 21, 29, 0.08);
+        background: rgba(17, 21, 29, 0.04);
+        color: var(--page-ink);
+      }
+
+      .story-content {
+        display: grid;
+        gap: 26px;
+      }
+
+      .chapter {
+        position: relative;
+        padding: clamp(28px, 5vw, 42px);
+        padding-left: clamp(34px, 6vw, 50px);
+        border-radius: var(--radius-xl);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.76),
+          rgba(255, 255, 255, 0.9)
+        );
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .chapter::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 36px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--tone);
+        box-shadow: 0 0 0 8px color-mix(in srgb, var(--tone) 15%, transparent);
+      }
+
+      .chapter::after {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 58px;
+        bottom: -26px;
+        width: 2px;
+        background: color-mix(in srgb, var(--tone) 22%, transparent);
+      }
+
+      .story-content .chapter:last-child::after {
+        display: none;
+      }
+
+      .tone-red {
+        --tone: var(--tone-red);
+      }
+
+      .tone-slate {
+        --tone: var(--tone-slate);
+      }
+
+      .tone-amber {
+        --tone: var(--tone-amber);
+      }
+
+      .tone-blue {
+        --tone: var(--tone-blue);
+      }
+
+      .tone-green {
+        --tone: var(--tone-green);
+      }
+
+      .chapter-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 34%);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .chapter-kicker {
+        color: var(--tone);
+        font-size: 0.8rem;
+      }
+
+      h2 {
+        margin: 14px 0 0;
+        font-size: clamp(2rem, 5vw, 4.2rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
+
+      .chapter-intro {
+        margin: 0;
+        color: var(--page-muted);
+        font-size: clamp(1rem, 1.5vw, 1.14rem);
+      }
+
+      .chapter-body {
+        margin-top: 28px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .chapter-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .line-block {
+        padding: 22px 24px 24px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+      }
+
+      .line-block-soft {
+        background: color-mix(in srgb, var(--tone) 7%, white);
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.28rem;
+        letter-spacing: -0.03em;
+      }
+
+      .line-block p {
+        margin: 12px 0 0;
+        color: var(--page-muted);
+      }
+
+      .line-block ul,
+      .compare-card ul {
+        margin: 18px 0 0;
+        padding-left: 22px;
+        color: var(--page-ink);
+      }
+
+      .line-block li,
+      .compare-card li {
+        margin-top: 8px;
+      }
+
+      .section-callout,
+      .inner-callout {
+        position: relative;
+        padding: 22px 24px 24px;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+
+      .section-callout::before,
+      .inner-callout::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      }
+
+      .section-callout {
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--tone) 12%, white),
+          rgba(255, 255, 255, 0.86)
+        );
+      }
+
+      .inner-callout {
+        margin-top: 18px;
+      }
+
+      .invariant-callout {
+        border: 1px solid
+          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        background:
+          radial-gradient(
+            circle at top right,
+            color-mix(in srgb, var(--accent-2) 18%, transparent),
+            transparent 44%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(17, 21, 29, 0.96),
+            rgba(21, 29, 49, 0.92)
+          );
+        color: #f5f7fb;
+        box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
+      }
+
+      .invariant-callout::before {
+        width: 6px;
+      }
+
+      .section-callout-kicker,
+      .inner-callout-kicker {
+        position: relative;
+        z-index: 1;
+        font-size: 0.74rem;
+      }
+
+      .section-callout p,
+      .inner-callout p {
+        position: relative;
+        z-index: 1;
+        margin: 12px 0 0;
+        font-size: 1.06rem;
+      }
+
+      .quote-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .quote-card {
+        padding: 24px;
+        border-radius: 24px;
+        background: rgba(17, 21, 29, 0.04);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+      }
+
+      .quote-card blockquote {
+        margin: 14px 0 0;
+        font-size: 1.18rem;
+        line-height: 1.35;
+        letter-spacing: -0.03em;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 90px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+      }
+
+      .compare-card {
+        padding: 24px 26px 26px;
+        border-radius: 30px;
+        border: 1px solid rgba(17, 21, 29, 0.08);
+      }
+
+      .compare-card.before {
+        background: color-mix(in srgb, var(--tone-red) 8%, white);
+      }
+
+      .compare-card.after {
+        background: color-mix(in srgb, var(--tone-green) 11%, white);
+      }
+
+      .compare-label {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        font-size: 0.68rem;
+        background: rgba(17, 21, 29, 0.05);
+      }
+
+      .compare-card p {
+        margin: 14px 0 0;
+        font-size: 1.04rem;
+      }
+
+      .compare-arrow {
+        display: grid;
+        place-items: center;
+        font-size: 2rem;
+        color: var(--tone-green);
+      }
+
+      .compare-arrow .arrow-mobile {
+        display: none;
+      }
+
+      .result-callout {
+        margin-top: 4px;
+      }
+
+      .footer {
+        padding: 0 18px 64px;
+      }
+
+      .cta-shell {
+        padding: clamp(28px, 5vw, 44px);
+        border-radius: 34px;
+        background:
+          radial-gradient(
+            circle at top right,
+            color-mix(in srgb, var(--accent) 18%, transparent),
+            transparent 28%
+          ),
+          linear-gradient(
+            135deg,
+            rgba(13, 19, 32, 0.96),
+            rgba(21, 29, 49, 0.96)
+          );
+        color: #f5f7fb;
+      }
+
+      .footer-kicker {
+        font-size: 0.74rem;
+        color: rgba(245, 247, 251, 0.64);
+      }
+
+      .cta-shell h2 {
+        margin-top: 14px;
+        max-width: 16ch;
+        font-size: clamp(2.2rem, 5vw, 4.6rem);
+        color: #f5f7fb;
+      }
+
+      .cta-shell p {
+        max-width: 58ch;
+        color: rgba(245, 247, 251, 0.8);
+      }
+
+      .footer-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .footer-action {
+        padding-inline: 22px;
+      }
+
+      .footer-action-secondary {
+        border-color: rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f7fb;
+      }
+
+      .footer-action-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #11151d;
+      }
+
+      .footer-return {
+        margin-top: 18px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 520ms ease,
+          transform 520ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero-seq {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: hero-rise 680ms ease forwards;
+      }
+
+      .hero-seq-1 {
+        animation-delay: 100ms;
+      }
+
+      .hero-seq-2 {
+        animation-delay: 180ms;
+      }
+
+      .hero-seq-3 {
+        animation-delay: 260ms;
+      }
+
+      .hero-seq-4 {
+        animation-delay: 340ms;
+      }
+
+      .hero-seq-5 {
+        animation-delay: 420ms;
+      }
+
+      .hero-seq-6 {
+        animation-delay: 500ms;
+      }
+
+      @keyframes hero-rise {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1180px) {
+        .story-shell {
+          grid-template-columns: 1fr;
+          margin-top: 42px;
+        }
+
+        .story-rail-inner {
+          position: static;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .topbar {
+          width: min(100%, 240px);
+        }
+
+        .poster {
+          min-height: auto;
+          padding-top: 96px;
+          padding-inline: 18px;
+          padding-bottom: 34px;
+        }
+
+        .poster-grid,
+        .chapter-head,
+        .compare-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 380px;
+        }
+
+        .hero-quote {
+          right: 0;
+          bottom: 0;
+          width: min(340px, 82%);
+        }
+
+        .hero-specs,
+        .chapter-grid,
+        .detail-grid,
+        .quote-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .compare-arrow {
+          min-height: 52px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .topbar {
+          width: min(100%, 232px);
+        }
+
+        .jump-link {
+          min-height: 42px;
+          padding: 10px 14px;
+          justify-content: flex-start;
+          align-items: flex-start;
+          font-size: 0.74rem;
+          border-color: rgba(255, 255, 255, 0.22);
+          background: rgba(255, 255, 255, 0.07);
+        }
+
+        .hero-lines li {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+
+        .hero-figure {
+          inset: 12% 8% 22% 8%;
+        }
+
+        .hero-quote {
+          padding: 20px 22px 22px;
+        }
+
+        .hero-quote p {
+          font-size: clamp(1.26rem, 6vw, 1.7rem);
+        }
+
+        .chapter {
+          padding-left: 28px;
+        }
+
+        .chapter::before {
+          left: 12px;
+          width: 12px;
+          height: 12px;
+          box-shadow: 0 0 0 7px color-mix(in srgb, var(--tone) 14%, transparent);
+        }
+
+        .chapter::after {
+          left: 17px;
+        }
+
+        .compare-arrow {
+          font-size: 1.8rem;
+        }
+
+        .compare-arrow .arrow-desktop {
+          display: none;
+        }
+
+        .compare-arrow .arrow-mobile {
+          display: inline;
+        }
+
+        .story-rail-inner {
+          padding: 20px;
+        }
+
+        .footer-actions {
+          flex-direction: column;
+        }
+
+        .footer-action {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal,
+        .hero-seq {
+          opacity: 1;
+          transform: none;
+          animation: none;
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <div class="page">
-        <div class="container page-grid">
-            <main class="main" id="main-root"></main>
-            <aside class="sidebar" id="sidebar-root"></aside>
+      <section class="poster" id="hero">
+        <div class="poster-inner">
+          <div class="topbar hero-seq hero-seq-1">
+            <a class="jump-link" href="../">
+              <span class="jump-link-arrow" aria-hidden="true">←</span>
+              <span class="jump-link-text">Вернуться к каталогу кейсов</span>
+            </a>
+          </div>
+
+          <div class="poster-grid">
+            <div class="hero-copy">
+              <div class="meta-strip hero-seq hero-seq-2">
+                <span class="meta-chip">case: CASE-FEEDBACK-TRUTH-01</span>
+                <span class="meta-chip">based on summary: 2026-03-17</span>
+                <span class="meta-chip">read time: 9 minutes</span>
+              </div>
+
+              <h1 class="hero-seq hero-seq-3">
+                Когда чужая оценка становится моей правдой
+              </h1>
+              <p class="hero-lead hero-seq hero-seq-4">
+                Клиент много лет держал высокий стандарт и автономно строил свое
+                направление. Но после серии выпадов, оценки 360 и смены
+                управленческого контекста внутри стало нарастать опасное
+                смещение: чужой шум начал звучать как правда о собственной
+                ценности. На консультации фокус вернулся к фактам доверия и к
+                собственному внутреннему стандарту, а не к хаотичному внешнему
+                фону.
+              </p>
+
+              <ul class="hero-lines hero-seq hero-seq-5">
+                <li>
+                  <span class="k">Что здесь</span>
+                  <span
+                    >Один кейс о том, как рабочая оценка превращалась в
+                    внутренний приговор и лишала мотивации.</span
+                  >
+                </li>
+
+                <li>
+                  <span class="k">Что ломалось</span>
+                  <span
+                    >Клиент все больше верил шуму, а не сильным фактам
+                    собственной ценности и доверия.</span
+                  >
+                </li>
+
+                <li>
+                  <span class="k">Что менялось</span>
+                  <span
+                    >Внутренний стандарт и живые сигналы доверия снова
+                    становились важнее хаотичной критики.</span
+                  >
+                </li>
+
+                <li>
+                  <span class="k">Основа</span>
+                  <span
+                    >Source summary про оценку 360, потерю веры в себя, высокие
+                    стандарты и возврат к внутренней опоре.</span
+                  >
+                </li>
+              </ul>
+
+              <div class="hero-specs hero-seq hero-seq-6">
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Баг</div>
+                  <div class="hero-spec-value">
+                    Внешняя оценка вместо собственной ценности
+                  </div>
+                </article>
+
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Цена дефекта</div>
+                  <div class="hero-spec-value">
+                    Потеря уверенности, раздражение и жизнь на топливе
+                    «доказать»
+                  </div>
+                </article>
+
+                <article class="hero-spec">
+                  <div class="hero-spec-label">Новая опора</div>
+                  <div class="hero-spec-value">
+                    Сильные факты доверия и собственный стандарт качества
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="hero-visual hero-seq hero-seq-3">
+              <div class="hero-rings" aria-hidden="true"></div>
+              <div class="hero-glow" aria-hidden="true"></div>
+              <div class="hero-figure">
+                <div
+                  class="hero-figure-frame"
+                  role="img"
+                  aria-label="Внешний контекст и чтение собственной ценности"
+                >
+                  <svg
+                    width="800"
+                    height="800"
+                    viewBox="0 0 800 800"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <style>
+                        @keyframes pulse {
+                          0%,
+                          100% {
+                            fill: #4a5768;
+                            r: 6;
+                          }
+                          50% {
+                            fill: #1b4ed8;
+                            r: 10;
+                          }
+                        }
+
+                        @keyframes scan-line {
+                          0% {
+                            opacity: 0;
+                            transform: translateY(-200px);
+                          }
+                          10% {
+                            opacity: 1;
+                          }
+                          90% {
+                            opacity: 1;
+                          }
+                          100% {
+                            opacity: 0;
+                            transform: translateY(200px);
+                          }
+                        }
+
+                        @keyframes glow {
+                          0%,
+                          100% {
+                            opacity: 0;
+                          }
+                          50% {
+                            opacity: 0.3;
+                          }
+                        }
+                      </style>
+                    </defs>
+
+                    <rect width="800" height="800" fill="#FFFFFF" />
+
+                    <!-- Subtle grid lines -->
+                    <g opacity="0.1">
+                      <line
+                        x1="200"
+                        y1="100"
+                        x2="200"
+                        y2="620"
+                        stroke="#4a5768"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="600"
+                        y1="100"
+                        x2="600"
+                        y2="620"
+                        stroke="#4a5768"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="100"
+                        y1="200"
+                        x2="700"
+                        y2="200"
+                        stroke="#4a5768"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="100"
+                        y1="520"
+                        x2="700"
+                        y2="520"
+                        stroke="#4a5768"
+                        stroke-width="1"
+                      />
+                    </g>
+
+                    <!-- Data Grid 8x8 - representing context -->
+                    <g id="grid">
+                      <!-- Row 1 -->
+                      <circle
+                        cx="200"
+                        cy="200"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0s"
+                      />
+                      <circle
+                        cx="260"
+                        cy="200"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.1s"
+                      />
+                      <circle
+                        cx="320"
+                        cy="200"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.2s"
+                      />
+                      <circle
+                        cx="380"
+                        cy="200"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.3s"
+                      />
+                      <circle
+                        cx="440"
+                        cy="200"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.4s"
+                      />
+                      <circle
+                        cx="500"
+                        cy="200"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.5s"
+                      />
+                      <circle
+                        cx="560"
+                        cy="200"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.6s"
+                      />
+                      <circle
+                        cx="620"
+                        cy="200"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.7s"
+                      />
+
+                      <!-- Row 2 -->
+                      <circle
+                        cx="200"
+                        cy="260"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.1s"
+                      />
+                      <circle
+                        cx="260"
+                        cy="260"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.2s"
+                      />
+                      <circle
+                        cx="320"
+                        cy="260"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.3s"
+                      />
+                      <circle
+                        cx="380"
+                        cy="260"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.4s"
+                      />
+                      <circle
+                        cx="440"
+                        cy="260"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.5s"
+                      />
+                      <circle
+                        cx="500"
+                        cy="260"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.6s"
+                      />
+                      <circle
+                        cx="560"
+                        cy="260"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.7s"
+                      />
+                      <circle
+                        cx="620"
+                        cy="260"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.8s"
+                      />
+
+                      <!-- Row 3 -->
+                      <circle
+                        cx="200"
+                        cy="320"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.2s"
+                      />
+                      <circle
+                        cx="260"
+                        cy="320"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.3s"
+                      />
+                      <circle
+                        cx="320"
+                        cy="320"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.4s"
+                      />
+                      <circle
+                        cx="380"
+                        cy="320"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.5s"
+                      />
+                      <circle
+                        cx="440"
+                        cy="320"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.6s"
+                      />
+                      <circle
+                        cx="500"
+                        cy="320"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.7s"
+                      />
+                      <circle
+                        cx="560"
+                        cy="320"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.8s"
+                      />
+                      <circle
+                        cx="620"
+                        cy="320"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.9s"
+                      />
+
+                      <!-- Row 4 -->
+                      <circle
+                        cx="200"
+                        cy="380"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.3s"
+                      />
+                      <circle
+                        cx="260"
+                        cy="380"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.4s"
+                      />
+                      <circle
+                        cx="320"
+                        cy="380"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.5s"
+                      />
+                      <circle cx="380" cy="380" r="10" fill="#1b4ed8" />
+                      <circle cx="440" cy="380" r="10" fill="#1b4ed8" />
+                      <circle
+                        cx="500"
+                        cy="380"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.7s"
+                      />
+                      <circle
+                        cx="560"
+                        cy="380"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.8s"
+                      />
+                      <circle
+                        cx="620"
+                        cy="380"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.9s"
+                      />
+
+                      <!-- Row 5 -->
+                      <circle
+                        cx="200"
+                        cy="440"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.4s"
+                      />
+                      <circle
+                        cx="260"
+                        cy="440"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.5s"
+                      />
+                      <circle
+                        cx="320"
+                        cy="440"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.6s"
+                      />
+                      <circle cx="380" cy="440" r="10" fill="#1b4ed8" />
+                      <circle cx="440" cy="440" r="10" fill="#1b4ed8" />
+                      <circle
+                        cx="500"
+                        cy="440"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.8s"
+                      />
+                      <circle
+                        cx="560"
+                        cy="440"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.9s"
+                      />
+                      <circle
+                        cx="620"
+                        cy="440"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1s"
+                      />
+
+                      <!-- Row 6 -->
+                      <circle
+                        cx="200"
+                        cy="500"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.5s"
+                      />
+                      <circle
+                        cx="260"
+                        cy="500"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.6s"
+                      />
+                      <circle
+                        cx="320"
+                        cy="500"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.7s"
+                      />
+                      <circle
+                        cx="380"
+                        cy="500"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.8s"
+                      />
+                      <circle
+                        cx="440"
+                        cy="500"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.9s"
+                      />
+                      <circle
+                        cx="500"
+                        cy="500"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1s"
+                      />
+                      <circle
+                        cx="560"
+                        cy="500"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.1s"
+                      />
+                      <circle
+                        cx="620"
+                        cy="500"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.2s"
+                      />
+
+                      <!-- Row 7 -->
+                      <circle
+                        cx="200"
+                        cy="560"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.6s"
+                      />
+                      <circle
+                        cx="260"
+                        cy="560"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.7s"
+                      />
+                      <circle
+                        cx="320"
+                        cy="560"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.8s"
+                      />
+                      <circle
+                        cx="380"
+                        cy="560"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.9s"
+                      />
+                      <circle
+                        cx="440"
+                        cy="560"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1s"
+                      />
+                      <circle
+                        cx="500"
+                        cy="560"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.1s"
+                      />
+                      <circle
+                        cx="560"
+                        cy="560"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.2s"
+                      />
+                      <circle
+                        cx="620"
+                        cy="560"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.3s"
+                      />
+
+                      <!-- Row 8 -->
+                      <circle
+                        cx="200"
+                        cy="620"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.7s"
+                      />
+                      <circle
+                        cx="260"
+                        cy="620"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.8s"
+                      />
+                      <circle
+                        cx="320"
+                        cy="620"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 0.9s"
+                      />
+                      <circle
+                        cx="380"
+                        cy="620"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1s"
+                      />
+                      <circle
+                        cx="440"
+                        cy="620"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.1s"
+                      />
+                      <circle
+                        cx="500"
+                        cy="620"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.2s"
+                      />
+                      <circle
+                        cx="560"
+                        cy="620"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.3s"
+                      />
+                      <circle
+                        cx="620"
+                        cy="620"
+                        r="6"
+                        fill="#4a5768"
+                        style="animation: pulse 3s ease-in-out infinite 1.4s"
+                      />
+                    </g>
+
+                    <!-- AI Focus indicator - center glow -->
+                    <circle
+                      cx="410"
+                      cy="410"
+                      r="80"
+                      fill="none"
+                      stroke="#1b4ed8"
+                      stroke-width="2"
+                      opacity="0.2"
+                      style="animation: glow 3s ease-in-out infinite"
+                    />
+                    <circle
+                      cx="410"
+                      cy="410"
+                      r="120"
+                      fill="none"
+                      stroke="#1b4ed8"
+                      stroke-width="1"
+                      opacity="0.1"
+                      style="animation: glow 3s ease-in-out infinite 0.5s"
+                    />
+
+                    <!-- Connection lines from center -->
+                    <g opacity="0.15">
+                      <line
+                        x1="410"
+                        y1="410"
+                        x2="200"
+                        y2="200"
+                        stroke="#1b4ed8"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="410"
+                        y1="410"
+                        x2="620"
+                        y2="200"
+                        stroke="#1b4ed8"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="410"
+                        y1="410"
+                        x2="200"
+                        y2="620"
+                        stroke="#1b4ed8"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="410"
+                        y1="410"
+                        x2="620"
+                        y2="620"
+                        stroke="#1b4ed8"
+                        stroke-width="1"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <aside class="hero-quote">
+                <span class="quote-label">Цитата клиента</span>
+                <p>
+                  «я уже в том состоянии, где я поверила в то, что я плохой
+                  сотрудник»
+                </p>
+              </aside>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <div class="story-shell">
+        <aside class="story-rail">
+          <div class="story-rail-inner">
+            <p class="rail-title">Навигация по кейсу</p>
+            <nav class="rail-nav" aria-label="Разделы кейса">
+              <a href="#stimulus" data-target="stimulus">
+                <span>01</span>
+                <span>Стимул</span>
+              </a>
+
+              <a href="#consultation" data-target="consultation">
+                <span>02</span>
+                <span>Консультация</span>
+              </a>
+
+              <a href="#support" data-target="support">
+                <span>03</span>
+                <span>Сопровождение</span>
+              </a>
+
+              <a href="#training" data-target="training">
+                <span>04</span>
+                <span>Обучение</span>
+              </a>
+
+              <a href="#result" data-target="result">
+                <span>05</span>
+                <span>Результат</span>
+              </a>
+            </nav>
+            <a class="rail-back" href="#hero">Наверх</a>
+          </div>
+        </aside>
+
+        <main class="story-content">
+          <section class="chapter tone-red reveal" id="stimulus">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">Начальный стимул-реакция</div>
+                <h2>
+                  Чужая обратная связь постепенно заняла место внутренней правды
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                Проблема росла не из пустоты. Клиент действительно держал
+                большую нагрузку, сталкивался с более слабым управленческим
+                контекстом и слышал неоднозначные сигналы. Но в какой-то момент
+                критика и хаос стали звучать так громко, что начали подменять
+                собой реальность.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="chapter-grid">
+                <article class="line-block">
+                  <h3>Как это выглядело в реальности</h3>
+                  <ul>
+                    <li>
+                      Оценка 360 и выпады со стороны руководителя и HR начали
+                      переживаться как доказательство собственной
+                      несостоятельности.
+                    </li>
+                    <li>
+                      Клиенту становилось все труднее опираться на свою рыночную
+                      ценность и прошлые результаты.
+                    </li>
+                    <li>
+                      Мотивация опускалась: раньше драйвило «доказать», а теперь
+                      эта схема перестала работать.
+                    </li>
+                    <li>
+                      Часть живых и любимых задач уступала место рутине и
+                      выживанию внутри системы.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="line-block line-block-soft">
+                  <h3>Что клиент пробовал по старому</h3>
+                  <ul>
+                    <li>
+                      Подстраиваться под сниженный внешний стандарт и при этом
+                      внутренне злиться.
+                    </li>
+                    <li>
+                      Снова искать топливо в конфликте, доказательстве и
+                      сравнении.
+                    </li>
+                    <li>
+                      Сжимать себя до более узкого, безопасного формата вместо
+                      поиска живого пространства внутри роли.
+                    </li>
+                    <li>
+                      Слушать общий шум компании как будто он точнее собственных
+                      фактов.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+
+              <div class="section-callout">
+                <div class="section-callout-kicker">Цена дефекта</div>
+                <p>
+                  Чем сильнее клиент верил хаотичной внешней оценке, тем быстрее
+                  терял доступ к собственному таланту: к созданию продуктов,
+                  гипотез, порядку и высокому стандарту. Внутренняя автономия
+                  подменялась защитой от очередного укола извне.
+                </p>
+              </div>
+
+              <div class="quote-grid">
+                <article class="quote-card">
+                  <span class="quote-label">Цитаты клиента</span>
+                  <blockquote>
+                    «я уже в том состоянии, где я поверила в то, что я плохой
+                    сотрудник»
+                  </blockquote>
+                </article>
+
+                <article class="quote-card">
+                  <span class="quote-label">Цитаты клиента</span>
+                  <blockquote>
+                    «меня драйвило. Что-то не так, мне хотелось доказать, что я
+                    могу»
+                  </blockquote>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="chapter tone-slate reveal" id="consultation">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">Консультация</div>
+                <h2>Консультация отделила шум от реальных сигналов ценности</h2>
+              </div>
+              <p class="chapter-intro">
+                Ключевым стало не просто поддержать клиента, а показать, на
+                какие данные вообще стоит опираться. Консультант вернул внимание
+                не к самым громким словам, а к тем сильным сигналам доверия,
+                которые уже много лет существовали рядом, но в кризис перестали
+                казаться значимыми.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="detail-grid">
+                <article class="line-block">
+                  <h3>1. Какой сидел баг</h3>
+                  <p>
+                    Баг можно назвать так:
+                    <strong>внешняя оценка вместо собственной ценности</strong>.
+                    Клиент превращал отдельные минусы, выпады и хаотичный фидбек
+                    в окончательное заключение о себе как о специалисте.
+                  </p>
+                </article>
+
+                <article class="line-block">
+                  <h3>2. Откуда он в легаси-коде</h3>
+                  <p>
+                    В легаси уже были и высокая зависимость от внешней фигуры, и
+                    страх финансовой небезопасности, и привычка двигаться
+                    относительно кого-то. Поэтому в новой турбулентности чужое
+                    мнение снова попыталось занять место внутреннего критерия.
+                  </p>
+                </article>
+
+                <article class="line-block">
+                  <h3>3. Воздействие консультанта</h3>
+                  <p>
+                    Консультант вернул опору на факты. Не шумная формулировка в
+                    360, а тишина после сильной презентации, доверие
+                    руководителей и отсутствие необходимости делать резервную
+                    систему на отдел — вот что больше говорило о реальной
+                    ценности клиента.
+                  </p>
+                </article>
+
+                <article class="line-block">
+                  <h3>4. Патч и новый инвариант</h3>
+                  <p>
+                    Патч состоял в том, чтобы перестать жить на топливе
+                    «доказать» и снова сделать своим источником энтузиазм,
+                    внутренний принцип качества и пространство для любимой
+                    продуктовой работы. Внешний шум оставался данными, но больше
+                    не становился правдой о личности.
+                  </p>
+                  <div class="inner-callout invariant-callout">
+                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+                    <p>
+                      Я вижу свою ценность по сильным фактам и собственному
+                      стандарту, а не по хаотичному фону вокруг.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="chapter tone-amber reveal" id="support">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">Сопровождение и новая привычка</div>
+                <h2>
+                  Первый stage-результат появился как возврат к фактам и любимой
+                  работе
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                Новый контур не требовал мгновенно сменить работу или перестать
+                чувствовать триггеры. Сначала появился ручной способ возвращать
+                себя в реальность после внешнего удара и не отдавать весь день
+                шуму.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="chapter-grid">
+                <article class="line-block">
+                  <h3>Первый ручной результат</h3>
+                  <ul>
+                    <li>
+                      После триггеров клиент начал возвращаться к объективным
+                      маркерам результата и доверия.
+                    </li>
+                    <li>
+                      Появилась идея выделять внутри роли живое пространство под
+                      продукт, AI и создание решений.
+                    </li>
+                    <li>
+                      Любимое стало восприниматься не как роскошь, а как
+                      источник ресурса для остальной работы.
+                    </li>
+                    <li>
+                      Клиенту стало проще сравнивать себя с собой вчерашней, а
+                      не с хаотичной системой вокруг.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="line-block line-block-soft">
+                  <h3>Что менялось в привычке</h3>
+                  <ul>
+                    <li>
+                      Внешняя оценка все чаще воспринималась как шум, а не как
+                      приговор.
+                    </li>
+                    <li>
+                      Высокий стандарт снова переживался как личная сила, а не
+                      как обуза.
+                    </li>
+                    <li>
+                      Становилось меньше потребности двигаться из протеста и
+                      доказательства.
+                    </li>
+                    <li>
+                      Роль внутри компании начинала читаться как полигон для
+                      собственной эволюции, а не как тюрьма.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+
+              <div class="quote-grid">
+                <article class="quote-card">
+                  <span class="quote-label">Цитаты клиента</span>
+                  <blockquote>«я уже отдельное государство»</blockquote>
+                </article>
+
+                <article class="quote-card">
+                  <span class="quote-label">Цитаты клиента</span>
+                  <blockquote>«создавать продукты я люблю»</blockquote>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="chapter tone-blue reveal" id="training">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">Обучение</div>
+                <h2>
+                  Обучение закрепляло новый критерий через факты, ритм и
+                  внутренний стандарт
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                Чтобы новый патч не сломался на следующем внешнем выпаде, его
+                нужно было повторять. Поэтому обучение строилось вокруг двух
+                вещей: трезвого взгляда на факты и возврата времени к тому, что
+                реально оживляет клиента.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="detail-grid">
+                <article class="line-block">
+                  <h3>Что отрабатывалось</h3>
+                  <ul>
+                    <li>
+                      Фиксировать сильные сигналы доверия и не растворять их в
+                      общем фоне.
+                    </li>
+                    <li>
+                      Сравнивать себя с собой вчерашней и своим собственным
+                      принципом «быть на шаг впереди».
+                    </li>
+                    <li>
+                      Выделять регулярное время на любимую продуктовую работу, а
+                      не только на рутину.
+                    </li>
+                    <li>
+                      Использовать AI как усилитель живого интереса, а не как
+                      еще одно обязательство.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="line-block">
+                  <h3>Какой LP поддерживал обучение</h3>
+                  <p>
+                    Лучшей теоретической опорой для этого кейса был
+                    <strong>LP-SELF-01</strong>. Он удерживал фокус на
+                    собственной ценности, внутреннем источнике мотивации и
+                    выходе из жизни по чужой оценке.
+                  </p>
+                  <p>
+                    Именно здесь было важно не просто «поднять самооценку», а
+                    перестроить сам критерий, по которому клиент читает правду о
+                    себе.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="chapter tone-green reveal" id="result">
+            <div class="chapter-head">
+              <div>
+                <div class="chapter-kicker">
+                  Новый стимул-реакция и результат
+                </div>
+                <h2>
+                  Новый результат проявился как более трезвое чтение себя и
+                  своей роли
+                </h2>
+              </div>
+              <p class="chapter-intro">
+                В новом контуре клиент не перестал замечать внешние сигналы и
+                проблемы в компании. Но они уже не могли так легко заменить
+                собой внутреннюю правду. Это возвращало ресурс, ясность и
+                интерес к тем зонам работы, где талант клиента реально
+                раскрывался.
+              </p>
+            </div>
+            <div class="chapter-body">
+              <div class="compare-grid">
+                <article class="compare-card before">
+                  <span class="compare-label">До</span>
+                  <p>
+                    Одна внешняя оценка могла переписать всю картину себя и на
+                    время обнулить факты доверия, качества и реальной пользы
+                    клиента.
+                  </p>
+                  <ul>
+                    <li>Опора: чужой вердикт</li>
+                    <li>После критики: провал в самоценности</li>
+                    <li>Талант уходит в режим «докажи»</li>
+                  </ul>
+                </article>
+                <div class="compare-arrow" aria-hidden="true">
+                  <span class="arrow-desktop">→</span>
+                  <span class="arrow-mobile">↓</span>
+                </div>
+                <article class="compare-card after">
+                  <span class="compare-label">После</span>
+                  <p>
+                    Внешняя оценка перестала быть окончательной правдой: клиент
+                    удерживает факты доверия и собственный стандарт качества без
+                    внутреннего коллапса.
+                  </p>
+                  <ul>
+                    <li>Опора: сильные факты доверия</li>
+                    <li>Стандарт качества держится изнутри</li>
+                    <li>Энергия возвращается в живую работу</li>
+                  </ul>
+                </article>
+              </div>
+              <div class="chapter-grid">
+                <article class="line-block">
+                  <h3>Что стало наблюдаемым</h3>
+                  <ul>
+                    <li>Больше устойчивости после оценок и резких слов.</li>
+                    <li>
+                      Больше уважения к собственному стандарту и своей школе
+                      качества.
+                    </li>
+                    <li>
+                      Появилось пространство для живых продуктовых задач внутри
+                      текущей роли.
+                    </li>
+                    <li>
+                      Снизилась власть старого двигателя «докажи, что можешь».
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="line-block line-block-soft">
+                  <h3>Что стало новой опорой</h3>
+                  <ul>
+                    <li>
+                      Ценность читается по сильным фактам, а не по хаотичной
+                      критике.
+                    </li>
+                    <li>
+                      Высокий стандарт может быть моим собственным, даже если
+                      вокруг хаос.
+                    </li>
+                    <li>
+                      Энтузиазм строится изнутри, а не только из внешнего
+                      давления.
+                    </li>
+                    <li>
+                      Любимую работу нельзя полностью делегировать, если именно
+                      она питает ресурс.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+              <div class="section-callout result-callout">
+                <div class="section-callout-kicker">Новый KPI</div>
+                <p>
+                  Не то, насколько громко меня оценили, а то, насколько точно я
+                  вижу свои реальные факты, сохраняю стандарт и выделяю место
+                  под живую работу.
+                </p>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-shell">
+          <section class="cta-shell reveal" id="next-step">
+            <div class="footer-kicker">Следующий шаг</div>
+            <h2>
+              Если знакомо чувство, что чужая оценка определяет твою ценность
+            </h2>
+            <p>
+              Этот кейс полезен тем, кто в рабочем шуме и хаотичной обратной
+              связи начинает терять собственную опору и забывать, что уже
+              является его реальной силой.
+            </p>
+            <div class="footer-actions">
+              <a
+                class="footer-action footer-action-secondary"
+                href="https://app.imt.dev/lp-self-doc"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Открыть LP-SELF-01</a
+              >
+              <a
+                class="footer-action footer-action-primary"
+                href="https://imt.dev/typkd"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Разобрать похожий кейс</a
+              >
+            </div>
+            <div class="footer-return">
+              <a class="jump-link" href="../">
+                <span class="jump-link-arrow" aria-hidden="true">←</span>
+                <span class="jump-link-text">Вернуться к каталогу кейсов</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </footer>
     </div>
-</body>
+
+    <script>
+      (() => {
+        const reduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const revealNodes = [...document.querySelectorAll(".reveal")];
+
+        if (!reduced && "IntersectionObserver" in window) {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              });
+            },
+            { threshold: 0.16 },
+          );
+
+          revealNodes.forEach((node) => revealObserver.observe(node));
+        } else {
+          revealNodes.forEach((node) => node.classList.add("is-visible"));
+        }
+
+        const links = [...document.querySelectorAll(".rail-nav a")];
+        const linkMap = new Map(
+          links.map((link) => [link.dataset.target, link]),
+        );
+        const chapters = [...document.querySelectorAll(".chapter[id]")];
+
+        const setActive = (id) => {
+          links.forEach((link) => {
+            link.classList.toggle("is-active", link.dataset.target === id);
+          });
+        };
+
+        if (chapters.length && "IntersectionObserver" in window) {
+          const navObserver = new IntersectionObserver(
+            (entries) => {
+              const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+              if (visible && linkMap.has(visible.target.id)) {
+                setActive(visible.target.id);
+              }
+            },
+            {
+              rootMargin: "-28% 0px -52% 0px",
+              threshold: [0.12, 0.3, 0.6],
+            },
+          );
+
+          chapters.forEach((chapter) => navObserver.observe(chapter));
+          setActive(chapters[0].id);
+        }
+      })();
+    </script>
+  </body>
 </html>
