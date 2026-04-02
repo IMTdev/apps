@@ -1,0 +1,3973 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMT LK Guide — Личный кабинет IMT</title>
+    <meta
+      name="description"
+      content="Визуальный гид по личному кабинету IMT: вкладки, потоки данных, сценарии работы и связь с Telegram-ботом."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --page-bg: #f3ece2;
+        --page-ink: #101623;
+        --page-muted: #5d6575;
+        --page-line: rgba(16, 22, 35, 0.12);
+        --panel: rgba(255, 255, 255, 0.8);
+        --panel-strong: rgba(255, 255, 255, 0.92);
+        --hero-ink: #eef4ff;
+        --hero-muted: rgba(238, 244, 255, 0.72);
+        --hero-line: rgba(255, 255, 255, 0.12);
+        --hero-dark: #09111f;
+        --hero-soft: #12223c;
+        --accent: #2f6dff;
+        --accent-soft: #83b8ff;
+        --accent-mint: #79dcc1;
+        --accent-gold: #f0c38e;
+        --shadow-soft: 0 24px 70px rgba(16, 22, 35, 0.08);
+        --shadow-hero: 0 26px 80px rgba(4, 10, 20, 0.36);
+        --radius-xl: 36px;
+        --radius-lg: 28px;
+        --radius-md: 20px;
+        --content-width: 1360px;
+        --measure: 66ch;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--page-ink);
+        background: radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.92),
+            transparent 24%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(233, 226, 213, 0.76),
+            transparent 28%
+          ),
+          var(--page-bg);
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      code {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.92em;
+        padding: 0.16em 0.42em;
+        border-radius: 999px;
+        background: rgba(16, 22, 35, 0.06);
+      }
+
+      .poster code {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      button {
+        cursor: pointer;
+        border: 0;
+        background: none;
+      }
+
+      .page {
+        overflow-x: clip;
+      }
+
+      .mono,
+      .brand-row,
+      .eyebrow,
+      .section-kicker,
+      .chip,
+      .tab-tag,
+      .flow-label,
+      .stage-id,
+      .scenario-id,
+      .footer-tag {
+        font-family: "IBM Plex Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .poster {
+        position: relative;
+        min-height: 100svh;
+        padding: clamp(24px, 4vw, 42px);
+        color: var(--hero-ink);
+        background: radial-gradient(
+            circle at top left,
+            rgba(131, 184, 255, 0.2),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(121, 220, 193, 0.14),
+            transparent 28%
+          ),
+          linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
+      }
+
+      .poster::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 84px 84px;
+        mask-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.92),
+          transparent 88%
+        );
+        pointer-events: none;
+      }
+
+      .poster::after {
+        content: "";
+        position: absolute;
+        inset: auto 5% 12% auto;
+        width: min(42vw, 560px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(47, 109, 255, 0.18),
+          transparent 62%
+        );
+        filter: blur(8px);
+        pointer-events: none;
+      }
+
+      .poster-inner,
+      .content-inner,
+      .footer-inner {
+        position: relative;
+        z-index: 1;
+        width: min(var(--content-width), 100%);
+        margin: 0 auto;
+      }
+
+      .poster-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+        gap: clamp(36px, 5vw, 84px);
+        align-items: end;
+        min-height: calc(100svh - clamp(48px, 8vw, 84px));
+      }
+
+      .brand-row {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 26px;
+        color: rgba(238, 244, 255, 0.68);
+        font-size: 0.78rem;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--accent-soft),
+          var(--accent-mint)
+        );
+        box-shadow: 0 0 22px rgba(131, 184, 255, 0.62);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(238, 244, 255, 0.82);
+        font-size: 0.72rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      ul,
+      ol {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 11.6em;
+        margin-top: 20px;
+        font-size: clamp(2.7rem, 5.3vw, 4.8rem);
+        line-height: 0.92;
+        letter-spacing: -0.07em;
+      }
+
+      .hero-lead {
+        max-width: 60ch;
+        margin-top: 22px;
+        color: rgba(238, 244, 255, 0.82);
+        font-size: clamp(1.02rem, 1.8vw, 1.18rem);
+      }
+
+      .hero-points {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+        margin-top: 30px;
+        padding: 0;
+        max-width: 62ch;
+      }
+
+      .hero-points li {
+        display: grid;
+        grid-template-columns: 144px minmax(0, 1fr);
+        gap: 14px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-points strong {
+        color: rgba(238, 244, 255, 0.6);
+        font-size: 0.76rem;
+      }
+
+      .hero-points span {
+        color: rgba(238, 244, 255, 0.86);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 20px;
+        border-radius: 999px;
+        text-decoration: none;
+        transition:
+          transform 220ms ease,
+          background-color 220ms ease,
+          border-color 220ms ease,
+          color 220ms ease;
+      }
+
+      .btn-primary {
+        color: #06101f;
+        background: linear-gradient(
+          135deg,
+          var(--accent-soft),
+          var(--accent-mint)
+        );
+        box-shadow: 0 18px 36px rgba(121, 220, 193, 0.18);
+      }
+
+      .btn-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--hero-ink);
+      }
+
+      .btn:hover,
+      .btn:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .btn:focus-visible,
+      .jump-link:focus-visible,
+      summary:focus-visible {
+        outline: 2px solid var(--accent-soft);
+        outline-offset: 4px;
+      }
+
+      .hero-jump {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .jump-link {
+        color: rgba(238, 244, 255, 0.74);
+        text-decoration: none;
+      }
+
+      .jump-link:hover {
+        color: rgba(238, 244, 255, 0.96);
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 620px;
+      }
+
+      .system-surface {
+        position: relative;
+        width: min(100%, 620px);
+        margin-left: auto;
+        aspect-ratio: 1;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.08),
+            transparent 62%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.02)
+          );
+        box-shadow: var(--shadow-hero);
+        isolation: isolate;
+        transform: translateY(var(--parallax-shift, 0px));
+      }
+
+      .system-surface::before,
+      .system-surface::after {
+        content: "";
+        position: absolute;
+        inset: 10%;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        pointer-events: none;
+      }
+
+      .system-surface::after {
+        inset: 24%;
+      }
+
+      .system-lines {
+        position: absolute;
+        inset: 0;
+        color: rgba(255, 255, 255, 0.22);
+      }
+
+      .system-lines line,
+      .system-lines circle {
+        stroke: currentColor;
+        fill: none;
+      }
+
+      .system-lines .pulse {
+        fill: rgba(131, 184, 255, 0.8);
+        stroke: rgba(131, 184, 255, 0.86);
+      }
+
+      .core-node,
+      .node {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        transform: translate(-50%, -50%);
+      }
+
+      .core-node {
+        z-index: 2;
+        width: clamp(170px, 28vw, 220px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(
+            circle at 30% 30%,
+            rgba(255, 255, 255, 0.22),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle,
+            rgba(47, 109, 255, 0.34),
+            rgba(7, 16, 31, 0.96) 72%
+          );
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow:
+          inset 0 0 40px rgba(255, 255, 255, 0.04),
+          0 0 0 12px rgba(255, 255, 255, 0.03);
+        text-align: center;
+      }
+
+      .core-node strong {
+        display: block;
+        font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+        letter-spacing: -0.04em;
+      }
+
+      .core-node span {
+        display: block;
+        margin-top: 8px;
+        max-width: 12ch;
+        color: rgba(238, 244, 255, 0.72);
+        font-size: 0.92rem;
+      }
+
+      .node {
+        z-index: 1;
+        width: clamp(92px, 14vw, 128px);
+        padding: 12px 10px 11px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        text-align: center;
+        animation: float-node var(--duration, 7s) ease-in-out infinite;
+      }
+
+      .node strong {
+        display: block;
+        font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+        line-height: 1.15;
+      }
+
+      .node span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(238, 244, 255, 0.62);
+        font-size: 0.66rem;
+        line-height: 1.25;
+      }
+
+      .node.external {
+        color: rgba(238, 244, 255, 0.9);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .node.internal {
+        background: rgba(19, 34, 60, 0.62);
+      }
+
+      .visual-caption {
+        position: absolute;
+        right: 0;
+        bottom: -26px;
+        max-width: 28ch;
+        color: rgba(238, 244, 255, 0.64);
+        font-size: 0.9rem;
+      }
+
+      .content {
+        padding: clamp(70px, 10vw, 120px) clamp(24px, 4vw, 42px) 110px;
+      }
+
+      .section {
+        position: relative;
+        padding: clamp(40px, 6vw, 80px) 0;
+      }
+
+      .section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .section + .section {
+        margin-top: 18px;
+      }
+
+      .section[data-tone] {
+        isolation: isolate;
+        padding-inline: clamp(18px, 2.8vw, 30px);
+        border-radius: calc(var(--radius-xl) + 8px);
+      }
+
+      .section[data-tone]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(
+            circle at top right,
+            color-mix(in srgb, var(--diagram-1) 16%, white 84%),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            color-mix(in srgb, var(--diagram-2) 16%, white 84%),
+            transparent 32%
+          ),
+          linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--tone-a) 86%, white 14%),
+            color-mix(in srgb, var(--tone-b) 78%, white 22%)
+          );
+      }
+
+      .section[data-tone]::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border: 1px solid color-mix(in srgb, var(--tone-line) 88%, white 12%);
+        pointer-events: none;
+      }
+
+      .section[data-tone="sky"] {
+        --tone-a: rgba(231, 239, 255, 0.92);
+        --tone-b: rgba(241, 247, 255, 0.98);
+        --tone-line: rgba(120, 163, 236, 0.24);
+        --tone-shadow: rgba(120, 163, 236, 0.11);
+        --tone-chip: rgba(120, 163, 236, 0.1);
+        --diagram-1: #7ca9ff;
+        --diagram-2: #9bc5ff;
+        --diagram-3: #9bd9ff;
+      }
+
+      .section[data-tone="mint"] {
+        --tone-a: rgba(229, 248, 242, 0.94);
+        --tone-b: rgba(241, 252, 248, 0.98);
+        --tone-line: rgba(102, 198, 170, 0.24);
+        --tone-shadow: rgba(102, 198, 170, 0.11);
+        --tone-chip: rgba(102, 198, 170, 0.1);
+        --diagram-1: #66c6aa;
+        --diagram-2: #87dcbf;
+        --diagram-3: #9ec6ff;
+      }
+
+      .section[data-tone="amber"] {
+        --tone-a: rgba(255, 246, 231, 0.94);
+        --tone-b: rgba(255, 251, 243, 0.98);
+        --tone-line: rgba(228, 181, 103, 0.26);
+        --tone-shadow: rgba(228, 181, 103, 0.12);
+        --tone-chip: rgba(228, 181, 103, 0.1);
+        --diagram-1: #e4b567;
+        --diagram-2: #f0cb87;
+        --diagram-3: #94b6f2;
+      }
+
+      .section[data-tone="lilac"] {
+        --tone-a: rgba(243, 239, 255, 0.94);
+        --tone-b: rgba(249, 247, 255, 0.98);
+        --tone-line: rgba(178, 152, 238, 0.24);
+        --tone-shadow: rgba(178, 152, 238, 0.11);
+        --tone-chip: rgba(178, 152, 238, 0.1);
+        --diagram-1: #b298ee;
+        --diagram-2: #cfbcff;
+        --diagram-3: #9eb9ff;
+      }
+
+      .section[data-tone="rose"] {
+        --tone-a: rgba(255, 239, 244, 0.94);
+        --tone-b: rgba(255, 247, 249, 0.98);
+        --tone-line: rgba(241, 155, 177, 0.25);
+        --tone-shadow: rgba(241, 155, 177, 0.11);
+        --tone-chip: rgba(241, 155, 177, 0.1);
+        --diagram-1: #f19bb1;
+        --diagram-2: #f6b8c8;
+        --diagram-3: #9cc9ff;
+      }
+
+      .section[data-tone="sand"] {
+        --tone-a: rgba(247, 240, 231, 0.94);
+        --tone-b: rgba(251, 247, 241, 0.98);
+        --tone-line: rgba(192, 162, 122, 0.22);
+        --tone-shadow: rgba(192, 162, 122, 0.1);
+        --tone-chip: rgba(192, 162, 122, 0.09);
+        --diagram-1: #c0a27a;
+        --diagram-2: #d8c0a2;
+        --diagram-3: #9bb7e9;
+      }
+
+      .section[data-tone="slate"] {
+        --tone-a: rgba(232, 238, 247, 0.94);
+        --tone-b: rgba(242, 246, 252, 0.98);
+        --tone-line: rgba(126, 146, 184, 0.24);
+        --tone-shadow: rgba(126, 146, 184, 0.11);
+        --tone-chip: rgba(126, 146, 184, 0.1);
+        --diagram-1: #7e92b8;
+        --diagram-2: #a7b6d4;
+        --diagram-3: #8fd0e4;
+      }
+
+      .section[data-tone] .section-kicker {
+        color: rgba(16, 22, 35, 0.55);
+      }
+
+      .section[data-tone] .section-kicker::before {
+        background: var(--tone-line);
+      }
+
+      .section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+        color: var(--page-muted);
+        font-size: 0.76rem;
+      }
+
+      .section-kicker::before {
+        content: "";
+        width: 36px;
+        height: 1px;
+        background: rgba(16, 22, 35, 0.22);
+      }
+
+      .section-header {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.75fr);
+        gap: clamp(24px, 4vw, 50px);
+        align-items: end;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+      }
+
+      .section-intro {
+        max-width: 50ch;
+        color: var(--page-muted);
+        font-size: 1rem;
+      }
+
+      .flow-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+        gap: clamp(24px, 4vw, 44px);
+        align-items: start;
+      }
+
+      .stage-list {
+        display: grid;
+        gap: 20px;
+      }
+
+      .stage {
+        position: relative;
+        padding: 0 0 20px 74px;
+        border-bottom: 1px solid var(--page-line);
+      }
+
+      .stage::before {
+        content: "";
+        position: absolute;
+        left: 26px;
+        top: 20px;
+        bottom: -20px;
+        width: 1px;
+        background: rgba(16, 22, 35, 0.12);
+      }
+
+      .stage:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .stage:last-child::before {
+        bottom: 20px;
+      }
+
+      .stage-id {
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--page-ink);
+        background: linear-gradient(
+          135deg,
+          rgba(131, 184, 255, 0.42),
+          rgba(121, 220, 193, 0.36)
+        );
+        box-shadow: 0 12px 28px rgba(16, 22, 35, 0.08);
+        font-size: 0.78rem;
+      }
+
+      .stage h3 {
+        font-size: clamp(1.1rem, 1.6vw, 1.32rem);
+        letter-spacing: -0.03em;
+      }
+
+      .stage p {
+        margin-top: 10px;
+        max-width: 52ch;
+        color: var(--page-muted);
+      }
+
+      .highlight-panel,
+      .mode-block,
+      .flow-column,
+      .start-band,
+      .faq-shell,
+      .footer-cta {
+        border: 1px solid var(--page-line);
+        background: var(--panel);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .highlight-panel {
+        border-radius: var(--radius-xl);
+        padding: clamp(24px, 3.5vw, 34px);
+        background: radial-gradient(
+            circle at top right,
+            rgba(131, 184, 255, 0.16),
+            transparent 38%
+          ),
+          var(--panel-strong);
+      }
+
+      .highlight-panel h3 {
+        font-size: clamp(1.35rem, 2vw, 1.7rem);
+        letter-spacing: -0.04em;
+      }
+
+      .highlight-panel p {
+        margin-top: 14px;
+        color: var(--page-muted);
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: rgba(16, 22, 35, 0.04);
+        border: 1px solid rgba(16, 22, 35, 0.08);
+        color: var(--page-muted);
+        font-size: 0.72rem;
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .mode-block {
+        border-radius: var(--radius-lg);
+        padding: clamp(24px, 3vw, 32px);
+        background: rgba(255, 255, 255, 0.74);
+      }
+
+      .mode-label {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(16, 22, 35, 0.06);
+        color: var(--page-muted);
+        font-size: 0.72rem;
+      }
+
+      .mode-block h3 {
+        margin-top: 16px;
+        font-size: clamp(1.36rem, 2vw, 1.86rem);
+        letter-spacing: -0.05em;
+      }
+
+      .mode-block p {
+        margin-top: 12px;
+        color: var(--page-muted);
+      }
+
+      .mode-block ul {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+        padding: 0;
+      }
+
+      .mode-block li {
+        position: relative;
+        padding-left: 20px;
+        color: var(--page-ink);
+      }
+
+      .mode-block li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.56em;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-mint));
+      }
+
+      .latency-note {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid var(--page-line);
+        color: var(--page-muted);
+      }
+
+      .tabs-shell {
+        border-top: 1px solid var(--page-line);
+      }
+
+      .tab-row {
+        display: grid;
+        grid-template-columns: minmax(170px, 190px) minmax(0, 0.8fr) minmax(
+            0,
+            1fr
+          );
+        gap: 20px;
+        align-items: start;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--page-line);
+      }
+
+      .tab-row h3 {
+        font-size: 1.12rem;
+        letter-spacing: -0.03em;
+      }
+
+      .tab-row p {
+        color: var(--page-muted);
+      }
+
+      .tab-tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(16, 22, 35, 0.08);
+        background: rgba(255, 255, 255, 0.64);
+        color: var(--page-muted);
+        font-size: 0.7rem;
+      }
+
+      .start-band {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        align-items: start;
+        margin-top: 28px;
+        padding: 22px;
+        border-radius: var(--radius-lg);
+      }
+
+      .start-band h3 {
+        font-size: 1.2rem;
+        letter-spacing: -0.04em;
+      }
+
+      .start-band p {
+        color: var(--page-muted);
+      }
+
+      .flow-band {
+        margin-top: 6px;
+        padding: clamp(30px, 5vw, 46px);
+        border-radius: var(--radius-xl);
+        color: var(--hero-ink);
+        background: radial-gradient(
+            circle at top right,
+            rgba(131, 184, 255, 0.14),
+            transparent 32%
+          ),
+          linear-gradient(180deg, rgba(9, 17, 31, 0.96), rgba(12, 20, 36, 0.98));
+      }
+
+      .flow-band .section-kicker {
+        color: rgba(238, 244, 255, 0.64);
+      }
+
+      .flow-band .section-kicker::before {
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      .flow-band h2 {
+        color: var(--hero-ink);
+      }
+
+      .flow-band .section-intro {
+        color: var(--hero-muted);
+      }
+
+      .flow-columns {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .flow-column {
+        min-height: 100%;
+        border-radius: var(--radius-lg);
+        padding: 22px;
+        border-color: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+      }
+
+      .flow-label {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(238, 244, 255, 0.64);
+        font-size: 0.7rem;
+      }
+
+      .flow-column h3 {
+        margin-top: 16px;
+        font-size: 1.26rem;
+        letter-spacing: -0.04em;
+      }
+
+      .flow-column ul {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+        padding: 0;
+      }
+
+      .flow-column li {
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: rgba(238, 244, 255, 0.86);
+      }
+
+      .flow-column li small {
+        display: block;
+        margin-top: 6px;
+        color: rgba(238, 244, 255, 0.56);
+      }
+
+      .flow-note {
+        margin-top: 18px;
+        padding: 18px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: rgba(238, 244, 255, 0.66);
+      }
+
+      .scenario-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .scenario {
+        padding: 24px 0;
+        border-top: 1px solid var(--page-line);
+      }
+
+      .scenario-head {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .scenario-id {
+        flex: 0 0 auto;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: rgba(16, 22, 35, 0.06);
+        color: var(--page-muted);
+        font-size: 0.74rem;
+      }
+
+      .scenario h3 {
+        font-size: 1.28rem;
+        letter-spacing: -0.04em;
+      }
+
+      .scenario p {
+        margin-top: 10px;
+        color: var(--page-muted);
+      }
+
+      .scenario ol {
+        margin-top: 16px;
+        padding-left: 20px;
+        color: var(--page-ink);
+      }
+
+      .scenario li + li {
+        margin-top: 8px;
+      }
+
+      .faq-shell {
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+      }
+
+      details {
+        border-top: 1px solid var(--page-line);
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      details:first-of-type {
+        border-top: 0;
+      }
+
+      summary {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 22px 24px;
+        cursor: pointer;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary strong {
+        font-size: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .summary-icon {
+        flex: 0 0 auto;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(16, 22, 35, 0.08);
+        color: var(--page-muted);
+        transition: transform 220ms ease;
+      }
+
+      details[open] .summary-icon {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        padding: 0 24px 24px;
+        color: var(--page-muted);
+      }
+
+      .faq-answer ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .faq-answer li + li {
+        margin-top: 8px;
+      }
+
+      .guide-nav {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 34px;
+      }
+
+      .guide-link {
+        text-decoration: none;
+        border: 1px solid var(--page-line);
+        border-radius: 24px;
+        padding: 16px 18px 18px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: var(--shadow-soft);
+        transition:
+          transform 220ms ease,
+          border-color 220ms ease,
+          background-color 220ms ease;
+      }
+
+      .guide-link:nth-child(1) {
+        border-color: rgba(120, 163, 236, 0.2);
+        background: linear-gradient(
+          180deg,
+          rgba(231, 239, 255, 0.88),
+          rgba(255, 255, 255, 0.94)
+        );
+      }
+
+      .guide-link:nth-child(2) {
+        border-color: rgba(102, 198, 170, 0.2);
+        background: linear-gradient(
+          180deg,
+          rgba(229, 248, 242, 0.9),
+          rgba(255, 255, 255, 0.94)
+        );
+      }
+
+      .guide-link:nth-child(3) {
+        border-color: rgba(228, 181, 103, 0.2);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 246, 231, 0.9),
+          rgba(255, 255, 255, 0.95)
+        );
+      }
+
+      .guide-link:nth-child(4) {
+        border-color: rgba(178, 152, 238, 0.2);
+        background: linear-gradient(
+          180deg,
+          rgba(243, 239, 255, 0.9),
+          rgba(255, 255, 255, 0.95)
+        );
+      }
+
+      .guide-link:hover,
+      .guide-link:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(47, 109, 255, 0.2);
+      }
+
+      .guide-link strong {
+        display: block;
+        color: var(--page-muted);
+        font-size: 0.72rem;
+      }
+
+      .guide-link span {
+        display: block;
+        margin-top: 12px;
+        font-size: 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .guide-shell {
+        display: grid;
+        gap: 24px;
+      }
+
+      .guide-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.98fr);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .guide-grid--diagram-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-grid--diagram-stack .diagram-card {
+        width: 100%;
+      }
+
+      .guide-grid--diagram-stack .diagram-scroll {
+        overflow-x: visible;
+      }
+
+      .guide-grid--diagram-stack .diagram-graphic {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .guide-card,
+      .diagram-card,
+      .action-card,
+      .scenario-card,
+      .signal-card {
+        border: 1px solid var(--page-line);
+        border-radius: var(--radius-lg);
+        padding: clamp(22px, 3vw, 30px);
+        background: var(--panel-strong);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .section[data-tone] .guide-card,
+      .section[data-tone] .diagram-card,
+      .section[data-tone] .action-card,
+      .section[data-tone] .scenario-card,
+      .section[data-tone] .signal-card,
+      .section[data-tone] .mode-block,
+      .section[data-tone] .faq-shell,
+      .section[data-tone] .table-shell {
+        border-color: var(--tone-line);
+        box-shadow: 0 24px 70px var(--tone-shadow);
+      }
+
+      .section[data-tone] .guide-card,
+      .section[data-tone] .action-card,
+      .section[data-tone] .scenario-card,
+      .section[data-tone] .signal-card,
+      .section[data-tone] .mode-block,
+      .section[data-tone] .table-shell {
+        background: linear-gradient(
+          180deg,
+          var(--tone-a),
+          rgba(255, 255, 255, 0.97)
+        );
+      }
+
+      .section[data-tone] .split-grid > *:nth-child(even),
+      .section[data-tone] .compare-grid > *:nth-child(even),
+      .section[data-tone] .action-grid > *:nth-child(even),
+      .section[data-tone] .signal-grid > *:nth-child(even),
+      .section[data-tone] .scenario-stack > *:nth-child(even),
+      .section[data-tone] .guide-shell > *:nth-child(even) {
+        background: linear-gradient(
+          180deg,
+          var(--tone-b),
+          rgba(255, 255, 255, 0.98)
+        );
+      }
+
+      .guide-card > * + *,
+      .action-card > * + *,
+      .signal-card > * + * {
+        margin-top: 14px;
+      }
+
+      .guide-card ul,
+      .guide-card ol,
+      .action-card ul,
+      .action-card ol,
+      .signal-card ul,
+      .signal-card ol {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .guide-card li + li,
+      .action-card li + li,
+      .signal-card li + li {
+        margin-top: 8px;
+      }
+
+      .subsection + .subsection {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid var(--page-line);
+      }
+
+      .section[data-tone] .subsection + .subsection,
+      .section[data-tone] details,
+      .section[data-tone] .guide-table th,
+      .section[data-tone] .guide-table td,
+      .section[data-tone] .latency-note,
+      .section[data-tone] .tab-row,
+      .section[data-tone] .flow-note {
+        border-color: var(--tone-line);
+      }
+
+      .subsection h3,
+      .subsection h4 {
+        letter-spacing: -0.03em;
+      }
+
+      .subsection h3 {
+        font-size: 1.18rem;
+      }
+
+      .subsection h4 {
+        font-size: 1.02rem;
+      }
+
+      .diagram-card {
+        background:
+          linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.96),
+              rgba(245, 249, 255, 0.94)
+            )
+            padding-box,
+          linear-gradient(
+              135deg,
+              rgba(131, 184, 255, 0.5),
+              rgba(121, 220, 193, 0.28)
+            )
+            border-box;
+        border: 1px solid transparent;
+      }
+
+      .section[data-tone] .diagram-card {
+        background:
+          linear-gradient(180deg, var(--tone-b), rgba(255, 255, 255, 0.98))
+            padding-box,
+          linear-gradient(
+              135deg,
+              color-mix(in srgb, var(--diagram-1) 72%, white 28%),
+              color-mix(in srgb, var(--diagram-2) 58%, white 42%)
+            )
+            border-box;
+        border: 1px solid transparent;
+      }
+
+      .diagram-card p {
+        color: var(--page-muted);
+      }
+
+      .diagram-scroll {
+        margin-top: 16px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .diagram-card .diagram-source {
+        margin: 0;
+        min-width: 560px;
+        white-space: pre;
+        padding: 18px 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(131, 184, 255, 0.22);
+        background: rgba(246, 249, 255, 0.9);
+        color: var(--page-ink);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .diagram-card.is-rendered .diagram-source {
+        display: none;
+      }
+
+      .diagram-card.is-rendered .diagram-scroll {
+        padding-bottom: 0;
+      }
+
+      .diagram-graphic {
+        display: block;
+        width: max-content;
+        height: auto;
+        min-width: 560px;
+        border: 1px solid rgba(131, 184, 255, 0.22);
+        border-radius: 24px;
+        background: rgba(246, 249, 255, 0.9);
+      }
+
+      .section[data-tone] .diagram-card .diagram-source,
+      .section[data-tone] .diagram-graphic {
+        border-color: color-mix(in srgb, var(--diagram-1) 26%, white 74%);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.92),
+          color-mix(in srgb, var(--tone-b) 62%, white 38%)
+        );
+      }
+
+      .diagram-edge {
+        fill: none;
+        stroke: rgba(16, 22, 35, 0.38);
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.82;
+      }
+
+      .diagram-edge.is-back {
+        stroke-dasharray: 8 8;
+        opacity: 0.58;
+      }
+
+      .diagram-node rect {
+        fill: rgba(255, 255, 255, 0.92);
+        stroke: rgba(16, 22, 35, 0.14);
+        stroke-width: 1.2;
+      }
+
+      .diagram-node text {
+        fill: var(--page-ink);
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      .diagram-node.layer-0 rect {
+        fill: rgba(255, 255, 255, 0.96);
+      }
+
+      .diagram-node.layer-1 rect {
+        fill: rgba(245, 249, 255, 0.96);
+      }
+
+      .diagram-node.layer-2 rect {
+        fill: rgba(241, 247, 255, 0.96);
+      }
+
+      .diagram-node.layer-3 rect,
+      .diagram-node.layer-4 rect,
+      .diagram-node.layer-5 rect {
+        fill: rgba(248, 251, 255, 0.98);
+      }
+
+      .section[data-tone] .diagram-edge {
+        stroke: color-mix(in srgb, var(--diagram-1) 38%, var(--page-ink) 62%);
+      }
+
+      .section[data-tone] .diagram-node rect {
+        stroke: color-mix(in srgb, var(--diagram-1) 18%, var(--page-ink) 82%);
+      }
+
+      .section[data-tone] .diagram-node.layer-0 rect {
+        fill: color-mix(in srgb, var(--diagram-1) 16%, white 84%);
+      }
+
+      .section[data-tone] .diagram-node.layer-1 rect {
+        fill: color-mix(in srgb, var(--diagram-2) 16%, white 84%);
+      }
+
+      .section[data-tone] .diagram-node.layer-2 rect {
+        fill: color-mix(in srgb, var(--diagram-3) 16%, white 84%);
+      }
+
+      .section[data-tone] .diagram-node.layer-3 rect {
+        fill: color-mix(in srgb, var(--diagram-1) 12%, white 88%);
+      }
+
+      .section[data-tone] .diagram-node.layer-4 rect {
+        fill: color-mix(in srgb, var(--diagram-2) 12%, white 88%);
+      }
+
+      .section[data-tone] .diagram-node.layer-5 rect {
+        fill: color-mix(in srgb, var(--diagram-3) 12%, white 88%);
+      }
+
+      .section[data-tone] .mermaid-label,
+      .section[data-tone] .mode-label,
+      .section[data-tone] .tab-tag,
+      .section[data-tone] .chip,
+      .section[data-tone] .summary-icon {
+        background: var(--tone-chip);
+        border-color: var(--tone-line);
+      }
+
+      .section[data-tone] details {
+        background: linear-gradient(
+          180deg,
+          var(--tone-a),
+          rgba(255, 255, 255, 0.96)
+        );
+      }
+
+      .table-shell {
+        overflow: hidden;
+      }
+
+      .table-scroll {
+        overflow-x: auto;
+      }
+
+      .guide-table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+      }
+
+      .guide-table th,
+      .guide-table td {
+        padding: 18px 16px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--page-line);
+      }
+
+      .guide-table th {
+        color: var(--page-muted);
+        font-size: 0.72rem;
+      }
+
+      .guide-table tbody tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .guide-table td p + p {
+        margin-top: 8px;
+      }
+
+      .split-grid,
+      .action-grid,
+      .signal-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .split-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .action-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .signal-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .action-card h4,
+      .signal-card h3 {
+        letter-spacing: -0.03em;
+      }
+
+      .action-card p,
+      .signal-card p {
+        color: var(--page-muted);
+      }
+
+      .scenario-stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .scenario-card h3 {
+        font-size: 1.22rem;
+        letter-spacing: -0.04em;
+      }
+
+      .scenario-card p {
+        color: var(--page-muted);
+      }
+
+      .scenario-card ol {
+        margin: 14px 0 0;
+        padding-left: 20px;
+      }
+
+      .scenario-card li + li {
+        margin-top: 8px;
+      }
+
+      .section-summary {
+        max-width: 62ch;
+        color: var(--page-muted);
+      }
+
+      .final-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .final-list li {
+        position: relative;
+        padding-left: 18px;
+      }
+
+      .final-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.58em;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-mint));
+      }
+
+      .mermaid-label {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(16, 22, 35, 0.04);
+        color: var(--page-muted);
+        font-size: 0.72rem;
+      }
+
+      .footer {
+        padding: 0 clamp(24px, 4vw, 42px) 42px;
+      }
+
+      .footer-cta {
+        border-radius: calc(var(--radius-xl) + 6px);
+        padding: clamp(28px, 5vw, 44px);
+        background: radial-gradient(
+            circle at top left,
+            rgba(131, 184, 255, 0.12),
+            transparent 30%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.78)
+          );
+      }
+
+      .footer-tag {
+        color: var(--page-muted);
+        font-size: 0.72rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: end;
+        margin-top: 18px;
+      }
+
+      .footer-grid p {
+        max-width: 58ch;
+        color: var(--page-muted);
+      }
+
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 700ms ease,
+          transform 700ms ease;
+      }
+
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero-copy,
+      .hero-visual {
+        animation: hero-rise 880ms ease both;
+      }
+
+      .hero-visual {
+        animation-delay: 120ms;
+      }
+
+      @keyframes hero-rise {
+        from {
+          opacity: 0;
+          transform: translateY(34px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float-node {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) translateY(0px);
+        }
+
+        50% {
+          transform: translate(-50%, -50%) translateY(-8px);
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .poster-inner,
+        .section-header,
+        .flow-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .guide-nav,
+        .guide-grid,
+        .signal-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .poster-inner {
+          min-height: auto;
+          padding-top: 24px;
+        }
+
+        .hero-visual {
+          min-height: auto;
+        }
+
+        .system-surface {
+          margin: 10px auto 0;
+        }
+
+        .visual-caption {
+          position: static;
+          margin-top: 18px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .compare-grid,
+        .scenario-grid,
+        .flow-columns,
+        .start-band {
+          grid-template-columns: 1fr;
+        }
+
+        .split-grid,
+        .action-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tab-row {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .hero-points li {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .poster {
+          min-height: auto;
+        }
+
+        h1 {
+          font-size: clamp(2.6rem, 13vw, 4.3rem);
+        }
+
+        .hero-actions,
+        .hero-jump {
+          display: grid;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .system-surface {
+          width: 100%;
+          border-radius: 34px;
+        }
+
+        .node {
+          width: clamp(84px, 21vw, 112px);
+          padding: 10px 8px;
+          border-radius: 18px;
+        }
+
+        .core-node {
+          width: clamp(150px, 42vw, 190px);
+        }
+
+        .stage {
+          padding-left: 66px;
+        }
+
+        .stage::before {
+          left: 22px;
+        }
+
+        .stage-id {
+          width: 44px;
+          height: 44px;
+        }
+
+        .guide-nav {
+          grid-template-columns: 1fr;
+        }
+
+        .diagram-card .diagram-source,
+        .diagram-card .diagram-graphic {
+          min-width: 440px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .hero-copy,
+        .hero-visual,
+        .node,
+        [data-reveal] {
+          animation: none;
+          transition: none;
+          opacity: 1;
+          transform: none;
+        }
+
+        .system-surface {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="poster">
+        <div class="poster-inner">
+          <div class="hero-copy">
+            <div class="brand-row">
+              <span class="brand-dot" aria-hidden="true"></span>
+              <span>IMT System Guide</span>
+              <span>LK-GUIDE-01</span>
+              <span>02.04.2026</span>
+            </div>
+
+            <span class="eyebrow">Visual map of the cabinet</span>
+            <h1>Личный кабинет IMT держит одну рабочую картину клиента.</h1>
+            <p class="hero-lead">
+              Это не отдельный архив и не замена Telegram-боту. Кабинет сводит в
+              одном месте текущие переменные, summary консультаций, дневники,
+              разборы, связки и retro, а затем возвращает этот контекст обратно
+              в ежедневную работу.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#s4">Карта вкладок</a>
+              <a class="btn btn-secondary" href="#s13"
+                >Сценарии использования</a
+              >
+            </div>
+
+            <div class="hero-jump">
+              <a class="jump-link mono" href="#s1">Цикл работы</a>
+              <a class="jump-link mono" href="#s3">Два режима</a>
+              <a class="jump-link mono" href="#s12">Потоки данных</a>
+              <a class="jump-link mono" href="#s14">Если что-то сломалось</a>
+            </div>
+
+            <ul class="hero-points">
+              <li>
+                <strong class="mono">вход</strong>
+                <span
+                  >`/start` в Telegram, затем браузер и Telegram Login
+                  Widget.</span
+                >
+              </li>
+              <li>
+                <strong class="mono">ритм</strong>
+                <span>Обычные поля автосохраняются без отдельной кнопки.</span>
+              </li>
+              <li>
+                <strong class="mono">ai-задачи</strong>
+                <span
+                  >`Summary`, `Дневники` и `Ретро` запускают глубокую обработку
+                  до 5 минут.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-visual">
+            <div class="system-surface" data-parallax>
+              <svg
+                class="system-lines"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <line x1="50" y1="50" x2="18" y2="30"></line>
+                <line x1="50" y1="50" x2="21" y2="73"></line>
+                <line x1="50" y1="50" x2="32" y2="15"></line>
+                <line x1="50" y1="50" x2="50" y2="10"></line>
+                <line x1="50" y1="50" x2="76" y2="23"></line>
+                <line x1="50" y1="50" x2="83" y2="50"></line>
+                <line x1="50" y1="50" x2="74" y2="76"></line>
+                <line x1="50" y1="50" x2="49" y2="88"></line>
+                <line x1="50" y1="50" x2="25" y2="80"></line>
+                <line x1="50" y1="50" x2="80" y2="66"></line>
+                <circle class="pulse" cx="50" cy="50" r="1.4"></circle>
+              </svg>
+
+              <div class="core-node" style="--x: 50%; --y: 50%">
+                <div>
+                  <strong>ЛК IMT</strong>
+                  <span>единая рабочая картина клиента</span>
+                </div>
+              </div>
+
+              <div
+                class="node external"
+                style="--x: 18%; --y: 30%; --duration: 7.4s"
+              >
+                <strong>Telegram</strong>
+                <span>утро, вечер, дневники</span>
+              </div>
+              <div
+                class="node external"
+                style="--x: 21%; --y: 73%; --duration: 8s"
+              >
+                <strong>SendPulse</strong>
+                <span>разборы и внешние сигналы</span>
+              </div>
+              <div
+                class="node internal"
+                style="--x: 32%; --y: 15%; --duration: 7.1s"
+              >
+                <strong>Базовые</strong>
+                <span>быстрый пульт</span>
+              </div>
+              <div
+                class="node internal"
+                style="--x: 50%; --y: 10%; --duration: 7.8s"
+              >
+                <strong>Переменные</strong>
+                <span>полная настройка</span>
+              </div>
+              <div
+                class="node internal"
+                style="--x: 76%; --y: 23%; --duration: 6.8s"
+              >
+                <strong>Summary</strong>
+                <span>сессии и применение</span>
+              </div>
+              <div
+                class="node internal"
+                style="--x: 83%; --y: 50%; --duration: 7.6s"
+              >
+                <strong>Дневники</strong>
+                <span>период и сырой поток</span>
+              </div>
+              <div
+                class="node external"
+                style="--x: 80%; --y: 66%; --duration: 8.2s"
+              >
+                <strong>ChatGPT</strong>
+                <span>summary, retro, сигналы</span>
+              </div>
+              <div
+                class="node internal"
+                style="--x: 74%; --y: 76%; --duration: 7.3s"
+              >
+                <strong>Разбор</strong>
+                <span>ложные и новые понимания</span>
+              </div>
+              <div
+                class="node internal"
+                style="--x: 49%; --y: 88%; --duration: 6.9s"
+              >
+                <strong>Связки</strong>
+                <span>паттерны и прогресс</span>
+              </div>
+              <div
+                class="node internal"
+                style="--x: 25%; --y: 80%; --duration: 7.7s"
+              >
+                <strong>Ретро</strong>
+                <span>большой обзор периода</span>
+              </div>
+            </div>
+            <p class="visual-caption">
+              Сигналы приходят из бота и внешних сценариев, внутри кабинета
+              становятся рабочими переменными и затем снова влияют на следующие
+              сообщения и вопросы.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="content-inner">
+          <nav class="guide-nav" data-reveal>
+            <a class="guide-link" href="#s1">
+              <strong class="mono">01-04</strong>
+              <span>Что происходит, как войти и как устроены действия</span>
+            </a>
+            <a class="guide-link" href="#s5">
+              <strong class="mono">05-11</strong>
+              <span>Все вкладки кабинета и их внутренние связи</span>
+            </a>
+            <a class="guide-link" href="#s12">
+              <strong class="mono">12-14</strong>
+              <span>Роли Telegram, SendPulse и типовые сценарии работы</span>
+            </a>
+            <a class="guide-link" href="#s15">
+              <strong class="mono">15-16</strong>
+              <span>Полная диаграмма и короткая карта использования</span>
+            </a>
+          </nav>
+
+          <section class="section" id="s1" data-tone="sky">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 01</div>
+                <h2>1. Что здесь вообще происходит</h2>
+              </div>
+              <p class="section-intro">
+                Этот документ нужен как простая карта личного кабинета: что в
+                нём есть, зачем каждая вкладка нужна, что куда передаётся и как
+                все части работают вместе.
+              </p>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card" data-reveal>
+                <p>
+                  Личный кабинет не заменяет Telegram-бота. Он собирает в одном
+                  месте текущие рабочие переменные клиента, результаты
+                  консультаций, дневники за период, разборы из SendPulse, работу
+                  со связками и ретро по выбранному периоду.
+                </p>
+                <p>Вся логика кабинета строится вокруг одного цикла:</p>
+                <ol>
+                  <li>
+                    Клиент взаимодействует с Telegram-ботом и проходит
+                    консультации.
+                  </li>
+                  <li>Сигналы, ответы и тексты попадают в личный кабинет.</li>
+                  <li>
+                    В кабинете это превращается в переменные, саммари, разборы,
+                    связки и ретро.
+                  </li>
+                  <li>
+                    Часть данных из кабинета снова уходит в бот и влияет на
+                    следующие сообщения, вопросы и сценарии.
+                  </li>
+                </ol>
+              </article>
+
+              <aside class="diagram-card" data-reveal>
+                <span class="mermaid-label mono">cycle diagram</span>
+                <p>Базовый контур кабинета как рабочей системы.</p>
+                <div class="diagram-scroll">
+                  <pre class="diagram-source">
+flowchart LR
+    A[Telegram и SendPulse] --> B[Личный кабинет]
+    B --> C[Текущие переменные клиента]
+    B --> D[Summary]
+    B --> E[Дневники]
+    B --> F[Разбор]
+    B --> G[Связки]
+    B --> H[Ретро]
+    C --> A
+    D --> C
+    E --> G
+    E --> H
+    F --> H
+    G --> C
+                  </pre>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="section" id="s2" data-tone="sand">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 02</div>
+                <h2>2. Как зайти в кабинет</h2>
+              </div>
+              <p class="section-intro">
+                Путь входа жёстко связан с Telegram, потому что кабинет
+                использует его как основной способ подтверждения личности.
+              </p>
+            </div>
+
+            <div class="split-grid">
+              <article class="guide-card" data-reveal>
+                <h3>Путь входа</h3>
+                <ol>
+                  <li>
+                    Клиент сначала делает <code>/start</code> в Telegram-боте.
+                  </li>
+                  <li>
+                    После этого бот переводит клиента в браузер и открывает
+                    личный кабинет как обычную веб-страницу.
+                  </li>
+                  <li>Кабинет предлагает вход через Telegram Login Widget.</li>
+                </ol>
+              </article>
+
+              <article class="guide-card" data-reveal>
+                <h3>Что это значит на практике</h3>
+                <ul>
+                  <li>
+                    без <code>/start</code> кабинет не сможет привязать человека
+                    к его данным;
+                  </li>
+                  <li>
+                    кабинет использует Telegram как основной способ
+                    подтверждения личности;
+                  </li>
+                  <li>
+                    если пользователь уже авторизован, он сразу попадает в
+                    интерфейс.
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="section" id="s3" data-tone="mint">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 03</div>
+                <h2>3. Главный принцип работы</h2>
+              </div>
+              <p class="section-intro">
+                В кабинете есть два типа действий: обычные изменения с
+                автосохранением и отдельные AI-задачи с полноценной обработкой.
+              </p>
+            </div>
+
+            <div class="compare-grid">
+              <article class="mode-block" data-reveal>
+                <span class="mode-label mono">type 01</span>
+                <h3>Действия с автосохранением</h3>
+                <p>
+                  Это обычные поля и текстовые блоки. Пользователь меняет их, а
+                  кабинет сам сохраняет изменения. Отдельной кнопки
+                  <code>Сохранить</code> там нет.
+                </p>
+                <p>
+                  Состояние видно в верхней плашке: например,
+                  <code>Сохраняю...</code> или <code>Сохранено</code>.
+                </p>
+              </article>
+
+              <article class="mode-block" data-reveal>
+                <span class="mode-label mono">type 02</span>
+                <h3>Запуск задач</h3>
+                <p>
+                  Это кнопки вроде <code>Создать саммари</code>,
+                  <code>Создать саммари за период</code>,
+                  <code>Найти новые сигналы</code> и <code>Сделать ретро</code>.
+                </p>
+                <p>
+                  Такие действия запускают отдельную обработку: сигнал уходит в
+                  ChatGPT через API, модель получает большой контекст и глубоко
+                  его обдумывает, а затем возвращает структурированный результат
+                  обратно в кабинет.
+                </p>
+              </article>
+            </div>
+
+            <article class="guide-card" data-reveal>
+              <h3>Если совсем просто</h3>
+              <ul>
+                <li>
+                  <code>Создать саммари</code> во вкладке <code>Summary</code> —
+                  это сделать структурированное саммари одной консультации по её
+                  транскрипту и заметкам.
+                </li>
+                <li>
+                  <code>Создать саммари за период</code> во вкладке
+                  <code>Дневники</code> — это собрать общий смысл из дневниковых
+                  записей за выбранный период между консультациями.
+                </li>
+                <li>
+                  <code>Сделать ретро</code> во вкладке <code>Ретро</code> — это
+                  собрать большой обзор периода из нескольких источников сразу.
+                </li>
+              </ul>
+              <p class="section-summary">
+                Это не мгновенные действия: в зависимости от объёма контекста
+                создание summary или ретро может занимать до 5 минут.
+              </p>
+            </article>
+          </section>
+
+          <section class="section" id="s4" data-tone="lilac">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 04</div>
+                <h2>4. Быстрая карта вкладок</h2>
+              </div>
+              <p class="section-intro">
+                Ниже компактная таблица, которая повторяет структуру исходного
+                гида без сокращений по смыслу.
+              </p>
+            </div>
+
+            <div class="guide-card table-shell" data-reveal>
+              <div class="table-scroll">
+                <table class="guide-table">
+                  <thead>
+                    <tr>
+                      <th class="mono">Вкладка</th>
+                      <th class="mono">Для чего нужна</th>
+                      <th class="mono">Что видит пользователь</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>Базовые</code></td>
+                      <td>Быстро управлять главными ежедневными переменными</td>
+                      <td>
+                        вопросы утром и вечером, аффирмации, цитаты, главная
+                        связка, версии, стартовые наборы
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>Все переменные</code></td>
+                      <td>Работать с полной картиной переменных клиента</td>
+                      <td>
+                        системные настройки, таймзона, имя, 2 связки, инструкции
+                        ChatGPT, ежедневные поля
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>Summary</code></td>
+                      <td>
+                        Загружать транскрипт консультации и получать
+                        структурированное саммари
+                      </td>
+                      <td>
+                        загрузка файла, заметки, email, результат, редактор
+                        секций, история консультаций
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>Дневники</code></td>
+                      <td>
+                        Смотреть записи за период и собирать по ним саммари
+                      </td>
+                      <td>фильтр периода, список записей, саммари за период</td>
+                    </tr>
+                    <tr>
+                      <td><code>Разбор</code></td>
+                      <td>
+                        Смотреть и редактировать блоки разбора для SendPulse
+                      </td>
+                      <td>слоты ложных и новых пониманий, история разборов</td>
+                    </tr>
+                    <tr>
+                      <td><code>Связки</code></td>
+                      <td>Управлять реестром связок и прогрессом по ним</td>
+                      <td>
+                        AI-предложения, активные/неактивные связки, недельный
+                        прогресс, общий прогресс
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>Ретро</code></td>
+                      <td>
+                        Собирать обзор периода из нескольких источников сразу
+                      </td>
+                      <td>
+                        выбор периода, готовый текст ретро, raw-успехи, история
+                        ретро
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="s5" data-tone="amber">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 05</div>
+                <h2>5. Вкладка <code>Базовые</code></h2>
+              </div>
+              <p class="section-intro">
+                Это самая прикладная вкладка. Здесь собраны вещи, которые обычно
+                нужно менять быстрее всего.
+              </p>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card" data-reveal>
+                <div class="subsection">
+                  <h3>Что здесь есть</h3>
+                  <ul>
+                    <li>время утреннего вопроса;</li>
+                    <li>время вечернего вопроса;</li>
+                    <li>вопрос утром;</li>
+                    <li>вопрос вечером;</li>
+                    <li>блок <code>Аффирмации</code>;</li>
+                    <li>блок <code>Цитаты</code>;</li>
+                    <li>блок <code>Связка (ситуация)</code>;</li>
+                    <li>блок <code>Версии</code>;</li>
+                    <li>блок <code>Стартовые наборы</code>.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Что делает эта вкладка</h3>
+                  <ul>
+                    <li>помогает быстро поправить ежедневный ритм клиента;</li>
+                    <li>
+                      позволяет держать перед глазами текущую главную связку;
+                    </li>
+                    <li>даёт быстро откатиться к прошлым версиям;</li>
+                    <li>
+                      позволяет одним действием применить стартовый набор
+                      аффирмаций, цитат и вопросов.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Что важно понимать</h3>
+                  <ul>
+                    <li>изменения здесь автосохраняются;</li>
+                    <li>
+                      изменения в главной связке влияют не только на ЛК, но и на
+                      то, что дальше видит бот;
+                    </li>
+                    <li>
+                      история версий нужна как страховка, если поле случайно
+                      переписали.
+                    </li>
+                  </ul>
+                </div>
+              </article>
+
+              <div class="guide-shell">
+                <article class="guide-card" data-reveal>
+                  <h3>
+                    Что такое наборы <code>Research</code> и <code>Debug</code>
+                  </h3>
+                  <div class="split-grid">
+                    <div>
+                      <h4>Research</h4>
+                      <ul>
+                        <li>нужен для периода наблюдения и исследования;</li>
+                        <li>
+                          помогает замечать повторяющиеся реакции, отделять факт
+                          от интерпретации и собирать карту шаблонов;
+                        </li>
+                        <li>
+                          полезен, когда важно не торопиться менять поведение, а
+                          сначала точнее увидеть, как устроен старый автоматизм.
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4>Debug</h4>
+                      <ul>
+                        <li>
+                          нужен для периода внедрения нового реагирования;
+                        </li>
+                        <li>
+                          смещает фокус с наблюдения на применение нового
+                          понимания в реальных триггерах;
+                        </li>
+                        <li>
+                          полезен, когда связка уже достаточно ясна и задача
+                          теперь не только замечать, но и менять реакцию.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p>Оба набора сразу перезаписывают:</p>
+                  <ul>
+                    <li>10 аффирмаций;</li>
+                    <li>10 цитат;</li>
+                    <li>вопрос на утро;</li>
+                    <li>вопрос на вечер.</li>
+                  </ul>
+                </article>
+
+                <aside class="diagram-card" data-reveal>
+                  <span class="mermaid-label mono">mini scheme</span>
+                  <p>
+                    Мини-схема вкладки <code>Базовые</code> в логике
+                    автосохранения и возврата в рабочие переменные.
+                  </p>
+                  <div class="diagram-scroll">
+                    <pre class="diagram-source">
+flowchart TD
+    A[Базовые] --> B[Автосохранение]
+    B --> C[Текущие переменные клиента]
+    C --> D[Telegram и SendPulse]
+    A --> E[Версии]
+    E --> C
+                    </pre>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="s6" data-tone="sand">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 06</div>
+                <h2>6. Вкладка <code>Все переменные</code></h2>
+              </div>
+              <p class="section-intro">
+                Это полный режим управления состоянием клиента.
+              </p>
+            </div>
+
+            <div class="split-grid">
+              <article class="guide-card" data-reveal>
+                <h3>Здесь можно менять</h3>
+                <ul>
+                  <li>системные параметры: день цикла, таймзону, имя;</li>
+                  <li>алгоритм утра и вечера;</li>
+                  <li>
+                    <code>Основную связку</code> и
+                    <code>Дополнительную связку</code>;
+                  </li>
+                  <li>блок <code>Инструкции ChatGPT</code>;</li>
+                  <li>
+                    ежедневные поля: аффирмация дня, цитата дня, счётчик
+                    сообщений, задача спринта.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="guide-card" data-reveal>
+                <h3>Зачем нужна</h3>
+                <p>
+                  Если <code>Базовые</code> это быстрый пульт, то
+                  <code>Все переменные</code> это полная панель управления.
+                </p>
+                <p>Её используют, когда нужно:</p>
+                <ul>
+                  <li>скорректировать глубокие инструкции для бота;</li>
+                  <li>вручную поправить контекст клиента;</li>
+                  <li>изменить рабочую связку напрямую;</li>
+                  <li>
+                    настроить системные параметры, от которых зависит поведение
+                    сценариев.
+                  </li>
+                </ul>
+              </article>
+            </div>
+
+            <article class="guide-card" data-reveal>
+              <h3>Что происходит при изменении главной связки</h3>
+              <p>
+                В кабинете <code>gpt_situation</code> и
+                <code>link_main</code> считаются одной и той же главной связкой.
+              </p>
+              <ul>
+                <li>
+                  если пользователь меняет <code>Связка (ситуация)</code> в
+                  <code>Базовых</code>, меняется и основная связка;
+                </li>
+                <li>
+                  если пользователь меняет <code>Основную связку</code> в
+                  <code>Все переменные</code>, меняется и
+                  <code>Связка (ситуация)</code>;
+                </li>
+                <li>
+                  эта связка потом синхронизируется в рабочие переменные бота;
+                </li>
+                <li>
+                  изменение активной главной связки обнуляет общий прогресс по
+                  этой связке.
+                </li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="section" id="s7" data-tone="sky">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 07</div>
+                <h2>7. Вкладка <code>Summary</code></h2>
+              </div>
+              <p class="section-intro">
+                Это вкладка для обработки консультаций.
+              </p>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card" data-reveal>
+                <div class="subsection">
+                  <h3>Пользователь видит</h3>
+                  <ul>
+                    <li>загрузку транскрипта;</li>
+                    <li>необязательную загрузку заметок;</li>
+                    <li>поле email для авто-отправки;</li>
+                    <li>кнопку <code>Создать саммари</code>;</li>
+                    <li>готовое саммари;</li>
+                    <li>
+                      кнопки <code>Применить</code>, <code>Скачать</code>,
+                      <code>Копировать</code>, <code>Email</code>,
+                      <code>Плакаты</code>;
+                    </li>
+                    <li>редактор секций;</li>
+                    <li>историю консультаций.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Как это работает</h3>
+                  <ol>
+                    <li>Загружается транскрипт консультации.</li>
+                    <li>При желании загружается дополнительный конспект.</li>
+                    <li>
+                      Кабинет отправляет весь этот контекст в ChatGPT через API.
+                    </li>
+                    <li>
+                      Модель глубоко обрабатывает материал консультации,
+                      сопоставляет линии разбора, извлекает новые и ложные
+                      понимания, связки, вопросы, аффирмации, цитаты и другие
+                      рабочие элементы.
+                    </li>
+                    <li>Возвращается структурированное саммари.</li>
+                    <li>Пользователь решает, что с ним делать дальше.</li>
+                  </ol>
+                </div>
+
+                <div class="subsection">
+                  <h3>Что делает дополнительный конспект</h3>
+                  <p>
+                    Если загружены <code>Заметки</code>, они усиливают обработку
+                    саммари. Кабинет считает, что это конспект слов консультанта
+                    и должен использовать его для улучшения разделов саммари.
+                  </p>
+                </div>
+              </article>
+
+              <aside class="diagram-card" data-reveal>
+                <span class="mermaid-label mono">mini scheme</span>
+                <p>
+                  Логика движения от транскрипта к саммари и обратно в кабинет и
+                  бот.
+                </p>
+                <div class="diagram-scroll">
+                  <pre class="diagram-source">
+flowchart TD
+    A[Транскрипт] --> B[Summary]
+    N[Дополнительный конспект] --> B
+    B --> C[Готовое саммари]
+    C --> D[Применить в переменные]
+    C --> E[Редактировать секции]
+    C --> F[Email, скачать, копировать]
+    C --> G[Плакаты]
+    D --> H[Личный кабинет]
+    H --> I[Telegram и SendPulse]
+    E --> I
+                  </pre>
+                </div>
+              </aside>
+            </div>
+
+            <article class="guide-card" data-reveal>
+              <h3>Что означают действия после генерации</h3>
+              <div class="action-grid">
+                <div class="action-card">
+                  <h4><code>Применить</code></h4>
+                  <p>
+                    Ключевое действие после консультации: сначала показывает
+                    предпросмотр перезаписи полей, затем позволяет выбрать
+                    группы полей и после подтверждения обновляет переменные
+                    клиента и сразу передаёт в бота обсуждённые на сессии вещи.
+                  </p>
+                </div>
+                <div class="action-card">
+                  <h4><code>Скачать</code></h4>
+                  <p>Скачивает текущее саммари как markdown-файл.</p>
+                </div>
+                <div class="action-card">
+                  <h4><code>Копировать</code></h4>
+                  <p>Копирует текст саммари в буфер.</p>
+                </div>
+                <div class="action-card">
+                  <h4><code>Email</code></h4>
+                  <p>Отправляет саммари на выбранный адрес.</p>
+                </div>
+                <div class="action-card">
+                  <h4><code>Плакаты</code></h4>
+                  <p>Генерирует текстовые промпты для постеров по саммари.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="guide-card" data-reveal>
+              <h3>Что такое <code>Редактор секций</code></h3>
+              <p>Это рабочий режим поверх готового саммари. Он позволяет:</p>
+              <ul>
+                <li>убирать лишние пункты;</li>
+                <li>убирать целые разделы;</li>
+                <li>
+                  отправлять отдельные пункты или целые разделы
+                  <code>в бот</code>.
+                </li>
+              </ul>
+              <p>
+                Кнопка <code>в бот</code> нужна, когда не хочется применять всё
+                саммари целиком, а нужно забрать только конкретный результат:
+                цитаты, аффирмации, вопросы, связки, таланты, грабли, мотивации
+                и контекст.
+              </p>
+            </article>
+          </section>
+
+          <section class="section" id="s8" data-tone="mint">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 08</div>
+                <h2>8. Вкладка <code>Дневники</code></h2>
+              </div>
+              <p class="section-intro">
+                Эта вкладка не создаёт дневники вручную. Она собирает записи,
+                которые уже пришли в систему из Telegram-бота и через SendPulse.
+              </p>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card" data-reveal>
+                <div class="subsection">
+                  <h3>Пользователь видит</h3>
+                  <ul>
+                    <li>выбор периода;</li>
+                    <li>даты начала и окончания;</li>
+                    <li>кнопку <code>Обновить список</code>;</li>
+                    <li>кнопку <code>Создать саммари за период</code>;</li>
+                    <li>блок <code>Саммари дневников</code>;</li>
+                    <li>список последних записей.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Какие записи сюда попадают</h3>
+                  <p>
+                    Дневники обычно создаются в Telegram-боте двумя способами:
+                    клиент пишет их текстом или отправляет их голосом.
+                  </p>
+                  <p>
+                    Дальше голосовые сообщения транскрибируются через SendPulse
+                    и попадают в личный кабинет уже в текстовом виде. Поэтому в
+                    самой вкладке <code>Дневники</code> пользователь видит уже
+                    не аудио, а готовый текст записей.
+                  </p>
+                  <p>Основные типы:</p>
+                  <ul>
+                    <li>обычный дневниковый текст;</li>
+                    <li>успех;</li>
+                    <li>новая связка;</li>
+                    <li>идея или импульс.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Зачем нужна эта вкладка</h3>
+                  <ol>
+                    <li>Даёт посмотреть сырые записи за период.</li>
+                    <li>Даёт собрать из них общий смысловой срез периода.</li>
+                  </ol>
+                  <p>
+                    Кнопка <code>Создать саммари за период</code> особенно
+                    полезна между консультациями: она показывает, чем реально
+                    был наполнен период, какие темы повторялись, где был
+                    прогресс, а где клиент застревал или возвращался в один и
+                    тот же шаблон.
+                  </p>
+                </div>
+
+                <div class="subsection">
+                  <h3>Что дальше происходит с дневниками</h3>
+                  <ul>
+                    <li>попадают в саммари дневников;</li>
+                    <li>участвуют в ретро;</li>
+                    <li>становятся сигналами для блока <code>Связки</code>;</li>
+                    <li>
+                      успехи из дневников дополнительно показываются в ретро
+                      отдельным raw-блоком.
+                    </li>
+                  </ul>
+                </div>
+              </article>
+
+              <aside class="diagram-card" data-reveal>
+                <span class="mermaid-label mono">mini scheme</span>
+                <p>
+                  Движение дневникового потока из Telegram и SendPulse в
+                  саммари, связки и ретро.
+                </p>
+                <div class="diagram-scroll">
+                  <pre class="diagram-source">
+flowchart TD
+    A[Telegram и SendPulse] --> B[Дневниковые записи]
+    B --> C[Вкладка Дневники]
+    C --> D[Саммари дневников]
+    B --> E[Связки]
+    B --> F[Ретро]
+                  </pre>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="section" id="s9" data-tone="rose">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 09</div>
+                <h2>9. Вкладка <code>Разбор</code></h2>
+              </div>
+              <p class="section-intro">
+                Эта вкладка связана с разбором, который выполняется в
+                Telegram-боте и затем приходит в кабинет через SendPulse.
+              </p>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card" data-reveal>
+                <div class="subsection">
+                  <h3>Что в ней есть</h3>
+                  <ul>
+                    <li><code>Ложные понимания для SendPulse</code>;</li>
+                    <li><code>Новые понимания для SendPulse</code>;</li>
+                    <li><code>История разборов</code>.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Что здесь делает пользователь</h3>
+                  <ul>
+                    <li>вручную поправляет 10 слотов ложных пониманий;</li>
+                    <li>вручную поправляет 10 слотов новых пониманий;</li>
+                    <li>
+                      просматривает завершённые разборы, которые пришли извне.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Что важно</h3>
+                  <ul>
+                    <li>
+                      эти поля ведут себя как обычные переменные и
+                      автосохраняются;
+                    </li>
+                    <li>
+                      история разборов показывает уже завершённые итоговые
+                      записи из SendPulse;
+                    </li>
+                    <li>разборы также участвуют в ретро по периоду.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Как понимать разбор</h3>
+                  <p>
+                    Разбор в Telegram-боте происходит не в один шаг, а по
+                    сложной многошаговой инструкции. Его задача — помочь
+                    разобрать конкретную связку:
+                  </p>
+                  <ul>
+                    <li>какой был стимул;</li>
+                    <li>какая включилась реакция;</li>
+                    <li>
+                      какое ложное понимание привело к нежелательному
+                      результату;
+                    </li>
+                    <li>
+                      каким новым пониманием это ложное понимание нужно
+                      заменить.
+                    </li>
+                  </ul>
+                  <p>
+                    При этом бот не строит разбор с нуля в пустоте. Он опирается
+                    на ложные и новые понимания, которые клиент уже получил на
+                    сессии с живым консультантом.
+                  </p>
+                </div>
+              </article>
+
+              <aside class="diagram-card" data-reveal>
+                <span class="mermaid-label mono">mini scheme</span>
+                <p>
+                  Разбор как внешний поток, который ложится в историю, рабочие
+                  переменные и ретро.
+                </p>
+                <div class="diagram-scroll">
+                  <pre class="diagram-source">
+flowchart TD
+    A[SendPulse разбор] --> B[История разборов]
+    A --> C[Слоты ложных и новых пониманий]
+    C --> D[Рабочие переменные клиента]
+    B --> E[Ретро]
+                  </pre>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="section" id="s10" data-tone="lilac">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 10</div>
+                <h2>10. Вкладка <code>Связки</code></h2>
+              </div>
+              <p class="section-intro">
+                Это одна из самых важных вкладок, потому что здесь кабинет
+                собирает повторяющиеся паттерны и следит за прогрессом по ним.
+              </p>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card" data-reveal>
+                <div class="subsection">
+                  <h3>Что пользователь видит</h3>
+                  <ul>
+                    <li><code>Управление связками</code>;</li>
+                    <li>кнопку <code>Найти новые сигналы</code>;</li>
+                    <li>блок <code>AI-предложения</code>;</li>
+                    <li>список <code>Активные связки</code>;</li>
+                    <li>список <code>Неактивные связки</code>;</li>
+                    <li>блок <code>Прогресс по связкам</code>;</li>
+                    <li>
+                      блок <code>Общий прогресс по активной связке</code>;
+                    </li>
+                    <li>
+                      блок <code>Топ связок по подтверждённому прогрессу</code>.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Как сюда попадают новые сигналы</h3>
+                  <p>Сигналы для связок приходят из нескольких мест:</p>
+                  <ul>
+                    <li>дневники;</li>
+                    <li>успехи;</li>
+                    <li>идеи;</li>
+                    <li>сигналы новой связки;</li>
+                    <li>часть внешних событий.</li>
+                  </ul>
+                  <p>После этого AI пытается понять:</p>
+                  <ul>
+                    <li>это прогресс по уже существующей связке;</li>
+                    <li>это новая связка;</li>
+                    <li>или это шум, который можно игнорировать.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Действия в блоке связок</h3>
+                  <p>Что можно сделать с AI-предложением:</p>
+                  <ul>
+                    <li><code>Засчитать прогресс</code>;</li>
+                    <li><code>Это новая связка</code>;</li>
+                    <li><code>Игнорировать</code>.</li>
+                  </ul>
+                  <p>Что можно делать с готовой связкой:</p>
+                  <ul>
+                    <li><code>Редактировать</code>;</li>
+                    <li>
+                      <code>Сделать главной</code> или
+                      <code>Перепубликовать</code>;
+                    </li>
+                    <li><code>Засчитать прогресс</code>;</li>
+                    <li>
+                      <code>Активировать</code> или <code>Деактивировать</code>.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Что такое главная связка и как читать прогресс</h3>
+                  <ul>
+                    <li>
+                      главная связка — это текущая рабочая ситуация клиента;
+                    </li>
+                    <li>
+                      когда пользователь делает связку главной, её текст
+                      синхронизируется в рабочие переменные клиента и становится
+                      опорной для общего прогресса;
+                    </li>
+                    <li>
+                      в блоке <code>Прогресс по связкам</code> кабинет
+                      показывает недельную динамику по трём шкалам:
+                      <code>Успехи</code>, <code>Новые связки</code> и
+                      <code>Идеи (импульсы)</code>;
+                    </li>
+                    <li>
+                      ниже отдельно показывается
+                      <code>Общий прогресс по активной связке</code>.
+                    </li>
+                  </ul>
+                  <p>Что обнуляет общий прогресс:</p>
+                  <ul>
+                    <li>редактирование активной главной связки;</li>
+                    <li>публикация новой главной связки;</li>
+                    <li>
+                      изменение текста главной связки через другие связанные
+                      механизмы кабинета.
+                    </li>
+                  </ul>
+                </div>
+              </article>
+
+              <aside class="diagram-card" data-reveal>
+                <span class="mermaid-label mono">mini scheme</span>
+                <p>
+                  Мини-схема, где дневниковые и другие сигналы переходят в
+                  предложения, прогресс и главную связку.
+                </p>
+                <div class="diagram-scroll">
+                  <pre class="diagram-source">
+flowchart TD
+    A[Дневники и другие сигналы] --> B[AI-предложения]
+    B --> C[Засчитать прогресс]
+    B --> D[Создать новую связку]
+    B --> E[Игнорировать]
+    D --> F[Реестр связок]
+    C --> G[Прогресс по связкам]
+    F --> H[Главная связка]
+    H --> I[Переменные клиента]
+    I --> J[Telegram и SendPulse]
+    H --> K[Общий прогресс по активной связке]
+                  </pre>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="section" id="s11" data-tone="amber">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 11</div>
+                <h2>11. Вкладка <code>Ретро</code></h2>
+              </div>
+              <p class="section-intro">
+                Это периодический обзор, который собирает вместе несколько
+                потоков данных. Чаще всего его имеет смысл делать перед
+                следующей консультацией.
+              </p>
+            </div>
+
+            <div class="guide-grid guide-grid--diagram-stack">
+              <article class="guide-card" data-reveal>
+                <div class="subsection">
+                  <h3>Что пользователь видит</h3>
+                  <ul>
+                    <li>выбор периода;</li>
+                    <li>кнопку <code>Сделать ретро</code>;</li>
+                    <li>готовый текст ретро;</li>
+                    <li>
+                      действия <code>Сохранить</code>, <code>Копировать</code>,
+                      <code>Отправить на почту</code>;
+                    </li>
+                    <li>отдельный блок <code>Успехи за период</code>;</li>
+                    <li>историю ретро.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Из чего собирается ретро</h3>
+                  <ul>
+                    <li>raw-успехи за период;</li>
+                    <li>дневники;</li>
+                    <li>саммари консультаций;</li>
+                    <li>завершённые разборы;</li>
+                    <li>новые связки;</li>
+                    <li>подтверждённый прогресс по связкам;</li>
+                    <li>часть внешних событий.</li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Зачем нужен отдельный блок с успехами</h3>
+                  <p>Он показывает успехи дословно, без пересказа.</p>
+                  <ul>
+                    <li>не теряет конкретные формулировки клиента;</li>
+                    <li>быстро показывает фактические результаты периода;</li>
+                    <li>
+                      делает ретро не только интерпретацией, но и опорой на
+                      реальные записи.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="subsection">
+                  <h3>Как это связано с идеями</h3>
+                  <p>
+                    Если в периоде были идеи или импульсы, они попадают в общий
+                    вход для ретро. Смысл этого блока — не только подвести итог,
+                    но и помочь увидеть:
+                  </p>
+                  <ul>
+                    <li>что было реализовано;</li>
+                    <li>что было отложено;</li>
+                    <li>что так и осталось без действия.</li>
+                  </ul>
+                </div>
+              </article>
+
+              <aside class="diagram-card" data-reveal>
+                <span class="mermaid-label mono">mini scheme</span>
+                <p>
+                  Ретро как агрегатор периода, который сводит успехи, дневники,
+                  summary, разборы и прогресс.
+                </p>
+                <div class="diagram-scroll">
+                  <pre class="diagram-source">
+flowchart TD
+    A[Успехи] --> G[Ретро]
+    B[Дневники] --> G
+    C[Summary консультаций] --> G
+    D[Разборы] --> G
+    E[Связки] --> G
+    F[Подтвержденный прогресс] --> G
+    G --> H[Готовый текст ретро]
+    G --> I[Raw успехи за период]
+                  </pre>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="section" id="s12" data-tone="slate">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 12</div>
+                <h2>12. Что именно делает Telegram / SendPulse рядом с ЛК</h2>
+              </div>
+              <p class="section-intro">
+                Личный кабинет не живёт отдельно от бота. У каждого своя роль.
+              </p>
+            </div>
+
+            <div class="signal-grid">
+              <article class="signal-card" data-reveal>
+                <h3>Что в основном делает бот</h3>
+                <ul>
+                  <li>ведёт ежедневный ритм клиента;</li>
+                  <li>задаёт утренние и вечерние вопросы;</li>
+                  <li>получает дневниковые записи;</li>
+                  <li>принимает сигналы успехов, идей и новых связок;</li>
+                  <li>завершает и присылает некоторые внешние разборы.</li>
+                </ul>
+              </article>
+
+              <article class="signal-card" data-reveal>
+                <h3>Что в основном делает кабинет</h3>
+                <ul>
+                  <li>хранит и показывает состояние клиента;</li>
+                  <li>даёт удобный интерфейс редактирования;</li>
+                  <li>собирает периодические саммари;</li>
+                  <li>даёт управлять связками;</li>
+                  <li>делает ретро;</li>
+                  <li>
+                    позволяет вручную подтверждать и направлять AI-результаты.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="signal-card" data-reveal>
+                <h3>Как между ними ходят сигналы</h3>
+                <h4>Из кабинета в бот</h4>
+                <ul>
+                  <li>вопросы;</li>
+                  <li>аффирмации;</li>
+                  <li>цитаты;</li>
+                  <li>главная связка;</li>
+                  <li>часть других рабочих переменных.</li>
+                </ul>
+                <h4>Из бота в кабинет</h4>
+                <ul>
+                  <li>дневники;</li>
+                  <li>успехи;</li>
+                  <li>идеи;</li>
+                  <li>сигналы новых связок;</li>
+                  <li>краткие итоги разборов.</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="section" id="s13" data-tone="sand">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 13</div>
+                <h2>13. Типовые сценарии использования</h2>
+              </div>
+              <p class="section-intro">
+                Это исходные сценарии из гида, без смысловой компрессии.
+              </p>
+            </div>
+
+            <div class="scenario-stack">
+              <article class="scenario-card" data-reveal>
+                <h3>Сценарий 1. После консультации</h3>
+                <ol>
+                  <li>Зайти во вкладку <code>Summary</code>.</li>
+                  <li>Загрузить транскрипт.</li>
+                  <li>При необходимости загрузить заметки.</li>
+                  <li>Ввести email.</li>
+                  <li>Нажать <code>Создать саммари</code>.</li>
+                  <li>Проверить результат.</li>
+                  <li>
+                    Нажать <code>Применить</code>, чтобы обсуждённые на сессии
+                    смыслы, связки, цитаты, вопросы и другие ключевые элементы
+                    сразу ушли в рабочие переменные бота.
+                  </li>
+                  <li>
+                    При необходимости точечно отправить отдельные секции
+                    <code>в бот</code>.
+                  </li>
+                </ol>
+              </article>
+
+              <article class="scenario-card" data-reveal>
+                <h3>Сценарий 2. Разобрать период по дневникам</h3>
+                <ol>
+                  <li>Открыть <code>Дневники</code>.</li>
+                  <li>Выбрать период.</li>
+                  <li>Нажать <code>Обновить список</code>.</li>
+                  <li>Просмотреть сырые записи.</li>
+                  <li>
+                    Нажать <code>Создать саммари за период</code>, чтобы собрать
+                    единый смысловой обзор того, как клиент прожил этот отрезок
+                    между консультациями.
+                  </li>
+                  <li>Скопировать или отправить результат на почту.</li>
+                </ol>
+              </article>
+
+              <article class="scenario-card" data-reveal>
+                <h3>Сценарий 3. Поработать со связками</h3>
+                <ol>
+                  <li>Открыть <code>Связки</code>.</li>
+                  <li>Нажать <code>Найти новые сигналы</code>.</li>
+                  <li>Просмотреть <code>AI-предложения</code>.</li>
+                  <li>
+                    Для каждого предложения выбрать одно действие:
+                    <code>Засчитать прогресс</code>,
+                    <code>Это новая связка</code> или <code>Игнорировать</code>.
+                  </li>
+                  <li>При необходимости отредактировать карточку связки.</li>
+                  <li>Сделать нужную связку главной.</li>
+                </ol>
+              </article>
+
+              <article class="scenario-card" data-reveal>
+                <h3>Сценарий 4. Сделать ретро перед следующей консультацией</h3>
+                <ol>
+                  <li>Открыть <code>Ретро</code>.</li>
+                  <li>Выбрать период.</li>
+                  <li>Нажать <code>Сделать ретро</code>.</li>
+                  <li>
+                    Дождаться, пока соберётся большой обзор периода по всем
+                    ключевым источникам.
+                  </li>
+                  <li>Посмотреть готовый текст.</li>
+                  <li>
+                    Отдельно свериться с блоком <code>Успехи за период</code>.
+                  </li>
+                  <li>Сохранить, скопировать или отправить на почту.</li>
+                  <li>
+                    Использовать результат как подготовку к следующей живой
+                    консультации.
+                  </li>
+                </ol>
+              </article>
+
+              <article class="scenario-card" data-reveal>
+                <h3>Сценарий 5. Вернуть прошлое состояние</h3>
+                <ol>
+                  <li>Открыть <code>Базовые</code>.</li>
+                  <li>Перейти в блок <code>Версии</code>.</li>
+                  <li>Выбрать нужную дату.</li>
+                  <li>Нажать <code>Восстановить</code>.</li>
+                  <li>Проверить, что нужные поля вернулись.</li>
+                </ol>
+              </article>
+            </div>
+          </section>
+
+          <section class="section" id="s14" data-tone="rose">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 14</div>
+                <h2>14. Если что-то не работает</h2>
+              </div>
+              <p class="section-intro">
+                Ниже те же проблемные точки, что и в исходном гайде.
+              </p>
+            </div>
+
+            <div class="faq-shell" data-reveal>
+              <details>
+                <summary>
+                  <strong>Не удаётся войти</strong>
+                  <span class="summary-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <ul>
+                    <li>
+                      сначала проверь, что в Telegram-боте уже был выполнен
+                      <code>/start</code>;
+                    </li>
+                    <li>затем открой кабинет снова;</li>
+                    <li>
+                      если браузер открыл кабинет, но вход не завершился,
+                      попробуй ещё раз пройти вход через Telegram Login Widget;
+                    </li>
+                    <li>
+                      если кабинет показывает стартовый экран, нажми
+                      <code>Проверить ещё раз</code>.
+                    </li>
+                  </ul>
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <strong>Не сохраняются поля</strong>
+                  <span class="summary-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <ul>
+                    <li>посмотри на верхнюю статус-плашку;</li>
+                    <li>
+                      если там ошибка, сначала проверь обязательные поля,
+                      особенно время и таймзону;
+                    </li>
+                    <li>
+                      попробуй изменить поле ещё раз и дождаться статуса
+                      <code>Сохранено</code>.
+                    </li>
+                  </ul>
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <strong>Не строится <code>Summary</code></strong>
+                  <span class="summary-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <ul>
+                    <li>
+                      проверь формат файла: поддерживаются
+                      <code>.txt</code>, <code>.md</code>, <code>.vtt</code>;
+                    </li>
+                    <li>проверь размер файла;</li>
+                    <li>проверь, что email введён корректно;</li>
+                    <li>
+                      помни, что такая AI-обработка может занимать до 5 минут,
+                      особенно если контекст большой;
+                    </li>
+                    <li>
+                      если генерация зависла, открой
+                      <code>История консультаций</code> и проверь, появился ли
+                      результат позже.
+                    </li>
+                  </ul>
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <strong>В <code>Дневниках</code> пусто</strong>
+                  <span class="summary-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <ul>
+                    <li>сначала убедись, что выбран правильный период;</li>
+                    <li>затем нажми <code>Обновить список</code>;</li>
+                    <li>
+                      если записей нет, значит в этот период они не приходили из
+                      бота или внешнего сценария.
+                    </li>
+                  </ul>
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <strong>В <code>Связках</code> нет предложений</strong>
+                  <span class="summary-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <ul>
+                    <li>нажми <code>Найти новые сигналы</code>;</li>
+                    <li>
+                      если после этого пусто, значит новых сигналов либо не
+                      было, либо AI не нашёл по ним полезных предложений.
+                    </li>
+                  </ul>
+                </div>
+              </details>
+
+              <details>
+                <summary>
+                  <strong>В <code>Ретро</code> ошибка</strong>
+                  <span class="summary-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                  <ul>
+                    <li>проверь период;</li>
+                    <li>если за период нет данных, ретро не соберётся;</li>
+                    <li>
+                      если данных достаточно, попробуй повторить запуск позже.
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section class="section" id="s15" data-tone="slate">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 15</div>
+                <h2>15. Полная диаграмма процесса</h2>
+              </div>
+              <p class="section-intro">
+                Ниже одна большая схема, которая показывает кабинет как единую
+                систему в пользовательской логике.
+              </p>
+            </div>
+
+            <div class="diagram-card" data-reveal>
+              <span class="mermaid-label mono">full process map</span>
+              <div class="diagram-scroll">
+                <pre class="diagram-source">
+flowchart TD
+    A[Пользователь] --> B[Telegram бот]
+    A --> C[Личный кабинет]
+
+    B --> D[Утренние и вечерние сценарии]
+    B --> E[Дневниковые записи]
+    B --> F[Сигналы успехов, идей и новых связок]
+    B --> G[Краткие итоги разборов]
+
+    C --> H[Базовые]
+    C --> I[Все переменные]
+    C --> J[Summary]
+    C --> K[Дневники]
+    C --> L[Разбор]
+    C --> M[Связки]
+    C --> N[Ретро]
+
+    H --> O[Текущие рабочие переменные]
+    I --> O
+
+    J --> P[Саммари консультации]
+    P --> O
+    P --> Q[Email, файл, копия, плакаты]
+
+    E --> K
+    F --> K
+    K --> R[Саммари дневников]
+    K --> M
+    K --> N
+
+    G --> L
+    L --> O
+    L --> N
+
+    F --> M
+    M --> S[AI предложения]
+    S --> T[Подтвержденный прогресс]
+    S --> U[Новая связка]
+    U --> V[Реестр связок]
+    V --> W[Главная связка]
+    W --> O
+    T --> X[Общий прогресс по активной связке]
+    M --> Y[Недельный прогресс по связкам]
+
+    E --> Z[Raw успехи]
+    Z --> N
+    P --> N
+    Y --> N
+    X --> N
+    L --> N
+
+    O --> B
+    N --> AA[Итог периода]
+    R --> AB[Итог периода по дневникам]
+                </pre>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="s16" data-tone="mint">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 16</div>
+                <h2>16. Коротко: как лучше пользоваться кабинетом</h2>
+              </div>
+              <p class="section-intro">
+                Это финальная короткая карта, которая суммирует весь guide без
+                искажения его логики.
+              </p>
+            </div>
+
+            <div class="split-grid">
+              <article class="guide-card" data-reveal>
+                <ul class="final-list">
+                  <li>
+                    <code>Базовые</code> — когда нужно быстро поправить
+                    ежедневную рабочую часть.
+                  </li>
+                  <li>
+                    <code>Все переменные</code> — когда нужно глубже настроить
+                    систему.
+                  </li>
+                  <li><code>Summary</code> — после консультации.</li>
+                  <li>
+                    <code>Дневники</code> — когда нужен срез периода по живым
+                    записям.
+                  </li>
+                  <li>
+                    <code>Разбор</code> — когда нужно посмотреть или поправить
+                    разбор из SendPulse.
+                  </li>
+                  <li>
+                    <code>Связки</code> — когда нужно собрать паттерны и
+                    подтвердить прогресс.
+                  </li>
+                  <li>
+                    <code>Ретро</code> — когда нужен общий обзор периода по всем
+                    важным источникам сразу.
+                  </li>
+                </ul>
+              </article>
+
+              <article class="guide-card" data-reveal>
+                <p>
+                  Если смотреть совсем просто, личный кабинет делает одно:
+                  превращает разрозненные сигналы клиента в понятную рабочую
+                  картину и возвращает эту картину обратно в ежедневную работу
+                  бота и консультанта.
+                </p>
+                <p>
+                  Именно поэтому здесь важна не только красивая навигация, но и
+                  сохранение полной логики: что откуда приходит, где
+                  обрабатывается и что потом снова уходит в сопровождение.
+                </p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-cta" data-reveal>
+            <div class="footer-tag">IMT LK Guide</div>
+            <div class="footer-grid">
+              <div>
+                <h2>
+                  Кабинет превращает разрозненные сигналы клиента в общую
+                  рабочую картину.
+                </h2>
+                <p>
+                  Это точка, где встречаются живые консультации, Telegram-ритм,
+                  периодические AI-обзоры и ручное подтверждение смыслов. Пока
+                  эта система собрана в одном месте, бот и консультант
+                  продолжают работать из одного и того же контекста.
+                </p>
+              </div>
+              <a class="btn btn-primary" href="#s1">Вернуться к карте</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const SVG_NS = "http://www.w3.org/2000/svg";
+
+      const createSvgElement = (tagName, attributes = {}) => {
+        const element = document.createElementNS(SVG_NS, tagName);
+
+        Object.entries(attributes).forEach(([key, value]) => {
+          if (value !== undefined && value !== null) {
+            element.setAttribute(key, String(value));
+          }
+        });
+
+        return element;
+      };
+
+      const splitLongWord = (word, maxChars) => {
+        if (word.length <= maxChars) {
+          return [word];
+        }
+
+        const parts = [];
+
+        for (let offset = 0; offset < word.length; offset += maxChars) {
+          parts.push(word.slice(offset, offset + maxChars));
+        }
+
+        return parts;
+      };
+
+      const wrapLabel = (label, maxChars) => {
+        const words = label
+          .split(/\s+/)
+          .filter(Boolean)
+          .flatMap((word) => splitLongWord(word, maxChars));
+
+        const lines = [];
+        let currentLine = "";
+
+        words.forEach((word) => {
+          const nextLine = currentLine ? `${currentLine} ${word}` : word;
+
+          if (!currentLine || nextLine.length <= maxChars) {
+            currentLine = nextLine;
+            return;
+          }
+
+          lines.push(currentLine);
+          currentLine = word;
+        });
+
+        if (currentLine) {
+          lines.push(currentLine);
+        }
+
+        return lines;
+      };
+
+      const parseDiagramSource = (sourceText) => {
+        const nodes = new Map();
+        const edges = [];
+        let direction = "TD";
+
+        const ensureNode = (rawToken) => {
+          const cleanedToken = rawToken.replace(/;$/, "").trim();
+
+          if (!cleanedToken) {
+            return null;
+          }
+
+          const match = cleanedToken.match(/^([A-Za-z0-9_]+)\[(.+)\]$/);
+          const id = match ? match[1] : cleanedToken;
+          const label = match ? match[2].trim() : cleanedToken;
+
+          if (!nodes.has(id)) {
+            nodes.set(id, { id, label });
+          } else if (match) {
+            nodes.get(id).label = label;
+          }
+
+          return nodes.get(id);
+        };
+
+        sourceText
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean)
+          .forEach((line) => {
+            if (line.startsWith("flowchart")) {
+              const [, nextDirection = "TD"] = line.split(/\s+/);
+              direction = nextDirection.toUpperCase();
+              return;
+            }
+
+            if (!line.includes("-->")) {
+              return;
+            }
+
+            const chain = line
+              .split(/\s*-->\s*/)
+              .map((token) => token.trim())
+              .filter(Boolean);
+
+            for (let index = 0; index < chain.length - 1; index += 1) {
+              const sourceNode = ensureNode(chain[index]);
+              const targetNode = ensureNode(chain[index + 1]);
+
+              if (sourceNode && targetNode) {
+                edges.push({ source: sourceNode.id, target: targetNode.id });
+              }
+            }
+          });
+
+        return {
+          direction: direction === "LR" ? "LR" : "TD",
+          nodes: [...nodes.values()],
+          edges,
+        };
+      };
+
+      const computeGraphMeta = (graph) => {
+        const order = new Map(
+          graph.nodes.map((node, index) => [node.id, index]),
+        );
+        const layers = Object.fromEntries(
+          graph.nodes.map((node) => [node.id, 0]),
+        );
+        const inDegree = Object.fromEntries(
+          graph.nodes.map((node) => [node.id, 0]),
+        );
+        const outDegree = Object.fromEntries(
+          graph.nodes.map((node) => [node.id, 0]),
+        );
+
+        graph.edges.forEach(({ source, target }) => {
+          if (source in outDegree) {
+            outDegree[source] += 1;
+          }
+
+          if (target in inDegree) {
+            inDegree[target] += 1;
+          }
+        });
+
+        for (let pass = 0; pass < graph.nodes.length; pass += 1) {
+          let changed = false;
+
+          graph.edges.forEach(({ source, target }) => {
+            if (order.get(source) <= order.get(target)) {
+              const nextLayer = layers[source] + 1;
+
+              if (nextLayer > layers[target]) {
+                layers[target] = nextLayer;
+                changed = true;
+              }
+            }
+          });
+
+          if (!changed) {
+            break;
+          }
+        }
+
+        return {
+          order,
+          layers,
+          inDegree,
+          outDegree,
+          maxLayer: Math.max(0, ...Object.values(layers)),
+        };
+      };
+
+      const prepareNodes = (graph, meta) => {
+        const longestLabel = Math.max(
+          16,
+          ...graph.nodes.map((node) => node.label.length),
+        );
+        const nodeWidth = Math.min(
+          graph.nodes.length > 18 ? 208 : graph.direction === "LR" ? 214 : 228,
+          Math.max(168, longestLabel * 5.8),
+        );
+        const maxChars = Math.max(12, Math.floor((nodeWidth - 34) / 7.4));
+
+        return graph.nodes.map((node) => {
+          const lines = wrapLabel(node.label, maxChars);
+          const height = Math.max(58, 28 + lines.length * 18);
+
+          return {
+            ...node,
+            lines,
+            width: nodeWidth,
+            height,
+            layer: meta.layers[node.id],
+          };
+        });
+      };
+
+      const layoutNodes = (preparedNodes, meta, direction) => {
+        const padding = 40;
+        const groups = Array.from({ length: meta.maxLayer + 1 }, () => []);
+
+        preparedNodes.forEach((node) => {
+          groups[node.layer].push(node);
+        });
+
+        groups.forEach((group) => {
+          group.sort(
+            (left, right) => meta.order.get(left.id) - meta.order.get(right.id),
+          );
+        });
+
+        const positions = {};
+
+        if (direction === "LR") {
+          const gapX = preparedNodes.length > 10 ? 72 : 86;
+          const gapY = preparedNodes.length > 10 ? 22 : 28;
+          const columnHeights = groups.map(
+            (group) =>
+              group.reduce((sum, node) => sum + node.height, 0) +
+              Math.max(0, group.length - 1) * gapY,
+          );
+          const maxColumnHeight = Math.max(...columnHeights, 0);
+          const diagramWidth =
+            padding * 2 +
+            groups.length * preparedNodes[0].width +
+            Math.max(0, groups.length - 1) * gapX;
+          const diagramHeight = padding * 2 + maxColumnHeight;
+
+          groups.forEach((group, columnIndex) => {
+            const x = padding + columnIndex * (preparedNodes[0].width + gapX);
+            let y =
+              padding + (maxColumnHeight - columnHeights[columnIndex]) / 2;
+
+            group.forEach((node) => {
+              positions[node.id] = {
+                x,
+                y,
+                width: node.width,
+                height: node.height,
+                cx: x + node.width / 2,
+                cy: y + node.height / 2,
+              };
+              y += node.height + gapY;
+            });
+          });
+
+          return { positions, width: diagramWidth, height: diagramHeight };
+        }
+
+        const gapX = preparedNodes.length > 18 ? 18 : 26;
+        const gapY = preparedNodes.length > 18 ? 56 : 68;
+        const rowHeights = groups.map((group) =>
+          Math.max(...group.map((node) => node.height), 0),
+        );
+        const rowWidths = groups.map(
+          (group) =>
+            group.length * preparedNodes[0].width +
+            Math.max(0, group.length - 1) * gapX,
+        );
+        const maxRowWidth = Math.max(...rowWidths, preparedNodes[0].width);
+
+        let currentY = padding;
+
+        groups.forEach((group, rowIndex) => {
+          let currentX = padding + (maxRowWidth - rowWidths[rowIndex]) / 2;
+
+          group.forEach((node) => {
+            positions[node.id] = {
+              x: currentX,
+              y: currentY + (rowHeights[rowIndex] - node.height) / 2,
+              width: node.width,
+              height: node.height,
+              cx: currentX + node.width / 2,
+              cy: currentY + rowHeights[rowIndex] / 2,
+            };
+            currentX += node.width + gapX;
+          });
+
+          currentY += rowHeights[rowIndex] + gapY;
+        });
+
+        return {
+          positions,
+          width: padding * 2 + maxRowWidth,
+          height:
+            padding * 2 +
+            rowHeights.reduce((sum, value) => sum + value, 0) +
+            Math.max(0, groups.length - 1) * gapY,
+        };
+      };
+
+      const buildEdgePath = (direction, sourceBox, targetBox, isBack) => {
+        if (direction === "LR") {
+          const startX = sourceBox.x + sourceBox.width;
+          const startY = sourceBox.cy;
+          const endX = targetBox.x;
+          const endY = targetBox.cy;
+
+          if (!isBack) {
+            const bend = Math.max(42, Math.abs(endX - startX) * 0.42);
+            return `M ${startX} ${startY} C ${startX + bend} ${startY}, ${endX - bend} ${endY}, ${endX} ${endY}`;
+          }
+
+          const arcY = Math.max(22, Math.min(sourceBox.y, targetBox.y) - 54);
+          const outerX = Math.max(
+            startX + 42,
+            sourceBox.x + sourceBox.width + 74,
+          );
+          const midX = (startX + endX) / 2;
+
+          return `M ${startX} ${startY} C ${outerX} ${startY}, ${outerX} ${arcY}, ${midX} ${arcY} S ${endX - 48} ${arcY}, ${endX} ${endY}`;
+        }
+
+        const startX = sourceBox.cx;
+        const startY = sourceBox.y + sourceBox.height;
+        const endX = targetBox.cx;
+        const endY = targetBox.y;
+
+        if (!isBack) {
+          const bend = Math.max(40, Math.abs(endY - startY) * 0.4);
+          return `M ${startX} ${startY} C ${startX} ${startY + bend}, ${endX} ${endY - bend}, ${endX} ${endY}`;
+        }
+
+        const arcX =
+          Math.max(
+            sourceBox.x + sourceBox.width,
+            targetBox.x + targetBox.width,
+          ) + 56;
+        const midY = (startY + endY) / 2;
+
+        return `M ${startX} ${startY} C ${startX} ${startY + 24}, ${arcX} ${startY + 24}, ${arcX} ${midY} S ${arcX} ${endY - 24}, ${endX} ${endY}`;
+      };
+
+      const renderDiagramGraphic = (card, index) => {
+        const sourceElement = card.querySelector(".diagram-source");
+
+        if (!sourceElement) {
+          return;
+        }
+
+        const graph = parseDiagramSource(sourceElement.textContent);
+
+        if (!graph.nodes.length || !graph.edges.length) {
+          return;
+        }
+
+        const meta = computeGraphMeta(graph);
+        const preparedNodes = prepareNodes(graph, meta);
+        const layout = layoutNodes(preparedNodes, meta, graph.direction);
+        const label =
+          card.querySelector(".mermaid-label")?.textContent?.trim() ||
+          "Графическая диаграмма";
+        const markerId = `diagram-arrow-${index}`;
+        const svg = createSvgElement("svg", {
+          class: "diagram-graphic",
+          viewBox: `0 0 ${layout.width} ${layout.height}`,
+          width: layout.width,
+          height: layout.height,
+          preserveAspectRatio: "xMinYMin meet",
+          role: "img",
+          "aria-label": label,
+        });
+
+        if (graph.nodes.length <= 12) {
+          svg.style.width = "100%";
+          svg.style.minWidth = "0";
+        }
+
+        const title = createSvgElement("title");
+        const defs = createSvgElement("defs");
+        const marker = createSvgElement("marker", {
+          id: markerId,
+          markerWidth: 12,
+          markerHeight: 12,
+          refX: 10,
+          refY: 5,
+          orient: "auto",
+          markerUnits: "strokeWidth",
+        });
+        const markerPath = createSvgElement("path", {
+          d: "M 0 0 L 10 5 L 0 10 z",
+          fill: "context-stroke",
+        });
+
+        title.textContent = label;
+        marker.append(markerPath);
+        defs.append(marker);
+        svg.append(title, defs);
+
+        graph.edges.forEach((edge) => {
+          const sourceBox = layout.positions[edge.source];
+          const targetBox = layout.positions[edge.target];
+
+          if (!sourceBox || !targetBox) {
+            return;
+          }
+
+          const isBack = meta.layers[edge.source] >= meta.layers[edge.target];
+          const edgePath = createSvgElement("path", {
+            d: buildEdgePath(graph.direction, sourceBox, targetBox, isBack),
+            class: `diagram-edge${isBack ? " is-back" : ""}`,
+            "marker-end": `url(#${markerId})`,
+          });
+
+          svg.append(edgePath);
+        });
+
+        preparedNodes.forEach((node) => {
+          const position = layout.positions[node.id];
+
+          if (!position) {
+            return;
+          }
+
+          const group = createSvgElement("g", {
+            class: `diagram-node layer-${Math.min(node.layer, 5)}`,
+          });
+          const rect = createSvgElement("rect", {
+            x: position.x,
+            y: position.y,
+            width: position.width,
+            height: position.height,
+            rx: 22,
+            ry: 22,
+          });
+          const text = createSvgElement("text", {
+            "text-anchor": "middle",
+          });
+
+          node.lines.forEach((line, lineIndex) => {
+            const tspan = createSvgElement("tspan", {
+              x: position.cx,
+              y: position.cy + (lineIndex - (node.lines.length - 1) / 2) * 18,
+            });
+
+            tspan.textContent = line;
+            text.append(tspan);
+          });
+
+          group.append(rect, text);
+          svg.append(group);
+        });
+
+        card.querySelector(".diagram-scroll")?.prepend(svg);
+        card.classList.add("is-rendered");
+      };
+
+      document
+        .querySelectorAll(".diagram-card")
+        .forEach((card, index) => renderDiagramGraphic(card, index + 1));
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (!prefersReducedMotion) {
+        const revealItems = document.querySelectorAll("[data-reveal]");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.16,
+            rootMargin: "0px 0px -8% 0px",
+          },
+        );
+
+        revealItems.forEach((item) => observer.observe(item));
+
+        const parallaxSurface = document.querySelector("[data-parallax]");
+
+        if (parallaxSurface) {
+          const updateParallax = () => {
+            const shift = Math.max(-18, window.scrollY * -0.035);
+            parallaxSurface.style.setProperty("--parallax-shift", shift + "px");
+          };
+
+          updateParallax();
+          window.addEventListener("scroll", updateParallax, { passive: true });
+        }
+      } else {
+        document.querySelectorAll("[data-reveal]").forEach((item) => {
+          item.classList.add("is-visible");
+        });
+      }
+    </script>
+  </body>
+</html>
