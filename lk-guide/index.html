@@ -1837,14 +1837,14 @@
             <h1>Личный кабинет IMT держит одну рабочую картину клиента.</h1>
             <p class="hero-lead">
               Это не отдельный архив и не замена Telegram-боту. Кабинет сводит в
-              одном месте текущие переменные, summary консультаций, дневники,
-              разборы, связки и retro, а затем возвращает этот контекст обратно
-              в ежедневную работу.
+              одном месте дэшборд состояния, текущие переменные, summary
+              консультаций, дневники, разборы, связки и retro, а затем
+              возвращает этот контекст обратно в ежедневную работу.
             </p>
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="#s4">Карта вкладок</a>
-              <a class="btn btn-secondary" href="#s13"
+              <a class="btn btn-secondary" href="#s14"
                 >Сценарии использования</a
               >
             </div>
@@ -1852,8 +1852,8 @@
             <div class="hero-jump">
               <a class="jump-link mono" href="#s1">Цикл работы</a>
               <a class="jump-link mono" href="#s3">Два режима</a>
-              <a class="jump-link mono" href="#s12">Потоки данных</a>
-              <a class="jump-link mono" href="#s14">Если что-то сломалось</a>
+              <a class="jump-link mono" href="#s13">Потоки данных</a>
+              <a class="jump-link mono" href="#s15">Если что-то сломалось</a>
             </div>
 
             <ul class="hero-points">
@@ -1993,15 +1993,15 @@
               <span>Что происходит, как войти и как устроены действия</span>
             </a>
             <a class="guide-link" href="#s5">
-              <strong class="mono">05-11</strong>
+              <strong class="mono">05-12</strong>
               <span>Все вкладки кабинета и их внутренние связи</span>
             </a>
-            <a class="guide-link" href="#s12">
-              <strong class="mono">12-14</strong>
+            <a class="guide-link" href="#s13">
+              <strong class="mono">13-15</strong>
               <span>Роли Telegram, SendPulse и типовые сценарии работы</span>
             </a>
-            <a class="guide-link" href="#s15">
-              <strong class="mono">15-16</strong>
+            <a class="guide-link" href="#s16">
+              <strong class="mono">16-17</strong>
               <span>Полная диаграмма и короткая карта использования</span>
             </a>
           </nav>
@@ -2210,19 +2210,31 @@ flowchart LR
                   </thead>
                   <tbody>
                     <tr>
+                      <td><code>Дэшборд</code></td>
+                      <td>
+                        Быстро увидеть текущее состояние и активность с
+                        последней консультации
+                      </td>
+                      <td>
+                        связка в фокусе, период, прогресс-бар, метрики,
+                        последние изменения, дневной контекст
+                      </td>
+                    </tr>
+                    <tr>
                       <td><code>Базовые</code></td>
                       <td>Быстро управлять главными ежедневными переменными</td>
                       <td>
-                        вопросы утром и вечером, аффирмации, цитаты, главная
-                        связка, версии, стартовые наборы
+                        вопросы утром и вечером, аффирмации, цитаты, связка в
+                        фокусе, версии, стартовые наборы
                       </td>
                     </tr>
                     <tr>
                       <td><code>Все переменные</code></td>
                       <td>Работать с полной картиной переменных клиента</td>
                       <td>
-                        системные настройки, таймзона, имя, 2 связки, инструкции
-                        ChatGPT, ежедневные поля
+                        системные настройки, таймзона, имя, связка в фокусе и
+                        дополнительная связка, инструкции ChatGPT, ежедневные
+                        поля
                       </td>
                     </tr>
                     <tr>
@@ -2252,10 +2264,10 @@ flowchart LR
                     </tr>
                     <tr>
                       <td><code>Связки</code></td>
-                      <td>Управлять реестром связок и прогрессом по ним</td>
+                      <td>Управлять реестром связок и их аналитикой</td>
                       <td>
-                        AI-предложения, активные/неактивные связки, недельный
-                        прогресс, общий прогресс
+                        связка в фокусе, сигналы на разбор, рабочие и архивные
+                        связки, активность за период, топ по подтверждениям
                       </td>
                     </tr>
                     <tr>
@@ -2274,11 +2286,109 @@ flowchart LR
             </div>
           </section>
 
-          <section class="section" id="s5" data-tone="amber">
+          <section class="section" id="s5" data-tone="slate">
             <div class="section-header" data-reveal>
               <div>
                 <div class="section-kicker">Guide 05</div>
-                <h2>5. Вкладка <code>Базовые</code></h2>
+                <h2>5. Вкладка <code>Дэшборд</code></h2>
+              </div>
+              <p class="section-intro">
+                Это первый экран личного кабинета. Он нужен не для
+                редактирования, а для быстрой ориентации: где я сейчас и что
+                изменилось с последней консультации.
+              </p>
+            </div>
+
+            <div class="guide-grid">
+              <article class="guide-card" data-reveal>
+                <div class="subsection">
+                  <h3>Сверху показаны две главные карточки</h3>
+                  <div class="split-grid">
+                    <div>
+                      <h4><code>Сейчас в работе</code></h4>
+                      <ul>
+                        <li>текущая связка в фокусе;</li>
+                        <li>новое понимание или текст текущего фокуса;</li>
+                        <li>ближайшее новое действие, если оно есть;</li>
+                        <li>количество сигналов по фокусу;</li>
+                        <li>количество подтверждений прогресса.</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4><code>С последней консультации</code></h4>
+                      <ul>
+                        <li>период от последней завершённой консультации;</li>
+                        <li>короткий итог по дням, дневникам и успехам;</li>
+                        <li>
+                          сегментированный progress bar, который делит
+                          активность периода по типам.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="subsection">
+                  <h3>Что видно ниже</h3>
+                  <ul>
+                    <li>
+                      метрики периода: дневники, успехи, сигналы, новые связки,
+                      разборы и подтверждения;
+                    </li>
+                    <li>
+                      блок <code>Что изменилось</code> с фактическими событиями
+                      периода;
+                    </li>
+                    <li>
+                      блок <code>Дневной контекст</code> с утренним вопросом,
+                      вечерним вопросом, аффирмацией и цитатой;
+                    </li>
+                    <li>
+                      быстрые переходы в дневники, связки, ретро и последнее
+                      summary.
+                    </li>
+                  </ul>
+                </div>
+
+                <p class="section-summary">
+                  Первая версия собирается на фронтенде из существующих API.
+                  После тестирования содержания на реальном использовании
+                  агрегацию нужно вынести в отдельный backend endpoint
+                  <code>dashboard</code>.
+                </p>
+              </article>
+
+              <aside class="diagram-card" data-reveal>
+                <span class="mermaid-label mono">dashboard scheme</span>
+                <p>
+                  Дэшборд не дублирует редакторы. Он сводит состояние и ведёт в
+                  существующие рабочие flow.
+                </p>
+                <div class="diagram-scroll">
+                  <pre class="diagram-source">
+flowchart TD
+    A[Дэшборд] --> B[Сейчас в работе]
+    A --> C[С последней консультации]
+    A --> D[Метрики периода]
+    A --> E[Что изменилось]
+    A --> F[Дневной контекст]
+    B --> G[Связка в фокусе]
+    C --> H[Progress bar активности]
+    D --> I[Дневники, успехи, связки, разборы]
+    E --> J[Фактические события периода]
+    F --> K[Утро, вечер, аффирмация, цитата]
+    A --> L[Переходы в существующие вкладки]
+                  </pre>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="section" id="s6" data-tone="amber">
+            <div class="section-header" data-reveal>
+              <div>
+                <div class="section-kicker">Guide 06</div>
+                <h2>6. Вкладка <code>Базовые</code></h2>
               </div>
               <p class="section-intro">
                 Это самая прикладная вкладка. Здесь собраны вещи, которые обычно
@@ -2401,11 +2511,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s6" data-tone="sand">
+          <section class="section" id="s7" data-tone="sand">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 06</div>
-                <h2>6. Вкладка <code>Все переменные</code></h2>
+                <div class="section-kicker">Guide 07</div>
+                <h2>7. Вкладка <code>Все переменные</code></h2>
               </div>
               <p class="section-intro">
                 Это полный режим управления состоянием клиента.
@@ -2476,11 +2586,11 @@ flowchart TD
             </article>
           </section>
 
-          <section class="section" id="s7" data-tone="sky">
+          <section class="section" id="s8" data-tone="sky">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 07</div>
-                <h2>7. Вкладка <code>Summary</code></h2>
+                <div class="section-kicker">Guide 08</div>
+                <h2>8. Вкладка <code>Summary</code></h2>
               </div>
               <p class="section-intro">
                 Это вкладка для обработки консультаций.
@@ -2611,11 +2721,11 @@ flowchart TD
             </article>
           </section>
 
-          <section class="section" id="s8" data-tone="mint">
+          <section class="section" id="s9" data-tone="mint">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 08</div>
-                <h2>8. Вкладка <code>Дневники</code></h2>
+                <div class="section-kicker">Guide 09</div>
+                <h2>9. Вкладка <code>Дневники</code></h2>
               </div>
               <p class="section-intro">
                 Эта вкладка не создаёт дневники вручную. Она собирает записи,
@@ -2707,11 +2817,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s9" data-tone="rose">
+          <section class="section" id="s10" data-tone="rose">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 09</div>
-                <h2>9. Вкладка <code>Разбор</code></h2>
+                <div class="section-kicker">Guide 10</div>
+                <h2>10. Вкладка <code>Разбор</code></h2>
               </div>
               <p class="section-intro">
                 Эта вкладка связана с разбором, который выполняется в
@@ -2802,11 +2912,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s10" data-tone="lilac">
+          <section class="section" id="s11" data-tone="lilac">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 10</div>
-                <h2>10. Вкладка <code>Связки</code></h2>
+                <div class="section-kicker">Guide 11</div>
+                <h2>11. Вкладка <code>Связки</code></h2>
               </div>
               <p class="section-intro">
                 Это одна из самых важных вкладок, потому что здесь кабинет
@@ -2933,11 +3043,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s11" data-tone="amber">
+          <section class="section" id="s12" data-tone="amber">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 11</div>
-                <h2>11. Вкладка <code>Ретро</code></h2>
+                <div class="section-kicker">Guide 12</div>
+                <h2>12. Вкладка <code>Ретро</code></h2>
               </div>
               <p class="section-intro">
                 Это периодический обзор, который собирает вместе несколько
@@ -3027,11 +3137,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s12" data-tone="slate">
+          <section class="section" id="s13" data-tone="slate">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 12</div>
-                <h2>12. Что именно делает Telegram / SendPulse рядом с ЛК</h2>
+                <div class="section-kicker">Guide 13</div>
+                <h2>13. Что именно делает Telegram / SendPulse рядом с ЛК</h2>
               </div>
               <p class="section-intro">
                 Личный кабинет не живёт отдельно от бота. У каждого своя роль.
@@ -3086,11 +3196,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s13" data-tone="sand">
+          <section class="section" id="s14" data-tone="sand">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 13</div>
-                <h2>13. Типовые сценарии использования</h2>
+                <div class="section-kicker">Guide 14</div>
+                <h2>14. Типовые сценарии использования</h2>
               </div>
               <p class="section-intro">
                 Это исходные сценарии из гида, без смысловой компрессии.
@@ -3186,11 +3296,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s14" data-tone="rose">
+          <section class="section" id="s15" data-tone="rose">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 14</div>
-                <h2>14. Если что-то не работает</h2>
+                <div class="section-kicker">Guide 15</div>
+                <h2>15. Если что-то не работает</h2>
               </div>
               <p class="section-intro">
                 Ниже те же проблемные точки, что и в исходном гайде.
@@ -3319,11 +3429,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s15" data-tone="slate">
+          <section class="section" id="s16" data-tone="slate">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 15</div>
-                <h2>15. Полная диаграмма процесса</h2>
+                <div class="section-kicker">Guide 16</div>
+                <h2>16. Полная диаграмма процесса</h2>
               </div>
               <p class="section-intro">
                 Ниже одна большая схема, которая показывает кабинет как единую
@@ -3344,6 +3454,7 @@ flowchart TD
     B --> F[Сигналы успехов, идей и новых связок]
     B --> G[Краткие итоги разборов]
 
+    C --> DH[Дэшборд]
     C --> H[Базовые]
     C --> I[Все переменные]
     C --> J[Summary]
@@ -3352,6 +3463,10 @@ flowchart TD
     C --> M[Связки]
     C --> N[Ретро]
 
+    DH --> O[Текущие рабочие переменные]
+    DH --> K
+    DH --> M
+    DH --> N
     H --> O[Текущие рабочие переменные]
     I --> O
 
@@ -3394,11 +3509,11 @@ flowchart TD
             </div>
           </section>
 
-          <section class="section" id="s16" data-tone="mint">
+          <section class="section" id="s17" data-tone="mint">
             <div class="section-header" data-reveal>
               <div>
-                <div class="section-kicker">Guide 16</div>
-                <h2>16. Коротко: как лучше пользоваться кабинетом</h2>
+                <div class="section-kicker">Guide 17</div>
+                <h2>17. Коротко: как лучше пользоваться кабинетом</h2>
               </div>
               <p class="section-intro">
                 Это финальная короткая карта, которая суммирует весь guide без
@@ -3409,6 +3524,10 @@ flowchart TD
             <div class="split-grid">
               <article class="guide-card" data-reveal>
                 <ul class="final-list">
+                  <li>
+                    <code>Дэшборд</code> — когда нужно быстро понять текущее
+                    состояние и активность с последней консультации.
+                  </li>
                   <li>
                     <code>Базовые</code> — когда нужно быстро поправить
                     ежедневную рабочую часть.
