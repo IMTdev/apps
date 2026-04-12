@@ -3,13 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CASE-CREDIT-LOOP-01 — Быстрый займ превращается в петлю — Вариант v2
-    </title>
-    <meta
-      name="description"
-      content="Кейс о том, как клиент перестал оправдывать быстрые займы маленькой переплатой и увидел в них не мостик, а повторяемую кредитную петлю."
-    />
+    <title>CASE-CREDIT-LOOP-01 — Быстрый займ превращается в петлю — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как клиент перестал оправдывать быстрые займы маленькой переплатой и увидел в них не мостик, а повторяемую кредитную петлю." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -49,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -84,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -101,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -119,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -184,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -281,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -361,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -397,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -493,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -644,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -656,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -771,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -824,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -899,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -938,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -950,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1043,76 +1007,50 @@
                 <span class="meta-chip">read time: 9 minutes</span>
               </div>
 
-              <h1 class="hero-seq hero-seq-3">
-                Быстрый займ превращается в петлю
-              </h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                У клиента не было большой финансовой катастрофы в моменте. Баг
-                выглядел буднично: то не хватает 10-15 тысяч, то нужна важная
-                покупка, то хочется дотянуть до зарплаты или закрыть кассовый
-                разрыв. Именно в этой бытовой мелкости и пряталась кредитная
-                петля.
-              </p>
+              <h1 class="hero-seq hero-seq-3">Быстрый займ превращается в петлю</h1>
+              <p class="hero-lead hero-seq hero-seq-4">У клиента не было большой финансовой катастрофы в моменте. Баг выглядел буднично: то не хватает 10-15 тысяч, то нужна важная покупка, то хочется дотянуть до зарплаты или закрыть кассовый разрыв. Именно в этой бытовой мелкости и пряталась кредитная петля.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один конкретный кейс о быстрых займах, маленьких нехватках
-                    и повторяющемся оправдании «это почти не кредит».</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >Клиент читал заем как нормальный мостик, хотя на деле
-                    заново заходил в знакомую дофаминовую игру.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Вместо очередного оправдания появилось чистое решение не
-                    входить в систему быстрых кредитов ни под каким
-                    соусом.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary про нехватку, микрозаймы, бюджетные
-                    приложения и перенос фокуса с черного дня на поток
-                    ценности.</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один конкретный кейс о быстрых займах, маленьких нехватках и повторяющемся оправдании «это почти не кредит».</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Клиент читал заем как нормальный мостик, хотя на деле заново заходил в знакомую дофаминовую игру.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Вместо очередного оправдания появилось чистое решение не входить в систему быстрых кредитов ни под каким соусом.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про нехватку, микрозаймы, бюджетные приложения и перенос фокуса с черного дня на поток ценности.</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">
-                    Дофаминовый кредитный шаблон
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Повторяемая заемная автоматика и застревание в
-                    микрофинансовой логике
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Не брать новые быстрые займы и выстраивать более чистые
-                    мостики
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Дофаминовый кредитный шаблон</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Повторяемая заемная автоматика и застревание в микрофинансовой логике</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Не брать новые быстрые займы и выстраивать более чистые мостики</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1120,141 +1058,66 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Денежная петля, где нехватка автоматически превращается в заем"
-                >
-                  <svg
-                    width="800"
-                    height="800"
-                    viewBox="0 0 800 800"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <style>
-                        .accent {
-                          fill: #1b4ed8;
-                          stroke: #1b4ed8;
-                        }
-                        .neutral {
-                          fill: #4a5768;
-                          stroke: #4a5768;
-                        }
-
-                        @keyframes flow {
-                          0% {
-                            stroke-dashoffset: 40;
-                          }
-                          100% {
-                            stroke-dashoffset: 0;
-                          }
-                        }
-
-                        @keyframes expand {
-                          0% {
-                            r: 30;
-                          }
-                          50% {
-                            r: 40;
-                          }
-                          100% {
-                            r: 30;
-                          }
-                        }
-                      </style>
-                    </defs>
-
-                    <!-- Left Side: Attention Economy (scattered) -->
-                    <g opacity="0.4">
-                      <circle cx="150" cy="200" r="10" fill="#4a5768" />
-                      <circle cx="200" cy="250" r="8" fill="#4a5768" />
-                      <circle cx="120" cy="300" r="6" fill="#4a5768" />
-                      <circle cx="180" cy="350" r="12" fill="#4a5768" />
-                      <circle cx="220" cy="400" r="7" fill="#4a5768" />
-                      <circle cx="140" cy="450" r="9" fill="#4a5768" />
-                      <circle cx="190" cy="500" r="5" fill="#4a5768" />
-                      <circle cx="160" cy="550" r="11" fill="#4a5768" />
-                    </g>
-
-                    <!-- Center Arrow -->
-                    <path
-                      d="M300 400 H500"
-                      stroke="#1b4ed8"
-                      stroke-width="4"
-                      stroke-dasharray="10,5"
-                      style="animation: flow 1s linear infinite"
-                    />
-                    <path
-                      d="M480 380 L520 400 L480 420"
-                      fill="none"
-                      stroke="#1b4ed8"
-                      stroke-width="4"
-                    />
-
-                    <!-- Right Side: Intent Economy (focused) -->
-                    <g>
-                      <circle
-                        cx="630"
-                        cy="400"
-                        r="30"
-                        fill="none"
-                        stroke="#1b4ed8"
-                        stroke-width="4"
-                        style="animation: expand 3s ease-in-out infinite"
-                      />
-                      <circle cx="630" cy="400" r="15" fill="#1b4ed8" />
-
-                      <circle cx="630" cy="300" r="8" fill="#4a5768" />
-                      <circle cx="730" cy="400" r="8" fill="#4a5768" />
-                      <circle cx="630" cy="500" r="8" fill="#4a5768" />
-                      <circle cx="530" cy="400" r="8" fill="#4a5768" />
-
-                      <line
-                        x1="630"
-                        y1="315"
-                        x2="630"
-                        y2="370"
-                        stroke="#4a5768"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="715"
-                        y1="400"
-                        x2="660"
-                        y2="400"
-                        stroke="#4a5768"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="630"
-                        y1="485"
-                        x2="630"
-                        y2="430"
-                        stroke="#4a5768"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="545"
-                        y1="400"
-                        x2="600"
-                        y2="400"
-                        stroke="#4a5768"
-                        stroke-width="2"
-                      />
-                    </g>
-                  </svg>
+                <div class="hero-figure-frame" role="img" aria-label="Денежная петля, где нехватка автоматически превращается в заем">
+                  <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .accent { fill: #1b4ed8; stroke: #1b4ed8; }
+      .neutral { fill: #4a5768; stroke: #4a5768; }
+      
+      @keyframes flow {
+        0% { stroke-dashoffset: 40; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes expand {
+        0% { r: 30; }
+        50% { r: 40; }
+        100% { r: 30; }
+      }
+    </style>
+  </defs>
+  
+  <!-- Left Side: Attention Economy (scattered) -->
+  <g opacity="0.4">
+    <circle cx="150" cy="200" r="10" fill="#4a5768"/>
+    <circle cx="200" cy="250" r="8" fill="#4a5768"/>
+    <circle cx="120" cy="300" r="6" fill="#4a5768"/>
+    <circle cx="180" cy="350" r="12" fill="#4a5768"/>
+    <circle cx="220" cy="400" r="7" fill="#4a5768"/>
+    <circle cx="140" cy="450" r="9" fill="#4a5768"/>
+    <circle cx="190" cy="500" r="5" fill="#4a5768"/>
+    <circle cx="160" cy="550" r="11" fill="#4a5768"/>
+  </g>
+  
+  <!-- Center Arrow -->
+  <path d="M300 400 H500" stroke="#1b4ed8" stroke-width="4" stroke-dasharray="10,5" style="animation: flow 1s linear infinite;"/>
+  <path d="M480 380 L520 400 L480 420" fill="none" stroke="#1b4ed8" stroke-width="4"/>
+  
+  <!-- Right Side: Intent Economy (focused) -->
+  <g>
+    <circle cx="630" cy="400" r="30" fill="none" stroke="#1b4ed8" stroke-width="4" style="animation: expand 3s ease-in-out infinite;"/>
+    <circle cx="630" cy="400" r="15" fill="#1b4ed8"/>
+    
+    <circle cx="630" cy="300" r="8" fill="#4a5768"/>
+    <circle cx="730" cy="400" r="8" fill="#4a5768"/>
+    <circle cx="630" cy="500" r="8" fill="#4a5768"/>
+    <circle cx="530" cy="400" r="8" fill="#4a5768"/>
+    
+    <line x1="630" y1="315" x2="630" y2="370" stroke="#4a5768" stroke-width="2"/>
+    <line x1="715" y1="400" x2="660" y2="400" stroke="#4a5768" stroke-width="2"/>
+    <line x1="630" y1="485" x2="630" y2="430" stroke="#4a5768" stroke-width="2"/>
+    <line x1="545" y1="400" x2="600" y2="400" stroke="#4a5768" stroke-width="2"/>
+  </g>
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>
-                  «Мне не хватает каких-то 10-15 тысяч, и рука сама тянется
-                  закрыть дыру займом».
-                </p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«Мне не хватает каких-то 10-15 тысяч, и рука сама тянется закрыть дыру займом».</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1265,452 +1128,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>
-                  Каждая маленькая нехватка включала старую кредитную автоматику
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Входной стимул не выглядел драматично. Именно поэтому баг так
-                долго жил. Не хватило чуть-чуть до нужной покупки, до
-                комфортного месяца, до закрытия дырки — и мозг быстро доставал
-                привычную отговорку: срок короткий, переплата маленькая,
-                ситуация же почти бытовая.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Входной стимул</h3>
-                  <ul>
-                    <li>
-                      Появлялась важная покупка или кассовый разрыв на
-                      относительно небольшую сумму.
-                    </li>
-                    <li>
-                      Клиенту казалось, что эта нехватка слишком маленькая,
-                      чтобы из-за нее перестраивать всю финансовую стратегию.
-                    </li>
-                    <li>
-                      Быстрый займ выглядел удобным: взял, быстро закрыл,
-                      переплатил немного и пошел дальше.
-                    </li>
-                    <li>
-                      Финансовые приложения и аккуратные списки задач давали
-                      ложное чувство, что система уже почти под контролем.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент делал по старому</h3>
-                  <ul>
-                    <li>
-                      Оправдывал заем тем, что формально это вроде бы не
-                      настоящий кредит и не большая беда.
-                    </li>
-                    <li>
-                      Надеялся, что сначала надо просто дожать текущий период, а
-                      потом уже строить более чистую финансовую систему.
-                    </li>
-                    <li>
-                      Пытался лечить ситуацию красивым бюджетированием, которое
-                      быстро срывалось после нескольких пропусков.
-                    </li>
-                    <li>
-                      Смотрел на нехватку в основном как на внешний дефицит
-                      денег, а не как на повторяющийся паттерн обращения с
-                      нехваткой.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Каждая маленькая нехватка включала старую кредитную автоматику</h2>
+        </div>
+        <p class="chapter-intro">Входной стимул не выглядел драматично. Именно поэтому баг так долго жил. Не хватило чуть-чуть до нужной покупки, до комфортного месяца, до закрытия дырки — и мозг быстро доставал привычную отговорку: срок короткий, переплата маленькая, ситуация же почти бытовая.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Входной стимул</h3>
+      <ul><li>Появлялась важная покупка или кассовый разрыв на относительно небольшую сумму.</li><li>Клиенту казалось, что эта нехватка слишком маленькая, чтобы из-за нее перестраивать всю финансовую стратегию.</li><li>Быстрый займ выглядел удобным: взял, быстро закрыл, переплатил немного и пошел дальше.</li><li>Финансовые приложения и аккуратные списки задач давали ложное чувство, что система уже почти под контролем.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент делал по старому</h3>
+      <ul><li>Оправдывал заем тем, что формально это вроде бы не настоящий кредит и не большая беда.</li><li>Надеялся, что сначала надо просто дожать текущий период, а потом уже строить более чистую финансовую систему.</li><li>Пытался лечить ситуацию красивым бюджетированием, которое быстро срывалось после нескольких пропусков.</li><li>Смотрел на нехватку в основном как на внешний дефицит денег, а не как на повторяющийся паттерн обращения с нехваткой.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Каждый такой “маленький” займ не просто перекрывал дыру. Он
-                  заново прописывал телу знакомый сценарий быстрого облегчения:
-                  взял, закрыл, выдохнул. Из-за этого клиент оставался внутри
-                  кредитной игры даже тогда, когда сознательно хотел из нее
-                  выйти.
-                </p>
+                <p>Каждый такой “маленький” займ не просто перекрывал дыру. Он заново прописывал телу знакомый сценарий быстрого облегчения: взял, закрыл, выдохнул. Из-за этого клиент оставался внутри кредитной игры даже тогда, когда сознательно хотел из нее выйти.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Мне не хватает каких-то 10-15 тысяч, и рука сама тянется закрыть дыру займом».</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Переплата маленькая, срок короткий - значит как будто не считается».</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Мне не хватает каких-то 10-15 тысяч, и рука сама тянется
-                    закрыть дыру займом».
-                  </blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>Консультация вскрыла не финансовую мелочь, а дофаминовую петлю</h2>
+        </div>
+        <p class="chapter-intro">Разворот произошел, когда консультант перестал спорить о процентах и удобстве. Он показал, что здесь живет не просто экономический выбор, а целая система быстрого облегчения, в которую клиент входит снова и снова под разными рациональными предлогами.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг получил точное имя: <strong>дофаминовый кредитный шаблон</strong>. Его суть не в суммах как таковых, а в повторяемой логике: появилась нехватка, заем быстро снял напряжение, тело запомнило это как нормальный мостик и снова потянулось туда при следующем триггере.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже жило несколько ложных пониманий: маленький займ почти не считается, вопрос решится позже через более правильную систему, а пока можно себя подпереть. Сверху на это наслаивалась старая кубышечная логика черного дня и вера, что нехватка — это просто нехватка денег, а не подавление собственных живых источников изобилия.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант отрезал главное оправдание: единственный реальный выход — не красивее объяснить новый займ, а быстро принять решение больше не заходить в эту систему. Дополнительно он развел быстрый займ и рассрочку у продавца: второе не заводит клиента обратно в микрофинансовое казино тем же способом.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч собрался вокруг трех вещей: не брать новые быстрые займы ни под какими соусами, редкие крупные покупки переводить в более чистый мостик, а финансовую картину строить не вокруг страха черного дня, а вокруг потока создаваемой ценности и осмысленных инвестиций.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я не называю повторяемую заемную автоматику мостиком. Если старый шаблон включился, я останавливаю вход в него до первого оправдания.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Переплата маленькая, срок короткий - значит как будто не
-                    считается».
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат появился, когда клиент перестал торговаться со входом в игру</h2>
+        </div>
+        <p class="chapter-intro">Новый патч не означал идеальный бюджет с первого дня. Но он очень быстро менял главное: клиент переставал каждый раз заново обсуждать, считать ли текущий займ “настоящим кредитом”, и переносил фокус на выход из самой автоматики.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Фраза “сейчас исключение” стала читаться как сигнал старого шаблона, а не как умное объяснение.</li><li>Редкие крупные покупки начали рассматриваться через рассрочку у продавца или перенос, а не через быстрый займ.</li><li>Текущие хвосты перестали быть основанием создавать новые хвосты сверху.</li><li>Финансовые инструменты снова заняли вспомогательное место и перестали изображать решение сами по себе.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Клиент чаще ловил момент, где хочет закрыть нехватку быстрым облегчением.</li><li>Реже путал красивую систему учета с реальным управлением деньгами.</li><li>Появилось больше ясности, ради чего вообще нужны дополнительные деньги и куда они будут направлены.</li><li>Нехватка начала рассматриваться не только как дефицит, но и как маркер подавленных талантов и импульсов.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Я каждый раз называю это мостиком, а по факту снова вхожу в ту же игру».</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Покупка нужна сейчас, и мозг уже ищет оправдание быстрее, чем решение».</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>
-                  Консультация вскрыла не финансовую мелочь, а дофаминовую петлю
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Разворот произошел, когда консультант перестал спорить о
-                процентах и удобстве. Он показал, что здесь живет не просто
-                экономический выбор, а целая система быстрого облегчения, в
-                которую клиент входит снова и снова под разными рациональными
-                предлогами.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг получил точное имя:
-                    <strong>дофаминовый кредитный шаблон</strong>. Его суть не в
-                    суммах как таковых, а в повторяемой логике: появилась
-                    нехватка, заем быстро снял напряжение, тело запомнило это
-                    как нормальный мостик и снова потянулось туда при следующем
-                    триггере.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло выход из кредитной игры на уровне паттерна</h2>
+        </div>
+        <p class="chapter-intro">Закрепление шло не через самонаказание за каждый прошлый займ, а через наблюдение паттерна и через заранее подготовленную замену для типичных триггеров нехватки.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Замечать первый момент, когда нехватка пытается превратиться в быстрый займ через рационализацию.</li><li>Разводить редкую крупную покупку, микрозайм и реальное финансовое решение как три разные вещи.</li><li>Не обслуживать инструмент ради инструмента: бюджеты и приложения должны помогать жизни, а не заменять ее.</li><li>Смещать денежную картину с черного дня на поток обмена ценностью и осмысленные вложения в себя и жизнь.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-patterns-doc">LP-PATTERNS-01</a></strong>. Он помогал видеть полный цикл: стимул нехватки, старая реакция облегчения, ложное понимание “это почти не считается” и новый ответ до входа в петлю.</p><p>Практически это сводилось к вопросу: я сейчас ищу решение или просто быстрый дофаминовый выход из напряжения?</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси уже жило несколько ложных пониманий: маленький займ
-                    почти не считается, вопрос решится позже через более
-                    правильную систему, а пока можно себя подпереть. Сверху на
-                    это наслаивалась старая кубышечная логика черного дня и
-                    вера, что нехватка — это просто нехватка денег, а не
-                    подавление собственных живых источников изобилия.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант отрезал главное оправдание: единственный
-                    реальный выход — не красивее объяснить новый займ, а быстро
-                    принять решение больше не заходить в эту систему.
-                    Дополнительно он развел быстрый займ и рассрочку у продавца:
-                    второе не заводит клиента обратно в микрофинансовое казино
-                    тем же способом.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Патч собрался вокруг трех вещей: не брать новые быстрые
-                    займы ни под какими соусами, редкие крупные покупки
-                    переводить в более чистый мостик, а финансовую картину
-                    строить не вокруг страха черного дня, а вокруг потока
-                    создаваемой ценности и осмысленных инвестиций.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Я не называю повторяемую заемную автоматику мостиком. Если
-                      старый шаблон включился, я останавливаю вход в него до
-                      первого оправдания.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат появился, когда клиент перестал
-                  торговаться со входом в игру
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Новый патч не означал идеальный бюджет с первого дня. Но он
-                очень быстро менял главное: клиент переставал каждый раз заново
-                обсуждать, считать ли текущий займ “настоящим кредитом”, и
-                переносил фокус на выход из самой автоматики.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Фраза “сейчас исключение” стала читаться как сигнал
-                      старого шаблона, а не как умное объяснение.
-                    </li>
-                    <li>
-                      Редкие крупные покупки начали рассматриваться через
-                      рассрочку у продавца или перенос, а не через быстрый займ.
-                    </li>
-                    <li>
-                      Текущие хвосты перестали быть основанием создавать новые
-                      хвосты сверху.
-                    </li>
-                    <li>
-                      Финансовые инструменты снова заняли вспомогательное место
-                      и перестали изображать решение сами по себе.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>
-                      Клиент чаще ловил момент, где хочет закрыть нехватку
-                      быстрым облегчением.
-                    </li>
-                    <li>
-                      Реже путал красивую систему учета с реальным управлением
-                      деньгами.
-                    </li>
-                    <li>
-                      Появилось больше ясности, ради чего вообще нужны
-                      дополнительные деньги и куда они будут направлены.
-                    </li>
-                    <li>
-                      Нехватка начала рассматриваться не только как дефицит, но
-                      и как маркер подавленных талантов и импульсов.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Я каждый раз называю это мостиком, а по факту снова вхожу в
-                    ту же игру».
-                  </blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Покупка нужна сейчас, и мозг уже ищет оправдание быстрее,
-                    чем решение».
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>
-                  Обучение закрепляло выход из кредитной игры на уровне паттерна
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Закрепление шло не через самонаказание за каждый прошлый займ, а
-                через наблюдение паттерна и через заранее подготовленную замену
-                для типичных триггеров нехватки.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Замечать первый момент, когда нехватка пытается
-                      превратиться в быстрый займ через рационализацию.
-                    </li>
-                    <li>
-                      Разводить редкую крупную покупку, микрозайм и реальное
-                      финансовое решение как три разные вещи.
-                    </li>
-                    <li>
-                      Не обслуживать инструмент ради инструмента: бюджеты и
-                      приложения должны помогать жизни, а не заменять ее.
-                    </li>
-                    <li>
-                      Смещать денежную картину с черного дня на поток обмена
-                      ценностью и осмысленные вложения в себя и жизнь.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-PATTERNS-01</strong>. Он помогал видеть полный
-                    цикл: стимул нехватки, старая реакция облегчения, ложное
-                    понимание “это почти не считается” и новый ответ до входа в
-                    петлю.
-                  </p>
-                  <p>
-                    Практически это сводилось к вопросу: я сейчас ищу решение
-                    или просто быстрый дофаминовый выход из напряжения?
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>
-                  Новый результат стал виден по тому, как клиент проходит
-                  нехватку без нового хвоста
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Главный эффект был не в идеальной финансовой дисциплине, а в
-                том, что обычная бытовая нехватка переставала автоматически
-                открывать дверь в знакомую кредитную игру.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Любая небольшая нехватка быстро объяснялась как исключение,
-                    а быстрый займ выглядел почти безобидным мостиком, который
-                    снова и снова перезапускает ту же схему.
-                  </p>
-                  <ul>
-                    <li>Нехватка = взять и быстро закрыть</li>
-                    <li>Оправдание включается раньше решения</li>
-                    <li>После покупки остается новый хвост</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Нехватка больше не превращается автоматически в новый
-                    заемный хвост. Сначала держится решение не входить в игру, а
-                    уже потом ищется более чистый способ пройти ситуацию.
-                  </p>
-                  <ul>
-                    <li>Нехватка = сначала не входить в петлю</li>
-                    <li>
-                      Крупные покупки проходят через чистый мостик или паузу
-                    </li>
-                    <li>Новый хвост не создается автоматически</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>
-                      Клиент раньше ловит старое оправдание и реже превращает
-                      его в действие.
-                    </li>
-                    <li>
-                      Финансовая картина становится менее нервной и менее
-                      завязанной на микроспасение месяца.
-                    </li>
-                    <li>
-                      Становится проще видеть, где деньги реально поддерживают
-                      рост, а где просто затыкают внутреннюю дыру.
-                    </li>
-                    <li>
-                      Покупки и решения дольше проходят через осознанный выбор,
-                      а не через срочное обезболивание.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>
-                      Маленький размер займа не делает паттерн безвредным.
-                    </li>
-                    <li>
-                      Быстрое облегчение может быть главным признаком, что я
-                      снова захожу в старую игру.
-                    </li>
-                    <li>
-                      Рассрочка у продавца и быстрый займ — не одно и то же по
-                      внутренней механике.
-                    </li>
-                    <li>
-                      Деньги устойчивее проходят через меня, когда я строю поток
-                      ценности, а не кормлю тревогу о нехватке.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не сколько раз я красиво объяснил новый займ. А сколько
-                  нехваток я прошел без автоматического входа в старую кредитную
-                  петлю.
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат стал виден по тому, как клиент проходит нехватку без нового хвоста</h2>
+        </div>
+        <p class="chapter-intro">Главный эффект был не в идеальной финансовой дисциплине, а в том, что обычная бытовая нехватка переставала автоматически открывать дверь в знакомую кредитную игру.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Любая небольшая нехватка быстро объяснялась как исключение, а быстрый займ выглядел почти безобидным мостиком, который снова и снова перезапускает ту же схему.</p>
+            <ul><li>Нехватка = взять и быстро закрыть</li><li>Оправдание включается раньше решения</li><li>После покупки остается новый хвост</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Нехватка больше не превращается автоматически в новый заемный хвост. Сначала держится решение не входить в игру, а уже потом ищется более чистый способ пройти ситуацию.</p>
+            <ul><li>Нехватка = сначала не входить в петлю</li><li>Крупные покупки проходят через чистый мостик или паузу</li><li>Новый хвост не создается автоматически</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Клиент раньше ловит старое оправдание и реже превращает его в действие.</li><li>Финансовая картина становится менее нервной и менее завязанной на микроспасение месяца.</li><li>Становится проще видеть, где деньги реально поддерживают рост, а где просто затыкают внутреннюю дыру.</li><li>Покупки и решения дольше проходят через осознанный выбор, а не через срочное обезболивание.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Маленький размер займа не делает паттерн безвредным.</li><li>Быстрое облегчение может быть главным признаком, что я снова захожу в старую игру.</li><li>Рассрочка у продавца и быстрый займ — не одно и то же по внутренней механике.</li><li>Деньги устойчивее проходят через меня, когда я строю поток ценности, а не кормлю тревогу о нехватке.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не сколько раз я красиво объяснил новый займ. А сколько нехваток я прошел без автоматического входа в старую кредитную петлю.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1719,26 +1378,10 @@
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
             <h2>Если нехватка тоже быстро превращается в заемный костыль</h2>
-            <p>
-              Этот кейс полезен тем, кто каждый раз считает новый займ почти
-              безобидной мелочью, а потом замечает, что снова живет внутри той
-              же петли.
-            </p>
+            <p>Этот кейс полезен тем, кто каждый раз считает новый займ почти безобидной мелочью, а потом замечает, что снова живет внутри той же петли.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-patterns-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-PATTERNS-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-patterns-doc" target="_blank" rel="noopener noreferrer">Открыть LP-PATTERNS-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1753,9 +1396,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

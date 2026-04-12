@@ -3,13 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CASE-SCROLL-RELIEF-01 — Думскроллинг не про слабую волю — Вариант v2
-    </title>
-    <meta
-      name="description"
-      content="Кейс о том, как клиент перестал считать вечерний скролл просто слабостью и увидел в нем косвенный слив накопленного за день перегруза."
-    />
+    <title>CASE-SCROLL-RELIEF-01 — Думскроллинг не про слабую волю — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как клиент перестал считать вечерний скролл просто слабостью и увидел в нем косвенный слив накопленного за день перегруза." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -49,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -84,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -101,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -119,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -184,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -281,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -361,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -397,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -493,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -644,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -656,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -771,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -824,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -899,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -938,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -950,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1043,74 +1007,50 @@
                 <span class="meta-chip">read time: 8 minutes</span>
               </div>
 
-              <h1 class="hero-seq hero-seq-3">
-                Думскроллинг не про слабую волю
-              </h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                К вечеру клиента душило, тяжело дышалось и накапливалось
-                ощущение, что день ушел в бессмысленность. Следом приходили
-                шортсы и думскролл. Старое объяснение было простым: опять слабая
-                воля. На консультации стало видно, что скролл здесь работал как
-                поздний аварийный клапан для подавленного напряжения.
-              </p>
+              <h1 class="hero-seq hero-seq-3">Думскроллинг не про слабую волю</h1>
+              <p class="hero-lead hero-seq hero-seq-4">К вечеру клиента душило, тяжело дышалось и накапливалось ощущение, что день ушел в бессмысленность. Следом приходили шортсы и думскролл. Старое объяснение было простым: опять слабая воля. На консультации стало видно, что скролл здесь работал как поздний аварийный клапан для подавленного напряжения.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один конкретный кейс про вечерний залип, который
-                    оказывается не просто ленью, а формой слива перегруза.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >Клиент копил давление днем, а вечером обвинял себя за то,
-                    как организм пытается хоть как-то стравить это
-                    напряжение.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Вместо войны с приложениями внимание вернулось к раннему
-                    выражению перегруза и к более честному чтению вечернего
-                    симптома.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary про тяжесть к вечеру, срочные хотелки
-                    коллеги, подавленность, экранное время и раннюю
-                    экспрессию.</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один конкретный кейс про вечерний залип, который оказывается не просто ленью, а формой слива перегруза.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Клиент копил давление днем, а вечером обвинял себя за то, как организм пытается хоть как-то стравить это напряжение.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Вместо войны с приложениями внимание вернулось к раннему выражению перегруза и к более честному чтению вечернего симптома.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про тяжесть к вечеру, срочные хотелки коллеги, подавленность, экранное время и раннюю экспрессию.</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">Скролл как слив перегруза</div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Вечерний автопилот, тяжесть в теле и еще большее
-                    самобичевание
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Выражать напряжение раньше, чем оно ищет дырку в экране
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Скролл как слив перегруза</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Вечерний автопилот, тяжесть в теле и еще большее самобичевание</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Выражать напряжение раньше, чем оно ищет дырку в экране</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1118,129 +1058,55 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Цифровой двойник как поздний сброс накопленного перегруза"
-                >
-                  <svg
-                    width="800"
-                    height="800"
-                    viewBox="0 0 800 800"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <style>
-                        @keyframes spin {
-                          0% {
-                            transform: scaleX(1);
-                          }
-                          50% {
-                            transform: scaleX(0.1);
-                          }
-                          100% {
-                            transform: scaleX(1);
-                          }
-                        }
-
-                        @keyframes sync {
-                          0%,
-                          100% {
-                            opacity: 0.5;
-                          }
-                          50% {
-                            opacity: 1;
-                          }
-                        }
-                      </style>
-                    </defs>
-
-                    <!-- Divider -->
-                    <line
-                      x1="400"
-                      y1="100"
-                      x2="400"
-                      y2="700"
-                      stroke="#E5E5E5"
-                      stroke-dasharray="8 8"
-                    />
-
-                    <!-- Physical Twin (Left) -->
-                    <g transform="translate(200, 400)">
-                      <g style="animation: spin 4s ease-in-out infinite">
-                        <rect
-                          x="-80"
-                          y="-120"
-                          width="160"
-                          height="240"
-                          fill="#4a5768"
-                        />
-                        <circle cx="0" cy="-160" r="40" fill="#4a5768" />
-                      </g>
-                    </g>
-
-                    <!-- Digital Twin (Right) -->
-                    <g transform="translate(600, 400)">
-                      <g style="animation: spin 4s ease-in-out infinite">
-                        <rect
-                          x="-80"
-                          y="-120"
-                          width="160"
-                          height="240"
-                          fill="none"
-                          stroke="#1b4ed8"
-                          stroke-width="4"
-                        />
-                        <circle
-                          cx="0"
-                          cy="-160"
-                          r="38"
-                          fill="none"
-                          stroke="#1b4ed8"
-                          stroke-width="4"
-                        />
-                        <line
-                          x1="-80"
-                          y1="0"
-                          x2="80"
-                          y2="0"
-                          stroke="#1b4ed8"
-                          stroke-width="2"
-                        />
-                        <line
-                          x1="0"
-                          y1="-120"
-                          x2="0"
-                          y2="120"
-                          stroke="#1b4ed8"
-                          stroke-width="2"
-                        />
-                      </g>
-                    </g>
-
-                    <!-- Connection Lines -->
-                    <line
-                      x1="280"
-                      y1="400"
-                      x2="520"
-                      y2="400"
-                      stroke="#1b4ed8"
-                      stroke-width="2"
-                      stroke-dasharray="4 4"
-                      style="animation: sync 1s infinite alternate"
-                    />
-                  </svg>
+                <div class="hero-figure-frame" role="img" aria-label="Цифровой двойник как поздний сброс накопленного перегруза">
+                  <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes spin {
+        0% { transform: scaleX(1); }
+        50% { transform: scaleX(0.1); }
+        100% { transform: scaleX(1); }
+      }
+      
+      @keyframes sync {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+      }
+    </style>
+  </defs>
+  
+  <!-- Divider -->
+  <line x1="400" y1="100" x2="400" y2="700" stroke="#E5E5E5" stroke-dasharray="8 8"/>
+  
+  <!-- Physical Twin (Left) -->
+  <g transform="translate(200, 400)">
+    <g style="animation: spin 4s ease-in-out infinite;">
+      <rect x="-80" y="-120" width="160" height="240" fill="#4a5768"/>
+      <circle cx="0" cy="-160" r="40" fill="#4a5768"/>
+    </g>
+  </g>
+  
+  <!-- Digital Twin (Right) -->
+  <g transform="translate(600, 400)">
+    <g style="animation: spin 4s ease-in-out infinite;">
+      <rect x="-80" y="-120" width="160" height="240" fill="none" stroke="#1b4ed8" stroke-width="4"/>
+      <circle cx="0" cy="-160" r="38" fill="none" stroke="#1b4ed8" stroke-width="4"/>
+      <line x1="-80" y1="0" x2="80" y2="0" stroke="#1b4ed8" stroke-width="2"/>
+      <line x1="0" y1="-120" x2="0" y2="120" stroke="#1b4ed8" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- Connection Lines -->
+  <line x1="280" y1="400" x2="520" y2="400" stroke="#1b4ed8" stroke-width="2" stroke-dasharray="4 4" style="animation: sync 1s infinite alternate;"/>
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>
-                  «К вечеру меня душит, и рука сама тянется в шортсы не от
-                  скуки, а чтобы хоть как-то стравить напряжение».
-                </p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«К вечеру меня душит, и рука сама тянется в шортсы не от скуки, а чтобы хоть как-то стравить напряжение».</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1251,450 +1117,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>Вечерний скролл маскировал накопленный перегруз</h2>
-              </div>
-              <p class="chapter-intro">
-                Входной стимул был разбросан по дню: бессмысленные хотелки,
-                раздражение, ощущение, что тратишь время на херню, подавленные
-                реакции и зажатое тело. Вечером все это не исчезало, а искало
-                самый доступный способ стравиться.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Входной стимул</h3>
-                  <ul>
-                    <li>
-                      В течение дня накапливались раздражение, подавленность и
-                      ощущение бессмысленности части задач.
-                    </li>
-                    <li>
-                      К вечеру тело уже сигналило напрямую: тяжесть, удушье,
-                      усталость и желание выключиться.
-                    </li>
-                    <li>
-                      Следом включался думскролл или шортсы как самый быстрый
-                      способ провалиться из неприятного состояния в более тупой
-                      фон.
-                    </li>
-                    <li>
-                      После этого клиент обвинял себя в слабой воле и еще
-                      сильнее закапывался в цикл.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент делал по старому</h3>
-                  <ul>
-                    <li>
-                      Пытался свести проблему к экранному времени и просто
-                      запрету приложений.
-                    </li>
-                    <li>
-                      Не связывал вечерний залип с дневным накоплением
-                      подавленных реакций.
-                    </li>
-                    <li>
-                      Продолжал терпеть давление в течение дня, как будто оно
-                      само рассосется к вечеру.
-                    </li>
-                    <li>
-                      Считал скролл отдельной вредной привычкой, а не симптомом
-                      более раннего перегруза.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Вечерний скролл маскировал накопленный перегруз</h2>
+        </div>
+        <p class="chapter-intro">Входной стимул был разбросан по дню: бессмысленные хотелки, раздражение, ощущение, что тратишь время на херню, подавленные реакции и зажатое тело. Вечером все это не исчезало, а искало самый доступный способ стравиться.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Входной стимул</h3>
+      <ul><li>В течение дня накапливались раздражение, подавленность и ощущение бессмысленности части задач.</li><li>К вечеру тело уже сигналило напрямую: тяжесть, удушье, усталость и желание выключиться.</li><li>Следом включался думскролл или шортсы как самый быстрый способ провалиться из неприятного состояния в более тупой фон.</li><li>После этого клиент обвинял себя в слабой воле и еще сильнее закапывался в цикл.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент делал по старому</h3>
+      <ul><li>Пытался свести проблему к экранному времени и просто запрету приложений.</li><li>Не связывал вечерний залип с дневным накоплением подавленных реакций.</li><li>Продолжал терпеть давление в течение дня, как будто оно само рассосется к вечеру.</li><li>Считал скролл отдельной вредной привычкой, а не симптомом более раннего перегруза.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Проблема не ограничивалась лишними минутами в телефоне. Клиент
-                  оставался без реального решения перегруза: днем он копил,
-                  вечером сливал в экран, а потом ночью получал еще больше
-                  самокритики и тяжести. Из-за этого следующий день стартовал
-                  уже с пониженного ресурса.
-                </p>
+                <p>Проблема не ограничивалась лишними минутами в телефоне. Клиент оставался без реального решения перегруза: днем он копил, вечером сливал в экран, а потом ночью получал еще больше самокритики и тяжести. Из-за этого следующий день стартовал уже с пониженного ресурса.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«К вечеру меня душит, и рука сама тянется в шортсы не от скуки, а чтобы хоть как-то стравить напряжение».</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Я называю это слабой волей, но по факту просто не выдерживаю накопленный перегруз».</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «К вечеру меня душит, и рука сама тянется в шортсы не от
-                    скуки, а чтобы хоть как-то стравить напряжение».
-                  </blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>На консультации стало видно, что экран здесь не причина, а аварийный клапан</h2>
+        </div>
+        <p class="chapter-intro">Разворот произошел, когда консультант перестал бороться с приложениями как с главным злом. Он показал более раннюю механику: если в течение дня не выражать накопленное напряжение, организм все равно найдет дыру, через которую его слить.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг получил ясное имя: <strong>скролл как слив перегруза</strong>. То есть думскроллинг здесь оказался не главным дефектом, а поздней формой косвенной разрядки того, что клиент не выразил и не прожил раньше.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже жила привычка терпеть, копить и дотягивать до вечера. Отсюда же росло самообесценивание части задач: “занимаюсь херней”, но все равно молча продолжаю. Когда напряжение копится без выхода, экран становится самым дешевым обезболивателем.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант не оправдывал залипание, но радикально поменял чтение симптома. Он показал, что скролл часто выполняет функцию краткой подзарядки и сброса, потому что сама система дотянула человека до такого состояния. Значит, решение надо придвигать ближе к источнику давления, а не только к телефону вечером.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч звучал так: не ждать вечера, а выражать напряжение движением, голосом, короткой честной экспрессией или действием по ходу дня. Тогда экран перестает быть единственным местом, куда можно слить накопленное. Одновременно повторяющиеся хотелки и раздражители переводятся в более ясный продуктовый конвейер, чтобы их не приходилось пережевывать нервной системой.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я не лечу вечерний скролл только запретом. Я ищу, где днем накопилось давление, и выражаю его раньше, чем оно попросится в экран.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Я называю это слабой волей, но по факту просто не
-                    выдерживаю накопленный перегруз».
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат появился, когда напряжение начали придвигать к его источнику</h2>
+        </div>
+        <p class="chapter-intro">Новый патч включался не в момент шортсов, а гораздо раньше. Клиент начал замечать, что тело предупреждает о перегрузе задолго до вечернего залипа, и в эти моменты можно уже что-то сделать.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Клиент начал раньше ловить тяжесть, сжатие и раздражение, не дотягивая автоматически до вечера.</li><li>Вместо немого накопления чаще появлялись короткие формы экспрессии: движение, голос, смена действия, честное обозначение перегруза.</li><li>Повторяющиеся “срочные хотелки” стали читаться как гипотезы для проверки, а не как хаос, который надо переварить нервной системой.</li><li>Скролл не исчез мгновенно, но стал понятнее как симптом, а не как доказательство собственной деградации.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Запрет приложений перестал быть единственной стратегией.</li><li>Вечерняя усталость реже доходила до предела, где кроме экрана ничего уже не хочется.</li><li>Клиент меньше путал бессмысленность задачи с собственной слабостью.</li><li>День стал разбиваться на более управляемые узлы напряжения, а не на один большой вечерний обвал.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Если не выражаю напряжение днем, вечером оно ищет дырку в экране».</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Запретить приложение легче, чем признать, что меня давно распирает».</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>
-                  На консультации стало видно, что экран здесь не причина, а
-                  аварийный клапан
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Разворот произошел, когда консультант перестал бороться с
-                приложениями как с главным злом. Он показал более раннюю
-                механику: если в течение дня не выражать накопленное напряжение,
-                организм все равно найдет дыру, через которую его слить.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг получил ясное имя:
-                    <strong>скролл как слив перегруза</strong>. То есть
-                    думскроллинг здесь оказался не главным дефектом, а поздней
-                    формой косвенной разрядки того, что клиент не выразил и не
-                    прожил раньше.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло ранний сброс напряжения, а не поздний запрет</h2>
+        </div>
+        <p class="chapter-intro">Закрепление шло вокруг простого сдвига: замечать и выражать раньше. Для этого полезно было и пересобрать часть рабочего хаоса в более ясный конвейер, чтобы организм не носил на себе лишнюю неопределенность.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Замечать первые телесные сигналы перегруза, а не только финальный вечерний срыв.</li><li>Иметь 2-3 простых способа короткой честной экспрессии в течение дня.</li><li>Переводить навязанные хотелки и раздражители в гипотезы, метрики и более ясный процесс проверки.</li><li>Смотреть на экранное время не морально, а контекстно: что именно я сейчас пытаюсь этим сделать внутри себя.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-patterns-doc">LP-PATTERNS-01</a></strong>. Он помогал удерживать весь паттерн целиком: дневное накопление, вечерний автосброс, старую моральную трактовку и новый ответ до срыва.</p><p>Практически это сводилось к вопросу: я сейчас действительно отдыхаю или просто в последний момент сливаю невыраженный перегруз?</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси уже жила привычка терпеть, копить и дотягивать до
-                    вечера. Отсюда же росло самообесценивание части задач:
-                    “занимаюсь херней”, но все равно молча продолжаю. Когда
-                    напряжение копится без выхода, экран становится самым
-                    дешевым обезболивателем.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант не оправдывал залипание, но радикально поменял
-                    чтение симптома. Он показал, что скролл часто выполняет
-                    функцию краткой подзарядки и сброса, потому что сама система
-                    дотянула человека до такого состояния. Значит, решение надо
-                    придвигать ближе к источнику давления, а не только к
-                    телефону вечером.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Патч звучал так: не ждать вечера, а выражать напряжение
-                    движением, голосом, короткой честной экспрессией или
-                    действием по ходу дня. Тогда экран перестает быть
-                    единственным местом, куда можно слить накопленное.
-                    Одновременно повторяющиеся хотелки и раздражители
-                    переводятся в более ясный продуктовый конвейер, чтобы их не
-                    приходилось пережевывать нервной системой.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Я не лечу вечерний скролл только запретом. Я ищу, где днем
-                      накопилось давление, и выражаю его раньше, чем оно
-                      попросится в экран.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат появился, когда напряжение начали
-                  придвигать к его источнику
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Новый патч включался не в момент шортсов, а гораздо раньше.
-                Клиент начал замечать, что тело предупреждает о перегрузе
-                задолго до вечернего залипа, и в эти моменты можно уже что-то
-                сделать.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Клиент начал раньше ловить тяжесть, сжатие и раздражение,
-                      не дотягивая автоматически до вечера.
-                    </li>
-                    <li>
-                      Вместо немого накопления чаще появлялись короткие формы
-                      экспрессии: движение, голос, смена действия, честное
-                      обозначение перегруза.
-                    </li>
-                    <li>
-                      Повторяющиеся “срочные хотелки” стали читаться как
-                      гипотезы для проверки, а не как хаос, который надо
-                      переварить нервной системой.
-                    </li>
-                    <li>
-                      Скролл не исчез мгновенно, но стал понятнее как симптом, а
-                      не как доказательство собственной деградации.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>
-                      Запрет приложений перестал быть единственной стратегией.
-                    </li>
-                    <li>
-                      Вечерняя усталость реже доходила до предела, где кроме
-                      экрана ничего уже не хочется.
-                    </li>
-                    <li>
-                      Клиент меньше путал бессмысленность задачи с собственной
-                      слабостью.
-                    </li>
-                    <li>
-                      День стал разбиваться на более управляемые узлы
-                      напряжения, а не на один большой вечерний обвал.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Если не выражаю напряжение днем, вечером оно ищет дырку в
-                    экране».
-                  </blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Запретить приложение легче, чем признать, что меня давно
-                    распирает».
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>
-                  Обучение закрепляло ранний сброс напряжения, а не поздний
-                  запрет
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Закрепление шло вокруг простого сдвига: замечать и выражать
-                раньше. Для этого полезно было и пересобрать часть рабочего
-                хаоса в более ясный конвейер, чтобы организм не носил на себе
-                лишнюю неопределенность.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Замечать первые телесные сигналы перегруза, а не только
-                      финальный вечерний срыв.
-                    </li>
-                    <li>
-                      Иметь 2-3 простых способа короткой честной экспрессии в
-                      течение дня.
-                    </li>
-                    <li>
-                      Переводить навязанные хотелки и раздражители в гипотезы,
-                      метрики и более ясный процесс проверки.
-                    </li>
-                    <li>
-                      Смотреть на экранное время не морально, а контекстно: что
-                      именно я сейчас пытаюсь этим сделать внутри себя.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-PATTERNS-01</strong>. Он помогал удерживать весь
-                    паттерн целиком: дневное накопление, вечерний автосброс,
-                    старую моральную трактовку и новый ответ до срыва.
-                  </p>
-                  <p>
-                    Практически это сводилось к вопросу: я сейчас действительно
-                    отдыхаю или просто в последний момент сливаю невыраженный
-                    перегруз?
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>
-                  Новый результат стал виден по более короткому пути от давления
-                  к выражению
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Главный сдвиг случился во времени. Напряжение стало реже
-                путешествовать через целый день до экрана вечером. У клиента
-                появилось больше ранних точек, где он успевает вернуть себе
-                субъектность до автопилота.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Давление накапливалось молча, к вечеру душило, а потом
-                    находило себе короткий тупиковый выход в скролле. После него
-                    оставались еще и стыд с самобичеванием.
-                  </p>
-                  <ul>
-                    <li>Напряжение копится до вечера</li>
-                    <li>Скролл = поздний автосброс</li>
-                    <li>После залипа остается вина и тяжесть</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Перегруз чаще распознается и выражается раньше. Экран теряет
-                    монополию на слив напряжения, а вечерний скролл все реже
-                    становится единственным доступным клапаном.
-                  </p>
-                  <ul>
-                    <li>Напряжение чаще замечено в течение дня</li>
-                    <li>Есть ранние формы выражения без экрана</li>
-                    <li>Вечер реже доходит до автопилота</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>
-                      Клиент быстрее распознает, что его душит, и реже
-                      дотягивает это до вечернего коллапса.
-                    </li>
-                    <li>
-                      Рабочие раздражители перестают быть чисто эмоциональным
-                      фоном и чаще переходят в управляемые гипотезы или решения.
-                    </li>
-                    <li>
-                      Экранное время рассматривается точнее: где это отдых, а
-                      где симптом.
-                    </li>
-                    <li>
-                      Самообвинение за вечерний скролл постепенно слабеет,
-                      потому что становится понятна его внутренняя функция.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>
-                      Скролл может быть симптомом, а не первичной причиной.
-                    </li>
-                    <li>
-                      Запрет без раннего выражения редко решает сам паттерн.
-                    </li>
-                    <li>
-                      Тело предупреждает о перегрузе раньше, чем рука тянется в
-                      телефон.
-                    </li>
-                    <li>
-                      Чем ближе выражение к источнику давления, тем меньше нужна
-                      аварийная разрядка вечером.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не сколько приложений я себе запретил. А сколько напряжения я
-                  успел заметить и выразить до того, как оно превратилось в
-                  вечерний автопилот.
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат стал виден по более короткому пути от давления к выражению</h2>
+        </div>
+        <p class="chapter-intro">Главный сдвиг случился во времени. Напряжение стало реже путешествовать через целый день до экрана вечером. У клиента появилось больше ранних точек, где он успевает вернуть себе субъектность до автопилота.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Давление накапливалось молча, к вечеру душило, а потом находило себе короткий тупиковый выход в скролле. После него оставались еще и стыд с самобичеванием.</p>
+            <ul><li>Напряжение копится до вечера</li><li>Скролл = поздний автосброс</li><li>После залипа остается вина и тяжесть</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Перегруз чаще распознается и выражается раньше. Экран теряет монополию на слив напряжения, а вечерний скролл все реже становится единственным доступным клапаном.</p>
+            <ul><li>Напряжение чаще замечено в течение дня</li><li>Есть ранние формы выражения без экрана</li><li>Вечер реже доходит до автопилота</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Клиент быстрее распознает, что его душит, и реже дотягивает это до вечернего коллапса.</li><li>Рабочие раздражители перестают быть чисто эмоциональным фоном и чаще переходят в управляемые гипотезы или решения.</li><li>Экранное время рассматривается точнее: где это отдых, а где симптом.</li><li>Самообвинение за вечерний скролл постепенно слабеет, потому что становится понятна его внутренняя функция.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Скролл может быть симптомом, а не первичной причиной.</li><li>Запрет без раннего выражения редко решает сам паттерн.</li><li>Тело предупреждает о перегрузе раньше, чем рука тянется в телефон.</li><li>Чем ближе выражение к источнику давления, тем меньше нужна аварийная разрядка вечером.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не сколько приложений я себе запретил. А сколько напряжения я успел заметить и выразить до того, как оно превратилось в вечерний автопилот.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1703,25 +1367,10 @@
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
             <h2>Если вечерний скролл тоже кажется тебе просто слабостью</h2>
-            <p>
-              Этот кейс полезен тем, кто уже устал запрещать себе приложения, но
-              пока не разобрался, что именно он через них сбрасывает.
-            </p>
+            <p>Этот кейс полезен тем, кто уже устал запрещать себе приложения, но пока не разобрался, что именно он через них сбрасывает.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-patterns-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-PATTERNS-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-patterns-doc" target="_blank" rel="noopener noreferrer">Открыть LP-PATTERNS-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1736,9 +1385,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

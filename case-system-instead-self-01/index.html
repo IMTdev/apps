@@ -3,14 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CASE-SYSTEM-INSTEAD-SELF-01 — Сначала допилю систему, потом применю к себе
-      — Вариант v2
-    </title>
-    <meta
-      name="description"
-      content="Кейс о том, как клиент переставал подменять личное применение инфраструктурой, ботами и красивыми системами."
-    />
+    <title>CASE-SYSTEM-INSTEAD-SELF-01 — Сначала допилю систему, потом применю к себе — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как клиент переставал подменять личное применение инфраструктурой, ботами и красивыми системами." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -22,10 +16,10 @@
         --panel: rgba(255, 255, 255, 0.82);
         --hero-dark: #0d1320;
         --hero-soft: #182239;
-        --accent: #7ea6ff;
-        --accent-2: #79d6c0;
-        --accent-ink: #dbe6ff;
-        --accent-glow: rgba(126, 166, 255, 0.34);
+        --accent: #d7ec7e;
+        --accent-2: #7ea6ff;
+        --accent-ink: #f3f9c7;
+        --accent-glow: rgba(215, 236, 126, 0.34);
         --tone-red: #ba6f70;
         --tone-slate: #6d7a8f;
         --tone-amber: #c99642;
@@ -50,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -85,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -102,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -120,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -185,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -282,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -362,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -398,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -494,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -645,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -657,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -772,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -825,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -900,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -939,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -951,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1044,72 +1007,50 @@
                 <span class="meta-chip">read time: 9 minutes</span>
               </div>
 
-              <h1 class="hero-seq hero-seq-3">
-                Сначала допилю систему, потом применю к себе
-              </h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                Клиент много созидал: бот, личный кабинет, автоматизации,
-                каталогизацию. В моменте это давало кайф и ощущение движения, но
-                на расстоянии недели оставляло внутренний конфликт. На
-                консультации стало видно, что проблема была не в нехватке
-                времени, а в подмене обновления понимания инфраструктурным
-                бурлением.
-              </p>
+              <h1 class="hero-seq hero-seq-3">Сначала допилю систему, потом применю к себе</h1>
+              <p class="hero-lead hero-seq hero-seq-4">Клиент много созидал: бот, личный кабинет, автоматизации, каталогизацию. В моменте это давало кайф и ощущение движения, но на расстоянии недели оставляло внутренний конфликт. На консультации стало видно, что проблема была не в нехватке времени, а в подмене обновления понимания инфраструктурным бурлением.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один кейс о том, как полезные инструменты превращались в
-                    замену применения к себе.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >Рост инфраструктуры шел быстрее, чем рост личной практики и
-                    закрепления новых пониманий.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Инструменты переставали быть самоцелью и подчинялись
-                    вопросу: расширяют ли они понимание и жизнь.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary про автоматизированного фарисея, нехватку
-                    времени и обновление Духа вместо процедур.</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один кейс о том, как полезные инструменты превращались в замену применения к себе.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Рост инфраструктуры шел быстрее, чем рост личной практики и закрепления новых пониманий.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Инструменты переставали быть самоцелью и подчинялись вопросу: расширяют ли они понимание и жизнь.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про автоматизированного фарисея, нехватку времени и обновление Духа вместо процедур.</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">Автоматизированный фарисей</div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Послевкусие пустоты, стратегическое недоприменение к себе
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Инструмент имел смысл только если расширял понимание и
-                    жизнеспособность
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Автоматизированный фарисей</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Послевкусие пустоты, стратегическое недоприменение к себе</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Инструмент имел смысл только если расширял понимание и жизнеспособность</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1117,390 +1058,97 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Второй мозг и перегруз инфраструктурой"
-                >
-                  <svg
-                    width="800"
-                    height="800"
-                    viewBox="0 0 800 800"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <style>
-                        .accent {
-                          fill: #1b4ed8;
-                          stroke: #1b4ed8;
-                        }
-                        .neutral {
-                          fill: #4a5768;
-                          stroke: #4a5768;
-                        }
-                        .gray {
-                          fill: #4a5768;
-                          stroke: #4a5768;
-                        }
-                        .bg {
-                          fill: transparent;
-                        }
+                <div class="hero-figure-frame" role="img" aria-label="Второй мозг и перегруз инфраструктурой">
+                  <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .accent { fill: #1b4ed8; stroke: #1b4ed8; }
+      .neutral { fill: #4a5768; stroke: #4a5768; }
+      .gray { fill: #4a5768; stroke: #4a5768; }
+      .bg { fill: transparent; }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+      
+      @keyframes flow {
+        0% { stroke-dashoffset: 20; }
+        100% { stroke-dashoffset: 0; }
+      }
 
-                        @keyframes pulse {
-                          0%,
-                          100% {
-                            opacity: 0.4;
-                          }
-                          50% {
-                            opacity: 1;
-                          }
-                        }
-
-                        @keyframes flow {
-                          0% {
-                            stroke-dashoffset: 20;
-                          }
-                          100% {
-                            stroke-dashoffset: 0;
-                          }
-                        }
-
-                        .node-pulse {
-                          animation: pulse 3s ease-in-out infinite;
-                        }
-                        .connection {
-                          stroke-dasharray: 5 5;
-                          animation: flow 1s linear infinite;
-                        }
-                      </style>
-                    </defs>
-
-                    <rect width="800" height="800" class="bg" />
-
-                    <!-- Grid Background -->
-                    <path
-                      d="M400 0V800 M0 400H800"
-                      stroke="#F3F4F6"
-                      stroke-width="2"
-                    />
-
-                    <!-- Central Document / About Me File -->
-                    <rect
-                      x="330"
-                      y="300"
-                      width="140"
-                      height="180"
-                      rx="4"
-                      fill="#4a5768"
-                    />
-                    <rect
-                      x="345"
-                      y="320"
-                      width="110"
-                      height="8"
-                      rx="1"
-                      fill="#1b4ed8"
-                    />
-                    <rect
-                      x="345"
-                      y="340"
-                      width="90"
-                      height="4"
-                      rx="1"
-                      fill="#4a5768"
-                    />
-                    <rect
-                      x="345"
-                      y="352"
-                      width="100"
-                      height="4"
-                      rx="1"
-                      fill="#4a5768"
-                    />
-                    <rect
-                      x="345"
-                      y="364"
-                      width="80"
-                      height="4"
-                      rx="1"
-                      fill="#4a5768"
-                    />
-                    <rect
-                      x="345"
-                      y="380"
-                      width="110"
-                      height="6"
-                      rx="1"
-                      fill="#1b4ed8"
-                      opacity="0.6"
-                    />
-                    <rect
-                      x="345"
-                      y="396"
-                      width="95"
-                      height="4"
-                      rx="1"
-                      fill="#4a5768"
-                    />
-                    <rect
-                      x="345"
-                      y="408"
-                      width="105"
-                      height="4"
-                      rx="1"
-                      fill="#4a5768"
-                    />
-                    <rect
-                      x="345"
-                      y="424"
-                      width="75"
-                      height="4"
-                      rx="1"
-                      fill="#4a5768"
-                    />
-                    <rect
-                      x="345"
-                      y="440"
-                      width="110"
-                      height="6"
-                      rx="1"
-                      fill="#1b4ed8"
-                      opacity="0.6"
-                    />
-                    <rect
-                      x="345"
-                      y="456"
-                      width="85"
-                      height="4"
-                      rx="1"
-                      fill="#4a5768"
-                    />
-
-                    <!-- Neural Network Nodes around the document -->
-                    <circle
-                      cx="400"
-                      cy="180"
-                      r="20"
-                      fill="none"
-                      stroke="#1b4ed8"
-                      stroke-width="3"
-                      class="node-pulse"
-                    />
-                    <circle cx="400" cy="180" r="8" fill="#1b4ed8" />
-
-                    <circle
-                      cx="280"
-                      cy="220"
-                      r="16"
-                      fill="none"
-                      stroke="#4a5768"
-                      stroke-width="2"
-                      class="node-pulse"
-                      style="animation-delay: -0.5s"
-                    />
-                    <circle cx="280" cy="220" r="6" fill="#4a5768" />
-
-                    <circle
-                      cx="520"
-                      cy="220"
-                      r="16"
-                      fill="none"
-                      stroke="#4a5768"
-                      stroke-width="2"
-                      class="node-pulse"
-                      style="animation-delay: -1s"
-                    />
-                    <circle cx="520" cy="220" r="6" fill="#4a5768" />
-
-                    <circle
-                      cx="180"
-                      cy="400"
-                      r="18"
-                      fill="none"
-                      stroke="#1b4ed8"
-                      stroke-width="2"
-                      class="node-pulse"
-                      style="animation-delay: -1.5s"
-                    />
-                    <circle cx="180" cy="400" r="7" fill="#1b4ed8" />
-
-                    <circle
-                      cx="620"
-                      cy="400"
-                      r="18"
-                      fill="none"
-                      stroke="#1b4ed8"
-                      stroke-width="2"
-                      class="node-pulse"
-                      style="animation-delay: -2s"
-                    />
-                    <circle cx="620" cy="400" r="7" fill="#1b4ed8" />
-
-                    <circle
-                      cx="280"
-                      cy="580"
-                      r="16"
-                      fill="none"
-                      stroke="#4a5768"
-                      stroke-width="2"
-                      class="node-pulse"
-                      style="animation-delay: -2.5s"
-                    />
-                    <circle cx="280" cy="580" r="6" fill="#4a5768" />
-
-                    <circle
-                      cx="520"
-                      cy="580"
-                      r="16"
-                      fill="none"
-                      stroke="#4a5768"
-                      stroke-width="2"
-                      class="node-pulse"
-                      style="animation-delay: -3s"
-                    />
-                    <circle cx="520" cy="580" r="6" fill="#4a5768" />
-
-                    <circle
-                      cx="400"
-                      cy="620"
-                      r="20"
-                      fill="none"
-                      stroke="#1b4ed8"
-                      stroke-width="3"
-                      class="node-pulse"
-                      style="animation-delay: -0.7s"
-                    />
-                    <circle cx="400" cy="620" r="8" fill="#1b4ed8" />
-
-                    <!-- Connections -->
-                    <line
-                      x1="400"
-                      y1="200"
-                      x2="400"
-                      y2="300"
-                      stroke="#1b4ed8"
-                      stroke-width="2"
-                      class="connection"
-                    />
-                    <line
-                      x1="295"
-                      y1="230"
-                      x2="330"
-                      y2="310"
-                      stroke="#4a5768"
-                      stroke-width="1.5"
-                      class="connection"
-                      style="animation-delay: -0.3s"
-                    />
-                    <line
-                      x1="505"
-                      y1="230"
-                      x2="470"
-                      y2="310"
-                      stroke="#4a5768"
-                      stroke-width="1.5"
-                      class="connection"
-                      style="animation-delay: -0.6s"
-                    />
-                    <line
-                      x1="200"
-                      y1="400"
-                      x2="330"
-                      y2="390"
-                      stroke="#1b4ed8"
-                      stroke-width="2"
-                      class="connection"
-                      style="animation-delay: -0.9s"
-                    />
-                    <line
-                      x1="600"
-                      y1="400"
-                      x2="470"
-                      y2="390"
-                      stroke="#1b4ed8"
-                      stroke-width="2"
-                      class="connection"
-                      style="animation-delay: -1.2s"
-                    />
-                    <line
-                      x1="295"
-                      y1="570"
-                      x2="340"
-                      y2="480"
-                      stroke="#4a5768"
-                      stroke-width="1.5"
-                      class="connection"
-                      style="animation-delay: -1.5s"
-                    />
-                    <line
-                      x1="505"
-                      y1="570"
-                      x2="460"
-                      y2="480"
-                      stroke="#4a5768"
-                      stroke-width="1.5"
-                      class="connection"
-                      style="animation-delay: -1.8s"
-                    />
-                    <line
-                      x1="400"
-                      y1="600"
-                      x2="400"
-                      y2="480"
-                      stroke="#1b4ed8"
-                      stroke-width="2"
-                      class="connection"
-                      style="animation-delay: -2.1s"
-                    />
-
-                    <!-- Outer orbit connections -->
-                    <line
-                      x1="280"
-                      y1="236"
-                      x2="180"
-                      y2="382"
-                      stroke="#4a5768"
-                      stroke-width="1"
-                      opacity="0.5"
-                    />
-                    <line
-                      x1="520"
-                      y1="236"
-                      x2="620"
-                      y2="382"
-                      stroke="#4a5768"
-                      stroke-width="1"
-                      opacity="0.5"
-                    />
-                    <line
-                      x1="180"
-                      y1="418"
-                      x2="280"
-                      y2="564"
-                      stroke="#4a5768"
-                      stroke-width="1"
-                      opacity="0.5"
-                    />
-                    <line
-                      x1="620"
-                      y1="418"
-                      x2="520"
-                      y2="564"
-                      stroke="#4a5768"
-                      stroke-width="1"
-                      opacity="0.5"
-                    />
-                  </svg>
+      .node-pulse { animation: pulse 3s ease-in-out infinite; }
+      .connection { stroke-dasharray: 5 5; animation: flow 1s linear infinite; }
+    </style>
+  </defs>
+  
+  <rect width="800" height="800" class="bg"/>
+  
+  <!-- Grid Background -->
+  <path d="M400 0V800 M0 400H800" stroke="#F3F4F6" stroke-width="2"/>
+  
+  <!-- Central Document / About Me File -->
+  <rect x="330" y="300" width="140" height="180" rx="4" fill="#4a5768"/>
+  <rect x="345" y="320" width="110" height="8" rx="1" fill="#1b4ed8"/>
+  <rect x="345" y="340" width="90" height="4" rx="1" fill="#4a5768"/>
+  <rect x="345" y="352" width="100" height="4" rx="1" fill="#4a5768"/>
+  <rect x="345" y="364" width="80" height="4" rx="1" fill="#4a5768"/>
+  <rect x="345" y="380" width="110" height="6" rx="1" fill="#1b4ed8" opacity="0.6"/>
+  <rect x="345" y="396" width="95" height="4" rx="1" fill="#4a5768"/>
+  <rect x="345" y="408" width="105" height="4" rx="1" fill="#4a5768"/>
+  <rect x="345" y="424" width="75" height="4" rx="1" fill="#4a5768"/>
+  <rect x="345" y="440" width="110" height="6" rx="1" fill="#1b4ed8" opacity="0.6"/>
+  <rect x="345" y="456" width="85" height="4" rx="1" fill="#4a5768"/>
+  
+  <!-- Neural Network Nodes around the document -->
+  <circle cx="400" cy="180" r="20" fill="none" stroke="#1b4ed8" stroke-width="3" class="node-pulse"/>
+  <circle cx="400" cy="180" r="8" fill="#1b4ed8"/>
+  
+  <circle cx="280" cy="220" r="16" fill="none" stroke="#4a5768" stroke-width="2" class="node-pulse" style="animation-delay: -0.5s"/>
+  <circle cx="280" cy="220" r="6" fill="#4a5768"/>
+  
+  <circle cx="520" cy="220" r="16" fill="none" stroke="#4a5768" stroke-width="2" class="node-pulse" style="animation-delay: -1s"/>
+  <circle cx="520" cy="220" r="6" fill="#4a5768"/>
+  
+  <circle cx="180" cy="400" r="18" fill="none" stroke="#1b4ed8" stroke-width="2" class="node-pulse" style="animation-delay: -1.5s"/>
+  <circle cx="180" cy="400" r="7" fill="#1b4ed8"/>
+  
+  <circle cx="620" cy="400" r="18" fill="none" stroke="#1b4ed8" stroke-width="2" class="node-pulse" style="animation-delay: -2s"/>
+  <circle cx="620" cy="400" r="7" fill="#1b4ed8"/>
+  
+  <circle cx="280" cy="580" r="16" fill="none" stroke="#4a5768" stroke-width="2" class="node-pulse" style="animation-delay: -2.5s"/>
+  <circle cx="280" cy="580" r="6" fill="#4a5768"/>
+  
+  <circle cx="520" cy="580" r="16" fill="none" stroke="#4a5768" stroke-width="2" class="node-pulse" style="animation-delay: -3s"/>
+  <circle cx="520" cy="580" r="6" fill="#4a5768"/>
+  
+  <circle cx="400" cy="620" r="20" fill="none" stroke="#1b4ed8" stroke-width="3" class="node-pulse" style="animation-delay: -0.7s"/>
+  <circle cx="400" cy="620" r="8" fill="#1b4ed8"/>
+  
+  <!-- Connections -->
+  <line x1="400" y1="200" x2="400" y2="300" stroke="#1b4ed8" stroke-width="2" class="connection"/>
+  <line x1="295" y1="230" x2="330" y2="310" stroke="#4a5768" stroke-width="1.5" class="connection" style="animation-delay: -0.3s"/>
+  <line x1="505" y1="230" x2="470" y2="310" stroke="#4a5768" stroke-width="1.5" class="connection" style="animation-delay: -0.6s"/>
+  <line x1="200" y1="400" x2="330" y2="390" stroke="#1b4ed8" stroke-width="2" class="connection" style="animation-delay: -0.9s"/>
+  <line x1="600" y1="400" x2="470" y2="390" stroke="#1b4ed8" stroke-width="2" class="connection" style="animation-delay: -1.2s"/>
+  <line x1="295" y1="570" x2="340" y2="480" stroke="#4a5768" stroke-width="1.5" class="connection" style="animation-delay: -1.5s"/>
+  <line x1="505" y1="570" x2="460" y2="480" stroke="#4a5768" stroke-width="1.5" class="connection" style="animation-delay: -1.8s"/>
+  <line x1="400" y1="600" x2="400" y2="480" stroke="#1b4ed8" stroke-width="2" class="connection" style="animation-delay: -2.1s"/>
+  
+  <!-- Outer orbit connections -->
+  <line x1="280" y1="236" x2="180" y2="382" stroke="#4a5768" stroke-width="1" opacity="0.5"/>
+  <line x1="520" y1="236" x2="620" y2="382" stroke="#4a5768" stroke-width="1" opacity="0.5"/>
+  <line x1="180" y1="418" x2="280" y2="564" stroke="#4a5768" stroke-width="1" opacity="0.5"/>
+  <line x1="620" y1="418" x2="520" y2="564" stroke="#4a5768" stroke-width="1" opacity="0.5"/>
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>
-                  «я... создаю... инструменты, но не успеваю применить к себе»
-                </p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«я... создаю... инструменты, но не успеваю применить к себе»</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1511,436 +1159,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>
-                  Снаружи было много созидания, внутри росло ощущение
-                  недоприменения
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Проблема начиналась не с лени и не с отсутствия идей. Наоборот,
-                клиенту нравилось строить большие системы, улучшать кабинеты,
-                интеграции и анализ. Но чем мощнее становилась инфраструктура,
-                тем яснее в конце недели проявлялось неприятное расхождение:
-                инструментов стало больше, а собственная жизнь не поменялась
-                сопоставимо.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Как это выглядело в реальности</h3>
-                  <ul>
-                    <li>
-                      Клиент быстро собирал бота-напоминатель, кабинет,
-                      аналитические слои и каталогизацию.
-                    </li>
-                    <li>В моменте процесс нравился и казался очень живым.</li>
-                    <li>
-                      На длинной дистанции оставалось чувство, что применение к
-                      себе запаздывает.
-                    </li>
-                    <li>
-                      Появлялся внутренний конфликт между удовольствием от
-                      движухи и стратегической пустотой.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент пробовал по старому</h3>
-                  <ul>
-                    <li>
-                      Добавлять еще больше процедур, напоминаний и
-                      автоматизаций.
-                    </li>
-                    <li>
-                      Давить применение на уровне разума, как будто понимание
-                      можно впихнуть силой.
-                    </li>
-                    <li>Считать нехватку времени объективным дефицитом.</li>
-                    <li>
-                      Надеяться, что сама сложность и масштаб системы
-                      автоматически решат вопрос роста.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Снаружи было много созидания, внутри росло ощущение недоприменения</h2>
+        </div>
+        <p class="chapter-intro">Проблема начиналась не с лени и не с отсутствия идей. Наоборот, клиенту нравилось строить большие системы, улучшать кабинеты, интеграции и анализ. Но чем мощнее становилась инфраструктура, тем яснее в конце недели проявлялось неприятное расхождение: инструментов стало больше, а собственная жизнь не поменялась сопоставимо.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Как это выглядело в реальности</h3>
+      <ul><li>Клиент быстро собирал бота-напоминатель, кабинет, аналитические слои и каталогизацию.</li><li>В моменте процесс нравился и казался очень живым.</li><li>На длинной дистанции оставалось чувство, что применение к себе запаздывает.</li><li>Появлялся внутренний конфликт между удовольствием от движухи и стратегической пустотой.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент пробовал по старому</h3>
+      <ul><li>Добавлять еще больше процедур, напоминаний и автоматизаций.</li><li>Давить применение на уровне разума, как будто понимание можно впихнуть силой.</li><li>Считать нехватку времени объективным дефицитом.</li><li>Надеяться, что сама сложность и масштаб системы автоматически решат вопрос роста.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Росла не только инфраструктура. Рос и разрыв между красивой
-                  системой и реальным обновлением жизни. Внешне это выглядело
-                  как бурная деятельность, а по ощущениям становилось все
-                  заметнее, что первопричина осталась на месте.
-                </p>
+                <p>Росла не только инфраструктура. Рос и разрыв между красивой системой и реальным обновлением жизни. Внешне это выглядело как бурная деятельность, а по ощущениям становилось все заметнее, что первопричина осталась на месте.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«я... создаю... инструменты, но не успеваю применить к себе»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«в моменте мне это нравится... в конце недели... внутренний конфликт»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «я... создаю... инструменты, но не успеваю применить к себе»
-                  </blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>На консультации стало видно, что инструмент не равен применению</h2>
+        </div>
+        <p class="chapter-intro">Ключевой разворот случился там, где консультант отделил обновление понимания от процедурного контроля. То, что выглядело как дисциплина и развитие, оказалось слишком часто движением на уровне разума без обновления более глубокого слоя.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг был назван прямо: <strong>автоматизированный фарисей</strong>. Вместо того чтобы применять новое понимание к своей жизни, клиент все больше усиливал аппарат, который должен был когда-нибудь это сделать за него.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже жила вера, что нехватка времени объективна, а правильные процедуры и контроль способны вытянуть человека сами по себе. Из этого естественно росла привычка латать жизнь инструментами вместо обновления понимания.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант сместил фокус с вопроса «как все успеть» на вопрос «что реально увеличивает жизнеспособность». Он показал, что процедуры на уровне разума не обновляют Дух и легко создают вид бурной деятельности при неизменной первопричине.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Новый патч был очень прикладным: перед любой доработкой инструмента спрашивать, как именно это расширяет понимание и повышает качество или количество жизни на длинном горизонте. Если ответа нет, значит система начала служить самой себе.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я не улучшаю инструмент ради инструмента. Я использую его там, где он помогает быстрее применять понимание и расширять жизнь.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «в моменте мне это нравится... в конце недели... внутренний
-                    конфликт»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат был в том, что инфраструктура потеряла сакральность</h2>
+        </div>
+        <p class="chapter-intro">После консультации клиент не отказался от системного мышления и не обесценил свои таланты. Изменилось другое: красивые сложные конструкции перестали автоматически считаться добром. Сначала это работало как ручная проверка перед каждым новым улучшением.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Клиент начал тормозить доработку инструмента, если не видел прямого эффекта на свое понимание.</li><li>Вопрос «где я реально не знаю, как повысить жизнеспособность?» стал важнее, чем «что еще можно автоматизировать?».</li><li>Повторяемые новые понимания начали восприниматься как то, что хочется применить сразу, а не когда-нибудь потом.</li><li>Нехватка времени стала рассматриваться как следствие ложного фокуса, а не как объективный факт.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Кайф от системы переставал быть достаточным оправданием ее существования.</li><li>Личная выгода от понимания возвращалась в центр внимания.</li><li>Инструмент начинал обслуживать расширение на новые сферы, а не отодвигать его.</li><li>Стало легче видеть, где движуха тактическая, а где действительно стратегическая.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Я там уже нафигачил штук 400 таких каталогизированных эпизодов»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«я вижу, что вот эта вот штука как сильно запаздывает»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>
-                  На консультации стало видно, что инструмент не равен
-                  применению
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Ключевой разворот случился там, где консультант отделил
-                обновление понимания от процедурного контроля. То, что выглядело
-                как дисциплина и развитие, оказалось слишком часто движением на
-                уровне разума без обновления более глубокого слоя.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг был назван прямо:
-                    <strong>автоматизированный фарисей</strong>. Вместо того
-                    чтобы применять новое понимание к своей жизни, клиент все
-                    больше усиливал аппарат, который должен был когда-нибудь это
-                    сделать за него.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение строилось вокруг переноса понимания, а не вокруг еще одного слоя контроля</h2>
+        </div>
+        <p class="chapter-intro">Новый контур закреплялся в повторениях. Инфраструктура не выбрасывалась, но занимала уже другое место: она помогала видеть незакрытые зоны и переносить понимание туда, где клиент раньше не знал, как действовать.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Проверять любую доработку инструментов на длинный стратегический эффект.</li><li>Трекать системы и группы, с которыми клиент пока не знает, как повысить жизнеспособность.</li><li>Использовать ИИ и бота не как костыль контроля, а как способ расширить понимание на новую сферу.</li><li>Возвращать применение к себе в тот же день, когда понимание уже действительно зашло.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-science-doc">LP-SCIENCE-01</a></strong>. Он держал фокус на причинной рамке: зачем система вообще нужна, по какому закону она должна усиливать жизнь и как отличить реальный рост понимания от красивой инфраструктурной имитации. На уровне повторяемой практики кейс дополнительно поддерживал <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-relearn-doc">LP-RELEARN-01</a></strong>.</p><p>Именно этот LP лучше всего удерживал разницу между полезным инструментом и сложной системой, которая только выглядит как рост.</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси уже жила вера, что нехватка времени объективна, а
-                    правильные процедуры и контроль способны вытянуть человека
-                    сами по себе. Из этого естественно росла привычка латать
-                    жизнь инструментами вместо обновления понимания.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант сместил фокус с вопроса «как все успеть» на
-                    вопрос «что реально увеличивает жизнеспособность». Он
-                    показал, что процедуры на уровне разума не обновляют Дух и
-                    легко создают вид бурной деятельности при неизменной
-                    первопричине.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Новый патч был очень прикладным: перед любой доработкой
-                    инструмента спрашивать, как именно это расширяет понимание и
-                    повышает качество или количество жизни на длинном горизонте.
-                    Если ответа нет, значит система начала служить самой себе.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Я не улучшаю инструмент ради инструмента. Я использую его
-                      там, где он помогает быстрее применять понимание и
-                      расширять жизнь.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат был в том, что инфраструктура потеряла
-                  сакральность
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                После консультации клиент не отказался от системного мышления и
-                не обесценил свои таланты. Изменилось другое: красивые сложные
-                конструкции перестали автоматически считаться добром. Сначала
-                это работало как ручная проверка перед каждым новым улучшением.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Клиент начал тормозить доработку инструмента, если не
-                      видел прямого эффекта на свое понимание.
-                    </li>
-                    <li>
-                      Вопрос «где я реально не знаю, как повысить
-                      жизнеспособность?» стал важнее, чем «что еще можно
-                      автоматизировать?».
-                    </li>
-                    <li>
-                      Повторяемые новые понимания начали восприниматься как то,
-                      что хочется применить сразу, а не когда-нибудь потом.
-                    </li>
-                    <li>
-                      Нехватка времени стала рассматриваться как следствие
-                      ложного фокуса, а не как объективный факт.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>
-                      Кайф от системы переставал быть достаточным оправданием ее
-                      существования.
-                    </li>
-                    <li>
-                      Личная выгода от понимания возвращалась в центр внимания.
-                    </li>
-                    <li>
-                      Инструмент начинал обслуживать расширение на новые сферы,
-                      а не отодвигать его.
-                    </li>
-                    <li>
-                      Стало легче видеть, где движуха тактическая, а где
-                      действительно стратегическая.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Я там уже нафигачил штук 400 таких каталогизированных
-                    эпизодов»
-                  </blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «я вижу, что вот эта вот штука как сильно запаздывает»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>
-                  Обучение строилось вокруг переноса понимания, а не вокруг еще
-                  одного слоя контроля
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Новый контур закреплялся в повторениях. Инфраструктура не
-                выбрасывалась, но занимала уже другое место: она помогала видеть
-                незакрытые зоны и переносить понимание туда, где клиент раньше
-                не знал, как действовать.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Проверять любую доработку инструментов на длинный
-                      стратегический эффект.
-                    </li>
-                    <li>
-                      Трекать системы и группы, с которыми клиент пока не знает,
-                      как повысить жизнеспособность.
-                    </li>
-                    <li>
-                      Использовать ИИ и бота не как костыль контроля, а как
-                      способ расширить понимание на новую сферу.
-                    </li>
-                    <li>
-                      Возвращать применение к себе в тот же день, когда
-                      понимание уже действительно зашло.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-RELEARN-01</strong>. Он держал фокус на
-                    переобучении, переносе новых пониманий в практику и на
-                    различении живого применения от процедурной имитации.
-                  </p>
-                  <p>
-                    Именно этот LP лучше всего удерживал разницу между полезным
-                    инструментом и сложной системой, которая только выглядит как
-                    рост.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>
-                  Новый результат проявился как подчинение системы жизни, а не
-                  наоборот
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Наблюдаемый эффект был не в том, что клиент перестал любить
-                системы. Наоборот, его системность сохранилась. Но теперь она
-                стала работать на применение и расширение понимания, а не на
-                бесконечную достройку самого механизма.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Система росла быстрее, чем собственное применение: бот,
-                    кабинет и инфраструктура расширялись, а личная практика
-                    снова откладывалась.
-                  </p>
-                  <ul>
-                    <li>Новые инструменты: да</li>
-                    <li>Применение к себе: запаздывает</li>
-                    <li>Рост ощущается как обслуживание системы</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Инструменты включаются только там, где реально ускоряют
-                    понимание и применение, а не подменяют собой рост жизни.
-                  </p>
-                  <ul>
-                    <li>Сначала применение, потом автоматизация</li>
-                    <li>Лишние ветки режутся раньше</li>
-                    <li>Жизнеспособность растет вместе с системой</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>
-                      Стало меньше бессмысленных улучшений ради самого процесса
-                      улучшения.
-                    </li>
-                    <li>
-                      Появилась более прямая связка между новым пониманием и
-                      действием.
-                    </li>
-                    <li>
-                      Инструменты перестали оправдывать стратегический застой.
-                    </li>
-                    <li>
-                      Клиент точнее видел, где нет нехватки времени, а есть
-                      нехватка правильного фокуса.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>
-                      Инфраструктура полезна, только если повышает
-                      жизнеспособность.
-                    </li>
-                    <li>Процедуры не заменяют обновление понимания.</li>
-                    <li>
-                      Если понимание реально зашло, его хочется применить, а не
-                      вбивать в себя.
-                    </li>
-                    <li>
-                      Нужно расширять любовь на новые сферы, а не усложнять
-                      систему вокруг старых.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не количество автоматизаций, а степень, в которой новое
-                  понимание уже применяется и меняет качество жизни клиента на
-                  длинной дистанции.
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат проявился как подчинение системы жизни, а не наоборот</h2>
+        </div>
+        <p class="chapter-intro">Наблюдаемый эффект был не в том, что клиент перестал любить системы. Наоборот, его системность сохранилась. Но теперь она стала работать на применение и расширение понимания, а не на бесконечную достройку самого механизма.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Система росла быстрее, чем собственное применение: бот, кабинет и инфраструктура расширялись, а личная практика снова откладывалась.</p>
+            <ul><li>Новые инструменты: да</li><li>Применение к себе: запаздывает</li><li>Рост ощущается как обслуживание системы</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Инструменты включаются только там, где реально ускоряют понимание и применение, а не подменяют собой рост жизни.</p>
+            <ul><li>Сначала применение, потом автоматизация</li><li>Лишние ветки режутся раньше</li><li>Жизнеспособность растет вместе с системой</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Стало меньше бессмысленных улучшений ради самого процесса улучшения.</li><li>Появилась более прямая связка между новым пониманием и действием.</li><li>Инструменты перестали оправдывать стратегический застой.</li><li>Клиент точнее видел, где нет нехватки времени, а есть нехватка правильного фокуса.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Инфраструктура полезна, только если повышает жизнеспособность.</li><li>Процедуры не заменяют обновление понимания.</li><li>Если понимание реально зашло, его хочется применить, а не вбивать в себя.</li><li>Нужно расширять любовь на новые сферы, а не усложнять систему вокруг старых.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не количество автоматизаций, а степень, в которой новое понимание уже применяется и меняет качество жизни клиента на длинной дистанции.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1949,26 +1409,10 @@
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
             <h2>Если знакома подмена жизни инфраструктурой</h2>
-            <p>
-              Этот кейс полезен тем, кто умеет собирать сложные системы, но
-              замечает, что собственная практика почему-то снова остается на
-              потом.
-            </p>
+            <p>Этот кейс полезен тем, кто умеет собирать сложные системы, но замечает, что собственная практика почему-то снова остается на потом.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-relearn-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-RELEARN-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-science-doc" target="_blank" rel="noopener noreferrer">Открыть LP-SCIENCE-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1983,9 +1427,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

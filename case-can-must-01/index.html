@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CASE-CAN-MUST-01 — Если умею — значит должна — Вариант v2</title>
-    <meta
-      name="description"
-      content="Кейс о том, как способность клиента автоматически превращалась в обязанность и вытягивала ее в чужую ответственность."
-    />
+    <meta name="description" content="Кейс о том, как способность клиента автоматически превращалась в обязанность и вытягивала ее в чужую ответственность." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -19,10 +16,10 @@
         --panel: rgba(255, 255, 255, 0.82);
         --hero-dark: #0d1320;
         --hero-soft: #182239;
-        --accent: #efbf7c;
-        --accent-2: #f09393;
-        --accent-ink: #ffe7c3;
-        --accent-glow: rgba(239, 191, 124, 0.34);
+        --accent: #79d6c0;
+        --accent-2: #efbf7c;
+        --accent-ink: #d7fff4;
+        --accent-glow: rgba(121, 214, 192, 0.34);
         --tone-red: #ba6f70;
         --tone-slate: #6d7a8f;
         --tone-amber: #c99642;
@@ -47,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -82,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -99,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -117,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -182,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -279,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -359,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -395,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -491,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -642,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -654,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -769,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -822,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -897,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -936,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -948,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1042,71 +1008,49 @@
               </div>
 
               <h1 class="hero-seq hero-seq-3">Если умею — значит должна</h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                Клиент умела решать сложные задачи и привыкла быть сильной. Но
-                именно эта сила стала входной точкой в старый дефект: если я
-                умею, значит должна. Так способность помогать превращалась в
-                обязанность тащить чужое, а за ней приходили злость, вина и
-                внутренний ступор. Консультация отделила «умею» от «люблю» и
-                «хочу» и вернула клиентке право не воровать на себя чужую
-                ответственность.
-              </p>
+              <p class="hero-lead hero-seq hero-seq-4">Клиент умела решать сложные задачи и привыкла быть сильной. Но именно эта сила стала входной точкой в старый дефект: если я умею, значит должна. Так способность помогать превращалась в обязанность тащить чужое, а за ней приходили злость, вина и внутренний ступор. Консультация отделила «умею» от «люблю» и «хочу» и вернула клиентке право не воровать на себя чужую ответственность.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один кейс о том, как компетентность превращалась в
-                    пожизненную повинность.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >Любая просьба и любой чужой дефицит слишком быстро читались
-                    как моя задача, если я в принципе могу это сделать.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Клиент начала различать «умею», «люблю» и «хочу» и
-                    переставала автоматически нести чужое.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary про семью, границы, ступор, внешнее
-                    признание и возврат к своему «как я хочу».</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один кейс о том, как компетентность превращалась в пожизненную повинность.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Любая просьба и любой чужой дефицит слишком быстро читались как моя задача, если я в принципе могу это сделать.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Клиент начала различать «умею», «люблю» и «хочу» и переставала автоматически нести чужое.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про семью, границы, ступор, внешнее признание и возврат к своему «как я хочу».</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">
-                    Привычка тащить чужую ответственность
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Злость, вина, ступор и отсутствие «я молодец»
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Умею не равно люблю и не равно должна
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Привычка тащить чужую ответственность</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Злость, вина, ступор и отсутствие «я молодец»</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Умею не равно люблю и не равно должна</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1114,69 +1058,30 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Сеть обязанностей и центр собственной ответственности"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 100 100"
-                    role="img"
-                    aria-label="Network: C7;K 8 A2O78"
-                  >
-                    <line
-                      x1="50"
-                      y1="50"
-                      x2="25"
-                      y2="30"
-                      stroke="#4a5768"
-                      stroke-width="1"
-                      opacity="0.5"
-                    />
-                    <line
-                      x1="50"
-                      y1="50"
-                      x2="75"
-                      y2="30"
-                      stroke="#4a5768"
-                      stroke-width="1"
-                      opacity="0.5"
-                    />
-                    <line
-                      x1="50"
-                      y1="50"
-                      x2="25"
-                      y2="70"
-                      stroke="#4a5768"
-                      stroke-width="1"
-                      opacity="0.5"
-                    />
-                    <line
-                      x1="50"
-                      y1="50"
-                      x2="75"
-                      y2="70"
-                      stroke="#4a5768"
-                      stroke-width="1"
-                      opacity="0.5"
-                    />
-                    <circle cx="50" cy="50" r="8" fill="#1b4ed8" />
-                    <circle cx="25" cy="30" r="5" fill="#4a5768" />
-                    <circle cx="75" cy="30" r="5" fill="#4a5768" />
-                    <circle cx="25" cy="70" r="5" fill="#4a5768" />
-                    <circle cx="75" cy="70" r="5" fill="#4a5768" />
-                  </svg>
+                <div class="hero-figure-frame" role="img" aria-label="Фильтр обязанностей и возврат к своей оси выбора">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Filter: D8;LB@0F8O">
+  <defs>
+    <style>
+      .filter-dot { animation: filter-pulse 2s ease-in-out infinite; }
+      @keyframes filter-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    </style>
+  </defs>
+  <circle cx="20" cy="15" r="3" fill="#4a5768" opacity="0.3"/>
+  <circle cx="35" cy="15" r="3" fill="#4a5768" opacity="0.3"/>
+  <circle cx="50" cy="15" r="3" fill="#4a5768" opacity="0.3"/>
+  <circle cx="65" cy="15" r="3" fill="#4a5768" opacity="0.3"/>
+  <circle cx="80" cy="15" r="3" fill="#4a5768" opacity="0.3"/>
+  <line x1="10" y1="50" x2="90" y2="50" stroke="#1b4ed8" stroke-width="2" stroke-dasharray="4 4"/>
+  <circle class="filter-dot" cx="50" cy="75" r="8" fill="#1b4ed8"/>
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>
-                  «Если я умею — значит должна и обязана, даже если не хочу/не
-                  люблю»
-                </p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«Если я умею — значит должна и обязана, даже если не хочу/не люблю»</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1187,430 +1092,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>
-                  Чужие просьбы слишком быстро становились моей обязанностью
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Проблема проявлялась не только на больших семейных сюжетах. Ее
-                было видно и в мелких бытовых просьбах, и в бизнесовых задачах,
-                и в общении с мамой и бабушкой. Клиентка слишком быстро
-                считывала на себе чужую ответственность, а потом застревала
-                между двумя полюсами: тащу все на себе или никому не хочу
-                помогать вообще.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Как это выглядело в реальности</h3>
-                  <ul>
-                    <li>
-                      Просьбы мамы и семейные ожидания вызывали сильную злость и
-                      ощущение, что на клиентку снова сгружают чужое.
-                    </li>
-                    <li>
-                      После вспышки приходили вина, самобичевание и новый заход
-                      в контакт.
-                    </li>
-                    <li>
-                      В работе и в клубе похожий стопор проявлялся как зависание
-                      и потеря движения.
-                    </li>
-                    <li>
-                      В конце дня почти не возникало чувства удовлетворения и
-                      внутреннего «я молодец».
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент пробовал по старому</h3>
-                  <ul>
-                    <li>
-                      Тащить больше, чем реально было ее ответственностью,
-                      потому что она это умеет.
-                    </li>
-                    <li>
-                      Либо резко обрывать помощь вообще и чувствовать за это
-                      вину.
-                    </li>
-                    <li>
-                      Искать подтверждение своей ценности через внешнее
-                      признание, а не через согласованность с собой.
-                    </li>
-                    <li>
-                      Считать резкие реакции доказательством собственной
-                      неисправности, а не сигналом перестройки границ.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Чужие просьбы слишком быстро становились моей обязанностью</h2>
+        </div>
+        <p class="chapter-intro">Проблема проявлялась не только на больших семейных сюжетах. Ее было видно и в мелких бытовых просьбах, и в бизнесовых задачах, и в общении с мамой и бабушкой. Клиентка слишком быстро считывала на себе чужую ответственность, а потом застревала между двумя полюсами: тащу все на себе или никому не хочу помогать вообще.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Как это выглядело в реальности</h3>
+      <ul><li>Просьбы мамы и семейные ожидания вызывали сильную злость и ощущение, что на клиентку снова сгружают чужое.</li><li>После вспышки приходили вина, самобичевание и новый заход в контакт.</li><li>В работе и в клубе похожий стопор проявлялся как зависание и потеря движения.</li><li>В конце дня почти не возникало чувства удовлетворения и внутреннего «я молодец».</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент пробовал по старому</h3>
+      <ul><li>Тащить больше, чем реально было ее ответственностью, потому что она это умеет.</li><li>Либо резко обрывать помощь вообще и чувствовать за это вину.</li><li>Искать подтверждение своей ценности через внешнее признание, а не через согласованность с собой.</li><li>Считать резкие реакции доказательством собственной неисправности, а не сигналом перестройки границ.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Этот паттерн съедал ресурс с двух сторон. Сначала клиентка
-                  переутомлялась от лишней ответственности, потом проваливалась
-                  в злость, вину и ступор, а значит теряла и силу, и уважение к
-                  своей собственной границе.
-                </p>
+                <p>Этот паттерн съедал ресурс с двух сторон. Сначала клиентка переутомлялась от лишней ответственности, потом проваливалась в злость, вину и ступор, а значит теряла и силу, и уважение к своей собственной границе.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Если я умею — значит должна и обязана, даже если не хочу/не люблю»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«я как встопорюсь, и я не могу сама»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Если я умею — значит должна и обязана, даже если не хочу/не
-                    люблю»
-                  </blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>Консультация развела способность, любовь и обязанность</h2>
+        </div>
+        <p class="chapter-intro">Главным было не просто научиться чаще говорить «нет». Консультант помог разобрать саму внутреннюю логику, из-за которой компетентность автоматически превращалась в обязанность, а помощь — в саморастворение.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг можно назвать так: <strong>привычка тащить чужую ответственность</strong>. Клиентка слишком быстро превращала чужой запрос или чужую беспомощность в свою собственную задачу только потому, что могла с ней справиться.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже была сильная связка между силой, полезностью и обязанностью. Если я могу, значит должна. Если не беру это на себя, значит плохая, холодная или эгоистичная. Отсюда и рождались и злость, и вина, и внешняя зависимость от признания.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант вернул базовое различение: <strong>умею не равно люблю и не равно хочу</strong>. Именно удовольствие и согласованность часто показывают, что совпали нужные элементы. А сверхреакция на делегирование чужой ответственности в переходный период может быть нормальным этапом перестройки, а не признаком поломки.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч состоял в том, чтобы снимать с себя чужую ответственность, а не пытаться быть идеальной опорой для всех. В начало решения возвращался вопрос «как я хочу?», а граница переставала быть враждебностью.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я могу многое, но это не делает меня обязанной. Сначала я различаю, где мое, а где чужое.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>«я как встопорюсь, и я не могу сама»</blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат был в более трезвом чтении просьб и своей реакции</h2>
+        </div>
+        <p class="chapter-intro">Новый патч не убрал сразу всю злость и все сложные семейные сцены. Но у клиентки появилась ручная возможность не проваливаться в старый автоматизм с такой же скоростью. Запросы начали читаться разборчивее.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Перед реакцией стало возможным задавать вопрос: чья это задача на самом деле?</li><li>Клиентка начала разделять: я умею это делать, но хочу ли я этого и люблю ли я это сейчас?</li><li>Пауза перед ответом и короткая граница перестали казаться предательством.</li><li>В конце дня стало важнее замечать собственные «бриллианты», а не только то, где опять было недостаточно.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Сверхреакция все чаще читалась как сигнал перехода, а не как доказательство собственной плохости.</li><li>Внутренний вопрос «как я хочу?» начал возвращаться раньше, чем чувство долга.</li><li>Компетентность переставала автоматически включать повинность.</li><li>Клиентка немного лучше выдерживала контакт без срыва в «все на мне» или «никому ничего».</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Либо я помогаю всем в ущерб себе, либо я сейчас не хочу никому помогать…»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«у не бывает вот этого чувства удовлетворения в конце дня, вот я молодец, вот его нету.»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>Консультация развела способность, любовь и обязанность</h2>
-              </div>
-              <p class="chapter-intro">
-                Главным было не просто научиться чаще говорить «нет».
-                Консультант помог разобрать саму внутреннюю логику, из-за
-                которой компетентность автоматически превращалась в обязанность,
-                а помощь — в саморастворение.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг можно назвать так:
-                    <strong>привычка тащить чужую ответственность</strong>.
-                    Клиентка слишком быстро превращала чужой запрос или чужую
-                    беспомощность в свою собственную задачу только потому, что
-                    могла с ней справиться.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло новый навык через простое ежедневное различение</h2>
+        </div>
+        <p class="chapter-intro">Чтобы кейс не остался только правильным инсайтом, нужно было многократно возвращать границу в обычные сцены: просьбы, ожидания, семейные звонки, рабочие задачи. Здесь важна была не жесткость, а различение.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Давать себе короткую паузу перед ответом на просьбу или давление.</li><li>Разворачивать вопрос не наружу, а внутрь: хочу ли я этого, люблю ли я это, мое ли это.</li><li>Фиксировать один свой «бриллиант» за день и возвращать себе внутреннее «я молодец».</li><li>Не строить важные решения только от логики и чужих ожиданий, а начинать с «как я хочу это сделать».</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-marn-doc">LP-MARN-01</a></strong>. Он удерживал формулу выбора между реальным созиданием и автоматическим сливом силы в чужие задачи. На уровне границы, собственной ценности и права не растворяться кейс дополнительно поддерживал <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-self-doc">LP-SELF-01</a></strong>.</p><p>Практически это обучение сводилось к простому, но непривычному ходу: сначала проверить свое согласие, а потом уже помогать или отказывать.</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси уже была сильная связка между силой, полезностью и
-                    обязанностью. Если я могу, значит должна. Если не беру это
-                    на себя, значит плохая, холодная или эгоистичная. Отсюда и
-                    рождались и злость, и вина, и внешняя зависимость от
-                    признания.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант вернул базовое различение:
-                    <strong>умею не равно люблю и не равно хочу</strong>. Именно
-                    удовольствие и согласованность часто показывают, что совпали
-                    нужные элементы. А сверхреакция на делегирование чужой
-                    ответственности в переходный период может быть нормальным
-                    этапом перестройки, а не признаком поломки.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Патч состоял в том, чтобы снимать с себя чужую
-                    ответственность, а не пытаться быть идеальной опорой для
-                    всех. В начало решения возвращался вопрос «как я хочу?», а
-                    граница переставала быть враждебностью.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Я могу многое, но это не делает меня обязанной. Сначала я
-                      различаю, где мое, а где чужое.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат был в более трезвом чтении просьб и
-                  своей реакции
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Новый патч не убрал сразу всю злость и все сложные семейные
-                сцены. Но у клиентки появилась ручная возможность не
-                проваливаться в старый автоматизм с такой же скоростью. Запросы
-                начали читаться разборчивее.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Перед реакцией стало возможным задавать вопрос: чья это
-                      задача на самом деле?
-                    </li>
-                    <li>
-                      Клиентка начала разделять: я умею это делать, но хочу ли я
-                      этого и люблю ли я это сейчас?
-                    </li>
-                    <li>
-                      Пауза перед ответом и короткая граница перестали казаться
-                      предательством.
-                    </li>
-                    <li>
-                      В конце дня стало важнее замечать собственные
-                      «бриллианты», а не только то, где опять было недостаточно.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>
-                      Сверхреакция все чаще читалась как сигнал перехода, а не
-                      как доказательство собственной плохости.
-                    </li>
-                    <li>
-                      Внутренний вопрос «как я хочу?» начал возвращаться раньше,
-                      чем чувство долга.
-                    </li>
-                    <li>
-                      Компетентность переставала автоматически включать
-                      повинность.
-                    </li>
-                    <li>
-                      Клиентка немного лучше выдерживала контакт без срыва в
-                      «все на мне» или «никому ничего».
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Либо я помогаю всем в ущерб себе, либо я сейчас не хочу
-                    никому помогать…»
-                  </blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «у не бывает вот этого чувства удовлетворения в конце дня,
-                    вот я молодец, вот его нету.»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>
-                  Обучение закрепляло новый навык через простое ежедневное
-                  различение
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Чтобы кейс не остался только правильным инсайтом, нужно было
-                многократно возвращать границу в обычные сцены: просьбы,
-                ожидания, семейные звонки, рабочие задачи. Здесь важна была не
-                жесткость, а различение.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Давать себе короткую паузу перед ответом на просьбу или
-                      давление.
-                    </li>
-                    <li>
-                      Разворачивать вопрос не наружу, а внутрь: хочу ли я этого,
-                      люблю ли я это, мое ли это.
-                    </li>
-                    <li>
-                      Фиксировать один свой «бриллиант» за день и возвращать
-                      себе внутреннее «я молодец».
-                    </li>
-                    <li>
-                      Не строить важные решения только от логики и чужих
-                      ожиданий, а начинать с «как я хочу это сделать».
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-SELF-01</strong>. Он удерживал тему собственной
-                    границы, внутренней ценности и права не растворяться в чужих
-                    задачах только потому, что ты сильнее или компетентнее.
-                  </p>
-                  <p>
-                    Практически это обучение сводилось к простому, но
-                    непривычному ходу: сначала проверить свое согласие, а потом
-                    уже помогать или отказывать.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>
-                  Новый результат был в том, что сила перестала автоматически
-                  вести в самопотерю
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                В новом контуре клиентка не стала менее способной и не перестала
-                помогать. Изменилось то, что сама способность больше не означала
-                бессрочный контракт на чужую жизнь. Это возвращало и ресурс, и
-                уважение к себе.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Любая компетентность автоматически превращалась в
-                    обязанность тащить. Сила клиента читалась как бессрочный
-                    контракт на чужие задачи.
-                  </p>
-                  <ul>
-                    <li>Умею = должна</li>
-                    <li>Чужие просьбы садятся сверху</li>
-                    <li>Итог: злость, вина, ступор</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Способность перестала быть приговором: помощь проходит через
-                    согласие и различение, а не через автоматическое
-                    самопожертвование.
-                  </p>
-                  <ul>
-                    <li>Сначала согласие, потом помощь</li>
-                    <li>Чужая ответственность различается яснее</li>
-                    <li>Меньше самопотери к концу дня</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>Меньше автоматического захвата чужих задач.</li>
-                    <li>Больше ясности в семейных и рабочих просьбах.</li>
-                    <li>Меньше самобичевания за сам факт сильной реакции.</li>
-                    <li>
-                      Больше шансов закончить день не только с усталостью, но и
-                      с признанием собственных сильных шагов.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>Сила — это ресурс, а не приговор.</li>
-                    <li>
-                      Умею, люблю и хочу — разные оси, и их нельзя автоматически
-                      склеивать.
-                    </li>
-                    <li>
-                      Снимать с себя чужую ответственность — не значит
-                      становиться холодной.
-                    </li>
-                    <li>
-                      Диссонанс и ступор могут быть полезной обратной связью, а
-                      не доказательством неисправности.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не сколько чужого я утащила, а насколько точно различила свое
-                  и сохранила уважение к себе в решении помочь или не помочь.
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат был в том, что сила перестала автоматически вести в самопотерю</h2>
+        </div>
+        <p class="chapter-intro">В новом контуре клиентка не стала менее способной и не перестала помогать. Изменилось то, что сама способность больше не означала бессрочный контракт на чужую жизнь. Это возвращало и ресурс, и уважение к себе.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Любая компетентность автоматически превращалась в обязанность тащить. Сила клиента читалась как бессрочный контракт на чужие задачи.</p>
+            <ul><li>Умею = должна</li><li>Чужие просьбы садятся сверху</li><li>Итог: злость, вина, ступор</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Способность перестала быть приговором: помощь проходит через согласие и различение, а не через автоматическое самопожертвование.</p>
+            <ul><li>Сначала согласие, потом помощь</li><li>Чужая ответственность различается яснее</li><li>Меньше самопотери к концу дня</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Меньше автоматического захвата чужих задач.</li><li>Больше ясности в семейных и рабочих просьбах.</li><li>Меньше самобичевания за сам факт сильной реакции.</li><li>Больше шансов закончить день не только с усталостью, но и с признанием собственных сильных шагов.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Сила — это ресурс, а не приговор.</li><li>Умею, люблю и хочу — разные оси, и их нельзя автоматически склеивать.</li><li>Снимать с себя чужую ответственность — не значит становиться холодной.</li><li>Диссонанс и ступор могут быть полезной обратной связью, а не доказательством неисправности.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не сколько чужого я утащила, а насколько точно различила свое и сохранила уважение к себе в решении помочь или не помочь.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1618,30 +1341,11 @@
         <div class="footer-shell">
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
-            <h2>
-              Если знакомо чувство, что твоя сила автоматически делает тебя
-              обязанной
-            </h2>
-            <p>
-              Этот кейс полезен тем, кто умеет много, быстро становится опорой
-              для других и из-за этого регулярно теряет собственный ресурс,
-              свободу и уважение к своей границе.
-            </p>
+            <h2>Если знакомо чувство, что твоя сила автоматически делает тебя обязанной</h2>
+            <p>Этот кейс полезен тем, кто умеет много, быстро становится опорой для других и из-за этого регулярно теряет собственный ресурс, свободу и уважение к своей границе.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-self-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-SELF-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-marn-doc" target="_blank" rel="noopener noreferrer">Открыть LP-MARN-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1656,9 +1360,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

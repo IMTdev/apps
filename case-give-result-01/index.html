@@ -3,13 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CASE-GIVE-RESULT-01 — Я должна дать людям результат — Вариант v2
-    </title>
-    <meta
-      name="description"
-      content="Кейс о том, как клиент брала на себя ответственность за результаты других людей и выгорала даже в любимом деле."
-    />
+    <title>CASE-GIVE-RESULT-01 — Я должна дать людям результат — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как клиент брала на себя ответственность за результаты других людей и выгорала даже в любимом деле." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -21,10 +16,10 @@
         --panel: rgba(255, 255, 255, 0.82);
         --hero-dark: #0d1320;
         --hero-soft: #182239;
-        --accent: #7ea6ff;
-        --accent-2: #79d6c0;
-        --accent-ink: #dbe6ff;
-        --accent-glow: rgba(126, 166, 255, 0.34);
+        --accent: #d7ec7e;
+        --accent-2: #7ea6ff;
+        --accent-ink: #f3f9c7;
+        --accent-glow: rgba(215, 236, 126, 0.34);
         --tone-red: #ba6f70;
         --tone-slate: #6d7a8f;
         --tone-amber: #c99642;
@@ -49,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -84,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -101,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -119,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -184,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -281,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -361,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -397,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -493,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -644,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -656,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -771,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -824,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -899,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -938,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -950,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1044,71 +1008,49 @@
               </div>
 
               <h1 class="hero-seq hero-seq-3">Я должна дать людям результат</h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                Клиент создавала клуб и любила передавать свою экспертизу. Но
-                вместе с этим снова включался старый перегиб: если уж я веду
-                людей, значит должна довести их до результата. Из-за этого даже
-                любимый формат начинал переживаться как работа через силу.
-                Консультация отделила понимание, которое клиент действительно
-                может дать, от результата, который каждый производит уже сам.
-              </p>
+              <p class="hero-lead hero-seq hero-seq-4">Клиент создавала клуб и любила передавать свою экспертизу. Но вместе с этим снова включался старый перегиб: если уж я веду людей, значит должна довести их до результата. Из-за этого даже любимый формат начинал переживаться как работа через силу. Консультация отделила понимание, которое клиент действительно может дать, от результата, который каждый производит уже сам.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один кейс о выгорании от гиперответственности за чужие
-                    результаты.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >Клиент путала передачу понимания с обязанностью сделать
-                    жизнь другого человека новой своими руками.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Клуб и встречи снова становились местом живой передачи
-                    понимания, а не фабрикой чужих результатов.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary про клуб, проведение через силу,
-                    ответственность за маму и новое различение понимания и
-                    результата.</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один кейс о выгорании от гиперответственности за чужие результаты.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Клиент путала передачу понимания с обязанностью сделать жизнь другого человека новой своими руками.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Клуб и встречи снова становились местом живой передачи понимания, а не фабрикой чужих результатов.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про клуб, проведение через силу, ответственность за маму и новое различение понимания и результата.</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">
-                    Чужие результаты на моих плечах
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Выгорание, делание через силу и раздражение
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Я даю понимание, а результат человек производит через себя
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Чужие результаты на моих плечах</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Выгорание, делание через силу и раздражение</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Я даю понимание, а результат человек производит через себя</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1116,139 +1058,57 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Передача результата и динамика двух сторон"
-                >
-                  <svg
-                    width="800"
-                    height="800"
-                    viewBox="0 0 800 800"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <style>
-                        .robot {
-                          fill: #4a5768;
-                        }
-                        .accent {
-                          fill: #1b4ed8;
-                          stroke: #1b4ed8;
-                          stroke-width: 4;
-                        }
-                        .line {
-                          stroke: #4a5768;
-                          stroke-width: 2;
-                          fill: none;
-                        }
-                        @keyframes bounce-1 {
-                          0%,
-                          100% {
-                            transform: translateY(0);
-                          }
-                          50% {
-                            transform: translateY(-150px);
-                          }
-                        }
-                        @keyframes bounce-2 {
-                          0%,
-                          100% {
-                            transform: translateY(-120px);
-                          }
-                          50% {
-                            transform: translateY(30px);
-                          }
-                        }
-                        @keyframes stretch {
-                          0%,
-                          100% {
-                            d: path("M 150 550 Q 400 550 650 550");
-                          }
-                          50% {
-                            d: path("M 150 550 Q 400 620 650 550");
-                          }
-                        }
-                        .b1 {
-                          animation: bounce-1 2s
-                            cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-                        }
-                        .b2 {
-                          animation: bounce-2 2s
-                            cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-                        }
-                        .trampoline {
-                          animation: stretch 2s
-                            cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-                        }
-                      </style>
-                    </defs>
+                <div class="hero-figure-frame" role="img" aria-label="Передача результата и динамика двух сторон">
+                  <svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .robot { fill: #4a5768; }
+      .accent { fill: #1b4ed8; stroke: #1b4ed8; stroke-width: 4; }
+      .line { stroke: #4a5768; stroke-width: 2; fill: none; }
+      @keyframes bounce-1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-150px); } }
+      @keyframes bounce-2 { 0%, 100% { transform: translateY(-120px); } 50% { transform: translateY(30px); } }
+      @keyframes stretch { 0%, 100% { d: path("M 150 550 Q 400 550 650 550"); } 50% { d: path("M 150 550 Q 400 620 650 550"); } }
+      .b1 { animation: bounce-1 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
+      .b2 { animation: bounce-2 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
+      .trampoline { animation: stretch 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; }
+    </style>
+  </defs>
+  
+  <!-- Trampoline Structure -->
+  <line x1="150" y1="550" x2="150" y2="600" class="line" />
+  <line x1="650" y1="550" x2="650" y2="600" class="line" />
+  <path id="surface" d="M 150 550 Q 400 550 650 550" fill="none" stroke="#4a5768" stroke-width="6" class="trampoline" />
+  
+  <!-- Robot A -->
+  <g class="b1">
+    <rect x="280" y="450" width="60" height="60" class="robot" />
+    <rect x="295" y="435" width="30" height="15" class="robot" />
+    <circle cx="310" cy="470" r="6" class="accent" />
+    <line x1="280" y1="510" x2="290" y2="530" class="line" />
+    <line x1="340" y1="510" x2="330" y2="530" class="line" />
+  </g>
 
-                    <!-- Trampoline Structure -->
-                    <line x1="150" y1="550" x2="150" y2="600" class="line" />
-                    <line x1="650" y1="550" x2="650" y2="600" class="line" />
-                    <path
-                      id="surface"
-                      d="M 150 550 Q 400 550 650 550"
-                      fill="none"
-                      stroke="#4a5768"
-                      stroke-width="6"
-                      class="trampoline"
-                    />
+  <!-- Robot B -->
+  <g class="b2">
+    <rect x="460" y="450" width="60" height="60" class="robot" />
+    <rect x="475" y="435" width="30" height="15" class="robot" />
+    <circle cx="490" cy="470" r="6" class="accent" />
+    <line x1="460" y1="510" x2="470" y2="530" class="line" />
+    <line x1="520" y1="510" x2="510" y2="530" class="line" />
+  </g>
 
-                    <!-- Robot A -->
-                    <g class="b1">
-                      <rect
-                        x="280"
-                        y="450"
-                        width="60"
-                        height="60"
-                        class="robot"
-                      />
-                      <rect
-                        x="295"
-                        y="435"
-                        width="30"
-                        height="15"
-                        class="robot"
-                      />
-                      <circle cx="310" cy="470" r="6" class="accent" />
-                      <line x1="280" y1="510" x2="290" y2="530" class="line" />
-                      <line x1="340" y1="510" x2="330" y2="530" class="line" />
-                    </g>
-
-                    <!-- Robot B -->
-                    <g class="b2">
-                      <rect
-                        x="460"
-                        y="450"
-                        width="60"
-                        height="60"
-                        class="robot"
-                      />
-                      <rect
-                        x="475"
-                        y="435"
-                        width="30"
-                        height="15"
-                        class="robot"
-                      />
-                      <circle cx="490" cy="470" r="6" class="accent" />
-                      <line x1="460" y1="510" x2="470" y2="530" class="line" />
-                      <line x1="520" y1="510" x2="510" y2="530" class="line" />
-                    </g>
-
-                    <!-- Swiss Grid Elements -->
-                    <line x1="40" y1="40" x2="100" y2="40" class="accent" />
-                    <line x1="40" y1="40" x2="40" y2="100" class="accent" />
-                  </svg>
+  <!-- Swiss Grid Elements -->
+  <line x1="40" y1="40" x2="100" y2="40" class="accent" />
+  <line x1="40" y1="40" x2="40" y2="100" class="accent" />
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>«проводила ее через силу»</p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«проводила ее через силу»</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1259,420 +1119,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>
-                  Даже любимое дело начинало ощущаться как тяжелая обязанность
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Проблема становилась особенно заметной там, где клиенту
-                вообще-то было что дать: в клубе, в передаче экспертизы, в
-                общении со «своими» людьми. Но как только сверху накладывалась
-                установка «я должна дать им результат», живая передача понимания
-                быстро превращалась в нагрузку.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Как это выглядело в реальности</h3>
-                  <ul>
-                    <li>
-                      Клуб и встречи временами проводились через силу, почти как
-                      работа по обязанности.
-                    </li>
-                    <li>
-                      Клиент брала на себя лишнюю ответственность за то, что
-                      должны почувствовать или получить другие люди.
-                    </li>
-                    <li>
-                      Параллельно похожий перегиб возникал и в семейной теме,
-                      особенно вокруг маминой операции.
-                    </li>
-                    <li>
-                      Чем выше была ставка на чужой результат, тем быстрее
-                      выгорал сам формат.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент пробовал по старому</h3>
-                  <ul>
-                    <li>
-                      Держаться обещаний и формата даже тогда, когда внутри уже
-                      не было любви.
-                    </li>
-                    <li>
-                      Давить себя регулярностью, постингом и масштабом «потому
-                      что надо».
-                    </li>
-                    <li>
-                      Считать, что если не довела до результата, значит недодала
-                      или подвела.
-                    </li>
-                    <li>
-                      Контролировать чужие процессы сильнее, чем свои
-                      собственные границы и состояние.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Даже любимое дело начинало ощущаться как тяжелая обязанность</h2>
+        </div>
+        <p class="chapter-intro">Проблема становилась особенно заметной там, где клиенту вообще-то было что дать: в клубе, в передаче экспертизы, в общении со «своими» людьми. Но как только сверху накладывалась установка «я должна дать им результат», живая передача понимания быстро превращалась в нагрузку.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Как это выглядело в реальности</h3>
+      <ul><li>Клуб и встречи временами проводились через силу, почти как работа по обязанности.</li><li>Клиент брала на себя лишнюю ответственность за то, что должны почувствовать или получить другие люди.</li><li>Параллельно похожий перегиб возникал и в семейной теме, особенно вокруг маминой операции.</li><li>Чем выше была ставка на чужой результат, тем быстрее выгорал сам формат.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент пробовал по старому</h3>
+      <ul><li>Держаться обещаний и формата даже тогда, когда внутри уже не было любви.</li><li>Давить себя регулярностью, постингом и масштабом «потому что надо».</li><li>Считать, что если не довела до результата, значит недодала или подвела.</li><li>Контролировать чужие процессы сильнее, чем свои собственные границы и состояние.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Когда клиент брала на себя чужой результат, у нее начинало
-                  разрушаться именно то, что и делало формат живым: энтузиазм,
-                  свобода, качество присутствия и искренний интерес к людям.
-                </p>
+                <p>Когда клиент брала на себя чужой результат, у нее начинало разрушаться именно то, что и делало формат живым: энтузиазм, свобода, качество присутствия и искренний интерес к людям.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«проводила ее через силу»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«мне очень нравится передавать свою экспертизу»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>«проводила ее через силу»</blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>Консультация отделила понимание от результата</h2>
+        </div>
+        <p class="chapter-intro">Главный разворот состоял в очень точном различении. Клиент действительно могла дать людям что-то ценное, но не то, что ей казалось. Ее зона ответственности лежала не там, где она привыкла ее держать.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг можно назвать так: <strong>чужие результаты на моих плечах</strong>. Клиент вела встречи и общение так, будто обязана сама произвести у другого человека готовый результат и еще удержать его у него в руках.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже была сильная связка между любовью, полезностью и самопожертвованием. Если я рядом, если я умею, если мне не все равно, значит надо взять больше ответственности, чем реально мое.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант провел жесткую, но освобождающую границу: задача клиента — не дать людям результат, а дать им понимание. Результат возникает позже, когда это понимание становится у них привычкой и начинает жить через них.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч состоял в переносе фокуса с контроля за чужим эффектом на качество собственной передачи. Это сразу меняло состояние: исчезала необходимость тянуть клуб, постинг и заботу через силу и появлялось право выбирать формат по любви.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я передаю понимание и уважаю границы своей ответственности. Чужой результат не лежит у меня на плечах.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «мне очень нравится передавать свою экспертизу»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат был в уменьшении масштаба и возврате любви в формат</h2>
+        </div>
+        <p class="chapter-intro">После консультации клиент не бросила клуб и не перестала заботиться о близких. Но поменялось то, как именно она входила в эти роли. Первые изменения были очень ручными и очень практичными: меньше насилия, меньше масштаба, больше честности.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Клиент стала спокойнее относиться к малому, комфортному масштабу клуба.</li><li>Встречи и контент перестали считаться долгом только потому, что когда-то были обещаны.</li><li>Подготовка снова начала строиться из ресурса и энтузиазма, а не из страха подвести.</li><li>В семейной теме стало легче помнить: я не главный исполнитель чужого восстановления.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Состояние клиентки снова становилось важной частью результата, а не второстепенной мелочью.</li><li>Малый масштаб переставал переживаться как провал.</li><li>Возвращалась свобода менять формат, упрощать и переносить без вины.</li><li>Передача экспертизы снова ощущалась как живая сила, а не как повинность.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«я реально концентрируюсь на том, как я хочу.»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«мне с ними максимально комфортно, им со мной максимально комфортно.»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>Консультация отделила понимание от результата</h2>
-              </div>
-              <p class="chapter-intro">
-                Главный разворот состоял в очень точном различении. Клиент
-                действительно могла дать людям что-то ценное, но не то, что ей
-                казалось. Ее зона ответственности лежала не там, где она
-                привыкла ее держать.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг можно назвать так:
-                    <strong>чужие результаты на моих плечах</strong>. Клиент
-                    вела встречи и общение так, будто обязана сама произвести у
-                    другого человека готовый результат и еще удержать его у него
-                    в руках.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло границы ответственности и новый вход в работу</h2>
+        </div>
+        <p class="chapter-intro">Чтобы кейс не остался просто временным облегчением, нужно было снова и снова переносить этот принцип в реальные действия. Обучение здесь было не про давление на регулярность, а про сохранение качества состояния и точное понимание своей роли.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Перед каждой встречей проверять ресурс, интерес и реальный масштаб, а не только обещание.</li><li>Отдельно ловить момент, когда клиент снова хочет стать причиной чужого результата вместо носителя понимания.</li><li>Постить и собирать формат только тогда, когда есть живой импульс, а не ради отчетности.</li><li>В близких отношениях помнить разницу между поддержкой, логистикой и тотальным контролем.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-science-doc">LP-SCIENCE-01</a></strong>. Он помогал удерживать причинную рамку ответственности: где проходит закон моей роли, что именно я реально создаю и почему чужой результат не может лежать у меня на плечах. На уровне закрепления новой нормы кейс дополнительно поддерживал <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-relearn-doc">LP-RELEARN-01</a></strong>.</p><p>Это был не кейс про снижение качества, а кейс про возвращение качества в то, что раньше делалось через силу.</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси уже была сильная связка между любовью, полезностью
-                    и самопожертвованием. Если я рядом, если я умею, если мне не
-                    все равно, значит надо взять больше ответственности, чем
-                    реально мое.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант провел жесткую, но освобождающую границу: задача
-                    клиента — не дать людям результат, а дать им понимание.
-                    Результат возникает позже, когда это понимание становится у
-                    них привычкой и начинает жить через них.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Патч состоял в переносе фокуса с контроля за чужим эффектом
-                    на качество собственной передачи. Это сразу меняло
-                    состояние: исчезала необходимость тянуть клуб, постинг и
-                    заботу через силу и появлялось право выбирать формат по
-                    любви.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Я передаю понимание и уважаю границы своей
-                      ответственности. Чужой результат не лежит у меня на
-                      плечах.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат был в уменьшении масштаба и возврате
-                  любви в формат
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                После консультации клиент не бросила клуб и не перестала
-                заботиться о близких. Но поменялось то, как именно она входила в
-                эти роли. Первые изменения были очень ручными и очень
-                практичными: меньше насилия, меньше масштаба, больше честности.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Клиент стала спокойнее относиться к малому, комфортному
-                      масштабу клуба.
-                    </li>
-                    <li>
-                      Встречи и контент перестали считаться долгом только
-                      потому, что когда-то были обещаны.
-                    </li>
-                    <li>
-                      Подготовка снова начала строиться из ресурса и энтузиазма,
-                      а не из страха подвести.
-                    </li>
-                    <li>
-                      В семейной теме стало легче помнить: я не главный
-                      исполнитель чужого восстановления.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>
-                      Состояние клиентки снова становилось важной частью
-                      результата, а не второстепенной мелочью.
-                    </li>
-                    <li>Малый масштаб переставал переживаться как провал.</li>
-                    <li>
-                      Возвращалась свобода менять формат, упрощать и переносить
-                      без вины.
-                    </li>
-                    <li>
-                      Передача экспертизы снова ощущалась как живая сила, а не
-                      как повинность.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «я реально концентрируюсь на том, как я хочу.»
-                  </blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «мне с ними максимально комфортно, им со мной максимально
-                    комфортно.»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>
-                  Обучение закрепляло границы ответственности и новый вход в
-                  работу
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Чтобы кейс не остался просто временным облегчением, нужно было
-                снова и снова переносить этот принцип в реальные действия.
-                Обучение здесь было не про давление на регулярность, а про
-                сохранение качества состояния и точное понимание своей роли.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Перед каждой встречей проверять ресурс, интерес и реальный
-                      масштаб, а не только обещание.
-                    </li>
-                    <li>
-                      Отдельно ловить момент, когда клиент снова хочет стать
-                      причиной чужого результата вместо носителя понимания.
-                    </li>
-                    <li>
-                      Постить и собирать формат только тогда, когда есть живой
-                      импульс, а не ради отчетности.
-                    </li>
-                    <li>
-                      В близких отношениях помнить разницу между поддержкой,
-                      логистикой и тотальным контролем.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-RELEARN-01</strong>. Он помогал удерживать
-                    переобучение через практику и не скатываться обратно в
-                    старую гиперответственность под видом любви.
-                  </p>
-                  <p>
-                    Это был не кейс про снижение качества, а кейс про
-                    возвращение качества в то, что раньше делалось через силу.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>
-                  Новый результат был в том, что помощь перестала означать
-                  самосгорание
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                В новом контуре клиент все так же могла вести людей, делиться
-                экспертизой и заботиться о близких. Но это уже не требовало
-                становиться двигателем чужой жизни вместо них. Освободившийся
-                ресурс возвращался и в качество работы, и в внутреннее
-                состояние.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Каждая встреча или помощь легко превращались в контракт
-                    дотащить другого до результата любой ценой, даже через
-                    собственное выгорание.
-                  </p>
-                  <ul>
-                    <li>Моя помощь = мой долг за чужой итог</li>
-                    <li>Цена: контроль и делание через силу</li>
-                    <li>Чужой шаг тащится на себе</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Клиентка передает понимание и пространство, а не живет чужую
-                    жизнь за человека. От этого помощь стала и точнее, и легче.
-                  </p>
-                  <ul>
-                    <li>Граница ответственности видна раньше</li>
-                    <li>Меньше делания через силу</li>
-                    <li>Передача остается живой, а не карательной</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>Меньше делания через силу в клубе и коммуникациях.</li>
-                    <li>
-                      Больше уважения к комфортному масштабу и качеству
-                      контакта.
-                    </li>
-                    <li>
-                      Меньше вины, когда другой человек не делает свой шаг.
-                    </li>
-                    <li>
-                      Больше энергии в самой передаче экспертизы и создании
-                      пространства.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>Я даю понимание, а не готовый результат.</li>
-                    <li>
-                      Мое состояние передается людям сильнее голой правильности.
-                    </li>
-                    <li>Обещание не важнее жизни и любви.</li>
-                    <li>Поддержка и контроль — это не одно и то же.</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не то, насколько я дотащила другого до результата, а то,
-                  насколько живо и точно я передала понимание, сохранив границы
-                  своей ответственности.
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат был в том, что помощь перестала означать самосгорание</h2>
+        </div>
+        <p class="chapter-intro">В новом контуре клиент все так же могла вести людей, делиться экспертизой и заботиться о близких. Но это уже не требовало становиться двигателем чужой жизни вместо них. Освободившийся ресурс возвращался и в качество работы, и в внутреннее состояние.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Каждая встреча или помощь легко превращались в контракт дотащить другого до результата любой ценой, даже через собственное выгорание.</p>
+            <ul><li>Моя помощь = мой долг за чужой итог</li><li>Цена: контроль и делание через силу</li><li>Чужой шаг тащится на себе</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Клиентка передает понимание и пространство, а не живет чужую жизнь за человека. От этого помощь стала и точнее, и легче.</p>
+            <ul><li>Граница ответственности видна раньше</li><li>Меньше делания через силу</li><li>Передача остается живой, а не карательной</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Меньше делания через силу в клубе и коммуникациях.</li><li>Больше уважения к комфортному масштабу и качеству контакта.</li><li>Меньше вины, когда другой человек не делает свой шаг.</li><li>Больше энергии в самой передаче экспертизы и создании пространства.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Я даю понимание, а не готовый результат.</li><li>Мое состояние передается людям сильнее голой правильности.</li><li>Обещание не важнее жизни и любви.</li><li>Поддержка и контроль — это не одно и то же.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не то, насколько я дотащила другого до результата, а то, насколько живо и точно я передала понимание, сохранив границы своей ответственности.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1680,30 +1368,11 @@
         <div class="footer-shell">
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
-            <h2>
-              Если знакомо чувство, что ты должна принести людям готовый
-              результат
-            </h2>
-            <p>
-              Этот кейс полезен тем, кто любит быть полезным, но замечает, что
-              забота, обучение или ведение людей слишком быстро превращаются в
-              выгорание и самонасилие.
-            </p>
+            <h2>Если знакомо чувство, что ты должна принести людям готовый результат</h2>
+            <p>Этот кейс полезен тем, кто любит быть полезным, но замечает, что забота, обучение или ведение людей слишком быстро превращаются в выгорание и самонасилие.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-relearn-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-RELEARN-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-science-doc" target="_blank" rel="noopener noreferrer">Открыть LP-SCIENCE-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1718,9 +1387,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

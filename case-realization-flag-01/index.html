@@ -3,14 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CASE-REALIZATION-FLAG-01 — Как только началась реализация, меня не стало —
-      Вариант v2
-    </title>
-    <meta
-      name="description"
-      content="Кейс о том, как клиент терял жизнь и себя в момент старта реализации, когда KPI незаметно смещался в флажок результата."
-    />
+    <title>CASE-REALIZATION-FLAG-01 — Как только началась реализация, меня не стало — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как клиент терял жизнь и себя в момент старта реализации, когда KPI незаметно смещался в флажок результата." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -50,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -85,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -102,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -120,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -185,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -282,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -362,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -398,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -494,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -645,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -657,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -772,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -825,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -900,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -939,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -951,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1044,70 +1007,50 @@
                 <span class="meta-chip">read time: 9 minutes</span>
               </div>
 
-              <h1 class="hero-seq hero-seq-3">
-                Как только началась реализация, меня не стало
-              </h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                Клиент умел зажигаться идеями, запускать статьи, лендинги и
-                новые ветки работы. Но как только начиналась реализация, фокус
-                быстро уезжал в результат, форму и перегруз. На консультации
-                стало ясно, что проблема не в недостатке силы воли, а в подмене
-                самого KPI: жизнь ожидалась после флажка, а не внутри процесса.
-              </p>
+              <h1 class="hero-seq hero-seq-3">Как только началась реализация, меня не стало</h1>
+              <p class="hero-lead hero-seq hero-seq-4">Клиент умел зажигаться идеями, запускать статьи, лендинги и новые ветки работы. Но как только начиналась реализация, фокус быстро уезжал в результат, форму и перегруз. На консультации стало ясно, что проблема не в недостатке силы воли, а в подмене самого KPI: жизнь ожидалась после флажка, а не внутри процесса.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один кейс о том, как реализация переставала быть живым
-                    процессом и превращалась в автопилот ради результата.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >При старте выполнения клиент терял контакт с собой,
-                    распараллеливался и быстро перегружался.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Единым KPI становилось не сделанное количество, а рост
-                    жизни прямо в момент реализации.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary про перегруз, фокус, KPI жизни и реализацию
-                    ради процесса, а не ради флажка.</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один кейс о том, как реализация переставала быть живым процессом и превращалась в автопилот ради результата.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>При старте выполнения клиент терял контакт с собой, распараллеливался и быстро перегружался.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Единым KPI становилось не сделанное количество, а рост жизни прямо в момент реализации.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про перегруз, фокус, KPI жизни и реализацию ради процесса, а не ради флажка.</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">Реализация ради флажка</div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Расфокус, перегруз и ощущение, что в реализации меня нет
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Жизни больше или меньше прямо сейчас
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Реализация ради флажка</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Расфокус, перегруз и ощущение, что в реализации меня нет</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Жизни больше или меньше прямо сейчас</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1115,125 +1058,36 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Переобучение реализации шаг за шагом"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 100 100"
-                    role="img"
-                    aria-label="Pipeline: flow by stages"
-                  >
-                    <defs>
-                      <style>
-                        .pipeline-dot {
-                          fill: #1b4ed8;
-                        }
-                        .pipeline-dot-left {
-                          animation: pipeline-dot-left 4.5s linear infinite;
-                        }
-                        .pipeline-dot-mid {
-                          animation: pipeline-dot-mid 4.5s linear infinite;
-                        }
-                        .pipeline-dot-right {
-                          animation: pipeline-dot-right 4.5s linear infinite;
-                        }
-                        @keyframes pipeline-dot-left {
-                          0%,
-                          33% {
-                            opacity: 1;
-                          }
-                          34%,
-                          100% {
-                            opacity: 0;
-                          }
-                        }
-                        @keyframes pipeline-dot-mid {
-                          0%,
-                          33% {
-                            opacity: 0;
-                          }
-                          34%,
-                          66% {
-                            opacity: 1;
-                          }
-                          67%,
-                          100% {
-                            opacity: 0;
-                          }
-                        }
-                        @keyframes pipeline-dot-right {
-                          0%,
-                          66% {
-                            opacity: 0;
-                          }
-                          67%,
-                          100% {
-                            opacity: 1;
-                          }
-                        }
-                      </style>
-                    </defs>
-                    <rect
-                      x="10"
-                      y="40"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="#4a5768"
-                      stroke-width="1.5"
-                    />
-                    <rect
-                      x="40"
-                      y="40"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="#4a5768"
-                      stroke-width="1.5"
-                    />
-                    <rect
-                      x="70"
-                      y="40"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="#4a5768"
-                      stroke-width="1.5"
-                    />
-                    <line x1="30" y1="50" x2="40" y2="50" stroke="#4a5768" />
-                    <line x1="60" y1="50" x2="70" y2="50" stroke="#4a5768" />
-                    <circle
-                      class="pipeline-dot pipeline-dot-left"
-                      cx="20"
-                      cy="50"
-                      r="4"
-                    />
-                    <circle
-                      class="pipeline-dot pipeline-dot-mid"
-                      cx="50"
-                      cy="50"
-                      r="4"
-                    />
-                    <circle
-                      class="pipeline-dot pipeline-dot-right"
-                      cx="80"
-                      cy="50"
-                      r="4"
-                    />
-                  </svg>
+                <div class="hero-figure-frame" role="img" aria-label="Переобучение реализации шаг за шагом">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Pipeline: flow by stages">
+  <defs>
+    <style>
+      .pipeline-dot { fill: #1b4ed8; }
+      .pipeline-dot-left { animation: pipeline-dot-left 4.5s linear infinite; }
+      .pipeline-dot-mid { animation: pipeline-dot-mid 4.5s linear infinite; }
+      .pipeline-dot-right { animation: pipeline-dot-right 4.5s linear infinite; }
+      @keyframes pipeline-dot-left { 0%, 33% { opacity: 1; } 34%, 100% { opacity: 0; } }
+      @keyframes pipeline-dot-mid { 0%, 33% { opacity: 0; } 34%, 66% { opacity: 1; } 67%, 100% { opacity: 0; } }
+      @keyframes pipeline-dot-right { 0%, 66% { opacity: 0; } 67%, 100% { opacity: 1; } }
+    </style>
+  </defs>
+  <rect x="10" y="40" width="20" height="20" fill="none" stroke="#4a5768" stroke-width="1.5"/>
+  <rect x="40" y="40" width="20" height="20" fill="none" stroke="#4a5768" stroke-width="1.5"/>
+  <rect x="70" y="40" width="20" height="20" fill="none" stroke="#4a5768" stroke-width="1.5"/>
+  <line x1="30" y1="50" x2="40" y2="50" stroke="#4a5768"/>
+  <line x1="60" y1="50" x2="70" y2="50" stroke="#4a5768"/>
+  <circle class="pipeline-dot pipeline-dot-left" cx="20" cy="50" r="4"/>
+  <circle class="pipeline-dot pipeline-dot-mid" cx="50" cy="50" r="4"/>
+  <circle class="pipeline-dot pipeline-dot-right" cx="80" cy="50" r="4"/>
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>
-                  «так почувствовал, что у меня перегрузился реально. Что такой
-                  расфокус, перегруз»
-                </p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«так почувствовал, что у меня перегрузился реально. Что такой расфокус, перегруз»</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1244,424 +1098,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>Старт реализации быстро превращался в режим автопилота</h2>
-              </div>
-              <p class="chapter-intro">
-                Парадокс кейса был в том, что проблемы начинались не на уровне
-                идеи. Идеи были живыми, интересными и вдохновляющими. Но когда
-                приходило время делать, клиент незаметно начинал служить форме:
-                количеству, флажку, интенсиву, параллельным веткам. Именно здесь
-                и пропадало ощущение жизни.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Как это выглядело в реальности</h3>
-                  <ul>
-                    <li>
-                      Клиент запускал новые материалы, лендинги, группу и
-                      несколько рабочих сред сразу.
-                    </li>
-                    <li>
-                      На старте реализации внимание все чаще уходило в результат
-                      и завершение как таковое.
-                    </li>
-                    <li>
-                      Параллельные ветки быстро давали ощущение расфокуса и
-                      перегруза.
-                    </li>
-                    <li>
-                      Появлялось чувство, что реализация идет, а самого клиента
-                      внутри нее почти нет.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент пробовал по старому</h3>
-                  <ul>
-                    <li>Считать перегруз нормальной ценой продуктивности.</li>
-                    <li>
-                      Держаться за уже принятое решение и график, даже когда
-                      жизнь в процессе уменьшалась.
-                    </li>
-                    <li>
-                      Отвечать на внутреннюю тревогу дополнительным ускорением и
-                      идеей «влупожить интенсив».
-                    </li>
-                    <li>
-                      Мерить духовный и рабочий прогресс сделанным объемом, а не
-                      качеством проживания.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Старт реализации быстро превращался в режим автопилота</h2>
+        </div>
+        <p class="chapter-intro">Парадокс кейса был в том, что проблемы начинались не на уровне идеи. Идеи были живыми, интересными и вдохновляющими. Но когда приходило время делать, клиент незаметно начинал служить форме: количеству, флажку, интенсиву, параллельным веткам. Именно здесь и пропадало ощущение жизни.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Как это выглядело в реальности</h3>
+      <ul><li>Клиент запускал новые материалы, лендинги, группу и несколько рабочих сред сразу.</li><li>На старте реализации внимание все чаще уходило в результат и завершение как таковое.</li><li>Параллельные ветки быстро давали ощущение расфокуса и перегруза.</li><li>Появлялось чувство, что реализация идет, а самого клиента внутри нее почти нет.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент пробовал по старому</h3>
+      <ul><li>Считать перегруз нормальной ценой продуктивности.</li><li>Держаться за уже принятое решение и график, даже когда жизнь в процессе уменьшалась.</li><li>Отвечать на внутреннюю тревогу дополнительным ускорением и идеей «влупожить интенсив».</li><li>Мерить духовный и рабочий прогресс сделанным объемом, а не качеством проживания.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Чем сильнее реализация подчинялась форме и флажку, тем быстрее
-                  клиент терял ощущение живого процесса. Внешне это выглядело
-                  как продуктивность, а внутренне накапливало истощение и
-                  расфокус.
-                </p>
+                <p>Чем сильнее реализация подчинялась форме и флажку, тем быстрее клиент терял ощущение живого процесса. Внешне это выглядело как продуктивность, а внутренне накапливало истощение и расфокус.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«так почувствовал, что у меня перегрузился реально. Что такой расфокус, перегруз»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Понял, что не-не-не, надо фокусироваться на чем-то одном.»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «так почувствовал, что у меня перегрузился реально. Что
-                    такой расфокус, перегруз»
-                  </blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>На консультации фокус сместился с формы на сам источник жизни</h2>
+        </div>
+        <p class="chapter-intro">Консультант не спорил с тем, что планы, графики и реализация нужны. Он показал их реальное место. Проблемой было не выполнение как таковое, а то, что инициирующей силой переставал быть живой импульс, а главным критерием становилась форма.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг звучал так: <strong>реализация ради флажка</strong>. Клиент незаметно переносил счастье и чувство реализованности на момент завершения, а текущий процесс начинал воспринимать как транзитную зону, где можно уже не жить.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси давно жила идея, что правила, график и форма надежнее импульсов, а перегруз — допустимая цена за большой объем. Из этого росла привычка держаться за форму даже тогда, когда она уже конфликтовала с главной ценностью — жизнью.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант вернул саму суть KPI: не количество, не ордена и не темп, а простой вопрос <strong>«жизни больше или меньше?»</strong>. Это резко изменило диагностику перегруза: он оказался не доблестью, а признаком потери правильного фокуса.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч состоял в том, чтобы снова сделать реализацию процессом увеличения жизни, а не тоннелем к флажку. План и график не исчезали, но становились помощниками. Если они уменьшали жизнеспособность, их следовало менять, а не поклоняться им.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я реализую не ради результата после, а ради процесса повышения жизни сейчас. Форма помогает, но не командует.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Понял, что не-не-не, надо фокусироваться на чем-то одном.»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат был в ручном возврате жизни в процесс</h2>
+        </div>
+        <p class="chapter-intro">После консультации клиент не потерял амбицию и не перестал делать большие вещи. Но теперь первое ручное изменение происходило прямо в моменте: когда реализация начинала пожирать жизнь, можно было сократить параллельность и вернуть себе ощущение присутствия.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Клиент начал распознавать перегруз как сигнал, а не как героизм.</li><li>Появилась готовность сворачивать лишние ветки и фокусироваться на одном направлении.</li><li>Перед новой «гениальной идеей» стало возможным проверить, ведет ли она к жизни или просто сбивает курс.</li><li>Реализация переставала быть зоной, где клиент как будто исчезает до встречи «в конце».</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Флажок переставал быть единственной точкой смысла.</li><li>План легче корректировался, если уже вредил жизнеспособности.</li><li>Реализация постепенно входила в субъективную любовь, а не только в долг и форму.</li><li>Стало проще замечать, какой следующий шаг сейчас действительно живой.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«принял решение писать книгу. Отдельно начинаю по статьям.»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«я кайфанул от этого дела, сразу понаделал всех этих лендингов»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>
-                  На консультации фокус сместился с формы на сам источник жизни
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Консультант не спорил с тем, что планы, графики и реализация
-                нужны. Он показал их реальное место. Проблемой было не
-                выполнение как таковое, а то, что инициирующей силой переставал
-                быть живой импульс, а главным критерием становилась форма.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг звучал так: <strong>реализация ради флажка</strong>.
-                    Клиент незаметно переносил счастье и чувство реализованности
-                    на момент завершения, а текущий процесс начинал воспринимать
-                    как транзитную зону, где можно уже не жить.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло новый KPI в повторяемой реализации</h2>
+        </div>
+        <p class="chapter-intro">Для закрепления было важно не просто понять новую мысль, а много раз провести ее через реальную работу. Именно поэтому обучение строилось вокруг постоянной проверки: кто сейчас ведет — форма или живой импульс.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Проверять каждую идею и каждый этап выполнения вопросом «жизни больше или меньше?».</li><li>Использовать план как гипотезу и помощника, а не как неподвижный закон.</li><li>Отмечать момент, когда перегруз начинается, и резать параллельность раньше, чем система развалится.</li><li>Развивать любовь к самой реализации через опыт, где она больше не убивает жизнь.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-relearn-doc">LP-RELEARN-01</a></strong>. Он помогал удерживать переобучение прямо в действии и не скатываться обратно в форму, закон и «ордена».</p><p>Именно здесь было важно повторять переход из режима «сделать любой ценой» в режим «делать так, чтобы жизнь не пропадала по пути».</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси давно жила идея, что правила, график и форма
-                    надежнее импульсов, а перегруз — допустимая цена за большой
-                    объем. Из этого росла привычка держаться за форму даже
-                    тогда, когда она уже конфликтовала с главной ценностью —
-                    жизнью.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант вернул саму суть KPI: не количество, не ордена и
-                    не темп, а простой вопрос
-                    <strong>«жизни больше или меньше?»</strong>. Это резко
-                    изменило диагностику перегруза: он оказался не доблестью, а
-                    признаком потери правильного фокуса.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Патч состоял в том, чтобы снова сделать реализацию процессом
-                    увеличения жизни, а не тоннелем к флажку. План и график не
-                    исчезали, но становились помощниками. Если они уменьшали
-                    жизнеспособность, их следовало менять, а не поклоняться им.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Я реализую не ради результата после, а ради процесса
-                      повышения жизни сейчас. Форма помогает, но не командует.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат был в ручном возврате жизни в процесс
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                После консультации клиент не потерял амбицию и не перестал
-                делать большие вещи. Но теперь первое ручное изменение
-                происходило прямо в моменте: когда реализация начинала пожирать
-                жизнь, можно было сократить параллельность и вернуть себе
-                ощущение присутствия.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Клиент начал распознавать перегруз как сигнал, а не как
-                      героизм.
-                    </li>
-                    <li>
-                      Появилась готовность сворачивать лишние ветки и
-                      фокусироваться на одном направлении.
-                    </li>
-                    <li>
-                      Перед новой «гениальной идеей» стало возможным проверить,
-                      ведет ли она к жизни или просто сбивает курс.
-                    </li>
-                    <li>
-                      Реализация переставала быть зоной, где клиент как будто
-                      исчезает до встречи «в конце».
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>Флажок переставал быть единственной точкой смысла.</li>
-                    <li>
-                      План легче корректировался, если уже вредил
-                      жизнеспособности.
-                    </li>
-                    <li>
-                      Реализация постепенно входила в субъективную любовь, а не
-                      только в долг и форму.
-                    </li>
-                    <li>
-                      Стало проще замечать, какой следующий шаг сейчас
-                      действительно живой.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «принял решение писать книгу. Отдельно начинаю по статьям.»
-                  </blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «я кайфанул от этого дела, сразу понаделал всех этих
-                    лендингов»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>Обучение закрепляло новый KPI в повторяемой реализации</h2>
-              </div>
-              <p class="chapter-intro">
-                Для закрепления было важно не просто понять новую мысль, а много
-                раз провести ее через реальную работу. Именно поэтому обучение
-                строилось вокруг постоянной проверки: кто сейчас ведет — форма
-                или живой импульс.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Проверять каждую идею и каждый этап выполнения вопросом
-                      «жизни больше или меньше?».
-                    </li>
-                    <li>
-                      Использовать план как гипотезу и помощника, а не как
-                      неподвижный закон.
-                    </li>
-                    <li>
-                      Отмечать момент, когда перегруз начинается, и резать
-                      параллельность раньше, чем система развалится.
-                    </li>
-                    <li>
-                      Развивать любовь к самой реализации через опыт, где она
-                      больше не убивает жизнь.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-RELEARN-01</strong>. Он помогал удерживать
-                    переобучение прямо в действии и не скатываться обратно в
-                    форму, закон и «ордена».
-                  </p>
-                  <p>
-                    Именно здесь было важно повторять переход из режима «сделать
-                    любой ценой» в режим «делать так, чтобы жизнь не пропадала
-                    по пути».
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>
-                  Новый результат был виден в том, что реализация перестала
-                  съедать клиента
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                В новом контуре клиент все так же писал, запускал и собирал
-                продукты. Но менялось переживание процесса: внутри него стало
-                больше присутствия, а перегруз перестал выглядеть обязательной
-                платой за движение вперед.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Как только начиналась реализация, клиент выпадал из
-                    процесса: оставались флажок, перегруз и потеря себя внутри
-                    выполнения.
-                  </p>
-                  <ul>
-                    <li>Много веток одновременно</li>
-                    <li>К концу шага: истощение</li>
-                    <li>Главный критерий: закрыть флажок</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Реализация стала местом присутствия, а не коридором
-                    самопотери: шаг заканчивается не только выполнением, но и
-                    чувством живого участия.
-                  </p>
-                  <ul>
-                    <li>Лишние ветки срезаются раньше</li>
-                    <li>Шаг заканчивается с чувством присутствия</li>
-                    <li>Главный критерий: больше жизни в процессе</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>
-                      Меньше импульсивных заходов в лишние ветки и интенсивы.
-                    </li>
-                    <li>
-                      Больше ясности, когда идею стоит реализовывать, а когда
-                      она лишь сбивает фокус.
-                    </li>
-                    <li>
-                      Реализация стала давать больше чувства присутствия, а не
-                      только утомления.
-                    </li>
-                    <li>
-                      Появился более надежный способ различать живой импульс и
-                      штрафной круг.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>Единый KPI — количество жизни в процессе.</li>
-                    <li>
-                      Законы и графики — фильтры и помощники, а не замена
-                      импульсу.
-                    </li>
-                    <li>Перегруз — это сигнал потери фокуса на главном.</li>
-                    <li>
-                      Реализация может и должна становиться частью субъективной
-                      любви.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не вопрос «сколько сделал», а вопрос «я сейчас живее в этой
-                  реализации или уже выключился из нее».
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат был виден в том, что реализация перестала съедать клиента</h2>
+        </div>
+        <p class="chapter-intro">В новом контуре клиент все так же писал, запускал и собирал продукты. Но менялось переживание процесса: внутри него стало больше присутствия, а перегруз перестал выглядеть обязательной платой за движение вперед.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Как только начиналась реализация, клиент выпадал из процесса: оставались флажок, перегруз и потеря себя внутри выполнения.</p>
+            <ul><li>Много веток одновременно</li><li>К концу шага: истощение</li><li>Главный критерий: закрыть флажок</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Реализация стала местом присутствия, а не коридором самопотери: шаг заканчивается не только выполнением, но и чувством живого участия.</p>
+            <ul><li>Лишние ветки срезаются раньше</li><li>Шаг заканчивается с чувством присутствия</li><li>Главный критерий: больше жизни в процессе</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Меньше импульсивных заходов в лишние ветки и интенсивы.</li><li>Больше ясности, когда идею стоит реализовывать, а когда она лишь сбивает фокус.</li><li>Реализация стала давать больше чувства присутствия, а не только утомления.</li><li>Появился более надежный способ различать живой импульс и штрафной круг.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Единый KPI — количество жизни в процессе.</li><li>Законы и графики — фильтры и помощники, а не замена импульсу.</li><li>Перегруз — это сигнал потери фокуса на главном.</li><li>Реализация может и должна становиться частью субъективной любви.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не вопрос «сколько сделал», а вопрос «я сейчас живее в этой реализации или уже выключился из нее».</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1670,26 +1348,10 @@
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
             <h2>Если знакомо чувство, что в реализации тебя не остается</h2>
-            <p>
-              Этот кейс полезен тем, кто хорошо стартует идеи и проекты, но
-              замечает, что на этапе выполнения быстро уходит в перегруз, форму
-              и потерю себя.
-            </p>
+            <p>Этот кейс полезен тем, кто хорошо стартует идеи и проекты, но замечает, что на этапе выполнения быстро уходит в перегруз, форму и потерю себя.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-relearn-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-RELEARN-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-relearn-doc" target="_blank" rel="noopener noreferrer">Открыть LP-RELEARN-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1704,9 +1366,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

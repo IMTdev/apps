@@ -83,6 +83,24 @@
             margin-bottom: var(--space-5);
         }
 
+        .doc-header-nav {
+            margin-bottom: 14px;
+        }
+
+        .doc-header-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #fff;
+            color: #2f415f;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
         .hero-metaphor {
             position: absolute;
             top: 22px;
@@ -420,31 +438,55 @@
             line-height: 1.45;
         }
 
-        .testimonial-grid {
+        .case-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
         }
 
-        .testimonial {
+        .case-card {
             border: 1px solid var(--line);
             background: #fff;
             border-radius: 12px;
             padding: 14px;
             display: grid;
             gap: 8px;
+            color: inherit;
+            text-decoration: none;
         }
 
-        .t-role {
+        .case-card:hover {
+            border-color: #b9c8eb;
+            box-shadow: 0 14px 34px rgba(27, 78, 216, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .case-role {
             font-size: 0.8rem;
             color: var(--muted);
             font-weight: 600;
         }
 
-        .t-row strong {
+        .case-title {
+            font-size: 1.06rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .case-row {
+            color: var(--muted);
+        }
+
+        .case-row strong {
             display: inline-block;
             min-width: 95px;
             color: #22324f;
+            font-weight: 600;
+        }
+
+        .case-cta {
+            margin-top: 4px;
+            color: var(--link);
             font-weight: 600;
         }
 
@@ -591,20 +633,46 @@
         }
 
         @media (max-width: 640px) {
+            .container {
+                width: min(1240px, calc(100% - 24px));
+            }
+
             .doc-header { padding: 18px 80px 18px 18px; }
             .hero-metaphor { top: 18px; right: 18px; width: 56px; height: 56px; }
+
+            .hero-lines li {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .hero-lines .k {
+                font-size: 0.74rem;
+            }
+
+            .quick-specs {
+                grid-template-columns: 1fr;
+            }
         }
         @media (max-width: 400px) {
             .doc-header { padding: 16px 68px 16px 16px; }
             .hero-metaphor { top: 16px; right: 16px; width: 48px; height: 48px; }
         }
         @media (max-width: 840px) {
+            .page {
+                padding-bottom: 140px;
+            }
+
             .quick-specs,
             .two-col,
             .module-grid,
-            .testimonial-grid,
+            .case-grid,
             .sidebar {
                 grid-template-columns: 1fr;
+            }
+
+            .doc-header-nav a {
+                width: 100%;
+                justify-content: center;
             }
 
             .mobile-cta {
@@ -634,6 +702,7 @@
         <div class="container page-grid">
             <main class="main">
                 <header class="doc-header" id="hero">
+                    <div class="doc-header-nav"><a href="https://app.imt.dev/lp-catalog">← Каталог Learning Paths</a></div>
                     <div class="hero-metaphor" aria-hidden="true">
                         <svg viewBox="0 0 100 100" focusable="false">
                             <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
@@ -646,7 +715,7 @@
                     </div>
                     <div class="meta-row">
                         <span class="meta-tag">version: LP-PATTERNS-DOC v1.0</span>
-                        <span class="meta-tag">last updated: 2026-02-13</span>
+                        <span class="meta-tag">last updated: 2026-04-12</span>
                         <span class="meta-tag">level: practical</span>
                     </div>
                     <h1>Паттерны</h1>
@@ -819,24 +888,29 @@
 
                 <section class="section" id="proof">
                     <h2>Отзывы и результаты</h2>
-                    <p class="section-intro"><strong>В этом разделе:</strong> кейсы в формате проблема -> действие -> результат.</p>
-                    <div class="testimonial-grid">
-                        <article class="testimonial">
-                            <div class="t-role">Инженер, 10+ лет стажа</div>
-                            <h3>Николай</h3>
-                            <div class="t-row"><strong>Контекст:</strong> стабильная работа, но апатия и потеря смысла вставать по утрам.</div>
-                            <div class="t-row"><strong>Проблема:</strong> автоматический сценарий подавления желаний и жизни в угождении "авторитету".</div>
-                            <div class="t-row"><strong>Действие:</strong> переинтерпретация фактов + модификация убеждений о себе.</div>
-                            <div class="t-row"><strong>Результат:</strong> энтузиазма стало раза в 2 больше, прояснилась цель.</div>
-                        </article>
-                        <article class="testimonial">
-                            <div class="t-role">Team Lead, 20 подчиненных</div>
-                            <h3>Оля</h3>
-                            <div class="t-row"><strong>Контекст:</strong> знания и теория заходили на 5% из-за языка книг из прошлого века.</div>
-                            <div class="t-row"><strong>Проблема:</strong> убеждения и концепции не менялись и развитие сознания стояло на месте.</div>
-                            <div class="t-row"><strong>Действие:</strong> научный и понятный язык курса позволил, наконец, понять самое важное.</div>
-                            <div class="t-row"><strong>Результат:</strong> теория стала понятной на 80-90%, тепрь чёткий план переобучения.</div>
-                        </article>
+                    <p class="section-intro"><strong>В этом разделе:</strong> кейсы по тем же повторяющимся сценариям, которые этот LP учит распознавать и перепрошивать.</p>
+                    <div class="case-grid">
+                        <a class="case-card" href="https://app.imt.dev/case-plan-idol-01/">
+                            <div class="case-role">Кейс про паттерн гиперконтроля</div>
+                            <div class="case-title">Когда план сам становился ложным богом</div>
+                            <div class="case-row"><strong>Фокус:</strong> увидеть, как полезный инструмент превращается в жесткий паттерн и ломает жизнь.</div>
+                            <div class="case-row"><strong>Результат:</strong> появилась возможность действовать без культа идеального маршрута.</div>
+                            <div class="case-cta">Открыть кейс</div>
+                        </a>
+                        <a class="case-card" href="https://app.imt.dev/case-scroll-relief-01/">
+                            <div class="case-role">Кейс про паттерн цифрового обезболивания</div>
+                            <div class="case-title">Когда скролл становился быстрым способом не чувствовать жизнь</div>
+                            <div class="case-row"><strong>Фокус:</strong> разобрать автоматическую реакцию ухода от напряжения в рассеивание внимания.</div>
+                            <div class="case-row"><strong>Результат:</strong> появилось больше контакта с собой и меньше бессознательного побега в экран.</div>
+                            <div class="case-cta">Открыть кейс</div>
+                        </a>
+                        <a class="case-card" href="https://app.imt.dev/case-negativity-drain-01/">
+                            <div class="case-role">Кейс про эмоциональный паттерн заражения</div>
+                            <div class="case-title">Когда чужой негатив становился моим состоянием и ломал весь день</div>
+                            <div class="case-row"><strong>Фокус:</strong> увидеть повторяющийся цикл входа в жалобу, старой реакции и последующего слива ресурса.</div>
+                            <div class="case-row"><strong>Результат:</strong> новая реакция стала включаться раньше, а эмоциональный хвост заметно сократился.</div>
+                            <div class="case-cta">Открыть кейс</div>
+                        </a>
                     </div>
                 </section>
 

@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IMT Case Catalog</title>
-    <meta
-      name="description"
-      content="Каталог кейсов IMT: 21 обезличенная клиентская история в обновленном LP-формате с фильтрами по глубине и Learning Path."
-    />
+    <meta name="description" content="Каталог кейсов IMT: 21 обезличенная клиентская история в обновленном LP-формате с фильтрами по глубине и пяти Learning Path." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -38,16 +35,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -74,16 +63,8 @@
         padding: clamp(24px, 4vw, 44px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(126, 166, 255, 0.18),
-            transparent 34%
-          ),
-          radial-gradient(
-            circle at bottom right,
-            rgba(127, 211, 157, 0.16),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(126, 166, 255, 0.18), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(127, 211, 157, 0.16), transparent 30%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
 
@@ -95,11 +76,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -276,11 +253,7 @@
         right: 4%;
         bottom: 0;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(239, 191, 124, 0.32),
-          transparent 72%
-        );
+        background: radial-gradient(circle, rgba(239, 191, 124, 0.32), transparent 72%);
         filter: blur(8px);
         pointer-events: none;
       }
@@ -303,16 +276,8 @@
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 26px;
         background:
-          radial-gradient(
-            circle at top left,
-            var(--tone-glow),
-            transparent 42%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.1),
-            rgba(255, 255, 255, 0.04)
-          );
+          radial-gradient(circle at top left, var(--tone-glow), transparent 42%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
         text-align: left;
         color: #f5f7fb;
         cursor: pointer;
@@ -326,11 +291,7 @@
       .path-tile:hover,
       .path-tile.is-active {
         transform: translateY(-2px);
-        border-color: color-mix(
-          in srgb,
-          var(--tone) 54%,
-          rgba(255, 255, 255, 0.18)
-        );
+        border-color: color-mix(in srgb, var(--tone) 54%, rgba(255, 255, 255, 0.18));
         box-shadow: 0 22px 54px rgba(0, 0, 0, 0.22);
       }
 
@@ -465,16 +426,8 @@
         border-radius: var(--radius-lg);
         border: 1px solid var(--page-line);
         background:
-          radial-gradient(
-            circle at top left,
-            var(--tone-surface),
-            transparent 36%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.84),
-            rgba(255, 255, 255, 0.94)
-          );
+          radial-gradient(circle at top left, var(--tone-surface), transparent 36%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.94));
         box-shadow: var(--shadow-soft);
         text-decoration: none;
         transition:
@@ -486,11 +439,7 @@
 
       .case-card:hover {
         transform: translateY(-3px);
-        border-color: color-mix(
-          in srgb,
-          var(--tone) 28%,
-          rgba(17, 21, 29, 0.08)
-        );
+        border-color: color-mix(in srgb, var(--tone) 28%, rgba(17, 21, 29, 0.08));
         box-shadow: 0 32px 78px rgba(17, 21, 29, 0.12);
       }
 
@@ -509,16 +458,8 @@
         border-radius: 24px;
         border: 1px solid rgba(17, 21, 29, 0.08);
         background:
-          radial-gradient(
-            circle at top left,
-            var(--tone-glow),
-            transparent 42%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.96),
-            rgba(241, 237, 229, 0.92)
-          );
+          radial-gradient(circle at top left, var(--tone-glow), transparent 42%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 237, 229, 0.92));
         display: grid;
         place-items: center;
         min-height: 100%;
@@ -563,11 +504,7 @@
 
       .case-meta .lp-chip {
         color: var(--page-ink);
-        border-color: color-mix(
-          in srgb,
-          var(--tone) 28%,
-          rgba(17, 21, 29, 0.08)
-        );
+        border-color: color-mix(in srgb, var(--tone) 28%, rgba(17, 21, 29, 0.08));
         background: color-mix(in srgb, var(--tone) 12%, white);
       }
 
@@ -635,16 +572,8 @@
         padding: clamp(28px, 5vw, 42px);
         border-radius: var(--radius-xl);
         background:
-          radial-gradient(
-            circle at top right,
-            rgba(126, 166, 255, 0.12),
-            transparent 26%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, rgba(126, 166, 255, 0.12), transparent 26%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -687,16 +616,8 @@
         color: #f5f7fb;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          radial-gradient(
-            circle at top left,
-            var(--tone-glow),
-            transparent 40%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.03)
-          );
+          radial-gradient(circle at top left, var(--tone-glow), transparent 40%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
       }
 
       .doc-card img {
@@ -897,41 +818,27 @@
             <div>
               <div class="meta-strip hero-seq hero-seq-2">
                 <span class="meta-chip">21 кейс</span>
-                <span class="meta-chip"
-                  >9 базовых / 9 продвинутых / 3 экспертных</span
-                >
-                <span class="meta-chip">updated 2026-03-25</span>
+                <span class="meta-chip">9 базовых / 9 продвинутых / 3 экспертных</span>
+                <span class="meta-chip">updated 2026-04-12</span>
               </div>
 
               <h1 class="hero-seq hero-seq-3">Каталог кейсов IMT</h1>
               <p class="hero-lead hero-seq hero-seq-4">
-                21 обезличенная клиентская история в production-формате. Один
-                каталог, три learning paths и фильтр по глубине входа: от
-                раннего распознавания паттерна до более сложных управленческих и
-                инфраструктурных сбоев.
+                21 обезличенная клиентская история в production-формате. Один каталог, пять learning paths и фильтр по глубине входа: от раннего распознавания паттерна до более сложных управленческих и мировоззренческих сбоев.
               </p>
 
               <ul class="hero-points hero-seq hero-seq-4">
                 <li>
                   <span class="key">Что здесь</span>
-                  <span
-                    >Собранный каталог всех текущих case-pages в одном месте без
-                    рассыпанной навигации.</span
-                  >
+                  <span>Собранный каталог всех текущих case-pages в одном месте без рассыпанной навигации.</span>
                 </li>
                 <li>
                   <span class="key">Как читать</span>
-                  <span
-                    >Сначала фильтр по depth, затем срез по Learning Path:
-                    patterns, self или relearn.</span
-                  >
+                  <span>Сначала фильтр по depth, затем срез по Learning Path: patterns, self, relearn, science или marn.</span>
                 </li>
                 <li>
                   <span class="key">Последний кейс</span>
-                  <span
-                    >2026-03-23. Новые кейсы больше не живут отдельно от общей
-                    витрины.</span
-                  >
+                  <span>2026-03-23. Новые кейсы больше не живут отдельно от общей витрины.</span>
                 </li>
               </ul>
 
@@ -941,7 +848,7 @@
                   <span>обезличенная история</span>
                 </article>
                 <article class="hero-stat">
-                  <strong>3</strong>
+                  <strong>5</strong>
                   <span>основных learning path</span>
                 </article>
                 <article class="hero-stat">
@@ -954,97 +861,91 @@
             <div class="hero-side hero-seq hero-seq-3">
               <div class="hero-side-glow" aria-hidden="true"></div>
               <div class="path-grid" aria-label="Фильтр по Learning Path">
-                <button
-                  class="path-tile"
-                  type="button"
-                  data-lp-filter="LP-PATTERNS-01"
-                  style="
-                    --tone: #7fd39d;
-                    --tone-2: #8cb2ff;
-                    --tone-ink: #d8f5e1;
-                    --tone-surface: rgba(127, 211, 157, 0.08);
-                    --tone-glow: rgba(127, 211, 157, 0.28);
-                  "
-                >
-                  <div class="path-tile-copy">
-                    <span class="path-kicker">LP-PATTERNS-01</span>
-                    <strong>patterns</strong>
-                    <span class="path-count">6 кейсов</span>
-                  </div>
-                  <img
-                    src="./svg/lp-patterns-focus.svg"
-                    alt="Фильтр кейсов по Learning Path Patterns"
-                  />
-                </button>
-
-                <button
-                  class="path-tile"
-                  type="button"
-                  data-lp-filter="LP-SELF-01"
-                  style="
-                    --tone: #efbf7c;
-                    --tone-2: #f09393;
-                    --tone-ink: #ffe7c3;
-                    --tone-surface: rgba(239, 191, 124, 0.08);
-                    --tone-glow: rgba(239, 191, 124, 0.28);
-                  "
-                >
-                  <div class="path-tile-copy">
-                    <span class="path-kicker">LP-SELF-01</span>
-                    <strong>self</strong>
-                    <span class="path-count">9 кейсов</span>
-                  </div>
-                  <img
-                    src="./svg/lp-self-pyramid.svg"
-                    alt="Фильтр кейсов по Learning Path Self"
-                  />
-                </button>
-
-                <button
-                  class="path-tile"
-                  type="button"
-                  data-lp-filter="LP-RELEARN-01"
-                  style="
-                    --tone: #7ea6ff;
-                    --tone-2: #79d6c0;
-                    --tone-ink: #dbe6ff;
-                    --tone-surface: rgba(126, 166, 255, 0.08);
-                    --tone-glow: rgba(126, 166, 255, 0.28);
-                  "
-                >
-                  <div class="path-tile-copy">
-                    <span class="path-kicker">LP-RELEARN-01</span>
-                    <strong>relearn</strong>
-                    <span class="path-count">6 кейсов</span>
-                  </div>
-                  <img
-                    src="./svg/lp-relearn-pipeline.svg"
-                    alt="Фильтр кейсов по Learning Path Relearn"
-                  />
-                </button>
-
-                <button
-                  class="path-tile is-active"
-                  type="button"
-                  data-lp-filter="all"
-                  style="
-                    --tone: #b6bfd1;
-                    --tone-2: #ffffff;
-                    --tone-ink: #f1f4fb;
-                    --tone-surface: rgba(255, 255, 255, 0.08);
-                    --tone-glow: rgba(182, 191, 209, 0.22);
-                  "
-                >
-                  <div class="path-tile-copy">
-                    <span class="path-kicker">Case Catalog</span>
-                    <strong>all paths</strong>
-                    <span class="path-count">21 кейсов</span>
-                  </div>
-                  <img
-                    src="./svg/four-weeks.svg"
-                    alt="Сброс LP-фильтра и показ всех кейсов"
-                  />
-                </button>
+                
+        <button
+          class="path-tile"
+          type="button"
+          data-lp-filter="LP-PATTERNS-01"
+          style="--tone:#7fd39d; --tone-2:#8cb2ff; --tone-ink:#d8f5e1; --tone-surface:rgba(127, 211, 157, 0.08); --tone-glow:rgba(127, 211, 157, 0.28);"
+        >
+          <div class="path-tile-copy">
+            <span class="path-kicker">LP-PATTERNS-01</span>
+            <strong>patterns</strong>
+            <span class="path-count">5 кейсов</span>
+          </div>
+          <img src="./svg/lp-patterns-focus.svg" alt="Фильтр кейсов по Learning Path Patterns" />
+        </button>
+      
+        <button
+          class="path-tile"
+          type="button"
+          data-lp-filter="LP-SELF-01"
+          style="--tone:#efbf7c; --tone-2:#f09393; --tone-ink:#ffe7c3; --tone-surface:rgba(239, 191, 124, 0.08); --tone-glow:rgba(239, 191, 124, 0.28);"
+        >
+          <div class="path-tile-copy">
+            <span class="path-kicker">LP-SELF-01</span>
+            <strong>self</strong>
+            <span class="path-count">5 кейсов</span>
+          </div>
+          <img src="./svg/lp-self-pyramid.svg" alt="Фильтр кейсов по Learning Path Self" />
+        </button>
+      
+        <button
+          class="path-tile"
+          type="button"
+          data-lp-filter="LP-RELEARN-01"
+          style="--tone:#7ea6ff; --tone-2:#79d6c0; --tone-ink:#dbe6ff; --tone-surface:rgba(126, 166, 255, 0.08); --tone-glow:rgba(126, 166, 255, 0.28);"
+        >
+          <div class="path-tile-copy">
+            <span class="path-kicker">LP-RELEARN-01</span>
+            <strong>relearn</strong>
+            <span class="path-count">4 кейса</span>
+          </div>
+          <img src="./svg/lp-relearn-pipeline.svg" alt="Фильтр кейсов по Learning Path Relearn" />
+        </button>
+      
+        <button
+          class="path-tile"
+          type="button"
+          data-lp-filter="LP-SCIENCE-01"
+          style="--tone:#d7ec7e; --tone-2:#7ea6ff; --tone-ink:#f3f9c7; --tone-surface:rgba(215, 236, 126, 0.08); --tone-glow:rgba(215, 236, 126, 0.28);"
+        >
+          <div class="path-tile-copy">
+            <span class="path-kicker">LP-SCIENCE-01</span>
+            <strong>science</strong>
+            <span class="path-count">3 кейса</span>
+          </div>
+          <img src="./svg/lp-science-network.svg" alt="Фильтр кейсов по Learning Path Science" />
+        </button>
+      
+        <button
+          class="path-tile"
+          type="button"
+          data-lp-filter="LP-MARN-01"
+          style="--tone:#79d6c0; --tone-2:#efbf7c; --tone-ink:#d7fff4; --tone-surface:rgba(121, 214, 192, 0.08); --tone-glow:rgba(121, 214, 192, 0.28);"
+        >
+          <div class="path-tile-copy">
+            <span class="path-kicker">LP-MARN-01</span>
+            <strong>marn</strong>
+            <span class="path-count">4 кейса</span>
+          </div>
+          <img src="./svg/lp-marn-filter.svg" alt="Фильтр кейсов по Learning Path Marn" />
+        </button>
+      
+        <button
+          class="path-tile is-active"
+          type="button"
+          data-lp-filter="all"
+          style="--tone:#b6bfd1; --tone-2:#ffffff; --tone-ink:#f1f4fb; --tone-surface:rgba(255, 255, 255, 0.08); --tone-glow:rgba(182, 191, 209, 0.22);"
+        >
+          <div class="path-tile-copy">
+            <span class="path-kicker">Case Catalog</span>
+            <strong>all paths</strong>
+            <span class="path-count">21 кейсов</span>
+          </div>
+          <img src="./svg/four-weeks.svg" alt="Сброс LP-фильтра и показ всех кейсов" />
+        </button>
+      
               </div>
             </div>
           </div>
@@ -1056,885 +957,605 @@
           <div class="filter-dock reveal is-visible">
             <div class="filter-dock-grid">
               <div class="filter-group" aria-label="Фильтр глубины">
-                <button
-                  class="filter-btn is-active"
-                  type="button"
-                  data-filter="all"
-                >
-                  Все
-                </button>
-                <button class="filter-btn" type="button" data-filter="basic">
-                  Базовые
-                </button>
-                <button class="filter-btn" type="button" data-filter="advanced">
-                  Продвинутые
-                </button>
-                <button class="filter-btn" type="button" data-filter="expert">
-                  Экспертные
-                </button>
+                <button class="filter-btn is-active" type="button" data-filter="all">Все</button>
+                <button class="filter-btn" type="button" data-filter="basic">Базовые</button>
+                <button class="filter-btn" type="button" data-filter="advanced">Продвинутые</button>
+                <button class="filter-btn" type="button" data-filter="expert">Экспертные</button>
               </div>
-              <div class="result-chip">
-                Показано <strong id="visible-count">21</strong> из
-                <strong>21</strong> кейсов
-              </div>
+              <div class="result-chip">Показано <strong id="visible-count">21</strong> из <strong>21</strong> кейсов</div>
             </div>
           </div>
 
           <section class="catalog-grid" id="catalog-grid">
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-where-result-01/"
-              data-case-id="CASE-WHERE-RESULT-01"
-              data-level="basic"
-              data-lp="LP-PATTERNS-01"
-              data-index="0"
-              style="
-                --tone: #7fd39d;
-                --tone-2: #8cb2ff;
-                --tone-surface: rgba(127, 211, 157, 0.08);
-                --tone-glow: rgba(127, 211, 157, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/lp-patterns-focus.svg"
-                  alt="Фокус на паттерне вопроса про результат"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Мирон</span>
-                  <span>Базовый</span>
-                  <span>2026-03-02</span>
-                  <span class="lp-chip">patterns</span>
-                </div>
-                <h3>Где результат?</h3>
-                <p>
-                  Внутренний судья перестает маскироваться под здравый смысл и
-                  распознается как баг, который срывает клиента из жизни в
-                  самопроверку.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: внутренний судья про результат
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-dignity-rating-01/"
-              data-case-id="CASE-DIGNITY-RATING-01"
-              data-level="advanced"
-              data-lp="LP-SELF-01"
-              data-index="1"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/lp-self-pyramid.svg"
-                  alt="Пирамида собственной ценности и достоинства"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Аврора</span>
-                  <span>Продвинутый</span>
-                  <span>2026-03-23</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Когда достоинство живет в чужих глазах</h3>
-                <p>
-                  Похвала, тишина и спор перестают быть приговором, когда клиент
-                  вынимает свое достоинство из чужого рейтинга и возвращает его
-                  в критерий живости.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: высокий рейтинг в чужих глазах
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-system-instead-self-01/"
-              data-case-id="CASE-SYSTEM-INSTEAD-SELF-01"
-              data-level="expert"
-              data-lp="LP-RELEARN-01"
-              data-index="2"
-              style="
-                --tone: #7ea6ff;
-                --tone-2: #79d6c0;
-                --tone-surface: rgba(126, 166, 255, 0.08);
-                --tone-glow: rgba(126, 166, 255, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/second-brain.svg"
-                  alt="Второй мозг и перегруз инфраструктурой"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Тимур</span>
-                  <span>Экспертный</span>
-                  <span>2026-03-09</span>
-                  <span class="lp-chip">relearn</span>
-                </div>
-                <h3>Сначала допилю систему, потом применю к себе</h3>
-                <p>
-                  Красивые инструменты перестают подменять собой личное
-                  применение, когда клиент снова подчиняет систему реальному
-                  росту жизни, а не наоборот.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: автоматизированный фарисей</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-plan-idol-01/"
-              data-case-id="CASE-PLAN-IDOL-01"
-              data-level="basic"
-              data-lp="LP-PATTERNS-01"
-              data-index="3"
-              style="
-                --tone: #7fd39d;
-                --tone-2: #8cb2ff;
-                --tone-surface: rgba(127, 211, 157, 0.08);
-                --tone-glow: rgba(127, 211, 157, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/intent-economy.svg"
-                  alt="Экономика намерения и подмена цели планом"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Лея</span>
-                  <span>Базовый</span>
-                  <span>2026-02-02</span>
-                  <span class="lp-chip">patterns</span>
-                </div>
-                <h3>Когда план становится лжебогом</h3>
-                <p>
-                  Бытовые сбои вскрывают скрытую зависимость от маршрута, пока
-                  любовь не возвращается на позицию цели номер один прямо внутри
-                  дня.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: счастье привязано к плану</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-realization-flag-01/"
-              data-case-id="CASE-REALIZATION-FLAG-01"
-              data-level="expert"
-              data-lp="LP-RELEARN-01"
-              data-index="4"
-              style="
-                --tone: #7ea6ff;
-                --tone-2: #79d6c0;
-                --tone-surface: rgba(126, 166, 255, 0.08);
-                --tone-glow: rgba(126, 166, 255, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/lp-relearn-pipeline.svg"
-                  alt="Переобучение реализации шаг за шагом"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Савва</span>
-                  <span>Экспертный</span>
-                  <span>2026-02-16</span>
-                  <span class="lp-chip">relearn</span>
-                </div>
-                <h3>Как только началась реализация, меня не стало</h3>
-                <p>
-                  Реализация перестает быть тоннелем к флажку, когда главным KPI
-                  снова становится количество жизни в процессе, а не только
-                  итог.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: реализация ради флажка</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-right-plan-01/"
-              data-case-id="CASE-RIGHT-PLAN-01"
-              data-level="advanced"
-              data-lp="LP-SELF-01"
-              data-index="5"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/lp-marn-filter.svg"
-                  alt="Фильтр живого импульса перед построением плана"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Инга</span>
-                  <span>Продвинутый</span>
-                  <span>2026-02-09</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Правильный план без меня</h3>
-                <p>
-                  Внешняя правильность уступает место внутреннему «хочу», и план
-                  снова становится гипотезой живого человека, а не схемой без
-                  хозяина.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: внешняя правильность вместо своего «хочу»
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-feedback-truth-01/"
-              data-case-id="CASE-FEEDBACK-TRUTH-01"
-              data-level="basic"
-              data-lp="LP-SELF-01"
-              data-index="6"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/context-ai.svg"
-                  alt="Внешний контекст и чтение собственной ценности"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Нора</span>
-                  <span>Базовый</span>
-                  <span>2026-03-17</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Когда чужая оценка становится моей правдой</h3>
-                <p>
-                  Шумный внешний фидбек теряет силу приговора, когда клиентка
-                  возвращает себе факты доверия, свою ценность и собственный
-                  стандарт качества.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: внешняя оценка вместо собственной ценности
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-permission-rest-01/"
-              data-case-id="CASE-PERMISSION-REST-01"
-              data-level="basic"
-              data-lp="LP-SELF-01"
-              data-index="7"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/exoskeleton.svg"
-                  alt="Право на отдых без внешнего экзоскелета одобрения"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Эрик</span>
-                  <span>Базовый</span>
-                  <span>2026-03-02</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Я могу отдыхать только когда разрешат</h3>
-                <p>
-                  Болезнь и перегруз перестают быть моральным поражением, когда
-                  внутренний сигнал становится достаточным основанием для
-                  восстановления без внешней санкции.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: разрешение на себя извне</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-give-result-01/"
-              data-case-id="CASE-GIVE-RESULT-01"
-              data-level="advanced"
-              data-lp="LP-RELEARN-01"
-              data-index="8"
-              style="
-                --tone: #7ea6ff;
-                --tone-2: #79d6c0;
-                --tone-surface: rgba(126, 166, 255, 0.08);
-                --tone-glow: rgba(126, 166, 255, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/cm-mkuypomn-uhzhbr.svg"
-                  alt="Передача результата и динамика двух сторон"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Веста</span>
-                  <span>Продвинутый</span>
-                  <span>2026-02-09</span>
-                  <span class="lp-chip">relearn</span>
-                </div>
-                <h3>Я должна дать людям результат</h3>
-                <p>
-                  Любимое дело перестает выгорать, когда клиентка разводит
-                  передачу понимания и обязанность своими руками производить
-                  чужой результат.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: чужие результаты на моих плечах
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-can-must-01/"
-              data-case-id="CASE-CAN-MUST-01"
-              data-level="advanced"
-              data-lp="LP-SELF-01"
-              data-index="9"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/lp-science-network.svg"
-                  alt="Сеть обязанностей и центр собственной ответственности"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Ася</span>
-                  <span>Продвинутый</span>
-                  <span>2026-01-12</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Если умею — значит должна</h3>
-                <p>
-                  Собственная сила перестает автоматически вести в самопотерю,
-                  когда клиентка снова различает «умею», «люблю» и «хочу».
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: тащить чужую ответственность</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-time-belongs-01/"
-              data-case-id="CASE-TIME-BELONGS-01"
-              data-level="basic"
-              data-lp="LP-RELEARN-01"
-              data-index="10"
-              style="
-                --tone: #7ea6ff;
-                --tone-2: #79d6c0;
-                --tone-surface: rgba(126, 166, 255, 0.08);
-                --tone-glow: rgba(126, 166, 255, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/four-weeks.svg"
-                  alt="Ритм и возврат хозяина своему времени"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Таир</span>
-                  <span>Базовый</span>
-                  <span>2025-11-10</span>
-                  <span class="lp-chip">relearn</span>
-                </div>
-                <h3>Мое время принадлежит всем</h3>
-                <p>
-                  Личное время снова получает хозяина, когда коммуникации
-                  переводятся в асинхрон, а границы задаются заранее, а не через
-                  поздний срыв.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: обязана быть доступной сразу</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-negativity-drain-01/"
-              data-case-id="CASE-NEGATIVITY-DRAIN-01"
-              data-level="basic"
-              data-lp="LP-PATTERNS-01"
-              data-index="11"
-              style="
-                --tone: #7fd39d;
-                --tone-2: #8cb2ff;
-                --tone-surface: rgba(127, 211, 157, 0.08);
-                --tone-glow: rgba(127, 211, 157, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/digital-twin.svg"
-                  alt="Свое состояние рядом с чужим эмоциональным полем"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Рада</span>
-                  <span>Базовый</span>
-                  <span>2025-11-10</span>
-                  <span class="lp-chip">patterns</span>
-                </div>
-                <h3>Когда чужой негатив становится моим состоянием</h3>
-                <p>
-                  Холодный контакт перестает выбрасывать клиента из жизни, когда
-                  чужой климат больше не принимается за свою внутреннюю правду.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: автоматическое заражение чужим негативом
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-club-impulse-01/"
-              data-case-id="CASE-CLUB-IMPULSE-01"
-              data-level="advanced"
-              data-lp="LP-SELF-01"
-              data-index="12"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/lp-science-network.svg"
-                  alt="Живая идея клуба и сеть возможных связей"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Дина</span>
-                  <span>Продвинутый</span>
-                  <span>2025-11-24</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Когда калькулятор гасит живую идею</h3>
-                <p>
-                  Живое желание перестает проигрывать внутреннему совету
-                  директоров, когда расчеты снова обслуживают импульс, а не
-                  выносят ему приговор.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: рациональный совет директоров против живого импульса
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-price-shame-01/"
-              data-case-id="CASE-PRICE-SHAME-01"
-              data-level="advanced"
-              data-lp="LP-SELF-01"
-              data-index="13"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/lp-self-pyramid.svg"
-                  alt="Право занимать место и спокойно называть цену"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Глеб</span>
-                  <span>Продвинутый</span>
-                  <span>2025-12-17</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Когда цена ощущается стыдом</h3>
-                <p>
-                  Оплата перестает звучать как моральная неловкость, когда
-                  клиентка отделяет стоимость услуги от оценки собственной
-                  личности.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: недостойна брать оплату</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-impulse-later-01/"
-              data-case-id="CASE-IMPULSE-LATER-01"
-              data-level="advanced"
-              data-lp="LP-SELF-01"
-              data-index="14"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/second-brain.svg"
-                  alt="Живой импульс, который нельзя оставлять только во втором мозге"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Злата</span>
-                  <span>Продвинутый</span>
-                  <span>2026-02-07</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Я складирую жизнь на потом</h3>
-                <p>
-                  Живая идея перестает уходить в архив, когда клиент сначала
-                  делает короткий шаг, а уже потом строит вокруг него систему.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: складирование жизни в папки на потом
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-success-shame-01/"
-              data-case-id="CASE-SUCCESS-SHAME-01"
-              data-level="advanced"
-              data-lp="LP-SELF-01"
-              data-index="15"
-              style="
-                --tone: #efbf7c;
-                --tone-2: #f09393;
-                --tone-surface: rgba(239, 191, 124, 0.08);
-                --tone-glow: rgba(239, 191, 124, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/exoskeleton.svg"
-                  alt="Внешний уровень жизни и внутреннее право на него"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Марк</span>
-                  <span>Продвинутый</span>
-                  <span>2025-11-14</span>
-                  <span class="lp-chip">self</span>
-                </div>
-                <h3>Когда заработанное кажется незаслуженным</h3>
-                <p>
-                  Рост дохода и Tesla перестают переживаться как временная
-                  ошибка, когда клиент возвращает себе право на уже созданный
-                  результат.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: стыд за заработанный успех</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-credit-loop-01/"
-              data-case-id="CASE-CREDIT-LOOP-01"
-              data-level="basic"
-              data-lp="LP-PATTERNS-01"
-              data-index="16"
-              style="
-                --tone: #7fd39d;
-                --tone-2: #8cb2ff;
-                --tone-surface: rgba(127, 211, 157, 0.08);
-                --tone-glow: rgba(127, 211, 157, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/intent-economy.svg"
-                  alt="Денежная петля, где нехватка автоматически превращается в заем"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Ева</span>
-                  <span>Базовый</span>
-                  <span>2026-03-21</span>
-                  <span class="lp-chip">patterns</span>
-                </div>
-                <h3>Быстрый займ превращается в петлю</h3>
-                <p>
-                  Маленькая нехватка больше не маскируется под безобидный
-                  мостик, когда быстрый займ распознается как повтор старой
-                  кредитной игры.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: дофаминовый кредитный шаблон</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-restart-zero-01/"
-              data-case-id="CASE-RESTART-ZERO-01"
-              data-level="basic"
-              data-lp="LP-RELEARN-01"
-              data-index="17"
-              style="
-                --tone: #7ea6ff;
-                --tone-2: #79d6c0;
-                --tone-surface: rgba(126, 166, 255, 0.08);
-                --tone-glow: rgba(126, 166, 255, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/four-weeks.svg"
-                  alt="Ритм, который возвращается после паузы без обнуления"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Кай</span>
-                  <span>Базовый</span>
-                  <span>2026-01-25</span>
-                  <span class="lp-chip">relearn</span>
-                </div>
-                <h3>Если выпал из ритма, не значит вернулся в ноль</h3>
-                <p>
-                  Пауза перестает обнулять путь, когда возврат строится не через
-                  идеальный рестарт, а через маленький живой вход обратно в
-                  процесс.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: рестарт с нуля после паузы</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-buyin-nod-01/"
-              data-case-id="CASE-BUYIN-NOD-01"
-              data-level="advanced"
-              data-lp="LP-RELEARN-01"
-              data-index="18"
-              style="
-                --tone: #7ea6ff;
-                --tone-2: #79d6c0;
-                --tone-surface: rgba(126, 166, 255, 0.08);
-                --tone-glow: rgba(126, 166, 255, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/context-ai.svg"
-                  alt="Контекст и артефакты против пустого внешнего согласия"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Лина</span>
-                  <span>Продвинутый</span>
-                  <span>2026-03-06</span>
-                  <span class="lp-chip">relearn</span>
-                </div>
-                <h3>Кивок не значит, что человек включился</h3>
-                <p>
-                  Командный кивок перестает обманывать, когда клиент больше не
-                  путает вежливое согласие с настоящей включенностью.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: ожидание мгновенной веры после одного разговора
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal"
-              href="./case-micromanage-fear-01/"
-              data-case-id="CASE-MICROMANAGE-FEAR-01"
-              data-level="expert"
-              data-lp="LP-PATTERNS-01"
-              data-index="19"
-              style="
-                --tone: #7fd39d;
-                --tone-2: #8cb2ff;
-                --tone-surface: rgba(127, 211, 157, 0.08);
-                --tone-glow: rgba(127, 211, 157, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/cm-mkuypomn-uhzhbr.svg"
-                  alt="Две стороны игры и рамка вместо ручного контроля"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Оскар</span>
-                  <span>Экспертный</span>
-                  <span>2025-11-28</span>
-                  <span class="lp-chip">patterns</span>
-                </div>
-                <h3>Когда страх сжимает роль до микроменеджмента</h3>
-                <p>
-                  Риск перестает стягивать клиента в кнопочки и ставки, когда
-                  страх переводится в рамку, волны запуска и ясные условия игры.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">
-                    Баг: страх сжимает роль до ручного контроля
-                  </div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="case-card reveal case-card-wide"
-              href="./case-scroll-relief-01/"
-              data-case-id="CASE-SCROLL-RELIEF-01"
-              data-level="basic"
-              data-lp="LP-PATTERNS-01"
-              data-index="20"
-              style="
-                --tone: #7fd39d;
-                --tone-2: #8cb2ff;
-                --tone-surface: rgba(127, 211, 157, 0.08);
-                --tone-glow: rgba(127, 211, 157, 0.28);
-              "
-            >
-              <div class="case-art">
-                <img
-                  src="./svg/digital-twin.svg"
-                  alt="Цифровой двойник как поздний сброс накопленного перегруза"
-                />
-              </div>
-              <div class="case-copy">
-                <div class="case-meta">
-                  <span>Яна</span>
-                  <span>Базовый</span>
-                  <span>2026-01-30</span>
-                  <span class="lp-chip">patterns</span>
-                </div>
-                <h3>Думскроллинг не про слабую волю</h3>
-                <p>
-                  Вечерний скролл теряет роль аварийного клапана, когда
-                  напряжение начинают выражать раньше, чем оно успевает
-                  попроситься в экран.
-                </p>
-                <div class="case-footer">
-                  <div class="case-bug">Баг: скролл как слив перегруза</div>
-                  <span class="case-open">Открыть кейс</span>
-                </div>
-              </div>
-            </a>
+            
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-where-result-01/"
+          data-case-id="CASE-WHERE-RESULT-01"
+          data-level="basic"
+          data-lp="LP-SCIENCE-01"
+          data-index="0"
+          style="--tone:#d7ec7e; --tone-2:#7ea6ff; --tone-surface:rgba(215, 236, 126, 0.08); --tone-glow:rgba(215, 236, 126, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/lp-science-network.svg" alt="Причинная сеть результата и внутренних законов" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Мирон</span>
+              <span>Базовый</span>
+              <span>2026-03-02</span>
+              <span class="lp-chip">science</span>
+            </div>
+            <h3>Где результат?</h3>
+            <p>Внутренний судья перестает маскироваться под здравый смысл и распознается как баг, который срывает клиента из жизни в самопроверку.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: внутренний судья про результат</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-dignity-rating-01/"
+          data-case-id="CASE-DIGNITY-RATING-01"
+          data-level="advanced"
+          data-lp="LP-SELF-01"
+          data-index="1"
+          style="--tone:#efbf7c; --tone-2:#f09393; --tone-surface:rgba(239, 191, 124, 0.08); --tone-glow:rgba(239, 191, 124, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/lp-self-pyramid.svg" alt="Пирамида собственной ценности и достоинства" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Аврора</span>
+              <span>Продвинутый</span>
+              <span>2026-03-23</span>
+              <span class="lp-chip">self</span>
+            </div>
+            <h3>Когда достоинство живет в чужих глазах</h3>
+            <p>Похвала, тишина и спор перестают быть приговором, когда клиент вынимает свое достоинство из чужого рейтинга и возвращает его в критерий живости.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: высокий рейтинг в чужих глазах</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-system-instead-self-01/"
+          data-case-id="CASE-SYSTEM-INSTEAD-SELF-01"
+          data-level="expert"
+          data-lp="LP-SCIENCE-01"
+          data-index="2"
+          style="--tone:#d7ec7e; --tone-2:#7ea6ff; --tone-surface:rgba(215, 236, 126, 0.08); --tone-glow:rgba(215, 236, 126, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/second-brain.svg" alt="Второй мозг и перегруз инфраструктурой" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Тимур</span>
+              <span>Экспертный</span>
+              <span>2026-03-09</span>
+              <span class="lp-chip">science</span>
+            </div>
+            <h3>Сначала допилю систему, потом применю к себе</h3>
+            <p>Красивые инструменты перестают подменять собой личное применение, когда клиент снова подчиняет систему реальному росту жизни, а не наоборот.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: автоматизированный фарисей</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-plan-idol-01/"
+          data-case-id="CASE-PLAN-IDOL-01"
+          data-level="basic"
+          data-lp="LP-PATTERNS-01"
+          data-index="3"
+          style="--tone:#7fd39d; --tone-2:#8cb2ff; --tone-surface:rgba(127, 211, 157, 0.08); --tone-glow:rgba(127, 211, 157, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/intent-economy.svg" alt="Экономика намерения и подмена цели планом" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Лея</span>
+              <span>Базовый</span>
+              <span>2026-02-02</span>
+              <span class="lp-chip">patterns</span>
+            </div>
+            <h3>Когда план становится лжебогом</h3>
+            <p>Бытовые сбои вскрывают скрытую зависимость от маршрута, пока любовь не возвращается на позицию цели номер один прямо внутри дня.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: счастье привязано к плану</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-realization-flag-01/"
+          data-case-id="CASE-REALIZATION-FLAG-01"
+          data-level="expert"
+          data-lp="LP-RELEARN-01"
+          data-index="4"
+          style="--tone:#7ea6ff; --tone-2:#79d6c0; --tone-surface:rgba(126, 166, 255, 0.08); --tone-glow:rgba(126, 166, 255, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/lp-relearn-pipeline.svg" alt="Переобучение реализации шаг за шагом" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Савва</span>
+              <span>Экспертный</span>
+              <span>2026-02-16</span>
+              <span class="lp-chip">relearn</span>
+            </div>
+            <h3>Как только началась реализация, меня не стало</h3>
+            <p>Реализация перестает быть тоннелем к флажку, когда главным KPI снова становится количество жизни в процессе, а не только итог.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: реализация ради флажка</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-right-plan-01/"
+          data-case-id="CASE-RIGHT-PLAN-01"
+          data-level="advanced"
+          data-lp="LP-MARN-01"
+          data-index="5"
+          style="--tone:#79d6c0; --tone-2:#efbf7c; --tone-surface:rgba(121, 214, 192, 0.08); --tone-glow:rgba(121, 214, 192, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/lp-marn-filter.svg" alt="Фильтр живого импульса перед построением плана" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Инга</span>
+              <span>Продвинутый</span>
+              <span>2026-02-09</span>
+              <span class="lp-chip">marn</span>
+            </div>
+            <h3>Правильный план без меня</h3>
+            <p>Внешняя правильность уступает место внутреннему «хочу», и план снова становится гипотезой живого человека, а не схемой без хозяина.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: внешняя правильность вместо своего «хочу»</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-feedback-truth-01/"
+          data-case-id="CASE-FEEDBACK-TRUTH-01"
+          data-level="basic"
+          data-lp="LP-SELF-01"
+          data-index="6"
+          style="--tone:#efbf7c; --tone-2:#f09393; --tone-surface:rgba(239, 191, 124, 0.08); --tone-glow:rgba(239, 191, 124, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/context-ai.svg" alt="Внешний контекст и чтение собственной ценности" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Нора</span>
+              <span>Базовый</span>
+              <span>2026-03-17</span>
+              <span class="lp-chip">self</span>
+            </div>
+            <h3>Когда чужая оценка становится моей правдой</h3>
+            <p>Шумный внешний фидбек теряет силу приговора, когда клиентка возвращает себе факты доверия, свою ценность и собственный стандарт качества.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: внешняя оценка вместо собственной ценности</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-permission-rest-01/"
+          data-case-id="CASE-PERMISSION-REST-01"
+          data-level="basic"
+          data-lp="LP-SELF-01"
+          data-index="7"
+          style="--tone:#efbf7c; --tone-2:#f09393; --tone-surface:rgba(239, 191, 124, 0.08); --tone-glow:rgba(239, 191, 124, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/exoskeleton.svg" alt="Право на отдых без внешнего экзоскелета одобрения" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Эрик</span>
+              <span>Базовый</span>
+              <span>2026-03-02</span>
+              <span class="lp-chip">self</span>
+            </div>
+            <h3>Я могу отдыхать только когда разрешат</h3>
+            <p>Болезнь и перегруз перестают быть моральным поражением, когда внутренний сигнал становится достаточным основанием для восстановления без внешней санкции.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: разрешение на себя извне</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-give-result-01/"
+          data-case-id="CASE-GIVE-RESULT-01"
+          data-level="advanced"
+          data-lp="LP-SCIENCE-01"
+          data-index="8"
+          style="--tone:#d7ec7e; --tone-2:#7ea6ff; --tone-surface:rgba(215, 236, 126, 0.08); --tone-glow:rgba(215, 236, 126, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/cm-mkuypomn-uhzhbr.svg" alt="Передача результата и динамика двух сторон" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Веста</span>
+              <span>Продвинутый</span>
+              <span>2026-02-09</span>
+              <span class="lp-chip">science</span>
+            </div>
+            <h3>Я должна дать людям результат</h3>
+            <p>Любимое дело перестает выгорать, когда клиентка разводит передачу понимания и обязанность своими руками производить чужой результат.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: чужие результаты на моих плечах</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-can-must-01/"
+          data-case-id="CASE-CAN-MUST-01"
+          data-level="advanced"
+          data-lp="LP-MARN-01"
+          data-index="9"
+          style="--tone:#79d6c0; --tone-2:#efbf7c; --tone-surface:rgba(121, 214, 192, 0.08); --tone-glow:rgba(121, 214, 192, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/lp-marn-filter.svg" alt="Фильтр обязанностей и возврат к своей оси выбора" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Ася</span>
+              <span>Продвинутый</span>
+              <span>2026-01-12</span>
+              <span class="lp-chip">marn</span>
+            </div>
+            <h3>Если умею — значит должна</h3>
+            <p>Собственная сила перестает автоматически вести в самопотерю, когда клиентка снова различает «умею», «люблю» и «хочу».</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: тащить чужую ответственность</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-time-belongs-01/"
+          data-case-id="CASE-TIME-BELONGS-01"
+          data-level="basic"
+          data-lp="LP-RELEARN-01"
+          data-index="10"
+          style="--tone:#7ea6ff; --tone-2:#79d6c0; --tone-surface:rgba(126, 166, 255, 0.08); --tone-glow:rgba(126, 166, 255, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/four-weeks.svg" alt="Ритм и возврат хозяина своему времени" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Таир</span>
+              <span>Базовый</span>
+              <span>2025-11-10</span>
+              <span class="lp-chip">relearn</span>
+            </div>
+            <h3>Мое время принадлежит всем</h3>
+            <p>Личное время снова получает хозяина, когда коммуникации переводятся в асинхрон, а границы задаются заранее, а не через поздний срыв.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: обязана быть доступной сразу</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-negativity-drain-01/"
+          data-case-id="CASE-NEGATIVITY-DRAIN-01"
+          data-level="basic"
+          data-lp="LP-PATTERNS-01"
+          data-index="11"
+          style="--tone:#7fd39d; --tone-2:#8cb2ff; --tone-surface:rgba(127, 211, 157, 0.08); --tone-glow:rgba(127, 211, 157, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/digital-twin.svg" alt="Свое состояние рядом с чужим эмоциональным полем" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Рада</span>
+              <span>Базовый</span>
+              <span>2025-11-10</span>
+              <span class="lp-chip">patterns</span>
+            </div>
+            <h3>Когда чужой негатив становится моим состоянием</h3>
+            <p>Холодный контакт перестает выбрасывать клиента из жизни, когда чужой климат больше не принимается за свою внутреннюю правду.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: автоматическое заражение чужим негативом</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-club-impulse-01/"
+          data-case-id="CASE-CLUB-IMPULSE-01"
+          data-level="advanced"
+          data-lp="LP-MARN-01"
+          data-index="12"
+          style="--tone:#79d6c0; --tone-2:#efbf7c; --tone-surface:rgba(121, 214, 192, 0.08); --tone-glow:rgba(121, 214, 192, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/lp-marn-filter.svg" alt="Живая идея клуба и фильтр между импульсом и страхом" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Дина</span>
+              <span>Продвинутый</span>
+              <span>2025-11-24</span>
+              <span class="lp-chip">marn</span>
+            </div>
+            <h3>Когда калькулятор гасит живую идею</h3>
+            <p>Живое желание перестает проигрывать внутреннему совету директоров, когда расчеты снова обслуживают импульс, а не выносят ему приговор.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: рациональный совет директоров против живого импульса</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-price-shame-01/"
+          data-case-id="CASE-PRICE-SHAME-01"
+          data-level="advanced"
+          data-lp="LP-SELF-01"
+          data-index="13"
+          style="--tone:#efbf7c; --tone-2:#f09393; --tone-surface:rgba(239, 191, 124, 0.08); --tone-glow:rgba(239, 191, 124, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/lp-self-pyramid.svg" alt="Право занимать место и спокойно называть цену" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Глеб</span>
+              <span>Продвинутый</span>
+              <span>2025-12-17</span>
+              <span class="lp-chip">self</span>
+            </div>
+            <h3>Когда цена ощущается стыдом</h3>
+            <p>Оплата перестает звучать как моральная неловкость, когда клиентка отделяет стоимость услуги от оценки собственной личности.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: недостойна брать оплату</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-impulse-later-01/"
+          data-case-id="CASE-IMPULSE-LATER-01"
+          data-level="advanced"
+          data-lp="LP-MARN-01"
+          data-index="14"
+          style="--tone:#79d6c0; --tone-2:#efbf7c; --tone-surface:rgba(121, 214, 192, 0.08); --tone-glow:rgba(121, 214, 192, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/lp-marn-filter.svg" alt="Живой импульс, который важно не потерять в фильтрах откладывания" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Злата</span>
+              <span>Продвинутый</span>
+              <span>2026-02-07</span>
+              <span class="lp-chip">marn</span>
+            </div>
+            <h3>Я складирую жизнь на потом</h3>
+            <p>Живая идея перестает уходить в архив, когда клиент сначала делает короткий шаг, а уже потом строит вокруг него систему.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: складирование жизни в папки на потом</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-success-shame-01/"
+          data-case-id="CASE-SUCCESS-SHAME-01"
+          data-level="advanced"
+          data-lp="LP-SELF-01"
+          data-index="15"
+          style="--tone:#efbf7c; --tone-2:#f09393; --tone-surface:rgba(239, 191, 124, 0.08); --tone-glow:rgba(239, 191, 124, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/exoskeleton.svg" alt="Внешний уровень жизни и внутреннее право на него" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Марк</span>
+              <span>Продвинутый</span>
+              <span>2025-11-14</span>
+              <span class="lp-chip">self</span>
+            </div>
+            <h3>Когда заработанное кажется незаслуженным</h3>
+            <p>Рост дохода и Tesla перестают переживаться как временная ошибка, когда клиент возвращает себе право на уже созданный результат.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: стыд за заработанный успех</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-credit-loop-01/"
+          data-case-id="CASE-CREDIT-LOOP-01"
+          data-level="basic"
+          data-lp="LP-PATTERNS-01"
+          data-index="16"
+          style="--tone:#7fd39d; --tone-2:#8cb2ff; --tone-surface:rgba(127, 211, 157, 0.08); --tone-glow:rgba(127, 211, 157, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/intent-economy.svg" alt="Денежная петля, где нехватка автоматически превращается в заем" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Ева</span>
+              <span>Базовый</span>
+              <span>2026-03-21</span>
+              <span class="lp-chip">patterns</span>
+            </div>
+            <h3>Быстрый займ превращается в петлю</h3>
+            <p>Маленькая нехватка больше не маскируется под безобидный мостик, когда быстрый займ распознается как повтор старой кредитной игры.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: дофаминовый кредитный шаблон</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-restart-zero-01/"
+          data-case-id="CASE-RESTART-ZERO-01"
+          data-level="basic"
+          data-lp="LP-RELEARN-01"
+          data-index="17"
+          style="--tone:#7ea6ff; --tone-2:#79d6c0; --tone-surface:rgba(126, 166, 255, 0.08); --tone-glow:rgba(126, 166, 255, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/four-weeks.svg" alt="Ритм, который возвращается после паузы без обнуления" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Кай</span>
+              <span>Базовый</span>
+              <span>2026-01-25</span>
+              <span class="lp-chip">relearn</span>
+            </div>
+            <h3>Если выпал из ритма, не значит вернулся в ноль</h3>
+            <p>Пауза перестает обнулять путь, когда возврат строится не через идеальный рестарт, а через маленький живой вход обратно в процесс.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: рестарт с нуля после паузы</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-buyin-nod-01/"
+          data-case-id="CASE-BUYIN-NOD-01"
+          data-level="advanced"
+          data-lp="LP-RELEARN-01"
+          data-index="18"
+          style="--tone:#7ea6ff; --tone-2:#79d6c0; --tone-surface:rgba(126, 166, 255, 0.08); --tone-glow:rgba(126, 166, 255, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/context-ai.svg" alt="Контекст и артефакты против пустого внешнего согласия" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Лина</span>
+              <span>Продвинутый</span>
+              <span>2026-03-06</span>
+              <span class="lp-chip">relearn</span>
+            </div>
+            <h3>Кивок не значит, что человек включился</h3>
+            <p>Командный кивок перестает обманывать, когда клиент больше не путает вежливое согласие с настоящей включенностью.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: ожидание мгновенной веры после одного разговора</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal"
+          href="./case-micromanage-fear-01/"
+          data-case-id="CASE-MICROMANAGE-FEAR-01"
+          data-level="expert"
+          data-lp="LP-PATTERNS-01"
+          data-index="19"
+          style="--tone:#7fd39d; --tone-2:#8cb2ff; --tone-surface:rgba(127, 211, 157, 0.08); --tone-glow:rgba(127, 211, 157, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/cm-mkuypomn-uhzhbr.svg" alt="Две стороны игры и рамка вместо ручного контроля" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Оскар</span>
+              <span>Экспертный</span>
+              <span>2025-11-28</span>
+              <span class="lp-chip">patterns</span>
+            </div>
+            <h3>Когда страх сжимает роль до микроменеджмента</h3>
+            <p>Риск перестает стягивать клиента в кнопочки и ставки, когда страх переводится в рамку, волны запуска и ясные условия игры.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: страх сжимает роль до ручного контроля</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
+        <a
+          class="case-card reveal case-card-wide"
+          href="./case-scroll-relief-01/"
+          data-case-id="CASE-SCROLL-RELIEF-01"
+          data-level="basic"
+          data-lp="LP-PATTERNS-01"
+          data-index="20"
+          style="--tone:#7fd39d; --tone-2:#8cb2ff; --tone-surface:rgba(127, 211, 157, 0.08); --tone-glow:rgba(127, 211, 157, 0.28);"
+        >
+          <div class="case-art">
+            <img src="./svg/digital-twin.svg" alt="Цифровой двойник как поздний сброс накопленного перегруза" />
+          </div>
+          <div class="case-copy">
+            <div class="case-meta">
+              <span>Яна</span>
+              <span>Базовый</span>
+              <span>2026-01-30</span>
+              <span class="lp-chip">patterns</span>
+            </div>
+            <h3>Думскроллинг не про слабую волю</h3>
+            <p>Вечерний скролл теряет роль аварийного клапана, когда напряжение начинают выражать раньше, чем оно успевает попроситься в экран.</p>
+            <div class="case-footer">
+              <div class="case-bug">Баг: скролл как слив перегруза</div>
+              <span class="case-open">Открыть кейс</span>
+            </div>
+          </div>
+        </a>
+      
           </section>
 
           <div class="empty-state" id="empty-state">
@@ -1949,85 +1570,80 @@
             <div class="section-kicker">Learning Paths</div>
             <h2>Траектории, через которые читаются кейсы</h2>
             <p>
-              Каталог теперь синхронизирован с path-логикой: можно смотреть
-              кейсы как витрину, а можно сразу перейти в документ траектории и
-              читать теорию инвариантов на стороне LP.
+              Каталог теперь синхронизирован с path-логикой: можно смотреть кейсы как витрину, а можно сразу перейти в документ траектории и читать теорию инвариантов на стороне LP.
             </p>
             <div class="doc-grid">
-              <a
-                class="doc-card reveal"
-                href="./lp-patterns-doc/"
-                style="
-                  --tone: #7fd39d;
-                  --tone-2: #8cb2ff;
-                  --tone-surface: rgba(127, 211, 157, 0.08);
-                  --tone-glow: rgba(127, 211, 157, 0.28);
-                "
-              >
-                <div class="doc-copy">
-                  <span class="doc-kicker">LP-PATTERNS-01</span>
-                  <h3>Patterns</h3>
-                  <p>
-                    Повторяющиеся схемы, которые перестают быть фоном и
-                    становятся читаемыми багами.
-                  </p>
-                  <span class="doc-count">6 связанных кейсов</span>
-                </div>
-                <img
-                  src="./svg/lp-patterns-focus.svg"
-                  alt="Фильтр кейсов по Learning Path Patterns"
-                />
-              </a>
-
-              <a
-                class="doc-card reveal"
-                href="./lp-self-doc/"
-                style="
-                  --tone: #efbf7c;
-                  --tone-2: #f09393;
-                  --tone-surface: rgba(239, 191, 124, 0.08);
-                  --tone-glow: rgba(239, 191, 124, 0.28);
-                "
-              >
-                <div class="doc-copy">
-                  <span class="doc-kicker">LP-SELF-01</span>
-                  <h3>Self</h3>
-                  <p>
-                    Собственная ценность, право занимать место и выход из жизни
-                    по чужому стандарту.
-                  </p>
-                  <span class="doc-count">9 связанных кейсов</span>
-                </div>
-                <img
-                  src="./svg/lp-self-pyramid.svg"
-                  alt="Фильтр кейсов по Learning Path Self"
-                />
-              </a>
-
-              <a
-                class="doc-card reveal"
-                href="./lp-relearn-doc/"
-                style="
-                  --tone: #7ea6ff;
-                  --tone-2: #79d6c0;
-                  --tone-surface: rgba(126, 166, 255, 0.08);
-                  --tone-glow: rgba(126, 166, 255, 0.28);
-                "
-              >
-                <div class="doc-copy">
-                  <span class="doc-kicker">LP-RELEARN-01</span>
-                  <h3>Relearn</h3>
-                  <p>
-                    Переобучение реакции через повтор, перенос в практику и
-                    закрепление нового контура.
-                  </p>
-                  <span class="doc-count">6 связанных кейсов</span>
-                </div>
-                <img
-                  src="./svg/lp-relearn-pipeline.svg"
-                  alt="Фильтр кейсов по Learning Path Relearn"
-                />
-              </a>
+              
+        <a
+          class="doc-card reveal"
+          href="./lp-patterns-doc/"
+          style="--tone:#7fd39d; --tone-2:#8cb2ff; --tone-surface:rgba(127, 211, 157, 0.08); --tone-glow:rgba(127, 211, 157, 0.28);"
+        >
+          <div class="doc-copy">
+            <span class="doc-kicker">LP-PATTERNS-01</span>
+            <h3>Patterns</h3>
+            <p>Повторяющиеся схемы, которые перестают быть фоном и становятся читаемыми багами.</p>
+            <span class="doc-count">5 связанных кейсов</span>
+          </div>
+          <img src="./svg/lp-patterns-focus.svg" alt="Фильтр кейсов по Learning Path Patterns" />
+        </a>
+      
+        <a
+          class="doc-card reveal"
+          href="./lp-self-doc/"
+          style="--tone:#efbf7c; --tone-2:#f09393; --tone-surface:rgba(239, 191, 124, 0.08); --tone-glow:rgba(239, 191, 124, 0.28);"
+        >
+          <div class="doc-copy">
+            <span class="doc-kicker">LP-SELF-01</span>
+            <h3>Self</h3>
+            <p>Собственная ценность, право занимать место и выход из жизни по чужому стандарту.</p>
+            <span class="doc-count">5 связанных кейсов</span>
+          </div>
+          <img src="./svg/lp-self-pyramid.svg" alt="Фильтр кейсов по Learning Path Self" />
+        </a>
+      
+        <a
+          class="doc-card reveal"
+          href="./lp-relearn-doc/"
+          style="--tone:#7ea6ff; --tone-2:#79d6c0; --tone-surface:rgba(126, 166, 255, 0.08); --tone-glow:rgba(126, 166, 255, 0.28);"
+        >
+          <div class="doc-copy">
+            <span class="doc-kicker">LP-RELEARN-01</span>
+            <h3>Relearn</h3>
+            <p>Переобучение реакции через повтор, перенос в практику и закрепление нового контура.</p>
+            <span class="doc-count">4 связанных кейса</span>
+          </div>
+          <img src="./svg/lp-relearn-pipeline.svg" alt="Фильтр кейсов по Learning Path Relearn" />
+        </a>
+      
+        <a
+          class="doc-card reveal"
+          href="./lp-science-doc/"
+          style="--tone:#d7ec7e; --tone-2:#7ea6ff; --tone-surface:rgba(215, 236, 126, 0.08); --tone-glow:rgba(215, 236, 126, 0.28);"
+        >
+          <div class="doc-copy">
+            <span class="doc-kicker">LP-SCIENCE-01</span>
+            <h3>Science</h3>
+            <p>Научная рамка курса: причинность, справедливость, универсум и карта инвариантов.</p>
+            <span class="doc-count">3 связанных кейса</span>
+          </div>
+          <img src="./svg/lp-science-network.svg" alt="Фильтр кейсов по Learning Path Science" />
+        </a>
+      
+        <a
+          class="doc-card reveal"
+          href="./lp-marn-doc/"
+          style="--tone:#79d6c0; --tone-2:#efbf7c; --tone-surface:rgba(121, 214, 192, 0.08); --tone-glow:rgba(121, 214, 192, 0.28);"
+        >
+          <div class="doc-copy">
+            <span class="doc-kicker">LP-MARN-01</span>
+            <h3>Marn</h3>
+            <p>Формула сознания: как отличать множители роста от делителей результата.</p>
+            <span class="doc-count">4 связанных кейса</span>
+          </div>
+          <img src="./svg/lp-marn-filter.svg" alt="Фильтр кейсов по Learning Path Marn" />
+        </a>
+      
             </div>
           </section>
         </div>
@@ -2047,8 +1663,7 @@
           let visible = 0;
 
           cards.forEach((card) => {
-            const levelOk =
-              state.level === "all" || card.dataset.level === state.level;
+            const levelOk = state.level === "all" || card.dataset.level === state.level;
             const lpOk = state.lp === "all" || card.dataset.lp === state.lp;
             const show = levelOk && lpOk;
             card.classList.toggle("is-hidden", !show);
@@ -2056,22 +1671,15 @@
           });
 
           levelButtons.forEach((button) => {
-            button.classList.toggle(
-              "is-active",
-              button.dataset.filter === state.level,
-            );
+            button.classList.toggle("is-active", button.dataset.filter === state.level);
           });
 
           lpButtons.forEach((button) => {
-            button.classList.toggle(
-              "is-active",
-              button.dataset.lpFilter === state.lp,
-            );
+            button.classList.toggle("is-active", button.dataset.lpFilter === state.lp);
           });
 
           if (visibleCount) visibleCount.textContent = String(visible);
-          if (emptyState)
-            emptyState.classList.toggle("is-visible", visible === 0);
+          if (emptyState) emptyState.classList.toggle("is-visible", visible === 0);
         };
 
         levelButtons.forEach((button) => {
@@ -2094,9 +1702,7 @@
           });
         });
 
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")].filter(
           (node) => !node.classList.contains("is-visible"),
         );

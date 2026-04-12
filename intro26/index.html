@@ -153,6 +153,8 @@
       }
 
       .video-card {
+        width: 100%;
+        max-width: 100%;
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: var(--radius-xl);
@@ -164,6 +166,8 @@
 
       .video-stage {
         position: relative;
+        width: 100%;
+        max-width: 100%;
         aspect-ratio: 16 / 9;
         min-height: 260px;
         background:
@@ -283,8 +287,10 @@
         position: absolute;
         inset: 0;
         width: 100%;
+        max-width: 100%;
         height: 100%;
         border: 0;
+        display: block;
       }
 
       .decision-strip {
@@ -411,12 +417,23 @@
 
       @media (max-width: 640px) {
         .shell {
-          width: min(var(--content), calc(100% - 20px));
+          width: calc(100% - 24px);
         }
 
         .hero {
           padding-top: 18px;
           padding-bottom: 84px;
+        }
+
+        .hero,
+        .hero-inner,
+        .video-card,
+        .video-stage {
+          overflow-x: clip;
+        }
+
+        .video-card {
+          border-radius: 28px;
         }
 
         h1 {
@@ -490,7 +507,7 @@
                   <a
                     class="button button-primary"
                     id="cta-1to1-main"
-                    href="/1to1/"
+                    href="./1to1.html"
                   >
                     Записаться на консультацию
                   </a>
@@ -505,7 +522,7 @@
                   <a
                     class="button button-secondary"
                     id="cta-lp-main"
-                    href="https://imt.dev/#rec1912275383"
+                    href="https://app.imt.dev/lp-catalog"
                   >
                     Открыть Learning Path
                   </a>
@@ -524,7 +541,7 @@
           <a
             class="button button-primary"
             id="cta-1to1-mobile"
-            href="/1to1/"
+            href="./1to1.html"
           >
             Серия консультаций
           </a>

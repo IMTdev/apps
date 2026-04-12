@@ -3,14 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CASE-DIGNITY-RATING-01 — Когда достоинство живет в чужих глазах — Вариант
-      v2
-    </title>
-    <meta
-      name="description"
-      content="Кейс о том, как клиент переставал мерить свое достоинство лайками, похвалой и местом в чужом рейтинге."
-    />
+    <title>CASE-DIGNITY-RATING-01 — Когда достоинство живет в чужих глазах — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как клиент переставал мерить свое достоинство лайками, похвалой и местом в чужом рейтинге." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -50,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -85,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -102,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -120,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -185,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -282,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -362,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -398,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -494,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -645,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -657,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -772,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -825,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -900,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -939,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -951,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1044,73 +1007,50 @@
                 <span class="meta-chip">read time: 9 minutes</span>
               </div>
 
-              <h1 class="hero-seq hero-seq-3">
-                Когда достоинство живет в чужих глазах
-              </h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                Клиент уже делал живые и сильные продукты, но после похвалы,
-                тишины или спора снова смотрел вовне: это было из истины или
-                просто попытка понравиться. На консультации стало видно, что
-                ломал его не сам комментарий и не отсутствие лайков, а старая
-                охота за высоким достоинством в чужом рейтинге.
-              </p>
+              <h1 class="hero-seq hero-seq-3">Когда достоинство живет в чужих глазах</h1>
+              <p class="hero-lead hero-seq hero-seq-4">Клиент уже делал живые и сильные продукты, но после похвалы, тишины или спора снова смотрел вовне: это было из истины или просто попытка понравиться. На консультации стало видно, что ломал его не сам комментарий и не отсутствие лайков, а старая охота за высоким достоинством в чужом рейтинге.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один конкретный кейс о внешней оценке, похвале и внутреннем
-                    сомнении после сильных слов.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >Клиент начинал мерить свое достоинство реакцией аудитории,
-                    а не критерием жизнеспособности.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Вместо попытки быть значимым для всех появился выбор: для
-                    кого говорить и какой отклик считать конструктивным.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary, прямые цитаты клиента и новая связка про
-                    комментарии, скепсис и систему фидбека.</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один конкретный кейс о внешней оценке, похвале и внутреннем сомнении после сильных слов.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Клиент начинал мерить свое достоинство реакцией аудитории, а не критерием жизнеспособности.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Вместо попытки быть значимым для всех появился выбор: для кого говорить и какой отклик считать конструктивным.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary, прямые цитаты клиента и новая связка про комментарии, скепсис и систему фидбека.</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">
-                    Охота за высоким достоинством в чужом рейтинге
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Зависимость от похвалы, стыд, сомнение в своем языке
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Достоинство мерилось живостью и созиданием, а не шумом
-                    аудитории
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Охота за высоким достоинством в чужом рейтинге</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Зависимость от похвалы, стыд, сомнение в своем языке</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Достоинство мерилось живостью и созиданием, а не шумом аудитории</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1118,91 +1058,31 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Пирамида собственной ценности и достоинства"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 100 100"
-                    role="img"
-                    aria-label="Pyramid"
-                  >
-                    <defs>
-                      <style>
-                        .pyramid-layer {
-                          stroke: #4a5768;
-                          stroke-width: 1;
-                        }
-                        .pyramid-bottom {
-                          animation: pyramid-bottom 4.5s ease-in-out infinite;
-                        }
-                        .pyramid-middle {
-                          animation: pyramid-middle 4.5s ease-in-out infinite;
-                        }
-                        .pyramid-top {
-                          animation: pyramid-top 4.5s ease-in-out infinite;
-                        }
-                        @keyframes pyramid-bottom {
-                          0%,
-                          28% {
-                            fill: #1b4ed8;
-                          }
-                          29%,
-                          100% {
-                            fill: none;
-                          }
-                        }
-                        @keyframes pyramid-middle {
-                          0%,
-                          28% {
-                            fill: none;
-                          }
-                          29%,
-                          57% {
-                            fill: #1b4ed8;
-                          }
-                          58%,
-                          100% {
-                            fill: none;
-                          }
-                        }
-                        @keyframes pyramid-top {
-                          0%,
-                          57% {
-                            fill: none;
-                          }
-                          58%,
-                          100% {
-                            fill: #1b4ed8;
-                          }
-                        }
-                      </style>
-                    </defs>
-                    <path
-                      class="pyramid-layer pyramid-bottom"
-                      d="M40 68 L60 68 L50 92 Z"
-                      fill="none"
-                    />
-                    <path
-                      class="pyramid-layer pyramid-middle"
-                      d="M25 38 L75 38 L60 68 L40 68 Z"
-                      fill="none"
-                    />
-                    <path
-                      class="pyramid-layer pyramid-top"
-                      d="M10 8 L90 8 L75 38 L25 38 Z"
-                      fill="none"
-                    />
-                  </svg>
+                <div class="hero-figure-frame" role="img" aria-label="Пирамида собственной ценности и достоинства">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Pyramid">
+  <defs>
+    <style>
+      .pyramid-layer { stroke: #4a5768; stroke-width: 1; }
+      .pyramid-bottom { animation: pyramid-bottom 4.5s ease-in-out infinite; }
+      .pyramid-middle { animation: pyramid-middle 4.5s ease-in-out infinite; }
+      .pyramid-top { animation: pyramid-top 4.5s ease-in-out infinite; }
+      @keyframes pyramid-bottom { 0%, 28% { fill: #1b4ed8; } 29%, 100% { fill: none; } }
+      @keyframes pyramid-middle { 0%, 28% { fill: none; } 29%, 57% { fill: #1b4ed8; } 58%, 100% { fill: none; } }
+      @keyframes pyramid-top { 0%, 57% { fill: none; } 58%, 100% { fill: #1b4ed8; } }
+    </style>
+  </defs>
+  <path class="pyramid-layer pyramid-bottom" d="M40 68 L60 68 L50 92 Z" fill="none"/>
+  <path class="pyramid-layer pyramid-middle" d="M25 38 L75 38 L60 68 L40 68 Z" fill="none"/>
+  <path class="pyramid-layer pyramid-top" d="M10 8 L90 8 L75 38 L25 38 Z" fill="none"/>
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>«оно ж, блин, приятно было»</p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«оно ж, блин, приятно было»</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1213,434 +1093,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>Сильная мысль быстро превращалась во внутренний суд</h2>
-              </div>
-              <p class="chapter-intro">
-                Снаружи клиент делал полезные вещи: собирал кейсы, писал
-                комментарии, доносил сильные формулировки. Но как только
-                приходила похвала, тишина или спор, внутри включался старый
-                автоматизм. Вместо того чтобы смотреть на цель и адресата,
-                клиент начинал проверять, каким он выглядел в чужих глазах.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Входной стимул</h3>
-                  <ul>
-                    <li>
-                      Клиент делился живым успехом или писал контроверсивный
-                      комментарий в скептичную группу.
-                    </li>
-                    <li>
-                      Появлялись лайки, молчание или спор, и реакция аудитории
-                      становилась главным экраном проверки.
-                    </li>
-                    <li>
-                      Даже приятная похвала не успокаивала, а показывала
-                      зависимость от внешнего достоинства.
-                    </li>
-                    <li>
-                      Если отклика не было, мысль начинала казаться
-                      подозрительной и будто бы неистинной.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент пробовал по старому</h3>
-                  <ul>
-                    <li>
-                      Собирать свои успехи и надеяться, что этого хватит для
-                      внутренней устойчивости.
-                    </li>
-                    <li>
-                      Говорить почти для всех сразу и болезненно переживать, что
-                      отклик слишком неоднородный.
-                    </li>
-                    <li>
-                      Читать похвалу как ресурс, а отсутствие реакции как знак,
-                      что сказал что-то не то.
-                    </li>
-                    <li>
-                      Бросать сильные идеи в пространство без настроенной
-                      системы обратной связи.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Сильная мысль быстро превращалась во внутренний суд</h2>
+        </div>
+        <p class="chapter-intro">Снаружи клиент делал полезные вещи: собирал кейсы, писал комментарии, доносил сильные формулировки. Но как только приходила похвала, тишина или спор, внутри включался старый автоматизм. Вместо того чтобы смотреть на цель и адресата, клиент начинал проверять, каким он выглядел в чужих глазах.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Входной стимул</h3>
+      <ul><li>Клиент делился живым успехом или писал контроверсивный комментарий в скептичную группу.</li><li>Появлялись лайки, молчание или спор, и реакция аудитории становилась главным экраном проверки.</li><li>Даже приятная похвала не успокаивала, а показывала зависимость от внешнего достоинства.</li><li>Если отклика не было, мысль начинала казаться подозрительной и будто бы неистинной.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент пробовал по старому</h3>
+      <ul><li>Собирать свои успехи и надеяться, что этого хватит для внутренней устойчивости.</li><li>Говорить почти для всех сразу и болезненно переживать, что отклик слишком неоднородный.</li><li>Читать похвалу как ресурс, а отсутствие реакции как знак, что сказал что-то не то.</li><li>Бросать сильные идеи в пространство без настроенной системы обратной связи.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Каждая такая проверка возвращала клиента в старый контур:
-                  сначала занять место в чужой иерархии, а уже потом получить
-                  ресурс, уверенность и право продолжать. В результате даже
-                  живой импульс начинал переживаться как что-то подозрительное.
-                </p>
+                <p>Каждая такая проверка возвращала клиента в старый контур: сначала занять место в чужой иерархии, а уже потом получить ресурс, уверенность и право продолжать. В результате даже живой импульс начинал переживаться как что-то подозрительное.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«оно ж, блин, приятно было»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«я в любой огород лезу со своим граммофоном»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>«оно ж, блин, приятно было»</blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>На консультации стало видно, что проблема была не в комментариях</h2>
+        </div>
+        <p class="chapter-intro">Поворот произошел в тот момент, когда консультант перестал обсуждать удачные и неудачные реакции аудитории как главный критерий. Вместо этого он показал сам дефект архитектуры: клиент искал высокое достоинство как будто это абсолютная величина, которую можно собрать у всех сразу.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг получил клиентски понятное имя: <strong>охота за высоким достоинством в чужом рейтинге</strong>. Он маскировался под зрелость и желание быть полезным, но фактически делал клиента зависимым от того, как его оценивают предки, руководители, аудитория или отдельные люди.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже жила привычка получать критерий достоинства извне: через похвалу, одобрение и место в чужой системе ценностей. Из-за этого даже свой успех и своя живость не считались достаточным основанием для опоры.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант не спорил с тем, что похвала приятна. Он показал другое: сама приятность похвалы уже диагностировала раскол. Достоинство, полезность и правота существуют не сами по себе, а относительно выбранной системы ценностей.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч звучал так: нельзя быть высокого достоинства сразу для всех. Если цель клиента связана с жизнью и созиданием, то и достоинство надо мерить относительно этого. Отсутствие лайков переставало быть приговором, а вопросом о том, тому ли адресату и тем ли языком был отправлен сигнал.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я выбираю, для кого говорю, и не путаю шум аудитории с правдой о себе. Критерий не похвала, а ведет ли язык к созиданию.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «я в любой огород лезу со своим граммофоном»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат появился как ручная перенастройка критерия</h2>
+        </div>
+        <p class="chapter-intro">Новый патч не включился автоматически. Сначала клиент вручную учился не делать из каждой реакции аудитории окончательный вердикт. Важным стало не убрать любой внешний отклик, а перестать жить внутри него.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Перед сильными комментариями клиент начал заранее понимать, для кого именно говорит.</li><li>После похвалы или тишины появлялась пауза: это не итоговая правда обо мне, а просто один из сигналов.</li><li>Клиент переставал говорить во все стороны сразу и начал смотреть, где вообще есть носители истины.</li><li>Вместо броска идеи в пустоту начал оформляться запрос на реальную систему фидбека.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Похвала переставала быть топливом, без которого нельзя двигаться дальше.</li><li>Тишина больше не означала автоматически, что мысль была ложной.</li><li>Проверка смещалась с «как я выгляжу» на «к чему приводит мой язык».</li><li>У клиента росла способность выдерживать узкую, но точную аудиторию вместо борьбы за всех.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Моя? Донести им истину»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«будет полезным для сомневающихся скептиков»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>
-                  На консультации стало видно, что проблема была не в
-                  комментариях
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Поворот произошел в тот момент, когда консультант перестал
-                обсуждать удачные и неудачные реакции аудитории как главный
-                критерий. Вместо этого он показал сам дефект архитектуры: клиент
-                искал высокое достоинство как будто это абсолютная величина,
-                которую можно собрать у всех сразу.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг получил клиентски понятное имя:
-                    <strong
-                      >охота за высоким достоинством в чужом рейтинге</strong
-                    >. Он маскировался под зрелость и желание быть полезным, но
-                    фактически делал клиента зависимым от того, как его
-                    оценивают предки, руководители, аудитория или отдельные
-                    люди.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло новый критерий через упаковку и обратную связь</h2>
+        </div>
+        <p class="chapter-intro">Закрепление шло не абстрактно. Клиент уже собирал кейсы, summary и каталог материалов, поэтому обучение естественно стало строиться вокруг упаковки, точного языка и проверки конструктивного отклика на длинной дистанции.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Разбирать реальные ситуации в формате кейсов, а не ждать идеальных демонстрационных сеансов.</li><li>Смотреть, кому именно адресован текст и кого он реально способен сдвинуть.</li><li>Строить систему фидбека, если цель заявляется как долгосрочное повышение чужой жизнеспособности.</li><li>Повторять связку: стимул, реакция, старое понимание, новое понимание, новые действия.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-self-doc">LP-SELF-01</a></strong>: он удерживал фокус на собственной ценности, внутреннем критерии и выходе из жизни по чужим оценкам.</p><p>Практически это превращалось в простой вопрос перед любым сильным сообщением: кого именно я сейчас хочу созидать и какой ответ вообще считаю релевантным?</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси уже жила привычка получать критерий достоинства
-                    извне: через похвалу, одобрение и место в чужой системе
-                    ценностей. Из-за этого даже свой успех и своя живость не
-                    считались достаточным основанием для опоры.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант не спорил с тем, что похвала приятна. Он показал
-                    другое: сама приятность похвалы уже диагностировала раскол.
-                    Достоинство, полезность и правота существуют не сами по
-                    себе, а относительно выбранной системы ценностей.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Патч звучал так: нельзя быть высокого достоинства сразу для
-                    всех. Если цель клиента связана с жизнью и созиданием, то и
-                    достоинство надо мерить относительно этого. Отсутствие
-                    лайков переставало быть приговором, а вопросом о том, тому
-                    ли адресату и тем ли языком был отправлен сигнал.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Я выбираю, для кого говорю, и не путаю шум аудитории с
-                      правдой о себе. Критерий не похвала, а ведет ли язык к
-                      созиданию.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат появился как ручная перенастройка
-                  критерия
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Новый патч не включился автоматически. Сначала клиент вручную
-                учился не делать из каждой реакции аудитории окончательный
-                вердикт. Важным стало не убрать любой внешний отклик, а
-                перестать жить внутри него.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Перед сильными комментариями клиент начал заранее
-                      понимать, для кого именно говорит.
-                    </li>
-                    <li>
-                      После похвалы или тишины появлялась пауза: это не итоговая
-                      правда обо мне, а просто один из сигналов.
-                    </li>
-                    <li>
-                      Клиент переставал говорить во все стороны сразу и начал
-                      смотреть, где вообще есть носители истины.
-                    </li>
-                    <li>
-                      Вместо броска идеи в пустоту начал оформляться запрос на
-                      реальную систему фидбека.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>
-                      Похвала переставала быть топливом, без которого нельзя
-                      двигаться дальше.
-                    </li>
-                    <li>
-                      Тишина больше не означала автоматически, что мысль была
-                      ложной.
-                    </li>
-                    <li>
-                      Проверка смещалась с «как я выгляжу» на «к чему приводит
-                      мой язык».
-                    </li>
-                    <li>
-                      У клиента росла способность выдерживать узкую, но точную
-                      аудиторию вместо борьбы за всех.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>«Моя? Донести им истину»</blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «будет полезным для сомневающихся скептиков»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>
-                  Обучение закрепляло новый критерий через упаковку и обратную
-                  связь
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Закрепление шло не абстрактно. Клиент уже собирал кейсы, summary
-                и каталог материалов, поэтому обучение естественно стало
-                строиться вокруг упаковки, точного языка и проверки
-                конструктивного отклика на длинной дистанции.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Разбирать реальные ситуации в формате кейсов, а не ждать
-                      идеальных демонстрационных сеансов.
-                    </li>
-                    <li>
-                      Смотреть, кому именно адресован текст и кого он реально
-                      способен сдвинуть.
-                    </li>
-                    <li>
-                      Строить систему фидбека, если цель заявляется как
-                      долгосрочное повышение чужой жизнеспособности.
-                    </li>
-                    <li>
-                      Повторять связку: стимул, реакция, старое понимание, новое
-                      понимание, новые действия.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-SELF-01</strong>: он удерживал фокус на
-                    собственной ценности, внутреннем критерии и выходе из жизни
-                    по чужим оценкам.
-                  </p>
-                  <p>
-                    Практически это превращалось в простой вопрос перед любым
-                    сильным сообщением: кого именно я сейчас хочу созидать и
-                    какой ответ вообще считаю релевантным?
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>Новый результат был не в том, что всем понравилось</h2>
-              </div>
-              <p class="chapter-intro">
-                Новый наблюдаемый эффект состоял в том, что клиент перестал
-                путать внешний шум с правдой о собственной ценности. Он все еще
-                мог попадать в спорную среду, но уже не обязан был превращать ее
-                реакцию в окончательный суд.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Один комментарий или пост могли выбить клиента из фокуса на
-                    часы: тишина и спор читались как диагноз собственной
-                    ценности.
-                  </p>
-                  <ul>
-                    <li>Критерий: лайки и общий отклик</li>
-                    <li>После публикации: сомнение в себе</li>
-                    <li>Язык подстраивается под массовое одобрение</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Публикация перестала быть экзаменом на достоинство: важен не
-                    шум, а попадание в нужных людей и созидательный эффект
-                    сообщения.
-                  </p>
-                  <ul>
-                    <li>Критерий: живой эффект на адресата</li>
-                    <li>Даже один точный отклик считается попаданием</li>
-                    <li>Язык выбирается под цель, а не под лайки</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>Клиент точнее выбирал язык и адресата.</li>
-                    <li>
-                      Появилось больше устойчивости после публикации сильных
-                      мыслей.
-                    </li>
-                    <li>
-                      Живая упаковка кейсов перестала зависеть от мгновенной
-                      внешней оценки.
-                    </li>
-                    <li>
-                      Фокус возвращался к цели, а не к борьбе за место в чужом
-                      рейтинге.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>
-                      Высокое достоинство существует относительно выбранной
-                      системы ценностей.
-                    </li>
-                    <li>
-                      Нельзя одновременно искать высокий рейтинг у жизни и у ее
-                      противоположности.
-                    </li>
-                    <li>
-                      Если цель долгосрочная, обратная связь нужна как система,
-                      а не как случайный лайк.
-                    </li>
-                    <li>
-                      Даже один человек из большой группы может быть правильным
-                      адресатом для сильного посыла.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не спрашивать, понравился ли я всем. Спрашивать, был ли мой
-                  язык созидательным и позволил ли он дойти до тех, кому это
-                  действительно было нужно.
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат был не в том, что всем понравилось</h2>
+        </div>
+        <p class="chapter-intro">Новый наблюдаемый эффект состоял в том, что клиент перестал путать внешний шум с правдой о собственной ценности. Он все еще мог попадать в спорную среду, но уже не обязан был превращать ее реакцию в окончательный суд.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Один комментарий или пост могли выбить клиента из фокуса на часы: тишина и спор читались как диагноз собственной ценности.</p>
+            <ul><li>Критерий: лайки и общий отклик</li><li>После публикации: сомнение в себе</li><li>Язык подстраивается под массовое одобрение</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Публикация перестала быть экзаменом на достоинство: важен не шум, а попадание в нужных людей и созидательный эффект сообщения.</p>
+            <ul><li>Критерий: живой эффект на адресата</li><li>Даже один точный отклик считается попаданием</li><li>Язык выбирается под цель, а не под лайки</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Клиент точнее выбирал язык и адресата.</li><li>Появилось больше устойчивости после публикации сильных мыслей.</li><li>Живая упаковка кейсов перестала зависеть от мгновенной внешней оценки.</li><li>Фокус возвращался к цели, а не к борьбе за место в чужом рейтинге.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Высокое достоинство существует относительно выбранной системы ценностей.</li><li>Нельзя одновременно искать высокий рейтинг у жизни и у ее противоположности.</li><li>Если цель долгосрочная, обратная связь нужна как система, а не как случайный лайк.</li><li>Даже один человек из большой группы может быть правильным адресатом для сильного посыла.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не спрашивать, понравился ли я всем. Спрашивать, был ли мой язык созидательным и позволил ли он дойти до тех, кому это действительно было нужно.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1649,25 +1343,10 @@
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
             <h2>Если знакома зависимость от чужой оценки</h2>
-            <p>
-              Этот кейс полезен тем, у кого сильные слова, работа или проекты
-              быстро превращаются во внутренний экзамен на право быть ценным.
-            </p>
+            <p>Этот кейс полезен тем, у кого сильные слова, работа или проекты быстро превращаются во внутренний экзамен на право быть ценным.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-self-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-SELF-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-self-doc" target="_blank" rel="noopener noreferrer">Открыть LP-SELF-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1682,9 +1361,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

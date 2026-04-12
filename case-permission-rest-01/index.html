@@ -3,14 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CASE-PERMISSION-REST-01 — Я могу отдыхать только когда разрешат — Вариант
-      v2
-    </title>
-    <meta
-      name="description"
-      content="Кейс о том, как болезнь, забота о маме и гиперответственность лишали клиента права выбирать себя без внешнего разрешения."
-    />
+    <title>CASE-PERMISSION-REST-01 — Я могу отдыхать только когда разрешат — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как болезнь, забота о маме и гиперответственность лишали клиента права выбирать себя без внешнего разрешения." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -50,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -85,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -102,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -120,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -185,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -282,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -362,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -398,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -494,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -645,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -657,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -772,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -825,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -900,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -939,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -951,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1044,73 +1007,50 @@
                 <span class="meta-chip">read time: 9 minutes</span>
               </div>
 
-              <h1 class="hero-seq hero-seq-3">
-                Я могу отдыхать только когда разрешат
-              </h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                Клиент оказался в тяжелом сочетании болезни, подвешенного
-                переезда, заботы о маме и напряжения на работе. Но главным
-                дефектом было не только состояние тела. Внутри продолжала жить
-                старая логика: выбирать себя можно лишь тогда, когда это кто-то
-                разрешил. Консультация вернула опору внутрь и показала, что план
-                и внешняя стабильность уже давно заняли не свое место.
-              </p>
+              <h1 class="hero-seq hero-seq-3">Я могу отдыхать только когда разрешат</h1>
+              <p class="hero-lead hero-seq hero-seq-4">Клиент оказался в тяжелом сочетании болезни, подвешенного переезда, заботы о маме и напряжения на работе. Но главным дефектом было не только состояние тела. Внутри продолжала жить старая логика: выбирать себя можно лишь тогда, когда это кто-то разрешил. Консультация вернула опору внутрь и показала, что план и внешняя стабильность уже давно заняли не свое место.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один кейс о болезни, перегрузе и невозможности поставить
-                    себя первой без внешнего разрешения.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >Клиент откладывал отдых и собственные желания, пока это не
-                    санкционировал кто-то извне.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Опора возвращалась внутрь, а план и забота становились
-                    инструментами, а не хозяевами.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary про болезнь как стоп-сигнал, лжебога
-                    стабильности и право слышать свои импульсы первой.</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один кейс о болезни, перегрузе и невозможности поставить себя первой без внешнего разрешения.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Клиент откладывал отдых и собственные желания, пока это не санкционировал кто-то извне.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Опора возвращалась внутрь, а план и забота становились инструментами, а не хозяевами.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про болезнь как стоп-сигнал, лжебога стабильности и право слышать свои импульсы первой.</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">
-                    Внешнее разрешение на отдых и заботу о себе
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Самобичевание, истощение и потеря доступа к своим желаниям
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Сначала выбрать себя, потом уже организацию и помощь другим
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Внешнее разрешение на отдых и заботу о себе</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Самобичевание, истощение и потеря доступа к своим желаниям</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Сначала выбрать себя, потом уже организацию и помощь другим</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1118,177 +1058,75 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Право на отдых без внешнего экзоскелета одобрения"
-                >
-                  <svg
-                    width="800"
-                    height="800"
-                    viewBox="0 0 800 800"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <style>
-                        .accent {
-                          fill: #1b4ed8;
-                          stroke: #1b4ed8;
-                        }
-                        .neutral {
-                          fill: #4a5768;
-                          stroke: #4a5768;
-                        }
-                        .bg {
-                          fill: transparent;
-                        }
+                <div class="hero-figure-frame" role="img" aria-label="Право на отдых без внешнего экзоскелета одобрения">
+                  <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .accent { fill: #1b4ed8; stroke: #1b4ed8; }
+      .neutral { fill: #4a5768; stroke: #4a5768; }
+      .bg { fill: transparent; }
+      
+      @keyframes expand {
+        0% { transform: scaleY(1); }
+        50% { transform: scaleY(1.2); }
+        100% { transform: scaleY(1); }
+      }
+      
+      @keyframes pulse {
+        0% { opacity: 0.5; r: 10; }
+        50% { opacity: 1; r: 15; }
+        100% { opacity: 0.5; r: 10; }
+      }
 
-                        @keyframes expand {
-                          0% {
-                            transform: scaleY(1);
-                          }
-                          50% {
-                            transform: scaleY(1.2);
-                          }
-                          100% {
-                            transform: scaleY(1);
-                          }
-                        }
+      .limb { transform-origin: center; animation: expand 4s ease-in-out infinite; }
+      .joint { animation: pulse 2s ease-in-out infinite; }
+    </style>
+  </defs>
+  
+  <rect width="800" height="800" class="bg"/>
+  
+  <!-- Grid Background -->
+  <path d="M400 0V800 M0 400H800" stroke="#F3F4F6" stroke-width="2"/>
+  
+  <!-- Core Structure (Human) - Neutral Line -->
+  <rect x="390" y="200" width="20" height="400" class="neutral" rx="2"/>
+  
+  <!-- Exoskeleton Parts - Accent Brackets -->
+  <g class="limb">
+    <!-- Top Bracket -->
+    <path d="M300 200 H500 V220 H300 Z" class="accent" fill-opacity="0.1"/>
+    <path d="M300 200 V250" stroke="#1b4ed8" stroke-width="8"/>
+    <path d="M500 200 V250" stroke="#1b4ed8" stroke-width="8"/>
+  </g>
 
-                        @keyframes pulse {
-                          0% {
-                            opacity: 0.5;
-                            r: 10;
-                          }
-                          50% {
-                            opacity: 1;
-                            r: 15;
-                          }
-                          100% {
-                            opacity: 0.5;
-                            r: 10;
-                          }
-                        }
+  <g class="limb" style="animation-delay: -1s;">
+    <!-- Bottom Bracket -->
+    <path d="M300 600 H500 V580 H300 Z" class="accent" fill-opacity="0.1"/>
+    <path d="M300 600 V550" stroke="#1b4ed8" stroke-width="8"/>
+    <path d="M500 600 V550" stroke="#1b4ed8" stroke-width="8"/>
+  </g>
 
-                        .limb {
-                          transform-origin: center;
-                          animation: expand 4s ease-in-out infinite;
-                        }
-                        .joint {
-                          animation: pulse 2s ease-in-out infinite;
-                        }
-                      </style>
-                    </defs>
+  <!-- Horizontal Ribs -->
+  <rect x="350" y="300" width="100" height="8" class="neutral"/>
+  <rect x="350" y="350" width="100" height="8" class="neutral"/>
+  <rect x="350" y="400" width="100" height="8" class="neutral"/>
+  <rect x="350" y="450" width="100" height="8" class="neutral"/>
+  <rect x="350" y="500" width="100" height="8" class="neutral"/>
 
-                    <rect width="800" height="800" class="bg" />
-
-                    <!-- Grid Background -->
-                    <path
-                      d="M400 0V800 M0 400H800"
-                      stroke="#F3F4F6"
-                      stroke-width="2"
-                    />
-
-                    <!-- Core Structure (Human) - Neutral Line -->
-                    <rect
-                      x="390"
-                      y="200"
-                      width="20"
-                      height="400"
-                      class="neutral"
-                      rx="2"
-                    />
-
-                    <!-- Exoskeleton Parts - Accent Brackets -->
-                    <g class="limb">
-                      <!-- Top Bracket -->
-                      <path
-                        d="M300 200 H500 V220 H300 Z"
-                        class="accent"
-                        fill-opacity="0.1"
-                      />
-                      <path
-                        d="M300 200 V250"
-                        stroke="#1b4ed8"
-                        stroke-width="8"
-                      />
-                      <path
-                        d="M500 200 V250"
-                        stroke="#1b4ed8"
-                        stroke-width="8"
-                      />
-                    </g>
-
-                    <g class="limb" style="animation-delay: -1s">
-                      <!-- Bottom Bracket -->
-                      <path
-                        d="M300 600 H500 V580 H300 Z"
-                        class="accent"
-                        fill-opacity="0.1"
-                      />
-                      <path
-                        d="M300 600 V550"
-                        stroke="#1b4ed8"
-                        stroke-width="8"
-                      />
-                      <path
-                        d="M500 600 V550"
-                        stroke="#1b4ed8"
-                        stroke-width="8"
-                      />
-                    </g>
-
-                    <!-- Horizontal Ribs -->
-                    <rect
-                      x="350"
-                      y="300"
-                      width="100"
-                      height="8"
-                      class="neutral"
-                    />
-                    <rect
-                      x="350"
-                      y="350"
-                      width="100"
-                      height="8"
-                      class="neutral"
-                    />
-                    <rect
-                      x="350"
-                      y="400"
-                      width="100"
-                      height="8"
-                      class="neutral"
-                    />
-                    <rect
-                      x="350"
-                      y="450"
-                      width="100"
-                      height="8"
-                      class="neutral"
-                    />
-                    <rect
-                      x="350"
-                      y="500"
-                      width="100"
-                      height="8"
-                      class="neutral"
-                    />
-
-                    <!-- Active Joints -->
-                    <circle cx="300" cy="200" class="accent joint" />
-                    <circle cx="500" cy="200" class="accent joint" />
-                    <circle cx="300" cy="600" class="accent joint" />
-                    <circle cx="500" cy="600" class="accent joint" />
-                  </svg>
+  <!-- Active Joints -->
+  <circle cx="300" cy="200" class="accent joint" />
+  <circle cx="500" cy="200" class="accent joint" />
+  <circle cx="300" cy="600" class="accent joint" />
+  <circle cx="500" cy="600" class="accent joint" />
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>«То есть пока мне мама не сказала, что побудь дома.»</p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«То есть пока мне мама не сказала, что побудь дома.»</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1299,423 +1137,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>Даже болезнь не давала права остановиться автоматически</h2>
-              </div>
-              <p class="chapter-intro">
-                Проблема проявлялась на стыке тела и смысла. Клиенту было
-                физически плохо, но и в этом состоянии продолжал работать
-                внутренний пресс: надо держаться, надо быть опорой, надо не
-                развалить все вокруг. Отдых воспринимался не как естественное
-                действие, а как что-то, что нужно заслужить или получить извне.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Как это выглядело в реальности</h3>
-                  <ul>
-                    <li>
-                      Сильные симптомы болезни сочетались с заботой о маме и
-                      напряжением на работе.
-                    </li>
-                    <li>
-                      Клиент злился на себя за слабость и невозможность быть
-                      стабильной опорой для всех.
-                    </li>
-                    <li>
-                      Собственные желания становились почти недоступны: было
-                      трудно ответить даже на вопрос «чего я хочу».
-                    </li>
-                    <li>
-                      Остановка происходила не из внутреннего решения, а только
-                      когда кто-то буквально разрешал лечь и не идти дальше.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент пробовал по старому</h3>
-                  <ul>
-                    <li>
-                      Давить на себя планом и организацией, чтобы не провалиться
-                      в хаос.
-                    </li>
-                    <li>
-                      Считать, что стабильность дают работа, расписание и
-                      внешние структуры.
-                    </li>
-                    <li>
-                      Продолжать делать через силу, лишь бы не чувствовать стыд
-                      отмен и пауз.
-                    </li>
-                    <li>
-                      Оценивать себя по тому, насколько хорошо удалось быть
-                      опорой для других.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Даже болезнь не давала права остановиться автоматически</h2>
+        </div>
+        <p class="chapter-intro">Проблема проявлялась на стыке тела и смысла. Клиенту было физически плохо, но и в этом состоянии продолжал работать внутренний пресс: надо держаться, надо быть опорой, надо не развалить все вокруг. Отдых воспринимался не как естественное действие, а как что-то, что нужно заслужить или получить извне.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Как это выглядело в реальности</h3>
+      <ul><li>Сильные симптомы болезни сочетались с заботой о маме и напряжением на работе.</li><li>Клиент злился на себя за слабость и невозможность быть стабильной опорой для всех.</li><li>Собственные желания становились почти недоступны: было трудно ответить даже на вопрос «чего я хочу».</li><li>Остановка происходила не из внутреннего решения, а только когда кто-то буквально разрешал лечь и не идти дальше.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент пробовал по старому</h3>
+      <ul><li>Давить на себя планом и организацией, чтобы не провалиться в хаос.</li><li>Считать, что стабильность дают работа, расписание и внешние структуры.</li><li>Продолжать делать через силу, лишь бы не чувствовать стыд отмен и пауз.</li><li>Оценивать себя по тому, насколько хорошо удалось быть опорой для других.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Такой режим ломал не только тело. Он лишал клиента внутреннего
-                  права выбирать себя первой, а значит даже восстановление,
-                  забота и простые бытовые решения проходили через лишний слой
-                  вины и принуждения.
-                </p>
+                <p>Такой режим ломал не только тело. Он лишал клиента внутреннего права выбирать себя первой, а значит даже восстановление, забота и простые бытовые решения проходили через лишний слой вины и принуждения.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«То есть пока мне мама не сказала, что побудь дома.»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«я не могла себе эти дни ответить, что я хочу.»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «То есть пока мне мама не сказала, что побудь дома.»
-                  </blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>Консультация вернула фокус с внешней стабильности на внутреннюю опору</h2>
+        </div>
+        <p class="chapter-intro">Ключевой поворот состоял не в том, чтобы просто разрешить себе отдых. Консультант показал более глубокую ошибку: клиент уже сделал внешние опоры и планы источником стабильности, а себя самой поставил ниже этих конструкций.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг можно назвать так: <strong>внешнее разрешение на отдых и заботу о себе</strong>. Клиент не считал свое внутреннее «стоп» достаточным основанием для действия и ждал, пока это подтвердит кто-то важный снаружи.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже жила установка, что ценность человека определяется тем, насколько он полезен другим и насколько хорошо держит внешнюю стабильность. Из-за этого работа, план и роль опоры для близких незаметно становились важнее самой клиентки.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант вернул главный акцент: опора не снаружи, а внутри. Болезнь была прочитана как стоп-сигнал, который показывает: дальше в таком режиме идти не надо. План и организация полезны только после вопроса «как я хочу» и только как инструменты.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч звучал так: сначала слышать импульс любви и выбирать себя, а уже потом подключать разум, план и заботу о других. Это не отменяло ответственность, но переставало путать ее с самонасилием.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я не жду разрешения, чтобы остановиться и восстановиться. Моя внутренняя опора и мой сигнал уже валидны.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «я не могла себе эти дни ответить, что я хочу.»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат был в том, что пауза перестала быть стыдом</h2>
+        </div>
+        <p class="chapter-intro">Новый патч не убрал сразу все внешние обстоятельства. Но у клиента появился ручной способ раньше замечать самосрыв и не доводить себя до полного обнуления. Впервые отдых и снижение нагрузки начали восприниматься как нормальное действие, а не как моральное поражение.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Клиент стал раньше видеть симптомы и разрешать себе снижать нагрузку без внешнего разрешения.</li><li>Отмена и перенос начали читаться как рабочие действия, а не как доказательство неорганизованности.</li><li>Вопрос «чего я хочу?» снова стал использоваться как реальная точка входа в день.</li><li>Фокус на чужих решениях и ожиданиях начал ослабевать: моя ответственность только за себя.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Работа и планы переставали быть лжебогом стабильности.</li><li>Появлялось меньше самобичевания в болезни и восстановлении.</li><li>Клиент чаще выбирал помощь другим из любви, а не из долга.</li><li>Собственные достижения и сильные стороны стало легче фиксировать как опору.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«у меня была злость на себя»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«потеряла… фундамент… разбилась на маленькие кусочки»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>
-                  Консультация вернула фокус с внешней стабильности на
-                  внутреннюю опору
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Ключевой поворот состоял не в том, чтобы просто разрешить себе
-                отдых. Консультант показал более глубокую ошибку: клиент уже
-                сделал внешние опоры и планы источником стабильности, а себя
-                самой поставил ниже этих конструкций.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг можно назвать так:
-                    <strong>внешнее разрешение на отдых и заботу о себе</strong
-                    >. Клиент не считал свое внутреннее «стоп» достаточным
-                    основанием для действия и ждал, пока это подтвердит кто-то
-                    важный снаружи.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло право слышать себя раньше, чем план</h2>
+        </div>
+        <p class="chapter-intro">Чтобы этот патч не остался только разовым облегчением после болезни, его нужно было превратить в повторяемую практику. Поэтому обучение строилось вокруг простого, но непривычного порядка: сначала импульс и внутренний выбор, потом организация.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Утром замечать хотя бы два собственных импульса и исполнять их до включения режима долга.</li><li>При первых симптомах не героизировать перегруз, а уменьшать нагрузку и возвращать внимание к себе.</li><li>Отдельно разбирать стыд отмен и переносов как старый паттерн, а не как объективную правду.</li><li>Собирать резюме своих достижений и сильных сторон, чтобы видеть ценность не только через пользу другим.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-self-doc">LP-SELF-01</a></strong>. Он удерживал тему собственной опоры, внутренней ценности и выхода из жизни, где себя можно выбирать только после разрешения извне.</p><p>Практический перенос выглядел просто: сначала я, потом план; сначала любовь, потом организация.</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси уже жила установка, что ценность человека
-                    определяется тем, насколько он полезен другим и насколько
-                    хорошо держит внешнюю стабильность. Из-за этого работа, план
-                    и роль опоры для близких незаметно становились важнее самой
-                    клиентки.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант вернул главный акцент: опора не снаружи, а
-                    внутри. Болезнь была прочитана как стоп-сигнал, который
-                    показывает: дальше в таком режиме идти не надо. План и
-                    организация полезны только после вопроса «как я хочу» и
-                    только как инструменты.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Патч звучал так: сначала слышать импульс любви и выбирать
-                    себя, а уже потом подключать разум, план и заботу о других.
-                    Это не отменяло ответственность, но переставало путать ее с
-                    самонасилием.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Я не жду разрешения, чтобы остановиться и восстановиться.
-                      Моя внутренняя опора и мой сигнал уже валидны.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат был в том, что пауза перестала быть
-                  стыдом
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Новый патч не убрал сразу все внешние обстоятельства. Но у
-                клиента появился ручной способ раньше замечать самосрыв и не
-                доводить себя до полного обнуления. Впервые отдых и снижение
-                нагрузки начали восприниматься как нормальное действие, а не как
-                моральное поражение.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Клиент стал раньше видеть симптомы и разрешать себе
-                      снижать нагрузку без внешнего разрешения.
-                    </li>
-                    <li>
-                      Отмена и перенос начали читаться как рабочие действия, а
-                      не как доказательство неорганизованности.
-                    </li>
-                    <li>
-                      Вопрос «чего я хочу?» снова стал использоваться как
-                      реальная точка входа в день.
-                    </li>
-                    <li>
-                      Фокус на чужих решениях и ожиданиях начал ослабевать: моя
-                      ответственность только за себя.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>
-                      Работа и планы переставали быть лжебогом стабильности.
-                    </li>
-                    <li>
-                      Появлялось меньше самобичевания в болезни и
-                      восстановлении.
-                    </li>
-                    <li>
-                      Клиент чаще выбирал помощь другим из любви, а не из долга.
-                    </li>
-                    <li>
-                      Собственные достижения и сильные стороны стало легче
-                      фиксировать как опору.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>«у меня была злость на себя»</blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «потеряла… фундамент… разбилась на маленькие кусочки»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>Обучение закрепляло право слышать себя раньше, чем план</h2>
-              </div>
-              <p class="chapter-intro">
-                Чтобы этот патч не остался только разовым облегчением после
-                болезни, его нужно было превратить в повторяемую практику.
-                Поэтому обучение строилось вокруг простого, но непривычного
-                порядка: сначала импульс и внутренний выбор, потом организация.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Утром замечать хотя бы два собственных импульса и
-                      исполнять их до включения режима долга.
-                    </li>
-                    <li>
-                      При первых симптомах не героизировать перегруз, а
-                      уменьшать нагрузку и возвращать внимание к себе.
-                    </li>
-                    <li>
-                      Отдельно разбирать стыд отмен и переносов как старый
-                      паттерн, а не как объективную правду.
-                    </li>
-                    <li>
-                      Собирать резюме своих достижений и сильных сторон, чтобы
-                      видеть ценность не только через пользу другим.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-SELF-01</strong>. Он удерживал тему собственной
-                    опоры, внутренней ценности и выхода из жизни, где себя можно
-                    выбирать только после разрешения извне.
-                  </p>
-                  <p>
-                    Практический перенос выглядел просто: сначала я, потом план;
-                    сначала любовь, потом организация.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>
-                  Новый результат был в том, что клиентка перестала ждать
-                  санкцию на себя
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                В новом контуре болезнь, забота о близких и работа никуда не
-                делись. Но изменилась иерархия. Клиентка все чаще выбирала себя
-                первой не как каприз, а как базовую внутреннюю ответственность.
-                Это давало больше устойчивости и меньше ненависти к себе и
-                другим.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Даже болезнь и явное истощение не считались достаточной
-                    причиной остановиться, пока отдых не был одобрен кем-то
-                    снаружи.
-                  </p>
-                  <ul>
-                    <li>Отдых без санкции невозможен</li>
-                    <li>Перегруз копится дольше нужного</li>
-                    <li>Забота о себе запускает вину</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Остановка происходит раньше, чем срыв: клиентка слышит
-                    сигнал изнутри и не ждет, пока право на себя подпишет
-                    внешний авторитет.
-                  </p>
-                  <ul>
-                    <li>Сигнал тела слышится раньше</li>
-                    <li>Нагрузка снижается без драмы</li>
-                    <li>День строится от внутреннего ресурса</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>
-                      Больше честности с собой в вопросе ресурсов и желаний.
-                    </li>
-                    <li>
-                      Меньше автоматического брутфорса в болезни и перегрузе.
-                    </li>
-                    <li>Спокойнее переживались отмены и переносы.</li>
-                    <li>
-                      Забота о других стала меньше походить на саморастворение.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>
-                      Опора в жизни находится внутри, а не во внешних
-                      структурах.
-                    </li>
-                    <li>План — инструмент, не хозяин.</li>
-                    <li>Я отвечаю только за себя и свои решения.</li>
-                    <li>
-                      Болезнь и перегруз могут быть полезным стоп-сигналом, а не
-                      только помехой.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не то, насколько долго я выдержала через силу, а то, насколько
-                  рано услышала себя и выбрала действие, которое возвращает
-                  жизнь, а не отнимает ее.
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат был в том, что клиентка перестала ждать санкцию на себя</h2>
+        </div>
+        <p class="chapter-intro">В новом контуре болезнь, забота о близких и работа никуда не делись. Но изменилась иерархия. Клиентка все чаще выбирала себя первой не как каприз, а как базовую внутреннюю ответственность. Это давало больше устойчивости и меньше ненависти к себе и другим.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Даже болезнь и явное истощение не считались достаточной причиной остановиться, пока отдых не был одобрен кем-то снаружи.</p>
+            <ul><li>Отдых без санкции невозможен</li><li>Перегруз копится дольше нужного</li><li>Забота о себе запускает вину</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Остановка происходит раньше, чем срыв: клиентка слышит сигнал изнутри и не ждет, пока право на себя подпишет внешний авторитет.</p>
+            <ul><li>Сигнал тела слышится раньше</li><li>Нагрузка снижается без драмы</li><li>День строится от внутреннего ресурса</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Больше честности с собой в вопросе ресурсов и желаний.</li><li>Меньше автоматического брутфорса в болезни и перегрузе.</li><li>Спокойнее переживались отмены и переносы.</li><li>Забота о других стала меньше походить на саморастворение.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Опора в жизни находится внутри, а не во внешних структурах.</li><li>План — инструмент, не хозяин.</li><li>Я отвечаю только за себя и свои решения.</li><li>Болезнь и перегруз могут быть полезным стоп-сигналом, а не только помехой.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не то, насколько долго я выдержала через силу, а то, насколько рано услышала себя и выбрала действие, которое возвращает жизнь, а не отнимает ее.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1723,30 +1386,11 @@
         <div class="footer-shell">
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
-            <h2>
-              Если знакомо чувство, что отдых нужно заслужить или получить на
-              него разрешение
-            </h2>
-            <p>
-              Этот кейс полезен тем, кто продолжает тащить себя через болезнь,
-              перегруз и чужие ожидания, потому что внутренний сигнал пока еще
-              не кажется достаточным основанием для паузы.
-            </p>
+            <h2>Если знакомо чувство, что отдых нужно заслужить или получить на него разрешение</h2>
+            <p>Этот кейс полезен тем, кто продолжает тащить себя через болезнь, перегруз и чужие ожидания, потому что внутренний сигнал пока еще не кажется достаточным основанием для паузы.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-self-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-SELF-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-self-doc" target="_blank" rel="noopener noreferrer">Открыть LP-SELF-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1761,9 +1405,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

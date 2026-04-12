@@ -1,9 +1,10 @@
 window.caseAssets = {
   "CASE-WHERE-RESULT-01": {
-    svg: "lp-patterns-focus.svg",
-    alt: "Фокус на паттерне вопроса про результат",
-    lp: "LP-PATTERNS-01",
-    lpLabel: "patterns",
+    svg: "lp-science-network.svg",
+    alt: "Причинная сеть результата и внутренних законов",
+    primaryLp: "LP-SCIENCE-01",
+    lp: "LP-SCIENCE-01",
+    lpLabel: "science",
   },
   "CASE-DIGNITY-RATING-01": {
     svg: "lp-self-pyramid.svg",
@@ -14,8 +15,9 @@ window.caseAssets = {
   "CASE-SYSTEM-INSTEAD-SELF-01": {
     svg: "second-brain.svg",
     alt: "Второй мозг и перегруз инфраструктурой",
-    lp: "LP-RELEARN-01",
-    lpLabel: "relearn",
+    primaryLp: "LP-SCIENCE-01",
+    lp: "LP-SCIENCE-01",
+    lpLabel: "science",
   },
   "CASE-PLAN-IDOL-01": {
     svg: "intent-economy.svg",
@@ -32,8 +34,9 @@ window.caseAssets = {
   "CASE-RIGHT-PLAN-01": {
     svg: "lp-marn-filter.svg",
     alt: "Фильтр живого импульса перед построением плана",
-    lp: "LP-SELF-01",
-    lpLabel: "self",
+    primaryLp: "LP-MARN-01",
+    lp: "LP-MARN-01",
+    lpLabel: "marn",
   },
   "CASE-FEEDBACK-TRUTH-01": {
     svg: "context-ai.svg",
@@ -50,14 +53,16 @@ window.caseAssets = {
   "CASE-GIVE-RESULT-01": {
     svg: "cm-mkuypomn-uhzhbr.svg",
     alt: "Передача результата и динамика двух сторон",
-    lp: "LP-RELEARN-01",
-    lpLabel: "relearn",
+    primaryLp: "LP-SCIENCE-01",
+    lp: "LP-SCIENCE-01",
+    lpLabel: "science",
   },
   "CASE-CAN-MUST-01": {
-    svg: "lp-science-network.svg",
-    alt: "Сеть обязанностей и центр собственной ответственности",
-    lp: "LP-SELF-01",
-    lpLabel: "self",
+    svg: "lp-marn-filter.svg",
+    alt: "Фильтр обязанностей и возврат к своей оси выбора",
+    primaryLp: "LP-MARN-01",
+    lp: "LP-MARN-01",
+    lpLabel: "marn",
   },
   "CASE-TIME-BELONGS-01": {
     svg: "four-weeks.svg",
@@ -72,10 +77,11 @@ window.caseAssets = {
     lpLabel: "patterns",
   },
   "CASE-CLUB-IMPULSE-01": {
-    svg: "lp-science-network.svg",
-    alt: "Живая идея клуба и сеть возможных связей",
-    lp: "LP-SELF-01",
-    lpLabel: "self",
+    svg: "lp-marn-filter.svg",
+    alt: "Живая идея клуба и фильтр между импульсом и страхом",
+    primaryLp: "LP-MARN-01",
+    lp: "LP-MARN-01",
+    lpLabel: "marn",
   },
   "CASE-PRICE-SHAME-01": {
     svg: "lp-self-pyramid.svg",
@@ -84,10 +90,11 @@ window.caseAssets = {
     lpLabel: "self",
   },
   "CASE-IMPULSE-LATER-01": {
-    svg: "second-brain.svg",
-    alt: "Живой импульс, который нельзя оставлять только во втором мозге",
-    lp: "LP-SELF-01",
-    lpLabel: "self",
+    svg: "lp-marn-filter.svg",
+    alt: "Живой импульс, который важно не потерять в фильтрах откладывания",
+    primaryLp: "LP-MARN-01",
+    lp: "LP-MARN-01",
+    lpLabel: "marn",
   },
   "CASE-SUCCESS-SHAME-01": {
     svg: "exoskeleton.svg",
@@ -148,6 +155,20 @@ window.caseLpFilters = [
     title: "LP-RELEARN-01",
     svg: "lp-relearn-pipeline.svg",
     alt: "Фильтр кейсов по Learning Path Relearn",
+  },
+  {
+    key: "LP-SCIENCE-01",
+    label: "science",
+    title: "LP-SCIENCE-01",
+    svg: "lp-science-network.svg",
+    alt: "Фильтр кейсов по Learning Path Science",
+  },
+  {
+    key: "LP-MARN-01",
+    label: "marn",
+    title: "LP-MARN-01",
+    svg: "lp-marn-filter.svg",
+    alt: "Фильтр кейсов по Learning Path Marn",
   },
   {
     key: "all",

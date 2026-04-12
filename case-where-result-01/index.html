@@ -3,33 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CASE-WHERE-RESULT-01 — Вариант v2</title>
-    <meta
-      name="description"
-      content="Новый вариант case page «Где результат?» в более постерном LP-стиле: full-bleed hero, sticky narrative rail и отдельный сохраненный файл."
-    />
+    <title>CASE-WHERE-RESULT-01 — Где результат? — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как внутренний судья про результат маскировался под здравый смысл и вытаскивал клиента из жизни в самопроверку." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
       :root {
         --page-bg: #f3f0e8;
         --page-ink: #11151d;
-        --page-muted: #596170;
-        --page-line: rgba(17, 21, 29, 0.12);
-        --panel: rgba(255, 255, 255, 0.78);
+        --page-muted: #5c6472;
+        --page-line: rgba(17, 21, 29, 0.11);
+        --panel: rgba(255, 255, 255, 0.82);
         --hero-dark: #0d1320;
-        --hero-soft: #151d31;
-        --accent: #79a7ff;
-        --accent-2: #d7ec7e;
+        --hero-soft: #182239;
+        --accent: #d7ec7e;
+        --accent-2: #7ea6ff;
+        --accent-ink: #f3f9c7;
+        --accent-glow: rgba(215, 236, 126, 0.34);
         --tone-red: #ba6f70;
-        --tone-slate: #7b879c;
+        --tone-slate: #6d7a8f;
         --tone-amber: #c99642;
-        --tone-blue: #4c8fc5;
+        --tone-blue: #4d8fc4;
         --tone-green: #4b9067;
-        --shadow-soft: 0 20px 60px rgba(17, 21, 29, 0.08);
-        --radius-lg: 28px;
+        --shadow-soft: 0 24px 80px rgba(17, 21, 29, 0.1);
+        --radius-xl: 32px;
+        --radius-lg: 26px;
         --radius-md: 18px;
-        --radius-sm: 12px;
         --content-width: 1320px;
       }
 
@@ -45,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(215, 236, 126, 0.22),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(121, 167, 255, 0.2),
-            transparent 28%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -64,7 +55,8 @@
         color: inherit;
       }
 
-      img {
+      img,
+      svg {
         display: block;
         max-width: 100%;
       }
@@ -79,7 +71,8 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          linear-gradient(135deg, rgba(121, 167, 255, 0.14), transparent 40%),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
 
@@ -88,18 +81,16 @@
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-        background-size: 72px 72px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.75),
-          transparent 92%
-        );
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 84px 84px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
-      .poster-inner {
+      .poster-inner,
+      .story-shell,
+      .footer-shell {
         position: relative;
         z-index: 1;
         width: min(var(--content-width), 100%);
@@ -107,52 +98,33 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 3;
+        position: relative;
+        z-index: 4;
         display: flex;
-        align-items: center;
         justify-content: flex-end;
-        gap: 16px;
-        margin-bottom: 0;
+        width: 100%;
+        margin-bottom: 20px;
       }
 
-      .brand-lockup {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .brand-label,
+      .brand-copy,
       .meta-chip,
       .jump-link,
       .chapter-kicker,
       .rail-title,
+      .rail-nav span:first-child,
       .quote-label,
       .compare-label,
+      .section-callout-kicker,
+      .inner-callout-kicker,
       .footer-kicker {
         font-family: "IBM Plex Mono", monospace;
         text-transform: uppercase;
         letter-spacing: 0.12em;
       }
 
-      .brand-label {
-        font-size: 0.72rem;
-        color: rgba(245, 247, 251, 0.74);
-      }
-
-      .brand-name {
-        font-size: 0.9rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-      }
-
       .jump-link,
-      .poster-action,
-      .footer-action,
-      .rail-back {
+      .rail-back,
+      .footer-action {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -170,15 +142,12 @@
 
       .jump-link,
       .rail-back {
+        gap: 10px;
+        max-width: 100%;
+        padding-inline: 20px;
         border-color: rgba(255, 255, 255, 0.18);
         background: rgba(255, 255, 255, 0.05);
         color: #f5f7fb;
-      }
-
-      .jump-link {
-        gap: 10px;
-        max-width: min(100%, 420px);
-        padding-inline: 20px;
         font-size: 0.8rem;
         line-height: 1.2;
         text-align: left;
@@ -195,9 +164,14 @@
         text-wrap: balance;
       }
 
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+
       .jump-link:hover,
       .rail-back:hover,
-      .poster-action:hover,
       .footer-action:hover,
       .rail-nav a:hover {
         transform: translateY(-1px);
@@ -205,14 +179,14 @@
 
       .poster-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
         gap: clamp(32px, 6vw, 80px);
         align-items: end;
-        padding-top: clamp(8px, 2vw, 16px);
+        padding-top: clamp(10px, 2vw, 18px);
       }
 
       .hero-copy {
-        max-width: 680px;
+        max-width: 720px;
       }
 
       .meta-strip {
@@ -229,9 +203,9 @@
         padding: 0 12px;
         border-radius: 999px;
         border: 1px solid rgba(255, 255, 255, 0.14);
-        font-size: 0.68rem;
+        background: rgba(255, 255, 255, 0.05);
         color: rgba(245, 247, 251, 0.82);
-        background: rgba(255, 255, 255, 0.04);
+        font-size: 0.68rem;
       }
 
       h1 {
@@ -244,8 +218,8 @@
 
       .hero-lead {
         margin: 22px 0 0;
-        max-width: 52ch;
-        font-size: clamp(1.02rem, 2vw, 1.22rem);
+        max-width: 56ch;
+        font-size: clamp(1.02rem, 2vw, 1.2rem);
         color: rgba(245, 247, 251, 0.82);
       }
 
@@ -254,8 +228,8 @@
         margin: 28px 0 0;
         padding: 0;
         display: grid;
-        gap: 10px;
-        max-width: 60ch;
+        gap: 12px;
+        max-width: 62ch;
       }
 
       .hero-lines li {
@@ -275,18 +249,7 @@
       }
 
       .hero-lines span:last-child {
-        color: rgba(245, 247, 251, 0.8);
-      }
-
-      .footer-action.primary {
-        background: #f5f7fb;
-        color: var(--hero-dark);
-      }
-
-      .footer-action.secondary {
-        border-color: rgba(245, 247, 251, 0.22);
-        color: #f5f7fb;
-        background: transparent;
+        color: rgba(245, 247, 251, 0.82);
       }
 
       .hero-specs {
@@ -302,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -329,496 +288,400 @@
 
       .hero-visual {
         position: relative;
-        min-height: clamp(360px, 40vw, 520px);
+        min-height: clamp(340px, 40vw, 520px);
+      }
+
+      .hero-visual::before,
+      .hero-visual::after {
+        content: "";
+        position: absolute;
+        inset: auto;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        pointer-events: none;
+      }
+
+      .hero-visual::before {
+        inset: 4% 4% 2% 8%;
+        border-radius: 999px;
+      }
+
+      .hero-visual::after {
+        inset: 12% 18% 16% 12%;
+      }
+
+      .hero-rings,
+      .hero-glow {
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .hero-rings {
+        inset: -8% -6% -10% -12%;
+      }
+
+      .hero-rings::before,
+      .hero-rings::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .hero-rings::before {
+        inset: 0 4% 0 0;
+      }
+
+      .hero-rings::after {
+        inset: 18% 18% 18% 16%;
+      }
+
+      .hero-glow {
+        width: clamp(180px, 25vw, 280px);
+        height: clamp(180px, 25vw, 280px);
+        right: 10%;
+        bottom: 14%;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
+        filter: blur(6px);
+      }
+
+      .hero-figure {
+        position: absolute;
+        inset: 12% 10% 16% 10%;
         display: grid;
         place-items: center;
       }
 
-      .orbital-field {
-        position: relative;
-        width: min(100%, 560px);
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
-        background:
-          radial-gradient(
-            circle at 30% 30%,
-            rgba(121, 167, 255, 0.45),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at 70% 65%,
-            rgba(215, 236, 126, 0.3),
-            transparent 24%
-          ),
-          rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.03);
-        overflow: hidden;
+      .hero-figure-frame {
+        width: min(100%, 540px);
+        color: var(--accent-ink);
+        filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.18));
       }
 
-      .orbital-field::before,
-      .orbital-field::after {
-        content: "";
-        position: absolute;
-        inset: 10%;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 50%;
-        animation: drift 22s linear infinite;
-      }
-
-      .orbital-field::after {
-        inset: 22%;
-        animation-duration: 16s;
-        animation-direction: reverse;
-      }
-
-      .orbital-field svg {
-        position: absolute;
-        inset: 18%;
-        width: 64%;
-        height: 64%;
-        margin: auto;
-        filter: drop-shadow(0 24px 40px rgba(121, 167, 255, 0.2));
-        opacity: 0.92;
-      }
-
-      .orbital-field .focus-center {
-        animation: focus-pulse 1.5s ease-in-out infinite;
-        transform-origin: center;
+      .hero-figure-frame svg {
+        width: 100%;
+        height: auto;
+        max-height: 380px;
       }
 
       .hero-quote {
         position: absolute;
-        right: -4%;
-        bottom: 12%;
-        width: min(280px, 52vw);
-        padding: 18px 20px;
-        border-radius: var(--radius-md);
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(18px);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        box-shadow: var(--shadow-soft);
-      }
-
-      .quote-label {
-        font-size: 0.68rem;
-        color: rgba(245, 247, 251, 0.62);
+        right: 0;
+        bottom: 0;
+        width: min(390px, 78%);
+        padding: 24px 28px 26px;
+        border-radius: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
+          rgba(17, 21, 29, 0.5);
+        backdrop-filter: blur(24px);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
       }
 
       .hero-quote p {
-        margin: 10px 0 0;
-        font-size: clamp(1rem, 1.8vw, 1.24rem);
-        line-height: 1.3;
+        margin: 0;
+        font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-quote .quote-label {
+        display: block;
+        margin-bottom: 18px;
+        color: rgba(245, 247, 251, 0.66);
+        font-size: 0.76rem;
       }
 
       .story-shell {
-        width: min(var(--content-width), calc(100% - 32px));
-        margin: clamp(36px, 6vw, 84px) auto 0;
         display: grid;
-        grid-template-columns: 300px minmax(0, 1fr);
-        gap: clamp(24px, 4vw, 56px);
-        position: relative;
-        z-index: 2;
-      }
-
-      .story-rail {
-        position: relative;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: clamp(28px, 4vw, 46px);
+        margin-top: clamp(44px, 8vw, 84px);
+        margin-bottom: 72px;
       }
 
       .story-rail-inner {
         position: sticky;
-        top: 22px;
+        top: 28px;
         padding: 24px;
-        border-radius: 24px;
-        background: rgba(255, 255, 255, 0.76);
-        backdrop-filter: blur(18px);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.62);
         border: 1px solid rgba(17, 21, 29, 0.08);
-        box-shadow: var(--shadow-soft);
-      }
-
-      .rail-back {
-        min-height: 40px;
-        margin-bottom: 22px;
-        border-color: rgba(17, 21, 29, 0.12);
-        background: rgba(17, 21, 29, 0.03);
-        color: var(--page-ink);
+        backdrop-filter: blur(16px);
       }
 
       .rail-title {
-        font-size: 0.68rem;
+        margin: 0 0 18px;
         color: var(--page-muted);
-      }
-
-      .rail-headline {
-        margin: 10px 0 0;
-        font-size: 1.55rem;
-        line-height: 1.05;
-        letter-spacing: -0.04em;
-      }
-
-      .rail-summary {
-        margin-top: 18px;
-        display: grid;
-        gap: 12px;
-      }
-
-      .rail-row {
-        padding-top: 12px;
-        border-top: 1px solid var(--page-line);
-      }
-
-      .rail-row strong {
-        display: block;
-        margin-bottom: 4px;
-        font-size: 0.8rem;
-      }
-
-      .rail-row span {
-        color: var(--page-muted);
-        font-size: 0.94rem;
+        font-size: 0.74rem;
       }
 
       .rail-nav {
-        margin-top: 0;
-      }
-
-      .rail-nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
         display: grid;
-        gap: 4px;
-      }
-
-      .rail-nav li {
-        position: relative;
-        padding-left: 18px;
-      }
-
-      .rail-nav li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0.95em;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(17, 21, 29, 0.16);
-        transform: translateY(-50%);
-        transition:
-          transform 180ms ease,
-          background 180ms ease;
+        gap: 8px;
       }
 
       .rail-nav a {
-        display: block;
-        padding: 8px 0;
-        color: var(--page-muted);
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 16px;
         text-decoration: none;
+        color: var(--page-muted);
         transition:
-          color 180ms ease,
-          transform 180ms ease;
+          transform 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
       }
 
-      .rail-nav li.active::before {
-        background: var(--accent);
-        transform: translateY(-50%) scale(1.25);
-      }
-
-      .rail-nav li.active a {
+      .rail-nav a.is-active {
+        background: rgba(17, 21, 29, 0.06);
         color: var(--page-ink);
-        font-weight: 700;
       }
 
-      .rail-progress {
-        position: relative;
+      .rail-nav span:first-child {
+        font-size: 0.7rem;
+        color: var(--page-muted);
+      }
+
+      .rail-back {
+        margin-top: 18px;
         width: 100%;
-        height: 4px;
-        margin-top: 22px;
-        background: rgba(17, 21, 29, 0.08);
-        overflow: hidden;
-        border-radius: 999px;
-      }
-
-      .rail-progress-bar {
-        width: 0;
-        height: 100%;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
-        border-radius: inherit;
-        transition: width 160ms ease;
+        border-color: rgba(17, 21, 29, 0.08);
+        background: rgba(17, 21, 29, 0.04);
+        color: var(--page-ink);
       }
 
       .story-content {
-        padding: clamp(28px, 3vw, 44px) 0 90px;
+        display: grid;
+        gap: 26px;
       }
 
       .chapter {
-        --tone: var(--tone-slate);
         position: relative;
-        padding: 30px 0 34px 34px;
-        border-top: 1px solid var(--page-line);
-        scroll-margin-top: 24px;
+        padding: clamp(28px, 5vw, 42px);
+        padding-left: clamp(34px, 6vw, 50px);
+        border-radius: var(--radius-xl);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        box-shadow: var(--shadow-soft);
       }
 
       .chapter::before {
         content: "";
         position: absolute;
-        left: 0;
+        left: 18px;
         top: 36px;
         width: 14px;
         height: 14px;
         border-radius: 50%;
         background: var(--tone);
-        box-shadow: 0 0 0 8px color-mix(in srgb, var(--tone) 14%, transparent);
+        box-shadow: 0 0 0 8px color-mix(in srgb, var(--tone) 15%, transparent);
       }
 
       .chapter::after {
         content: "";
         position: absolute;
-        left: 6px;
-        top: 56px;
-        bottom: -20px;
+        left: 24px;
+        top: 58px;
+        bottom: -26px;
         width: 2px;
-        background: linear-gradient(
-          180deg,
-          color-mix(in srgb, var(--tone) 28%, transparent),
-          transparent
-        );
+        background: color-mix(in srgb, var(--tone) 22%, transparent);
       }
 
-      .chapter:last-of-type::after {
+      .story-content .chapter:last-child::after {
         display: none;
       }
 
       .tone-red {
         --tone: var(--tone-red);
       }
+
       .tone-slate {
         --tone: var(--tone-slate);
       }
+
       .tone-amber {
         --tone: var(--tone-amber);
       }
+
       .tone-blue {
         --tone: var(--tone-blue);
       }
+
       .tone-green {
         --tone: var(--tone-green);
       }
 
       .chapter-head {
         display: grid;
-        grid-template-columns: minmax(0, 1.35fr) minmax(180px, 0.65fr);
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 34%);
         gap: 24px;
         align-items: start;
       }
 
       .chapter-kicker {
-        font-size: 0.72rem;
         color: var(--tone);
+        font-size: 0.8rem;
       }
 
-      .chapter h2 {
-        margin: 10px 0 0;
-        max-width: 12ch;
-        font-size: clamp(2rem, 4vw, 3.6rem);
-        line-height: 0.94;
+      h2 {
+        margin: 14px 0 0;
+        font-size: clamp(2rem, 5vw, 4.2rem);
+        line-height: 0.98;
         letter-spacing: -0.05em;
       }
 
       .chapter-intro {
         margin: 0;
-        max-width: 30ch;
         color: var(--page-muted);
-        font-size: 1rem;
+        font-size: clamp(1rem, 1.5vw, 1.14rem);
       }
 
       .chapter-body {
-        margin-top: 26px;
-      }
-
-      .split-grid,
-      .quad-grid {
+        margin-top: 28px;
         display: grid;
         gap: 18px;
       }
 
-      .split-grid {
+      .chapter-grid {
+        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
       }
 
-      .quad-grid {
+      .detail-grid {
+        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .stack-block,
-      .line-block,
-      .quote-break,
-      .result-band,
-      .cta-shell {
-        border-radius: var(--radius-md);
-        border: 1px solid var(--page-line);
-        background: rgba(255, 255, 255, 0.62);
+        gap: 18px;
       }
 
       .line-block {
-        padding: 20px 22px 22px;
-        background: linear-gradient(
-          180deg,
-          color-mix(in srgb, var(--tone) 7%, white),
-          rgba(255, 255, 255, 0.62)
-        );
+        padding: 22px 24px 24px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid rgba(17, 21, 29, 0.08);
       }
 
-      .line-block h3,
-      .stack-block h3,
-      .result-band h3 {
-        margin: 0 0 12px;
-        font-size: 1.04rem;
+      .line-block-soft {
+        background: color-mix(in srgb, var(--tone) 7%, white);
       }
 
-      .line-block p,
-      .stack-block p,
-      .result-band p,
-      .cta-shell p {
+      h3 {
         margin: 0;
+        font-size: 1.28rem;
+        letter-spacing: -0.03em;
+      }
+
+      .line-block p {
+        margin: 12px 0 0;
         color: var(--page-muted);
       }
 
       .line-block ul,
-      .stack-block ul,
-      .result-band ul {
-        margin: 12px 0 0;
-        padding-left: 18px;
-        display: grid;
-        gap: 10px;
+      .compare-card ul {
+        margin: 18px 0 0;
+        padding-left: 22px;
+        color: var(--page-ink);
       }
 
       .line-block li,
-      .stack-block li,
-      .result-band li {
-        color: var(--page-ink);
+      .compare-card li {
+        margin-top: 8px;
       }
 
-      .quote-break {
-        margin-top: 18px;
-        padding: clamp(20px, 3vw, 30px);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.68)
-        );
-      }
-
-      .quote-break p {
-        margin: 10px 0 0;
-        max-width: 18ch;
-        font-size: clamp(1.4rem, 3vw, 2.2rem);
-        line-height: 1.02;
-        letter-spacing: -0.05em;
-      }
-
-      .stack-list {
-        display: grid;
-        gap: 14px;
-      }
-
-      .stack-block {
-        padding: 18px 22px 20px;
-      }
-
-      .stack-num {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 30px;
-        margin-bottom: 10px;
-        border-radius: 50%;
-        background: color-mix(in srgb, var(--tone) 16%, white);
-        color: var(--tone);
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.75rem;
-      }
-
-      .callout {
-        margin-top: 16px;
-        padding-top: 14px;
-        border-top: 1px solid var(--page-line);
-      }
-
-      .callout strong {
-        display: block;
-        margin-bottom: 6px;
-      }
-
-      .invariant-callout {
+      .section-callout,
+      .inner-callout {
         position: relative;
-        margin-top: 18px;
-        padding: 20px 22px 22px;
-        border-top: none;
-        border: 1px solid rgba(121, 167, 255, 0.28);
-        border-radius: 18px;
-        background: linear-gradient(
-          135deg,
-          rgba(121, 167, 255, 0.14),
-          rgba(215, 236, 126, 0.12) 72%,
-          rgba(255, 255, 255, 0.82)
-        );
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.5),
-          0 14px 28px rgba(17, 21, 29, 0.08);
+        padding: 22px 24px 24px;
+        border-radius: 24px;
         overflow: hidden;
       }
 
-      .invariant-callout::before {
+      .section-callout::before,
+      .inner-callout::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--accent), var(--accent-2));
       }
 
-      .invariant-callout strong {
-        font-family: "IBM Plex Mono", monospace;
+      .section-callout {
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
+      }
+
+      .inner-callout {
+        margin-top: 18px;
+      }
+
+      .invariant-callout {
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        background:
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
+        color: #f5f7fb;
+        box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
+      }
+
+      .invariant-callout::before {
+        width: 6px;
+      }
+
+      .section-callout-kicker,
+      .inner-callout-kicker {
+        position: relative;
+        z-index: 1;
         font-size: 0.74rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--page-ink);
       }
 
-      .invariant-callout p {
-        color: var(--page-ink);
-        font-size: 1.02rem;
+      .section-callout p,
+      .inner-callout p {
+        position: relative;
+        z-index: 1;
+        margin: 12px 0 0;
+        font-size: 1.06rem;
       }
 
-      .training-grid {
+      .quote-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
       }
 
-      .training-grid .line-block {
-        min-height: 100%;
+      .quote-card {
+        padding: 24px;
+        border-radius: 24px;
+        background: rgba(17, 21, 29, 0.04);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+      }
+
+      .quote-card blockquote {
+        margin: 14px 0 0;
+        font-size: 1.18rem;
+        line-height: 1.35;
+        letter-spacing: -0.03em;
       }
 
       .compare-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 76px minmax(0, 1fr);
-        gap: 20px;
-        align-items: stretch;
+        grid-template-columns: minmax(0, 1fr) 90px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
       }
 
       .compare-card {
-        border-radius: 24px;
-        padding: 24px;
-        border: 1px solid var(--page-line);
+        padding: 24px 26px 26px;
+        border-radius: 30px;
+        border: 1px solid rgba(17, 21, 29, 0.08);
       }
 
       .compare-card.before {
-        background: color-mix(in srgb, var(--tone-red) 11%, white);
+        background: color-mix(in srgb, var(--tone-red) 8%, white);
       }
 
       .compare-card.after {
@@ -837,8 +700,7 @@
 
       .compare-card p {
         margin: 14px 0 0;
-        color: var(--page-ink);
-        font-size: 1.02rem;
+        font-size: 1.04rem;
       }
 
       .compare-arrow {
@@ -852,65 +714,84 @@
         display: none;
       }
 
-      .result-band {
-        margin-top: 18px;
-        padding: 20px 22px 22px;
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone-green) 12%, white),
-          rgba(255, 255, 255, 0.78)
-        );
+      .result-callout {
+        margin-top: 4px;
       }
 
       .footer {
-        padding: 12px 16px 64px;
+        padding: 0 18px 64px;
       }
 
       .cta-shell {
-        width: min(var(--content-width), 100%);
-        margin: 0 auto;
-        padding: clamp(26px, 5vw, 42px);
-        background: linear-gradient(
-          135deg,
-          rgba(13, 19, 32, 0.96),
-          rgba(21, 29, 49, 0.96)
-        );
+        padding: clamp(28px, 5vw, 44px);
+        border-radius: 34px;
+        background:
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
-        box-shadow: var(--shadow-soft);
       }
 
       .footer-kicker {
-        font-size: 0.72rem;
-        color: rgba(245, 247, 251, 0.62);
+        font-size: 0.74rem;
+        color: rgba(245, 247, 251, 0.64);
       }
 
       .cta-shell h2 {
-        margin: 12px 0 0;
-        max-width: 13ch;
-        font-size: clamp(2rem, 4vw, 3.8rem);
-        line-height: 0.94;
-        letter-spacing: -0.05em;
+        margin-top: 14px;
+        max-width: 16ch;
+        font-size: clamp(2.2rem, 5vw, 4.6rem);
+        color: #f5f7fb;
       }
 
       .cta-shell p {
-        max-width: 56ch;
-        margin-top: 16px;
-        color: rgba(245, 247, 251, 0.74);
+        max-width: 58ch;
+        color: rgba(245, 247, 251, 0.8);
       }
 
       .footer-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 26px;
+        margin-top: 24px;
+      }
+
+      .footer-action {
+        padding-inline: 22px;
+      }
+
+      .footer-action-secondary {
+        border-color: rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f7fb;
+      }
+
+      .footer-action-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #11151d;
+      }
+
+      .footer-return {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
         opacity: 0;
         transform: translateY(24px);
         transition:
-          opacity 560ms ease,
-          transform 560ms ease;
+          opacity 520ms ease,
+          transform 520ms ease;
       }
 
       .reveal.is-visible {
@@ -918,23 +799,34 @@
         transform: translateY(0);
       }
 
-      .hero-seq-1 {
+      .hero-seq {
+        opacity: 0;
+        transform: translateY(24px);
         animation: hero-rise 680ms ease forwards;
       }
 
+      .hero-seq-1 {
+        animation-delay: 100ms;
+      }
+
       .hero-seq-2 {
-        opacity: 0;
-        animation: hero-rise 680ms 120ms ease forwards;
+        animation-delay: 180ms;
       }
 
       .hero-seq-3 {
-        opacity: 0;
-        animation: hero-rise 680ms 240ms ease forwards;
+        animation-delay: 260ms;
       }
 
       .hero-seq-4 {
-        opacity: 0;
-        animation: hero-rise 680ms 360ms ease forwards;
+        animation-delay: 340ms;
+      }
+
+      .hero-seq-5 {
+        animation-delay: 420ms;
+      }
+
+      .hero-seq-6 {
+        animation-delay: 500ms;
       }
 
       @keyframes hero-rise {
@@ -948,37 +840,14 @@
         }
       }
 
-      @keyframes focus-pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.18);
-        }
-      }
-
-      @keyframes drift {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
       @media (max-width: 1180px) {
         .story-shell {
           grid-template-columns: 1fr;
-          margin-top: 0;
+          margin-top: 42px;
         }
 
         .story-rail-inner {
           position: static;
-        }
-
-        .training-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
@@ -989,83 +858,62 @@
         }
 
         .topbar {
-          position: absolute;
-          top: 0;
-          right: 0;
-          left: auto;
-          width: min(100%, 240px);
-          justify-content: flex-end;
-          margin-bottom: 0;
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
+          padding-top: 28px;
           padding-inline: 18px;
-          padding-top: 96px;
-          padding-bottom: 28px;
+          padding-bottom: 34px;
         }
 
         .poster-grid,
         .chapter-head,
-        .split-grid,
         .compare-grid {
           grid-template-columns: 1fr;
         }
 
         .hero-visual {
-          min-height: 360px;
+          min-height: 380px;
         }
 
         .hero-quote {
           right: 0;
           bottom: 0;
+          width: min(340px, 82%);
         }
 
-        .hero-specs {
+        .hero-specs,
+        .chapter-grid,
+        .detail-grid,
+        .quote-grid {
           grid-template-columns: 1fr;
         }
 
         .compare-arrow {
-          min-height: 50px;
+          min-height: 52px;
         }
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
-          font-size: 0.74rem;
           justify-content: flex-start;
           align-items: flex-start;
+          font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
         }
 
-        .story-shell {
-          width: min(100% - 20px, var(--content-width));
+        .topbar {
+          margin-bottom: 18px;
         }
 
-        .story-content {
-          padding-top: 24px;
-        }
-
-        .chapter {
-          padding-left: 26px;
-        }
-
-        .chapter::before {
-          top: 32px;
-          width: 12px;
-          height: 12px;
-          box-shadow: 0 0 0 7px color-mix(in srgb, var(--tone) 14%, transparent);
-        }
-
-        .chapter::after {
-          left: 5px;
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1073,9 +921,31 @@
           gap: 6px;
         }
 
-        .quad-grid,
-        .training-grid {
-          grid-template-columns: 1fr;
+        .hero-figure {
+          inset: 12% 8% 22% 8%;
+        }
+
+        .hero-quote {
+          padding: 20px 22px 22px;
+        }
+
+        .hero-quote p {
+          font-size: clamp(1.26rem, 6vw, 1.7rem);
+        }
+
+        .chapter {
+          padding-left: 28px;
+        }
+
+        .chapter::before {
+          left: 12px;
+          width: 12px;
+          height: 12px;
+          box-shadow: 0 0 0 7px color-mix(in srgb, var(--tone) 14%, transparent);
+        }
+
+        .chapter::after {
+          left: 17px;
         }
 
         .compare-arrow {
@@ -1093,6 +963,28 @@
         .story-rail-inner {
           padding: 20px;
         }
+
+        .footer-actions {
+          flex-direction: column;
+        }
+
+        .footer-action {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .reveal,
+        .hero-seq {
+          opacity: 1;
+          transform: none;
+          animation: none;
+          transition: none;
+        }
       }
     </style>
   </head>
@@ -1100,7 +992,7 @@
     <div class="page">
       <section class="poster" id="hero">
         <div class="poster-inner">
-          <div class="topbar hero-seq-1">
+          <div class="topbar hero-seq hero-seq-1">
             <a class="jump-link" href="../">
               <span class="jump-link-arrow" aria-hidden="true">←</span>
               <span class="jump-link-text">Вернуться к каталогу кейсов</span>
@@ -1109,138 +1001,78 @@
 
           <div class="poster-grid">
             <div class="hero-copy">
-              <div class="meta-strip hero-seq-2">
-                <span class="meta-chip">case: IMT-DEMO-01</span>
+              <div class="meta-strip hero-seq hero-seq-2">
+                <span class="meta-chip">case: CASE-WHERE-RESULT-01</span>
                 <span class="meta-chip">based on summary: 2026-03-02</span>
                 <span class="meta-chip">read time: 10 minutes</span>
               </div>
 
-              <h1 class="hero-seq-2">Кейс «Где результат?»</h1>
-              <p class="hero-lead hero-seq-3">
-                Сначала это выглядело почти разумно. Клиент работал, развивал
-                свои проекты, у него были живой импульс, идеи и скорость. Но в
-                определённый момент в тишине поднимался короткий внутренний
-                голос:
-                <strong>«А результаты где?»</strong> И всё, что ещё минуту назад
-                ощущалось живым, начинало казаться подозрительным, инфантильным
-                и опасным.
-              </p>
+              <h1 class="hero-seq hero-seq-3">Где результат?</h1>
+              <p class="hero-lead hero-seq hero-seq-4">Снаружи это звучало почти разумно: если есть работа, усилия и дисциплина, то где же итог? Но вопрос «где результат?» быстро превращался во внутренний трибунал. Вместо причинной диагностики клиент оказывался в самосуде, а живой процесс обесценивался, если не совпадал с ожидаемой картинкой отдачи. Консультация развернула фокус с требования немедленного эффекта на закон, инвариант и то, из чего результат вообще рождается.</p>
 
-              <ul class="hero-lines hero-seq-4">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один обезличенный кейс, собранный как история сверху вниз:
-                    от старой реакции к новой.</span
-                  >
-                </li>
-                <li>
-                  <span class="k">Что покажу</span>
-                  <span
-                    >Как вопрос про результат оказался не здравым смыслом, а bug
-                    по имени, который ломал фокус и жизнеспособность.</span
-                  >
-                </li>
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Вместо гонки за быстрым результатом у клиента появился
-                    новый KPI: привычка созидать из любви и видеть рост
-                    жизнеспособности уже в процессе.</span
-                  >
-                </li>
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Прямые цитаты и реальные элементы сопровождения: саммари,
-                    бот, ретро и повторяемые разборы реакции.</span
-                  >
-                </li>
+              <ul class="hero-lines hero-seq hero-seq-5">
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Кейс о том, как вопрос про результат подменял собой реальное понимание причин.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Клиент путал отсутствие немедленного эффекта с отсутствием движения и срывался в самопроверку.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Результат снова начинал читаться как следствие закона, инварианта и качества причин, а не как повод для внутреннего суда.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про внутреннего судью, причинность, справедливость и возвращение к более глубокой рамке.</span>
+                      </li>
+                    
               </ul>
 
-              <div class="hero-specs hero-seq-4">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">
-                    Внутренний судья: «Где результат?»
-                  </div>
-                </article>
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Тревога, самонаказание, возврат к угождению ради ресурса
-                  </div>
-                </article>
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Привычка созидать из любви вместо доказательства права на
-                    жизнь
-                  </div>
-                </article>
+              <div class="hero-specs hero-seq hero-seq-6">
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Внутренний судья про результат</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Самосуд, потеря опоры и выпадение из живого процесса</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Результат рождается из причинной модели и инварианта, а не из внутреннего допроса</div>
+                      </article>
+                    
               </div>
             </div>
 
-            <div class="hero-visual hero-seq-3" aria-hidden="true">
-              <div class="orbital-field">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 100 100"
-                  focusable="false"
-                >
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="35"
-                    fill="none"
-                    stroke="rgba(245, 247, 251, 0.28)"
-                    stroke-width="1"
-                  />
-                  <line
-                    x1="50"
-                    y1="20"
-                    x2="50"
-                    y2="40"
-                    stroke="#79a7ff"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="50"
-                    y1="60"
-                    x2="50"
-                    y2="80"
-                    stroke="#79a7ff"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="20"
-                    y1="50"
-                    x2="40"
-                    y2="50"
-                    stroke="#79a7ff"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="60"
-                    y1="50"
-                    x2="80"
-                    y2="50"
-                    stroke="#79a7ff"
-                    stroke-width="2"
-                  />
-                  <circle
-                    class="focus-center"
-                    cx="50"
-                    cy="50"
-                    r="5"
-                    fill="#79a7ff"
-                  />
-                </svg>
+            <div class="hero-visual hero-seq hero-seq-3">
+              <div class="hero-rings" aria-hidden="true"></div>
+              <div class="hero-glow" aria-hidden="true"></div>
+              <div class="hero-figure">
+                <div class="hero-figure-frame" role="img" aria-label="Причинная сеть результата и внутренних законов">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Network: C7;K 8 A2O78">
+  <line x1="50" y1="50" x2="25" y2="30" stroke="#4a5768" stroke-width="1" opacity="0.5"/>
+  <line x1="50" y1="50" x2="75" y2="30" stroke="#4a5768" stroke-width="1" opacity="0.5"/>
+  <line x1="50" y1="50" x2="25" y2="70" stroke="#4a5768" stroke-width="1" opacity="0.5"/>
+  <line x1="50" y1="50" x2="75" y2="70" stroke="#4a5768" stroke-width="1" opacity="0.5"/>
+  <circle cx="50" cy="50" r="8" fill="#1b4ed8"/>
+  <circle cx="25" cy="30" r="5" fill="#4a5768"/>
+  <circle cx="75" cy="30" r="5" fill="#4a5768"/>
+  <circle cx="25" cy="70" r="5" fill="#4a5768"/>
+  <circle cx="75" cy="70" r="5" fill="#4a5768"/>
+</svg>
+                </div>
               </div>
-              <div class="hero-quote">
-                <span class="quote-label">Цитаты клиента</span>
-                <p>«старый мозг говорит, ну, а результаты где?»</p>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -1249,575 +1081,301 @@
       <div class="story-shell">
         <aside class="story-rail">
           <div class="story-rail-inner">
-            <nav class="rail-nav" aria-label="Навигация по кейсу">
-              <div class="rail-title">Оглавление</div>
-              <ul id="toc">
-                <li class="active"><a href="#hero">О кейсе</a></li>
-                <li><a href="#stimulus">Начальный стимул-реакция</a></li>
-                <li><a href="#consultation">Консультация</a></li>
-                <li><a href="#support">Сопровождение</a></li>
-                <li><a href="#training">Обучение</a></li>
-                <li><a href="#result">Новый результат</a></li>
-              </ul>
+            <p class="rail-title">Навигация по кейсу</p>
+            <nav class="rail-nav" aria-label="Разделы кейса">
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
-
-            <div class="rail-progress" aria-hidden="true">
-              <div class="rail-progress-bar" id="rail-progress-bar"></div>
-            </div>
+            <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section
-            class="chapter tone-red reveal is-visible"
-            id="stimulus"
-            data-title="Начальный стимул-реакция"
-          >
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>Сначала это и звучало как здравый смысл</h2>
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Вопрос «где результат?» запускал внутренний трибунал</h2>
+        </div>
+        <p class="chapter-intro">Сценарий включался не только после больших провалов. Достаточно было замедления, паузы или несоответствия ожиданиям, чтобы внутри появлялся знакомый судья. Вместо диагностики причин клиент переходил в режим проверки: а не пустышка ли все это, а не зря ли было движение, а не надо ли срочно доказать себе право продолжать.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Как выглядел старый цикл</h3>
+      <ul><li>После усилия или периода роста взгляд автоматически падал не на причину, а на немедленный измеримый эффект.</li><li>Если эффект не соответствовал ожиданию, внутри включался допрос: где итог, где доказательство, где гарантия.</li><li>Полезные сдвиги теряли ценность, если их нельзя было быстро предъявить как готовый внешний результат.</li><li>Чем сильнее был внутренний суд, тем слабее клиент видел реальные изменения, которые уже происходили.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент пробовал по старому</h3>
+      <ul><li>Подгонять себя ускорением и дополнительным давлением.</li><li>Считать, что сомнение помогает оставаться реалистом и не расслабляться.</li><li>Сравнивать живой процесс только с конечной картинкой результата.</li><li>Искать больше контроля вместо более точной причинной карты.</li></ul>
+    </article>
+  
+        </div>
+        
+              <div class="section-callout">
+                <div class="section-callout-kicker">Цена дефекта</div>
+                <p>Внутренний вопрос про результат выглядел трезво, но фактически крал у клиента и внимание, и мотивацию. Вместо работы с причинами включался самосуд, а вместе с ним — потеря контакта с тем, что уже менялось в реальности.</p>
               </div>
-              <p class="chapter-intro">
-                Снаружи здесь не было драматической сцены. Ничего не горело,
-                никто не кричал, всё выглядело даже продуктивно. Клиент шёл в
-                работу, у него были идеи и движение. Но как только дело касалось
-                денег, горизонта или внешнего подтверждения, внутри поднимался
-                старый судья: если нельзя быстро показать результат, значит
-                клиент занялся ерундой. Именно в этот момент живой импульс
-                переставал быть союзником и становился подозреваемым.
-              </p>
-            </div>
+            
+        
+      </div>
+    </section>
+  
 
-            <div class="chapter-body">
-              <div class="split-grid">
-                <article class="line-block">
-                  <h3>Входной результат в ситуации</h3>
-                  <ul>
-                    <li>
-                      Созидание шло волной: были энергия, идеи и быстрое
-                      движение от импульса к действию.
-                    </li>
-                    <li>
-                      Но при столкновении с темой дохода или внешней оценки
-                      начиналось внутреннее обрушение.
-                    </li>
-                    <li>
-                      Появлялось сомнение: это был путь или просто красиво
-                      оформленное баловство.
-                    </li>
-                    <li>
-                      Клиент начинал мерить правильность не жизнеспособностью, а
-                      наличием быстрого земного результата.
-                    </li>
-                  </ul>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>Консультация вернула вопрос из суда в причинную науку</h2>
+        </div>
+        <p class="chapter-intro">Разворот начался с простой, но жесткой мысли: результат нельзя требовать как самостоятельную сущность. Он появляется из закона, причин и выбранного инварианта. Пока клиент спрашивал только про итог, он терял саму систему, которая этот итог производит.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг можно назвать так: <strong>внутренний судья про результат</strong>. Клиент обращался с результатом как с отдельной валютой, которую надо немедленно предъявить, иначе весь путь обесценивался.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже жила привязка ценности к внешнему подтверждению: если нельзя быстро показать плод, значит внутри как будто и не было реального движения. Отсюда росло недоверие к процессу, к постепенности и к причинной сборке результата.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант сместил фокус с требования немедленного эффекта на более строгую рамку: что именно здесь является причиной, какой закон включен, какой инвариант удерживается и почему именно из этого потом рождается наблюдаемый плод.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч состоял в том, чтобы перестать путать результат с единственным доказательством жизни. Вместо самосудa клиент возвращался к вопросу: что я сейчас действительно причиняю, какой закон запускаю и становится ли в этой системе больше жизнеспособности.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Я работаю не на мгновенное доказательство, а на правильную причинную сборку. Результат приходит как плод закона, а не как трофей внутреннего суда.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>Какие способы пробовал клиент</h3>
-                  <ul>
-                    <li>
-                      Держать в голове образ большого будущего результата,
-                      который однажды всё оправдал бы.
-                    </li>
-                    <li>
-                      Форсировать результат, чтобы как можно быстрее доказать
-                      себе и миру, что путь был «нормальный».
-                    </li>
-                    <li>
-                      Возвращаться к знакомой стратегии: угодить, убедить,
-                      доказать, получить ресурс извне.
-                    </li>
-                    <li>
-                      Снова и снова проверять себя по одному и тому же вопросу:
-                      «Ну а где видимый результат?»
-                    </li>
-                  </ul>
-                </article>
-              </div>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат был в том, что клиент перестал обнулять живой процесс</h2>
+        </div>
+        <p class="chapter-intro">После консультации не исчезло желание видеть плод. Но вопрос про результат перестал автоматически разрушать уже происходящее. Появилась возможность замечать более ранние сдвиги: где усиливается понимание, где меняется реакция, где система уже стала здоровее, даже если итог еще только дозревает.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Клиент начал различать плод и ранние признаки правильной причинной сборки.</li><li>Вопрос про результат все чаще использовался для диагностики, а не для самобичевания.</li><li>Стало проще удерживать ритм, даже когда внешний эффект еще не выглядел завершенным.</li><li>Живой процесс перестал обнуляться только потому, что он не укладывался в старую метрику.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Уходила зависимость от мгновенного подтверждения.</li><li>Вместо «докажи» усиливался вопрос «что именно сейчас причиняется».</li><li>Реальные изменения стали виднее, даже если они пока не монетизировались и не оформлялись в громкий итог.</li><li>Самооценка меньше зависела от скорости внешнего плода.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-              <div class="quote-break">
-                <span class="quote-label">Цена дефекта</span>
-                <p>
-                  Каждая такая проверка съедает не только время. Она съедает
-                  доверие к собственному импульсу, делает созидание похожим на
-                  допрос и всё ближе возвращает клиента в старый контур:
-                  <em>угоди — докажи — получи право продолжать</em>.
-                </p>
-              </div>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло причинную рамку и распознавание повторяющегося суда</h2>
+        </div>
+        <p class="chapter-intro">Новый взгляд требовал повторения: мало один раз услышать, что результат — это плод закона. Нужно было регулярно переводить себя из режима внутреннего трибунала в режим наблюдения за причинами, стимулом и инвариантом прямо в повседневных сценах.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Ловить момент, когда вопрос про результат превращается в самосуд, а не в диагностику.</li><li>Разводить плод, причину и ранние признаки правильного движения.</li><li>Возвращаться к вопросу о законе и инварианте до того, как включится привычное давление.</li><li>Проверять, стало ли в системе больше жизни, а не только больше отчета о достигнутом.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-science-doc">LP-SCIENCE-01</a></strong>. Он удерживал саму причинную рамку: результат как следствие закона, справедливости и более глубокой модели реальности, а не как отдельный фетиш для внутренней проверки.</p><p>На уровне распознавания повторяющейся автоматической реакции кейс дополнительно поддерживал <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-patterns-doc">LP-PATTERNS-01</a></strong>: он помогал заметить сам запуск старого суда и перенести новое понимание в бытовые эпизоды.</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-              <div class="split-grid" style="margin-top: 18px">
-                <article class="line-block">
-                  <h3>Цитаты клиента</h3>
-                  <p>«может, это все-таки баловство, хобби какое-то»</p>
-                </article>
-
-                <article class="line-block">
-                  <h3>Цитаты клиента</h3>
-                  <p>«старый мозг говорит, ну, а результаты где?»</p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section
-            class="chapter tone-slate reveal"
-            id="consultation"
-            data-title="Консультация"
-          >
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>На консультации баг получил имя</h2>
-              </div>
-              <p class="chapter-intro">
-                До этого момента всё переживалось как личная проблема характера:
-                будто клиент был недостаточно зрелым, недостаточно жёстким,
-                недостаточно эффективным. На консультации произошёл другой
-                поворот. Проблема перестала быть «мной» и стала архитектурой
-                бага. А с багом уже можно работать.
-              </p>
-            </div>
-
-            <div class="chapter-body">
-              <div class="stack-list">
-                <article class="stack-block">
-                  <div class="stack-num">01</div>
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    На консультации баг получил имя:
-                    <strong>«Внутренний судья: где результат?»</strong>. Он
-                    маскировался под зрелость и реализм, но на деле каждый раз
-                    срывал клиента с процесса в самопроверку и тревогу.
-                  </p>
-                  <ul>
-                    <li>«старый мозг говорит, ну, а результаты где?»</li>
-                    <li>«может, это все-таки баловство, хобби какое-то»</li>
-                  </ul>
-                </article>
-
-                <article class="stack-block">
-                  <div class="stack-num">02</div>
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В предыдущем поколении закрепился сценарий тяжёлого долгого
-                    труда ради права когда-нибудь выдохнуть. Ценилось только то,
-                    что можно было предъявить результатом. Отсюда и у клиента
-                    появилась скрытая прошивка: если быстрый результат не виден,
-                    значит движение подозрительно.
-                  </p>
-                </article>
-
-                <article class="stack-block">
-                  <div class="stack-num">03</div>
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант не успокаивал клиента и не уговаривал «просто
-                    верить в себя». Он поменял систему координат: вопрос про
-                    результат перестал быть главным критерием и стал триггером,
-                    который показывал, куда именно утекал фокус.
-                  </p>
-                </article>
-
-                <article class="stack-block">
-                  <div class="stack-num">04</div>
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Новый патч звучал почти слишком просто, чтобы мозг сразу
-                    поверил:
-                    <strong>«Какой KPI — то и растёт»</strong>. Если KPI —
-                    быстрый телесный результат, вырастет зависимость от
-                    результата. Если KPI — привычка созидать из любви, будет
-                    расти способность жить и действовать без постоянного
-                    внешнего приговора.
-                  </p>
-                  <div class="callout invariant-callout">
-                    <strong>Инвариант Cloud OS</strong>
-                    <p>
-                      Я не доказываю право на созидание результатом. Я строю
-                      привычку созидать из любви и вижу рост жизнеспособности
-                      уже в процессе.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section
-            class="chapter tone-amber reveal"
-            id="support"
-            data-title="Сопровождение"
-          >
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>Первый раз без дефекта происходит вручную</h2>
-              </div>
-              <p class="chapter-intro">
-                Важный момент: новый патч не становился автоматикой в тот же
-                день. Сначала появлялся первый
-                <strong>stage-кейс без дефекта</strong>, ручной и хрупкий. Это
-                ещё не была новая природа, но уже не старая ловушка. Впервые
-                клиент не пытался выиграть у страха красивой теорией, а создавал
-                для себя рабочий контур сопровождения.
-              </p>
-            </div>
-
-            <div class="chapter-body">
-              <div class="split-grid">
-                <article class="line-block">
-                  <h3>Первый stage-результат</h3>
-                  <ul>
-                    <li>
-                      Запускались регулярные разборы негативных реакций через
-                      структуру `стимул -> реакция -> понимание -> новое
-                      понимание`.
-                    </li>
-                    <li>
-                      Одна и та же реакция прогонялась через два ИИ, чтобы
-                      увидеть баг под разными углами.
-                    </li>
-                    <li>
-                      Боты натравливались не на фантазии, а на реальные файлы
-                      ложных и новых пониманий из консультаций.
-                    </li>
-                    <li>
-                      Импульс переставал быть хаотичным: он получал первое
-                      защищённое пространство для закрепления.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Что начинало меняться в привычке</h3>
-                  <ul>
-                    <li>
-                      Вопрос «где результат?» больше не воспринимался как
-                      абсолютная истина.
-                    </li>
-                    <li>Появлялась пауза между стимулом и старой реакцией.</li>
-                    <li>
-                      Созидание уже не было обязано мгновенно оправдываться
-                      перед внутренним судом.
-                    </li>
-                    <li>
-                      Клиент начинал замечать не только результат, но и то, как
-                      менялась его жизнеспособность в процессе.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="split-grid" style="margin-top: 18px">
-                <article class="line-block">
-                  <h3>Цитаты клиента</h3>
-                  <p>
-                    «я начал более активно делать разборы своих негативных
-                    реакций ботами своим стимул реакция понимание»
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>Цитаты клиента</h3>
-                  <p>
-                    «приходят импульсы ... довольно быстро перехожу к реализации
-                    этих идей»
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section
-            class="chapter tone-blue reveal"
-            id="training"
-            data-title="Обучение"
-          >
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>Здесь патч перестал быть красивой мыслью</h2>
-              </div>
-              <p class="chapter-intro">
-                Если остановиться на одном инсайте, старая система через время
-                вернулась бы. Поэтому следующий слой был не про вдохновение, а
-                про обучение. Патч должен был выдержать повторяемость, пройти
-                через сопровождение и стать новой логикой реакции.
-              </p>
-            </div>
-
-            <div class="chapter-body">
-              <div class="training-grid">
-                <article class="line-block">
-                  <h3>Теория инварианта через Learning Path</h3>
-                  <p>
-                    Для этого кейса логично ложился
-                    <a
-                      href="https://app.imt.dev/lp-patterns-doc"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Learning Path «Паттерны»</a
-                    >: он помогал увидеть, как повторяющийся вопрос становился
-                    автоматическим сценарием и как перепрошивать его не
-                    техникой, а новой причинной картой.
-                  </p>
-                  <p style="margin-top: 12px">
-                    Особенно важны были слои про прогресс, нехватку vs изобилие
-                    и удержание нового курса без отката в старую драму
-                    результата.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>Сопровождение ботом и ретро</h3>
-                  <p>
-                    В сопровождение уходили не общие слова, а конкретные
-                    переменные из саммари: утренний вопрос, вечернее ретро,
-                    аффирмации, ключевые цитаты, связка реакции и новые
-                    действия. Перед следующей консультацией бот собирал материал
-                    для ретро, чтобы новая реакция не оставалась на уровне
-                    настроения.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>10–20 повторений: stage -> prod</h3>
-                  <p>
-                    Новый патч считался живым не тогда, когда он понравился, а
-                    когда выдерживал серию похожих ситуаций. Рабочий ориентир
-                    здесь — много повторений одного и того же шаблона поведения:
-                    заметил стимул, разобрал реакцию, увидел ложное понимание,
-                    усилил новое. Так ручной stage постепенно становился
-                    прод-реакцией.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>Новая фича: дневник успеха</h3>
-                  <p>
-                    На этом этапе фиксировалось не только «я не сорвался», но и
-                    новая функциональность: как теперь выглядело действие без
-                    старого дефекта. Это уже было не просто отсутствие поломки,
-                    а новая реакция, которую можно описать, повторить и встроить
-                    в повседневную жизнь.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section
-            class="chapter tone-green reveal"
-            id="result"
-            data-title="Новый результат"
-          >
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>Тот же самый вопрос больше не владеет сценой</h2>
-              </div>
-              <p class="chapter-intro">
-                В какой-то момент приходил похожий стимул: неопределённость,
-                горизонт без гарантии, соблазн снова проверить себя быстрым
-                результатом. Разница была в том, что теперь клиент не был обязан
-                обрывать своё созидание этим вопросом. Он уже умел распознавать
-                баг раньше, чем тот успевал стать приговором.
-              </p>
-            </div>
-
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Любая неопределенность мгновенно переводила клиента в
-                    тревогу: созидание теряло законность, а энергия уходила в
-                    самосуд.
-                  </p>
-                  <ul>
-                    <li>Стимул: «где результат?»</li>
-                    <li>Энергия уходит в самопроверку</li>
-                    <li>Следующий шаг останавливается</li>
-                  </ul>
-                </article>
-
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Тот же вопрос стал фиксироваться как баг, а не как приговор:
-                    фокус возвращается к следующему кирпичу и не требует сначала
-                    оправдаться.
-                  </p>
-                  <ul>
-                    <li>Стимул распознается раньше</li>
-                    <li>Следующий шаг продолжается</li>
-                    <li>
-                      Рост читается по жизнеспособности, а не только по витрине
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quad-grid" style="margin-top: 18px">
-                <article class="line-block">
-                  <h3>Новый наблюдаемый результат</h3>
-                  <ul>
-                    <li>
-                      Идеи быстрее переходили в реализацию без долгого
-                      внутреннего трибунала.
-                    </li>
-                    <li>
-                      Повышалось ощущение жизнеспособности от самого процесса, а
-                      не только от финального результата.
-                    </li>
-                    <li>
-                      Снижалась вероятность отката в старую стратегию «угодить и
-                      получить право на жизнь».
-                    </li>
-                    <li>
-                      Появлялся ритм: не насилие ради результата, а повторяемое
-                      созидание, которое не убивало любовь к следующему шагу.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Что стало новым критерием</h3>
-                  <ul>
-                    <li>
-                      Не быстрый внешний результат, а рост жизнеспособности в
-                      процессе.
-                    </li>
-                    <li>
-                      Не самосуд и оправдание, а точное наблюдение за реакцией.
-                    </li>
-                    <li>
-                      Не один удачный инсайт, а повторяемый контур закрепления.
-                    </li>
-                    <li>
-                      Не чужой вердикт, а способность клиента удерживать новый
-                      курс в похожих ситуациях.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <article class="result-band">
-                <h3>Финальная мысль</h3>
-                <p>
-                  Самое опасное в этом баге то, что он говорит голосом реализма.
-                  Самое ценное в патче — то, что он не спорит с реальностью, а
-                  меняет сам критерий жизни. Не «есть ли уже доказанный
-                  результат», а «растёт ли во мне способность созидать так,
-                  чтобы жизни становилось больше».
-                </p>
-              </article>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат был в том, что плод перестал быть единственным доказательством жизни</h2>
+        </div>
+        <p class="chapter-intro">В новом контуре клиент не отказался от результата. Изменилось место результата в системе. Он перестал быть дубинкой против самого себя и стал более честным следствием того, какие причины реально собираются в жизни, работе и выборе.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Если внешний плод не появлялся быстро, клиент легко проваливался в обесценивание пути и внутренний допрос о собственной несостоятельности.</p>
+            <ul><li>Главный вопрос: где доказательство результата прямо сейчас</li><li>Процесс без мгновенного плода обесценивается</li><li>Самосуд сильнее, чем диагностика причин</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Клиент чаще видел причинную сборку, удерживал ритм и замечал рост жизнеспособности раньше, чем итог становился громким и окончательно оформленным.</p>
+            <ul><li>Главный вопрос: что именно сейчас причиняется</li><li>Ранние сдвиги тоже считаются данными</li><li>Результат читается как плод закона и инварианта</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Меньше внутреннего давления и допроса после неполного или отложенного эффекта.</li><li>Больше внимания к закону, стимулу и качеству причинного контура.</li><li>Стабильнее ритм действия без постоянного требования себе доказать право продолжать.</li><li>Выше чувствительность к тому, где реальность уже стала здоровее, даже если итог еще дозревает.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Результат — плод, а не идол.</li><li>Справедливость работает через закон и причинную структуру.</li><li>Внутренний суд не делает мышление точнее, а только шумит поверх данных.</li><li>Жизнеспособность системы можно замечать раньше, чем финальный эффект станет очевидным.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не насколько быстро я добыл доказательство результата, а насколько точно собрал причинный контур, из которого этот результат потом вырастает.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
-      <footer class="footer" id="next-step">
-        <div class="cta-shell reveal">
-          <h2>Если в этом кейсе узнаётся твой сценарий</h2>
-          <p>
-            Иногда один named bug объясняет больше, чем десяток общих советов.
-            Если узнаёшь в этом кейсе свой шаблон поведения, дальше уже не нужно
-            долго объяснять себе, что происходит. Достаточно выбрать следующий
-            формат движения: сначала глубже разобрать теорию паттерна или сразу
-            вынести похожий баг на личный разбор.
-          </p>
-          <div class="footer-actions">
-            <a
-              class="footer-action secondary"
-              href="https://app.imt.dev/lp-patterns-doc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Открыть LP «Паттерны»
-            </a>
-            <a
-              class="footer-action primary"
-              href="https://imt.dev/typkd"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Разобрать похожий кейс
-            </a>
-          </div>
-          <div class="footer-actions" style="margin-top: 18px">
-            <a class="footer-action secondary" href="../"
-              >← Вернуться к каталогу кейсов</a
-            >
-          </div>
+      <footer class="footer">
+        <div class="footer-shell">
+          <section class="cta-shell reveal" id="next-step">
+            <div class="footer-kicker">Следующий шаг</div>
+            <h2>Если вопрос «где результат?» слишком быстро превращается во внутренний суд</h2>
+            <p>Этот кейс полезен тем, кто привык мерить живой процесс только внешним плодом и из-за этого регулярно теряет контакт с реальной причинной динамикой.</p>
+            <div class="footer-actions">
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-science-doc" target="_blank" rel="noopener noreferrer">Открыть LP-SCIENCE-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
+            </div>
+            <div class="footer-return">
+              <a class="jump-link" href="../">
+                <span class="jump-link-arrow" aria-hidden="true">←</span>
+                <span class="jump-link-text">Вернуться к каталогу кейсов</span>
+              </a>
+            </div>
+          </section>
         </div>
       </footer>
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const revealItems = Array.from(document.querySelectorAll(".reveal"));
-        const navItems = Array.from(document.querySelectorAll("#toc li"));
-        const navLinks = Array.from(document.querySelectorAll("#toc a"));
-        const sections = navLinks
-          .map((link) => document.querySelector(link.getAttribute("href")))
-          .filter(Boolean);
-        const progressBar = document.querySelector("#rail-progress-bar");
+      (() => {
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const revealNodes = [...document.querySelectorAll(".reveal")];
 
-        const setActive = (id) => {
-          navItems.forEach((item) => {
-            const link = item.querySelector("a");
-            item.classList.toggle(
-              "active",
-              link && link.getAttribute("href") === "#" + id,
-            );
-          });
-        };
-
-        const updateProgress = () => {
-          const scrollable =
-            document.documentElement.scrollHeight - window.innerHeight;
-          const progress =
-            scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-          if (progressBar)
-            progressBar.style.width = Math.min(progress, 100) + "%";
-
-          let current = sections[0] ? sections[0].id : "";
-          sections.forEach((section) => {
-            const top = section.getBoundingClientRect().top;
-            if (top <= 180) current = section.id;
-          });
-          if (current) setActive(current);
-        };
-
-        if ("IntersectionObserver" in window) {
-          const observer = new IntersectionObserver(
-            (entries) => {
+        if (!reduced && "IntersectionObserver" in window) {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
               entries.forEach((entry) => {
-                if (entry.isIntersecting)
-                  entry.target.classList.add("is-visible");
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
               });
             },
-            { threshold: 0.15 },
+            { threshold: 0.16 },
           );
 
-          revealItems.forEach((item) => observer.observe(item));
+          revealNodes.forEach((node) => revealObserver.observe(node));
         } else {
-          revealItems.forEach((item) => item.classList.add("is-visible"));
+          revealNodes.forEach((node) => node.classList.add("is-visible"));
         }
 
-        window.addEventListener("scroll", updateProgress, { passive: true });
-        window.addEventListener("resize", updateProgress);
-        updateProgress();
-      });
+        const links = [...document.querySelectorAll(".rail-nav a")];
+        const linkMap = new Map(
+          links.map((link) => [link.dataset.target, link]),
+        );
+        const chapters = [...document.querySelectorAll(".chapter[id]")];
+
+        const setActive = (id) => {
+          links.forEach((link) => {
+            link.classList.toggle("is-active", link.dataset.target === id);
+          });
+        };
+
+        if (chapters.length && "IntersectionObserver" in window) {
+          const navObserver = new IntersectionObserver(
+            (entries) => {
+              const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+              if (visible && linkMap.has(visible.target.id)) {
+                setActive(visible.target.id);
+              }
+            },
+            {
+              rootMargin: "-28% 0px -52% 0px",
+              threshold: [0.12, 0.3, 0.6],
+            },
+          );
+
+          chapters.forEach((chapter) => navObserver.observe(chapter));
+          setActive(chapters[0].id);
+        }
+      })();
     </script>
   </body>
 </html>

@@ -83,6 +83,24 @@
             margin-bottom: var(--space-5);
         }
 
+        .doc-header-nav {
+            margin-bottom: 14px;
+        }
+
+        .doc-header-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #fff;
+            color: #2f415f;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
         .hero-metaphor {
             position: absolute;
             top: 22px;
@@ -484,31 +502,55 @@
         .diff .old { color: #8a1c1c; }
         .diff .new { color: #135c32; }
 
-        .testimonial-grid {
+        .case-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
         }
 
-        .testimonial {
+        .case-card {
             border: 1px solid var(--line);
             background: #fff;
             border-radius: 12px;
             padding: 14px;
             display: grid;
             gap: 8px;
+            color: inherit;
+            text-decoration: none;
         }
 
-        .t-role {
+        .case-card:hover {
+            border-color: #b9c8eb;
+            box-shadow: 0 14px 34px rgba(27, 78, 216, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .case-role {
             font-size: 0.8rem;
             color: var(--muted);
             font-weight: 600;
         }
 
-        .t-row strong {
+        .case-title {
+            font-size: 1.06rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .case-row {
+            color: var(--muted);
+        }
+
+        .case-row strong {
             display: inline-block;
             min-width: 95px;
             color: #22324f;
+            font-weight: 600;
+        }
+
+        .case-cta {
+            margin-top: 4px;
+            color: var(--link);
             font-weight: 600;
         }
 
@@ -655,20 +697,46 @@
         }
 
         @media (max-width: 640px) {
+            .container {
+                width: min(1240px, calc(100% - 24px));
+            }
+
             .doc-header { padding: 18px 80px 18px 18px; }
             .hero-metaphor { top: 18px; right: 18px; width: 56px; height: 56px; }
+
+            .hero-lines li {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .hero-lines .k {
+                font-size: 0.74rem;
+            }
+
+            .quick-specs {
+                grid-template-columns: 1fr;
+            }
         }
         @media (max-width: 400px) {
             .doc-header { padding: 16px 68px 16px 16px; }
             .hero-metaphor { top: 16px; right: 16px; width: 48px; height: 48px; }
         }
         @media (max-width: 840px) {
+            .page {
+                padding-bottom: 140px;
+            }
+
             .quick-specs,
             .two-col,
             .module-grid,
-            .testimonial-grid,
+            .case-grid,
             .sidebar {
                 grid-template-columns: 1fr;
+            }
+
+            .doc-header-nav a {
+                width: 100%;
+                justify-content: center;
             }
 
             .mobile-cta {
@@ -698,6 +766,7 @@
         <div class="container page-grid">
             <main class="main">
                 <header class="doc-header" id="hero">
+                    <div class="doc-header-nav"><a href="https://app.imt.dev/lp-catalog">← Каталог Learning Paths</a></div>
                     <div class="hero-metaphor" aria-hidden="true">
                         <svg viewBox="0 0 100 100" focusable="false">
                             <line x1="50" y1="50" x2="25" y2="30" stroke="currentColor" stroke-width="1" opacity="0.5"/>
@@ -713,7 +782,7 @@
                     </div>
                     <div class="meta-row">
                         <span class="meta-tag">version: LP-SCIENCE-DOC v1.0</span>
-                        <span class="meta-tag">last updated: 2026-02-13</span>
+                        <span class="meta-tag">last updated: 2026-04-12</span>
                         <span class="meta-tag">level: advanced</span>
                     </div>
                     <h1>Научный трек и концепция жизни</h1>
@@ -895,24 +964,29 @@
 
                 <section class="section" id="proof">
                     <h2>Отзывы и результаты</h2>
-                    <p class="section-intro"><strong>В этом разделе:</strong> кейсы в формате проблема → действие → результат.</p>
-                    <div class="testimonial-grid">
-                        <article class="testimonial">
-                            <div class="t-role">Инженер, 10+ лет стажа</div>
-                            <h3>Николай</h3>
-                            <div class="t-row"><strong>Контекст:</strong> стабильная работа, но апатия и потеря смысла вставать по утрам.</div>
-                            <div class="t-row"><strong>Проблема:</strong> автоматический сценарий подавления желаний и жизни в угождении «авторитету».</div>
-                            <div class="t-row"><strong>Действие:</strong> переинтерпретация фактов + модификация убеждений о себе.</div>
-                            <div class="t-row"><strong>Результат:</strong> энтузиазма стало раза в 2 больше, прояснилась цель.</div>
-                        </article>
-                        <article class="testimonial">
-                            <div class="t-role">Team Lead, 20 подчиненных</div>
-                            <h3>Оля</h3>
-                            <div class="t-row"><strong>Контекст:</strong> знания и теория заходили на 5% из-за языка книг из прошлого века.</div>
-                            <div class="t-row"><strong>Проблема:</strong> убеждения и концепции не менялись и развитие сознания стояло на месте.</div>
-                            <div class="t-row"><strong>Действие:</strong> научный и понятный язык курса позволил, наконец, понять самое важное.</div>
-                            <div class="t-row"><strong>Результат:</strong> теория стала понятной на 80-90%, тепрь чёткий план переобучения.</div>
-                        </article>
+                    <p class="section-intro"><strong>В этом разделе:</strong> кейсы, где глубокая рамка и причинное мышление помогли пересобрать практическое поведение.</p>
+                    <div class="case-grid">
+                        <a class="case-card" href="https://app.imt.dev/case-where-result-01/">
+                            <div class="case-role">Кейс про смещение фокуса с результата на причину</div>
+                            <div class="case-title">Когда вся жизнь строилась вокруг внешнего результата</div>
+                            <div class="case-row"><strong>Фокус:</strong> перейти от охоты за эффектом к пониманию, где рождается сам результат.</div>
+                            <div class="case-row"><strong>Результат:</strong> стало меньше суеты и больше связи между действием, законом и итогом.</div>
+                            <div class="case-cta">Открыть кейс</div>
+                        </a>
+                        <a class="case-card" href="https://app.imt.dev/case-system-instead-self-01/">
+                            <div class="case-role">Кейс про системное мышление</div>
+                            <div class="case-title">Когда обвинение себя мешало увидеть реальную модель происходящего</div>
+                            <div class="case-row"><strong>Фокус:</strong> рассмотреть сознание как систему, а не как набор случайных личных слабостей.</div>
+                            <div class="case-row"><strong>Результат:</strong> появились причинные рычаги вместо бесконечной внутренней критики.</div>
+                            <div class="case-cta">Открыть кейс</div>
+                        </a>
+                        <a class="case-card" href="https://app.imt.dev/case-give-result-01/">
+                            <div class="case-role">Кейс про связь закона и отдачи результата</div>
+                            <div class="case-title">Когда усилия были, а отдача системе не собиралась</div>
+                            <div class="case-row"><strong>Фокус:</strong> понять, как работает справедливость, отдача и причинная сборка результата.</div>
+                            <div class="case-row"><strong>Результат:</strong> действие стало точнее связано с тем, что реально даёт плод.</div>
+                            <div class="case-cta">Открыть кейс</div>
+                        </a>
                     </div>
                 </section>
 

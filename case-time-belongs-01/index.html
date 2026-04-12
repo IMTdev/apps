@@ -3,13 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CASE-TIME-BELONGS-01 — Мое время принадлежит всем — Вариант v2
-    </title>
-    <meta
-      name="description"
-      content="Кейс о том, как незапланированные звонки и запросы близких превращали личное время клиента в чужую территорию."
-    />
+    <title>CASE-TIME-BELONGS-01 — Мое время принадлежит всем — Вариант v2</title>
+    <meta name="description" content="Кейс о том, как незапланированные звонки и запросы близких превращали личное время клиента в чужую территорию." />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -49,16 +44,8 @@
         margin: 0;
         color: var(--page-ink);
         background:
-          radial-gradient(
-            circle at top left,
-            rgba(239, 235, 219, 0.86),
-            transparent 26%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.7),
-            transparent 30%
-          ),
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.86), transparent 26%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.7), transparent 30%),
           var(--page-bg);
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.55;
@@ -84,11 +71,7 @@
         padding: clamp(28px, 4vw, 48px);
         color: #f5f7fb;
         background:
-          radial-gradient(
-            circle at top left,
-            color-mix(in srgb, var(--accent) 24%, transparent),
-            transparent 34%
-          ),
+          radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%),
           linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
           linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
       }
@@ -101,11 +84,7 @@
           linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 84px 84px;
-        mask-image: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.85),
-          transparent 92%
-        );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
         pointer-events: none;
       }
 
@@ -119,13 +98,12 @@
       }
 
       .topbar {
-        position: absolute;
-        top: 0;
-        right: 0;
+        position: relative;
         z-index: 4;
         display: flex;
         justify-content: flex-end;
-        width: min(100%, 420px);
+        width: 100%;
+        margin-bottom: 20px;
       }
 
       .brand-copy,
@@ -184,6 +162,12 @@
 
       .jump-link-text {
         text-wrap: balance;
+      }
+
+      .inline-doc-link {
+        color: var(--tone-blue);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .jump-link:hover,
@@ -281,11 +265,7 @@
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.04)
-          ),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)),
           rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(18px);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -361,11 +341,7 @@
         right: 10%;
         bottom: 14%;
         border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          var(--accent-glow),
-          transparent 72%
-        );
+        background: radial-gradient(circle, var(--accent-glow), transparent 72%);
         filter: blur(6px);
       }
 
@@ -397,11 +373,7 @@
         border-radius: 34px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         background:
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.14),
-            rgba(255, 255, 255, 0.06)
-          ),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
           rgba(17, 21, 29, 0.5);
         backdrop-filter: blur(24px);
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
@@ -493,11 +465,7 @@
         padding: clamp(28px, 5vw, 42px);
         padding-left: clamp(34px, 6vw, 50px);
         border-radius: var(--radius-xl);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.76),
-          rgba(255, 255, 255, 0.9)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.9));
         border: 1px solid rgba(17, 21, 29, 0.08);
         box-shadow: var(--shadow-soft);
       }
@@ -644,11 +612,7 @@
 
       .section-callout {
         border: 1px solid rgba(17, 21, 29, 0.08);
-        background: linear-gradient(
-          135deg,
-          color-mix(in srgb, var(--tone) 12%, white),
-          rgba(255, 255, 255, 0.86)
-        );
+        background: linear-gradient(135deg, color-mix(in srgb, var(--tone) 12%, white), rgba(255, 255, 255, 0.86));
       }
 
       .inner-callout {
@@ -656,19 +620,10 @@
       }
 
       .invariant-callout {
-        border: 1px solid
-          color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
+        border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(17, 21, 29, 0.1));
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent-2) 18%, transparent),
-            transparent 44%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(17, 21, 29, 0.96),
-            rgba(21, 29, 49, 0.92)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 44%),
+          linear-gradient(135deg, rgba(17, 21, 29, 0.96), rgba(21, 29, 49, 0.92));
         color: #f5f7fb;
         box-shadow: 0 18px 48px rgba(17, 21, 29, 0.18);
       }
@@ -771,16 +726,8 @@
         padding: clamp(28px, 5vw, 44px);
         border-radius: 34px;
         background:
-          radial-gradient(
-            circle at top right,
-            color-mix(in srgb, var(--accent) 18%, transparent),
-            transparent 28%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(13, 19, 32, 0.96),
-            rgba(21, 29, 49, 0.96)
-          );
+          radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 28%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
         color: #f5f7fb;
       }
 
@@ -824,7 +771,19 @@
       }
 
       .footer-return {
+        display: flex;
+        justify-content: flex-start;
         margin-top: 18px;
+      }
+
+      @media (min-width: 921px) {
+        .topbar {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: min(100%, 420px);
+          margin-bottom: 0;
+        }
       }
 
       .reveal {
@@ -899,12 +858,12 @@
         }
 
         .topbar {
-          width: min(100%, 240px);
+          justify-content: flex-start;
         }
 
         .poster {
           min-height: auto;
-          padding-top: 96px;
+          padding-top: 28px;
           padding-inline: 18px;
           padding-bottom: 34px;
         }
@@ -938,10 +897,6 @@
       }
 
       @media (max-width: 680px) {
-        .topbar {
-          width: min(100%, 232px);
-        }
-
         .jump-link {
           min-height: 42px;
           padding: 10px 14px;
@@ -950,6 +905,15 @@
           font-size: 0.74rem;
           border-color: rgba(255, 255, 255, 0.22);
           background: rgba(255, 255, 255, 0.07);
+        }
+
+        .topbar {
+          margin-bottom: 18px;
+        }
+
+        .topbar .jump-link,
+        .footer-return .jump-link {
+          width: 100%;
         }
 
         .hero-lines li {
@@ -1044,71 +1008,49 @@
               </div>
 
               <h1 class="hero-seq hero-seq-3">Мое время принадлежит всем</h1>
-              <p class="hero-lead hero-seq hero-seq-4">
-                Клиент проводила воркшоп, готовилась к следующему шагу и
-                пыталась сохранить фокус на своих задачах. Но любые внезапные
-                звонки и просьбы близких быстро ломали рабочий ритм и вызывали
-                злость, вину и ощущение вынужденной доступности. Консультация
-                помогла вернуть очень простую вещь: время клиента принадлежит
-                ей, а помощь не обязана быть мгновенной и синхронной.
-              </p>
+              <p class="hero-lead hero-seq hero-seq-4">Клиент проводила воркшоп, готовилась к следующему шагу и пыталась сохранить фокус на своих задачах. Но любые внезапные звонки и просьбы близких быстро ломали рабочий ритм и вызывали злость, вину и ощущение вынужденной доступности. Консультация помогла вернуть очень простую вещь: время клиента принадлежит ей, а помощь не обязана быть мгновенной и синхронной.</p>
 
               <ul class="hero-lines hero-seq hero-seq-5">
-                <li>
-                  <span class="k">Что здесь</span>
-                  <span
-                    >Один кейс о том, как чужие звонки и просьбы крали фокус,
-                    энергию и ощущение хозяйки своего времени.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что ломалось</span>
-                  <span
-                    >Клиент ощущала себя обязанной отвечать сразу и терпеть
-                    вмешательства, иначе казалась себе плохой.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Что менялось</span>
-                  <span
-                    >Коммуникации переводились в асинхрон, а границы становились
-                    ранними, мягкими и проактивными.</span
-                  >
-                </li>
-
-                <li>
-                  <span class="k">Основа</span>
-                  <span
-                    >Source summary про звонки, раздражение, DND, слоты ответов
-                    и возврат времени себе.</span
-                  >
-                </li>
+                
+                      <li>
+                        <span class="k">Что здесь</span>
+                        <span>Один кейс о том, как чужие звонки и просьбы крали фокус, энергию и ощущение хозяйки своего времени.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что ломалось</span>
+                        <span>Клиент ощущала себя обязанной отвечать сразу и терпеть вмешательства, иначе казалась себе плохой.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Что менялось</span>
+                        <span>Коммуникации переводились в асинхрон, а границы становились ранними, мягкими и проактивными.</span>
+                      </li>
+                    
+                      <li>
+                        <span class="k">Основа</span>
+                        <span>Source summary про звонки, раздражение, DND, слоты ответов и возврат времени себе.</span>
+                      </li>
+                    
               </ul>
 
               <div class="hero-specs hero-seq hero-seq-6">
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Баг</div>
-                  <div class="hero-spec-value">
-                    Обязана быть доступной сразу
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Цена дефекта</div>
-                  <div class="hero-spec-value">
-                    Потерянные рабочие часы, злость, вина и эмоциональное
-                    похмелье
-                  </div>
-                </article>
-
-                <article class="hero-spec">
-                  <div class="hero-spec-label">Новая опора</div>
-                  <div class="hero-spec-value">
-                    Мое время — мое; границы можно задавать заранее и спокойно
-                  </div>
-                </article>
+                
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Баг</div>
+                        <div class="hero-spec-value">Обязана быть доступной сразу</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Цена дефекта</div>
+                        <div class="hero-spec-value">Потерянные рабочие часы, злость, вина и эмоциональное похмелье</div>
+                      </article>
+                    
+                      <article class="hero-spec">
+                        <div class="hero-spec-label">Новая опора</div>
+                        <div class="hero-spec-value">Мое время — мое; границы можно задавать заранее и спокойно</div>
+                      </article>
+                    
               </div>
             </div>
 
@@ -1116,189 +1058,66 @@
               <div class="hero-rings" aria-hidden="true"></div>
               <div class="hero-glow" aria-hidden="true"></div>
               <div class="hero-figure">
-                <div
-                  class="hero-figure-frame"
-                  role="img"
-                  aria-label="Ритм и возврат хозяина своему времени"
-                >
-                  <svg
-                    width="800"
-                    height="800"
-                    viewBox="0 0 800 800"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <style>
-                        .stroke {
-                          stroke: #4a5768;
-                          stroke-width: 4;
-                          fill: none;
-                        }
-                        .accent {
-                          fill: #1b4ed8;
-                        }
+                <div class="hero-figure-frame" role="img" aria-label="Ритм и возврат хозяина своему времени">
+                  <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .stroke { stroke: #4a5768; stroke-width: 4; fill: none; }
+      .accent { fill: #1b4ed8; }
+      
+      @keyframes progress {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(200px); }
+        50% { transform: translateX(400px); }
+        75% { transform: translateX(600px); }
+        100% { transform: translateX(0); }
+      }
+      
+      @keyframes fade1 { 0%, 25% { opacity: 1; } 26%, 100% { opacity: 0.3; } }
+      @keyframes fade2 { 0%, 25% { opacity: 0.3; } 26%, 50% { opacity: 1; } 51%, 100% { opacity: 0.3; } }
+      @keyframes fade3 { 0%, 50% { opacity: 0.3; } 51%, 75% { opacity: 1; } 76%, 100% { opacity: 0.3; } }
+      @keyframes fade4 { 0%, 75% { opacity: 0.3; } 76%, 99% { opacity: 1; } 100% { opacity: 0.3; } }
+    </style>
+  </defs>
+  
+  <!-- Base Line -->
+  <line x1="100" y1="400" x2="700" y2="400" stroke="#E5E5E5" stroke-width="2"/>
+  
+  <!-- Node 1: Prompt -->
+  <g style="animation: fade1 4s infinite steps(1);">
+    <rect x="50" y="350" width="100" height="100" class="stroke"/>
+  </g>
+  
+  <!-- Node 2: Context -->
+  <g transform="translate(200, 0)" style="animation: fade2 4s infinite steps(1);">
+    <rect x="50" y="350" width="100" height="100" class="stroke"/>
+    <path d="M70 370 H130 M70 400 H130 M70 430 H130" stroke="#4a5768" stroke-width="2"/>
+  </g>
+  
+  <!-- Node 3: Mind -->
+  <g transform="translate(400, 0)" style="animation: fade3 4s infinite steps(1);">
+    <circle cx="100" cy="400" r="50" class="stroke"/>
+    <circle cx="100" cy="400" r="25" stroke="#4a5768" stroke-width="2"/>
+  </g>
+  
+  <!-- Node 4: Life -->
+  <g transform="translate(600, 0)" style="animation: fade4 4s infinite steps(1);">
+    <path d="M100 350 L120 400 L100 450 L80 400 Z" class="stroke"/>
+  </g>
 
-                        @keyframes progress {
-                          0% {
-                            transform: translateX(0);
-                          }
-                          25% {
-                            transform: translateX(200px);
-                          }
-                          50% {
-                            transform: translateX(400px);
-                          }
-                          75% {
-                            transform: translateX(600px);
-                          }
-                          100% {
-                            transform: translateX(0);
-                          }
-                        }
-
-                        @keyframes fade1 {
-                          0%,
-                          25% {
-                            opacity: 1;
-                          }
-                          26%,
-                          100% {
-                            opacity: 0.3;
-                          }
-                        }
-                        @keyframes fade2 {
-                          0%,
-                          25% {
-                            opacity: 0.3;
-                          }
-                          26%,
-                          50% {
-                            opacity: 1;
-                          }
-                          51%,
-                          100% {
-                            opacity: 0.3;
-                          }
-                        }
-                        @keyframes fade3 {
-                          0%,
-                          50% {
-                            opacity: 0.3;
-                          }
-                          51%,
-                          75% {
-                            opacity: 1;
-                          }
-                          76%,
-                          100% {
-                            opacity: 0.3;
-                          }
-                        }
-                        @keyframes fade4 {
-                          0%,
-                          75% {
-                            opacity: 0.3;
-                          }
-                          76%,
-                          99% {
-                            opacity: 1;
-                          }
-                          100% {
-                            opacity: 0.3;
-                          }
-                        }
-                      </style>
-                    </defs>
-
-                    <!-- Base Line -->
-                    <line
-                      x1="100"
-                      y1="400"
-                      x2="700"
-                      y2="400"
-                      stroke="#E5E5E5"
-                      stroke-width="2"
-                    />
-
-                    <!-- Node 1: Prompt -->
-                    <g style="animation: fade1 4s infinite steps(1)">
-                      <rect
-                        x="50"
-                        y="350"
-                        width="100"
-                        height="100"
-                        class="stroke"
-                      />
-                    </g>
-
-                    <!-- Node 2: Context -->
-                    <g
-                      transform="translate(200, 0)"
-                      style="animation: fade2 4s infinite steps(1)"
-                    >
-                      <rect
-                        x="50"
-                        y="350"
-                        width="100"
-                        height="100"
-                        class="stroke"
-                      />
-                      <path
-                        d="M70 370 H130 M70 400 H130 M70 430 H130"
-                        stroke="#4a5768"
-                        stroke-width="2"
-                      />
-                    </g>
-
-                    <!-- Node 3: Mind -->
-                    <g
-                      transform="translate(400, 0)"
-                      style="animation: fade3 4s infinite steps(1)"
-                    >
-                      <circle cx="100" cy="400" r="50" class="stroke" />
-                      <circle
-                        cx="100"
-                        cy="400"
-                        r="25"
-                        stroke="#4a5768"
-                        stroke-width="2"
-                      />
-                    </g>
-
-                    <!-- Node 4: Life -->
-                    <g
-                      transform="translate(600, 0)"
-                      style="animation: fade4 4s infinite steps(1)"
-                    >
-                      <path
-                        d="M100 350 L120 400 L100 450 L80 400 Z"
-                        class="stroke"
-                      />
-                    </g>
-
-                    <!-- Moving Indicator -->
-                    <circle cx="100" cy="550" r="10" fill="#1b4ed8">
-                      <animate
-                        attributeName="cx"
-                        values="100;300;500;700;100"
-                        keyTimes="0;0.25;0.5;0.75;1"
-                        dur="4s"
-                        calcMode="discrete"
-                        repeatCount="indefinite"
-                      />
-                    </circle>
-                  </svg>
+  <!-- Moving Indicator -->
+  <circle cx="100" cy="550" r="10" fill="#1b4ed8">
+    <animate attributeName="cx" values="100;300;500;700;100" keyTimes="0;0.25;0.5;0.75;1" dur="4s" calcMode="discrete" repeatCount="indefinite" />
+  </circle>
+</svg>
                 </div>
               </div>
-
-              <aside class="hero-quote">
-                <span class="quote-label">Цитата клиента</span>
-                <p>
-                  «Я обязана быть на звонке сразу — иначе &quot;плохая&quot;
-                  дочь/невестка.»
-                </p>
-              </aside>
+              
+                    <aside class="hero-quote">
+                      <span class="quote-label">Цитата клиента</span>
+                      <p>«Я обязана быть на звонке сразу — иначе &quot;плохая&quot; дочь/невестка.»</p>
+                    </aside>
+                  
             </div>
           </div>
         </div>
@@ -1309,431 +1128,248 @@
           <div class="story-rail-inner">
             <p class="rail-title">Навигация по кейсу</p>
             <nav class="rail-nav" aria-label="Разделы кейса">
-              <a href="#stimulus" data-target="stimulus">
-                <span>01</span>
-                <span>Стимул</span>
-              </a>
-
-              <a href="#consultation" data-target="consultation">
-                <span>02</span>
-                <span>Консультация</span>
-              </a>
-
-              <a href="#support" data-target="support">
-                <span>03</span>
-                <span>Сопровождение</span>
-              </a>
-
-              <a href="#training" data-target="training">
-                <span>04</span>
-                <span>Обучение</span>
-              </a>
-
-              <a href="#result" data-target="result">
-                <span>05</span>
-                <span>Результат</span>
-              </a>
+              
+                    <a href="#stimulus" data-target="stimulus">
+                      <span>01</span>
+                      <span>Стимул</span>
+                    </a>
+                  
+                    <a href="#consultation" data-target="consultation">
+                      <span>02</span>
+                      <span>Консультация</span>
+                    </a>
+                  
+                    <a href="#support" data-target="support">
+                      <span>03</span>
+                      <span>Сопровождение</span>
+                    </a>
+                  
+                    <a href="#training" data-target="training">
+                      <span>04</span>
+                      <span>Обучение</span>
+                    </a>
+                  
+                    <a href="#result" data-target="result">
+                      <span>05</span>
+                      <span>Результат</span>
+                    </a>
+                  
             </nav>
             <a class="rail-back" href="#hero">Наверх</a>
           </div>
         </aside>
 
         <main class="story-content">
-          <section class="chapter tone-red reveal" id="stimulus">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Начальный стимул-реакция</div>
-                <h2>
-                  Любой незапланированный запрос быстро ощущался как вторжение
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Проблема была очень земной и повторяемой. Клиент готовилась к
-                воркшопу и рабочим задачам, но в любой момент это мог разорвать
-                входящий звонок, семейная просьба или длинный негативный
-                разговор. В ответ поднимались злость и чувство жертвы, а затем —
-                вина за собственную реакцию.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Как это выглядело в реальности</h3>
-                  <ul>
-                    <li>
-                      Незапланированные звонки и разговоры выбрасывали клиента
-                      из рабочего фокуса на десятки минут.
-                    </li>
-                    <li>
-                      После таких касаний накапливались ругань в блокноте,
-                      раздражение и эмоциональное похмелье.
-                    </li>
-                    <li>
-                      Подготовка ко второму воркшопу и рабочим задачам начинала
-                      проседать.
-                    </li>
-                    <li>
-                      Становилось трудно чувствовать, что время вообще
-                      принадлежит самой клиентке.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что клиент пробовал по старому</h3>
-                  <ul>
-                    <li>
-                      Терпеть вмешательства и отвечать сразу, чтобы не портить
-                      отношения.
-                    </li>
-                    <li>
-                      Считать план священным и злиться, когда его сбивают.
-                    </li>
-                    <li>
-                      Быстро делать за других, потому что так вроде бы проще.
-                    </li>
-                    <li>
-                      Читать каждый новый запрос как еще одно обеднение себя и
-                      кражу жизни.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
+          
+    <section class="chapter tone-red reveal" id="stimulus">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Начальный стимул-реакция</div>
+          <h2>Любой незапланированный запрос быстро ощущался как вторжение</h2>
+        </div>
+        <p class="chapter-intro">Проблема была очень земной и повторяемой. Клиент готовилась к воркшопу и рабочим задачам, но в любой момент это мог разорвать входящий звонок, семейная просьба или длинный негативный разговор. В ответ поднимались злость и чувство жертвы, а затем — вина за собственную реакцию.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Как это выглядело в реальности</h3>
+      <ul><li>Незапланированные звонки и разговоры выбрасывали клиента из рабочего фокуса на десятки минут.</li><li>После таких касаний накапливались ругань в блокноте, раздражение и эмоциональное похмелье.</li><li>Подготовка ко второму воркшопу и рабочим задачам начинала проседать.</li><li>Становилось трудно чувствовать, что время вообще принадлежит самой клиентке.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что клиент пробовал по старому</h3>
+      <ul><li>Терпеть вмешательства и отвечать сразу, чтобы не портить отношения.</li><li>Считать план священным и злиться, когда его сбивают.</li><li>Быстро делать за других, потому что так вроде бы проще.</li><li>Читать каждый новый запрос как еще одно обеднение себя и кражу жизни.</li></ul>
+    </article>
+  
+        </div>
+        
               <div class="section-callout">
                 <div class="section-callout-kicker">Цена дефекта</div>
-                <p>
-                  Старый контур бил сразу по двум осям: по времени и по
-                  состоянию. Клиент теряла часы работы, а затем еще и внутренне
-                  наказывала себя за злость и ощущение, что снова не удержала
-                  границу.
-                </p>
+                <p>Старый контур бил сразу по двум осям: по времени и по состоянию. Клиент теряла часы работы, а затем еще и внутренне наказывала себя за злость и ощущение, что снова не удержала границу.</p>
               </div>
+            
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Я обязана быть на звонке сразу — иначе &quot;плохая&quot; дочь/невестка.»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«Любой запрос делает меня беднее и крадёт мою жизнь; лучше, чтобы все &quot;отстали&quot;.»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Я обязана быть на звонке сразу — иначе &quot;плохая&quot;
-                    дочь/невестка.»
-                  </blockquote>
-                </article>
+          
+    <section class="chapter tone-slate reveal" id="consultation">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Консультация</div>
+          <h2>Консультация вернула клиентке право распоряжаться своим вниманием</h2>
+        </div>
+        <p class="chapter-intro">Главный поворот был не только в запрете на звонки. Консультант перестроил саму логику помощи и доступности. Оказалось, что уважение к своему времени — это не нападение на других, а нормальное основание для конструктивной коммуникации.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>1. Какой сидел баг</h3>
+      <p>Баг можно назвать так: <strong>обязана быть доступной сразу</strong>. Клиентка воспринимала личное время как ресурс, на который другие имеют почти автоматическое право, особенно если это близкие люди.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>2. Откуда он в легаси-коде</h3>
+      <p>В легаси уже жили и страх разрушить отношения отказом, и привычка быть хорошей через быструю доступность, и идея, что чужая беспомощность легче снимается, если просто сделать все самой.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>3. Воздействие консультанта</h3>
+      <p>Консультант вернул очень ясную рамку: личное время принадлежит только клиентке. Синхронный звонок — это высокий по цене формат, и он не обязан становиться нормой. Ответственность за результат другого человека тоже можно возвращать ему, а не забирать на себя.</p>
+    </article>
+  
+    <article class="line-block">
+      <h3>4. Патч и новый инвариант</h3>
+      <p>Патч был практическим: переводить коммуникации в асинхрон, задавать слоты, включать режим «не беспокоить», заранее и мягко озвучивать рамки, а в просьбах по возможности передавать понимание, а не делать вместо.</p>
+      <div class="inner-callout invariant-callout">
+        <div class="inner-callout-kicker">Инвариант Cloud OS</div>
+        <p>Мое время не принадлежит всем. Я сама выбираю формат, темп и цену своего включения.</p>
+      </div>
+    
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>
-                    «Любой запрос делает меня беднее и крадёт мою жизнь; лучше,
-                    чтобы все &quot;отстали&quot;.»
-                  </blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-amber reveal" id="support">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Сопровождение и новая привычка</div>
+          <h2>Первый stage-результат был в том, что границы стали проактивными</h2>
+        </div>
+        <p class="chapter-intro">Клиентка не ждала больше, пока раздражение накопится до предела. Первые изменения выглядели очень конкретно: слоты ответов, DND, голосовые вместо звонков, короткие предупреждающие фразы. Это не только экономило время, но и снижало саму интенсивность злости.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Первый ручной результат</h3>
+      <ul><li>Клиентка начала выделять блоки без входящих касаний и защищать их технически.</li><li>Появились заранее озвученные рамки: когда можно вернуться к разговору и в каком формате.</li><li>Вместо немедленного включения в чужую задачу стало чаще передаваться понимание, как ее решить самостоятельно.</li><li>Запросы начали восприниматься не только как угроза, но и как сигнал собственной ценности.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что менялось в привычке</h3>
+      <ul><li>Злость все реже была единственным способом защитить границу.</li><li>Синхронная доступность переставала быть моральной обязанностью.</li><li>Фокус на своих задачах удерживался дольше и спокойнее.</li><li>Коммуникация с близкими становилась не убегательной и не раздражительной, а более проактивной.</li></ul>
+    </article>
+  
+        </div>
+        
+        
+    <div class="quote-grid">
+      
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«выброшенные 40 минут»</blockquote>
+            </article>
+          
+            <article class="quote-card">
+              <span class="quote-label">Цитаты клиента</span>
+              <blockquote>«пусть все &quot;отстали&quot;»</blockquote>
+            </article>
+          
+    </div>
+  
+      </div>
+    </section>
+  
 
-          <section class="chapter tone-slate reveal" id="consultation">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Консультация</div>
-                <h2>
-                  Консультация вернула клиентке право распоряжаться своим
-                  вниманием
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Главный поворот был не только в запрете на звонки. Консультант
-                перестроил саму логику помощи и доступности. Оказалось, что
-                уважение к своему времени — это не нападение на других, а
-                нормальное основание для конструктивной коммуникации.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>1. Какой сидел баг</h3>
-                  <p>
-                    Баг можно назвать так:
-                    <strong>обязана быть доступной сразу</strong>. Клиентка
-                    воспринимала личное время как ресурс, на который другие
-                    имеют почти автоматическое право, особенно если это близкие
-                    люди.
-                  </p>
-                </article>
+          
+    <section class="chapter tone-blue reveal" id="training">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Обучение</div>
+          <h2>Обучение закрепляло асинхрон и уважение к собственной цене внимания</h2>
+        </div>
+        <p class="chapter-intro">Чтобы новый паттерн не исчез при первом же сильном семейном звонке, его нужно было перенести в рутину. Обучение здесь состояло не из большой теории, а из повторяемых микронавыков границы.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="detail-grid">
+          
+    <article class="line-block">
+      <h3>Что отрабатывалось</h3>
+      <ul><li>Включать DND блоками и заранее планировать окна для ответов.</li><li>Просить писать или оставлять голосовые вместо мгновенных звонков.</li><li>Готовить короткие фразы ранней границы без злости и без длинных оправданий.</li><li>Замечать, где помощь превращается в делание вместо другого человека, и возвращать ему ответственность.</li></ul>
+    </article>
+  
+    <article class="line-block">
+      <h3>Какой LP поддерживал обучение</h3>
+      <p>Лучшей теоретической опорой для этого кейса был <strong><a class="inline-doc-link" href="https://app.imt.dev/lp-relearn-doc">LP-RELEARN-01</a></strong>. Он помогал перевести новые границы из единичного усилия в повторяемую практику поведения.</p><p>Здесь важно было не просто понять идею, а приучить тело, внимание и коммуникации работать уже из новой нормы.</p>
+    </article>
+  
+        </div>
+        
+        
+      </div>
+    </section>
+  
 
-                <article class="line-block">
-                  <h3>2. Откуда он в легаси-коде</h3>
-                  <p>
-                    В легаси уже жили и страх разрушить отношения отказом, и
-                    привычка быть хорошей через быструю доступность, и идея, что
-                    чужая беспомощность легче снимается, если просто сделать все
-                    самой.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>3. Воздействие консультанта</h3>
-                  <p>
-                    Консультант вернул очень ясную рамку: личное время
-                    принадлежит только клиентке. Синхронный звонок — это высокий
-                    по цене формат, и он не обязан становиться нормой.
-                    Ответственность за результат другого человека тоже можно
-                    возвращать ему, а не забирать на себя.
-                  </p>
-                </article>
-
-                <article class="line-block">
-                  <h3>4. Патч и новый инвариант</h3>
-                  <p>
-                    Патч был практическим: переводить коммуникации в асинхрон,
-                    задавать слоты, включать режим «не беспокоить», заранее и
-                    мягко озвучивать рамки, а в просьбах по возможности
-                    передавать понимание, а не делать вместо.
-                  </p>
-                  <div class="inner-callout invariant-callout">
-                    <div class="inner-callout-kicker">Инвариант Cloud OS</div>
-                    <p>
-                      Мое время не принадлежит всем. Я сама выбираю формат, темп
-                      и цену своего включения.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-amber reveal" id="support">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Сопровождение и новая привычка</div>
-                <h2>
-                  Первый stage-результат был в том, что границы стали
-                  проактивными
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Клиентка не ждала больше, пока раздражение накопится до предела.
-                Первые изменения выглядели очень конкретно: слоты ответов, DND,
-                голосовые вместо звонков, короткие предупреждающие фразы. Это не
-                только экономило время, но и снижало саму интенсивность злости.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Первый ручной результат</h3>
-                  <ul>
-                    <li>
-                      Клиентка начала выделять блоки без входящих касаний и
-                      защищать их технически.
-                    </li>
-                    <li>
-                      Появились заранее озвученные рамки: когда можно вернуться
-                      к разговору и в каком формате.
-                    </li>
-                    <li>
-                      Вместо немедленного включения в чужую задачу стало чаще
-                      передаваться понимание, как ее решить самостоятельно.
-                    </li>
-                    <li>
-                      Запросы начали восприниматься не только как угроза, но и
-                      как сигнал собственной ценности.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что менялось в привычке</h3>
-                  <ul>
-                    <li>
-                      Злость все реже была единственным способом защитить
-                      границу.
-                    </li>
-                    <li>
-                      Синхронная доступность переставала быть моральной
-                      обязанностью.
-                    </li>
-                    <li>
-                      Фокус на своих задачах удерживался дольше и спокойнее.
-                    </li>
-                    <li>
-                      Коммуникация с близкими становилась не убегательной и не
-                      раздражительной, а более проактивной.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-
-              <div class="quote-grid">
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>«выброшенные 40 минут»</blockquote>
-                </article>
-
-                <article class="quote-card">
-                  <span class="quote-label">Цитаты клиента</span>
-                  <blockquote>«пусть все &quot;отстали&quot;»</blockquote>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-blue reveal" id="training">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">Обучение</div>
-                <h2>
-                  Обучение закрепляло асинхрон и уважение к собственной цене
-                  внимания
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                Чтобы новый паттерн не исчез при первом же сильном семейном
-                звонке, его нужно было перенести в рутину. Обучение здесь
-                состояло не из большой теории, а из повторяемых микронавыков
-                границы.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="detail-grid">
-                <article class="line-block">
-                  <h3>Что отрабатывалось</h3>
-                  <ul>
-                    <li>
-                      Включать DND блоками и заранее планировать окна для
-                      ответов.
-                    </li>
-                    <li>
-                      Просить писать или оставлять голосовые вместо мгновенных
-                      звонков.
-                    </li>
-                    <li>
-                      Готовить короткие фразы ранней границы без злости и без
-                      длинных оправданий.
-                    </li>
-                    <li>
-                      Замечать, где помощь превращается в делание вместо другого
-                      человека, и возвращать ему ответственность.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block">
-                  <h3>Какой LP поддерживал обучение</h3>
-                  <p>
-                    Лучшей теоретической опорой для этого кейса был
-                    <strong>LP-RELEARN-01</strong>. Он помогал перевести новые
-                    границы из единичного усилия в повторяемую практику
-                    поведения.
-                  </p>
-                  <p>
-                    Здесь важно было не просто понять идею, а приучить тело,
-                    внимание и коммуникации работать уже из новой нормы.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </section>
-
-          <section class="chapter tone-green reveal" id="result">
-            <div class="chapter-head">
-              <div>
-                <div class="chapter-kicker">
-                  Новый стимул-реакция и результат
-                </div>
-                <h2>
-                  Новый результат был в том, что время снова получило хозяина
-                </h2>
-              </div>
-              <p class="chapter-intro">
-                В новом контуре запросы близких и клиентов не исчезли. Но они
-                перестали автоматически взламывать весь день. Клиентка чаще
-                управляла своим ритмом сама и меньше платила за это раздражением
-                и чувством вины.
-              </p>
-            </div>
-            <div class="chapter-body">
-              <div class="compare-grid">
-                <article class="compare-card before">
-                  <span class="compare-label">До</span>
-                  <p>
-                    Один незапланированный звонок мог разорвать рабочий блок и
-                    украсть несколько часов фокуса вместе с внутренним
-                    спокойствием.
-                  </p>
-                  <ul>
-                    <li>Фокус рвется входящими</li>
-                    <li>Ответить нужно сразу</li>
-                    <li>Границы приходят поздно, через раздражение</li>
-                  </ul>
-                </article>
-                <div class="compare-arrow" aria-hidden="true">
-                  <span class="arrow-desktop">→</span>
-                  <span class="arrow-mobile">↓</span>
-                </div>
-                <article class="compare-card after">
-                  <span class="compare-label">После</span>
-                  <p>
-                    Коммуникация подчиняется ритму клиентки, а не наоборот:
-                    помощь остается, но мгновенная доступность перестает быть
-                    обязательной нормой.
-                  </p>
-                  <ul>
-                    <li>Больше асинхрона и заранее заданных рамок</li>
-                    <li>Рабочие блоки сохраняются чаще</li>
-                    <li>Контакт остается конструктивным без самосрыва</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="chapter-grid">
-                <article class="line-block">
-                  <h3>Что стало наблюдаемым</h3>
-                  <ul>
-                    <li>
-                      Меньше потерянных часов и эмоционального похмелья после
-                      звонков.
-                    </li>
-                    <li>
-                      Больше заранее озвученных рамок и меньше накопленной
-                      злости.
-                    </li>
-                    <li>
-                      Больше уважения к собственному фокусу и своим задачам.
-                    </li>
-                    <li>
-                      Больше помощи через понимание, а не через самоподмену и
-                      срочность.
-                    </li>
-                  </ul>
-                </article>
-
-                <article class="line-block line-block-soft">
-                  <h3>Что стало новой опорой</h3>
-                  <ul>
-                    <li>Мое время — это моя зона ответственности.</li>
-                    <li>
-                      Синхронный звонок дорог по вниманию и не обязан быть
-                      базовой нормой.
-                    </li>
-                    <li>
-                      Запрос подтверждает мою ценность, а не только угрожает
-                      мне.
-                    </li>
-                    <li>
-                      Ранние мягкие границы работают лучше, чем поздний срыв в
-                      раздражение.
-                    </li>
-                  </ul>
-                </article>
-              </div>
-              <div class="section-callout result-callout">
-                <div class="section-callout-kicker">Новый KPI</div>
-                <p>
-                  Не сколько раз я мгновенно отреагировала, а насколько бережно
-                  я распорядилась своим вниманием и при этом сохранила
-                  конструктивность в контакте.
-                </p>
-              </div>
-            </div>
-          </section>
+          
+    <section class="chapter tone-green reveal" id="result">
+      <div class="chapter-head">
+        <div>
+          <div class="chapter-kicker">Новый стимул-реакция и результат</div>
+          <h2>Новый результат был в том, что время снова получило хозяина</h2>
+        </div>
+        <p class="chapter-intro">В новом контуре запросы близких и клиентов не исчезли. Но они перестали автоматически взламывать весь день. Клиентка чаще управляла своим ритмом сама и меньше платила за это раздражением и чувством вины.</p>
+      </div>
+      <div class="chapter-body">
+        <div class="compare-grid">
+          <article class="compare-card before">
+            <span class="compare-label">До</span>
+            <p>Один незапланированный звонок мог разорвать рабочий блок и украсть несколько часов фокуса вместе с внутренним спокойствием.</p>
+            <ul><li>Фокус рвется входящими</li><li>Ответить нужно сразу</li><li>Границы приходят поздно, через раздражение</li></ul>
+          </article>
+          <div class="compare-arrow" aria-hidden="true">
+            <span class="arrow-desktop">→</span>
+            <span class="arrow-mobile">↓</span>
+          </div>
+          <article class="compare-card after">
+            <span class="compare-label">После</span>
+            <p>Коммуникация подчиняется ритму клиентки, а не наоборот: помощь остается, но мгновенная доступность перестает быть обязательной нормой.</p>
+            <ul><li>Больше асинхрона и заранее заданных рамок</li><li>Рабочие блоки сохраняются чаще</li><li>Контакт остается конструктивным без самосрыва</li></ul>
+          </article>
+        </div>
+        <div class="chapter-grid">
+          
+    <article class="line-block">
+      <h3>Что стало наблюдаемым</h3>
+      <ul><li>Меньше потерянных часов и эмоционального похмелья после звонков.</li><li>Больше заранее озвученных рамок и меньше накопленной злости.</li><li>Больше уважения к собственному фокусу и своим задачам.</li><li>Больше помощи через понимание, а не через самоподмену и срочность.</li></ul>
+    </article>
+  
+    <article class="line-block line-block-soft">
+      <h3>Что стало новой опорой</h3>
+      <ul><li>Мое время — это моя зона ответственности.</li><li>Синхронный звонок дорог по вниманию и не обязан быть базовой нормой.</li><li>Запрос подтверждает мою ценность, а не только угрожает мне.</li><li>Ранние мягкие границы работают лучше, чем поздний срыв в раздражение.</li></ul>
+    </article>
+  
+        </div>
+        <div class="section-callout result-callout">
+          <div class="section-callout-kicker">Новый KPI</div>
+          <p>Не сколько раз я мгновенно отреагировала, а насколько бережно я распорядилась своим вниманием и при этом сохранила конструктивность в контакте.</p>
+        </div>
+      </div>
+    </section>
+  
         </main>
       </div>
 
@@ -1741,29 +1377,11 @@
         <div class="footer-shell">
           <section class="cta-shell reveal" id="next-step">
             <div class="footer-kicker">Следующий шаг</div>
-            <h2>
-              Если знакомо чувство, что твое время принадлежит всем, кроме тебя
-            </h2>
-            <p>
-              Этот кейс полезен тем, кто постоянно теряет фокус из-за чужих
-              звонков и запросов и пока еще слишком дорого платит за каждую
-              попытку выставить спокойную границу.
-            </p>
+            <h2>Если знакомо чувство, что твое время принадлежит всем, кроме тебя</h2>
+            <p>Этот кейс полезен тем, кто постоянно теряет фокус из-за чужих звонков и запросов и пока еще слишком дорого платит за каждую попытку выставить спокойную границу.</p>
             <div class="footer-actions">
-              <a
-                class="footer-action footer-action-secondary"
-                href="https://app.imt.dev/lp-relearn-doc"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Открыть LP-RELEARN-01</a
-              >
-              <a
-                class="footer-action footer-action-primary"
-                href="https://imt.dev/typkd"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Разобрать похожий кейс</a
-              >
+              <a class="footer-action footer-action-secondary" href="https://app.imt.dev/lp-relearn-doc" target="_blank" rel="noopener noreferrer">Открыть LP-RELEARN-01</a>
+              <a class="footer-action footer-action-primary" href="https://imt.dev/typkd" target="_blank" rel="noopener noreferrer">Разобрать похожий кейс</a>
             </div>
             <div class="footer-return">
               <a class="jump-link" href="../">
@@ -1778,9 +1396,7 @@
 
     <script>
       (() => {
-        const reduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const revealNodes = [...document.querySelectorAll(".reveal")];
 
         if (!reduced && "IntersectionObserver" in window) {

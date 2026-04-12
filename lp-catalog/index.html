@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Paths — Каталог IMT</title>
+    <meta
+      name="description"
+      content="Каталог Learning Paths IMT: Переобучение, Формула сознания, Концепция себя, Научный трек и Паттерны поведения."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --bg: #f3f0e8;
+        --ink: #11151d;
+        --muted: #5c6472;
+        --line: rgba(17, 21, 29, 0.1);
+        --panel: rgba(255, 255, 255, 0.86);
+        --hero-dark: #0d1320;
+        --hero-soft: #182239;
+        --radius-xl: 34px;
+        --radius-lg: 26px;
+        --shadow-soft: 0 24px 80px rgba(17, 21, 29, 0.1);
+        --content: 1320px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(239, 235, 219, 0.88), transparent 24%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.72), transparent 30%),
+          var(--bg);
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page {
+        overflow-x: clip;
+      }
+
+      .hero {
+        position: relative;
+        padding: clamp(26px, 4vw, 42px);
+        color: #f5f7fb;
+        background:
+          radial-gradient(circle at top left, rgba(126, 166, 255, 0.18), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(127, 211, 157, 0.14), transparent 28%),
+          linear-gradient(180deg, var(--hero-soft), var(--hero-dark));
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 84px 84px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.88), transparent 92%);
+        pointer-events: none;
+      }
+
+      .hero-inner,
+      .catalog-shell,
+      .course-shell {
+        position: relative;
+        z-index: 1;
+        width: min(var(--content), 100%);
+        margin: 0 auto;
+      }
+
+      .brand-row,
+      .hero-chip,
+      .lp-meta,
+      .course-kicker {
+        font-family: "IBM Plex Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .brand-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        color: rgba(245, 247, 251, 0.7);
+        font-size: 0.78rem;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #7ea6ff, #79d6c0);
+        box-shadow: 0 0 20px rgba(126, 166, 255, 0.6);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(280px, 0.98fr);
+        gap: clamp(28px, 6vw, 72px);
+        align-items: end;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+      }
+
+      .hero-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .hero-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(245, 247, 251, 0.82);
+        font-size: 0.68rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 5vw, 4.3rem);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      .hero-lead {
+        max-width: 58ch;
+        margin-top: 22px;
+        color: rgba(245, 247, 251, 0.82);
+        font-size: clamp(1.04rem, 2vw, 1.2rem);
+      }
+
+      .hero-points {
+        list-style: none;
+        margin: 28px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+        max-width: 62ch;
+      }
+
+      .hero-points li {
+        display: grid;
+        grid-template-columns: 152px minmax(0, 1fr);
+        gap: 14px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-points .key {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(245, 247, 251, 0.62);
+      }
+
+      .hero-note {
+        padding: 24px 26px;
+        border-radius: 30px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
+          rgba(17, 21, 29, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+      }
+
+      .hero-note strong {
+        display: block;
+        margin-top: 10px;
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .catalog {
+        padding: clamp(34px, 6vw, 72px) 18px 44px;
+      }
+
+      .catalog-shell {
+        display: grid;
+        gap: 18px;
+      }
+
+      .section-head {
+        display: grid;
+        gap: 10px;
+      }
+
+      .section-head p {
+        max-width: 70ch;
+        color: var(--muted);
+        font-size: 1.02rem;
+      }
+
+      .lp-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .lp-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 180px;
+        gap: 22px;
+        min-height: 280px;
+        padding: 28px;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(17, 21, 29, 0.08);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.76)),
+          var(--panel);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .lp-card-copy {
+        display: grid;
+        align-content: start;
+        gap: 16px;
+      }
+
+      .lp-card-visual {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+      }
+
+      .lp-card-visual img {
+        width: min(100%, 150px);
+        max-height: 150px;
+      }
+
+      .lp-card h2 {
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
+
+      .lp-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 0.72rem;
+      }
+
+      .lp-meta span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .lp-card p {
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 0 22px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        color: #08111f;
+        background: linear-gradient(135deg, #7ea6ff, #79d6c0);
+        box-shadow: 0 18px 40px rgba(126, 166, 255, 0.24);
+      }
+
+      .course {
+        padding: 0 18px 72px;
+      }
+
+      .course-shell {
+        display: grid;
+      }
+
+      .course-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+        gap: 22px;
+        padding: clamp(28px, 5vw, 40px);
+        border-radius: var(--radius-xl);
+        background:
+          radial-gradient(circle at top right, rgba(126, 166, 255, 0.16), transparent 24%),
+          linear-gradient(135deg, rgba(13, 19, 32, 0.96), rgba(21, 29, 49, 0.96));
+        color: #f5f7fb;
+      }
+
+      .course-kicker {
+        color: rgba(245, 247, 251, 0.64);
+        font-size: 0.74rem;
+      }
+
+      .course-panel h2 {
+        margin-top: 12px;
+        font-size: clamp(2.2rem, 4vw, 3.4rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .course-panel p {
+        margin-top: 16px;
+        max-width: 58ch;
+        color: rgba(245, 247, 251, 0.8);
+      }
+
+      .course-points {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .course-points li {
+        padding: 16px 18px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(245, 247, 251, 0.84);
+      }
+
+      .course-points strong {
+        display: block;
+        margin-bottom: 6px;
+        color: #fff;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .lp-card,
+        .course-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .lp-card-visual {
+          justify-items: start;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .lp-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          padding-inline: 18px;
+          padding-bottom: 28px;
+        }
+
+        h1 {
+          font-size: clamp(2.4rem, 14vw, 3.5rem);
+        }
+
+        .hero-points li {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+
+        .lp-card,
+        .course-panel {
+          padding: 22px;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="brand-row">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <span>IMT / Learning Paths</span>
+          </div>
+
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="hero-chips">
+                <span class="hero-chip">5 curated tracks</span>
+                <span class="hero-chip">soft entry into the system</span>
+                <span class="hero-chip">app.imt.dev</span>
+              </div>
+              <h1>Каталог Learning Paths</h1>
+              <p class="hero-lead">
+                Здесь собраны отдельные траектории входа в систему IMT.
+                Каждая LP решает свою задачу: где-то нужен дебаг и переобучение,
+                где-то — паттерны, где-то — концепция себя или научная рамка.
+              </p>
+              <ul class="hero-points">
+                <li>
+                  <span class="key">Что это</span>
+                  <span>Отдельные curated входы в систему без необходимости сразу брать весь курс.</span>
+                </li>
+                <li>
+                  <span class="key">Когда брать</span>
+                  <span>Когда уже понятна тема, с которой хочешь зайти: паттерны, переобучение, self, science или формула сознания.</span>
+                </li>
+                <li>
+                  <span class="key">Что дальше</span>
+                  <span>После любой LP можно либо углубляться в полный курс, либо идти в живую консультацию на базе уже понятного языка.</span>
+                </li>
+              </ul>
+            </div>
+
+            <aside class="hero-note">
+              <span class="course-kicker">Навигация по продуктам</span>
+              <strong>Сначала выбери правильный вход, а не самый большой пакет.</strong>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog">
+        <div class="catalog-shell">
+          <div class="section-head">
+            <h2>Траектории</h2>
+            <p>
+              Все пять путей ниже можно проходить отдельно. Они не заменяют всю систему,
+              но позволяют зайти в неё через конкретную тему, с которой у человека уже есть
+              живой запрос.
+            </p>
+          </div>
+
+          <div class="lp-grid">
+            <article class="lp-card">
+              <div class="lp-card-copy">
+                <h2>Переобучение</h2>
+                <div class="lp-meta">
+                  <span>8 лекций</span>
+                  <span>practical</span>
+                </div>
+                <p>Траектория обучения для устойчивого изменения внутренних законов и результатов.</p>
+                <a class="button button-primary" href="https://app.imt.dev/lp-relearn-doc">Узнать больше</a>
+              </div>
+              <div class="lp-card-visual">
+                <img src="../svg/lp-relearn-pipeline.svg" alt="Переобучение" />
+              </div>
+            </article>
+
+            <article class="lp-card">
+              <div class="lp-card-copy">
+                <h2>Формула сознания</h2>
+                <div class="lp-meta">
+                  <span>9 лекций</span>
+                  <span>advanced</span>
+                </div>
+                <p>Для управления динамикой сознания через модель MARN/IGHC и фильтрацию живого импульса.</p>
+                <a class="button button-primary" href="https://app.imt.dev/lp-marn-doc">Узнать больше</a>
+              </div>
+              <div class="lp-card-visual">
+                <img src="../svg/lp-marn-filter.svg" alt="Формула сознания" />
+              </div>
+            </article>
+
+            <article class="lp-card">
+              <div class="lp-card-copy">
+                <h2>Концепция себя</h2>
+                <div class="lp-meta">
+                  <span>7 лекций</span>
+                  <span>advanced</span>
+                </div>
+                <p>Для принявших решение стать программистом своей жизни и стремящихся к исходной OS.</p>
+                <a class="button button-primary" href="https://app.imt.dev/lp-self-doc">Узнать больше</a>
+              </div>
+              <div class="lp-card-visual">
+                <img src="../svg/lp-self-pyramid.svg" alt="Концепция себя" />
+              </div>
+            </article>
+
+            <article class="lp-card">
+              <div class="lp-card-copy">
+                <h2>Научный трек</h2>
+                <div class="lp-meta">
+                  <span>9 лекций</span>
+                  <span>advanced</span>
+                </div>
+                <p>Увидеть систему: как универсум фон Неймана, законы Ньютона и справедливость связаны в одну модель реальности.</p>
+                <a class="button button-primary" href="https://app.imt.dev/lp-science-doc">Узнать больше</a>
+              </div>
+              <div class="lp-card-visual">
+                <img src="../svg/lp-science-network.svg" alt="Научный трек" />
+              </div>
+            </article>
+
+            <article class="lp-card">
+              <div class="lp-card-copy">
+                <h2>Паттерны поведения</h2>
+                <div class="lp-meta">
+                  <span>8 лекций</span>
+                  <span>practical</span>
+                </div>
+                <p>Для перепрошивки повторяющихся сценариев и устойчивого прогресса без бесконечных откатов.</p>
+                <a class="button button-primary" href="https://app.imt.dev/lp-patterns-doc">Узнать больше</a>
+              </div>
+              <div class="lp-card-visual">
+                <img src="../svg/lp-patterns-focus.svg" alt="Паттерны поведения" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="course">
+        <div class="course-shell">
+          <div class="course-panel">
+            <div>
+              <div class="course-kicker">Полный курс</div>
+              <h2>Когда LP уже мало</h2>
+              <p>
+                Learning Paths нужны как точный вход в тему. Полный курс
+                «Код Универсума» нужен в тот момент, когда важна не отдельная линия,
+                а вся система целиком: от научной рамки и концепции себя до
+                переобучения и устойчивого удержания нового закона.
+              </p>
+              <p>
+                Если задача не в одном баге, а в сборке цельной архитектуры мышления,
+                выгоднее смотреть на полный курс как на основную систему, а LP — как на
+                выборочный и более мягкий вход.
+              </p>
+            </div>
+
+            <ul class="course-points">
+              <li>
+                <strong>LP</strong>
+                Когда нужен быстрый, точный вход через одну тему.
+              </li>
+              <li>
+                <strong>Полный курс</strong>
+                Когда важна вся карта без пробелов и выборочного фокуса.
+              </li>
+              <li>
+                <strong>Следующий шаг</strong>
+                Если есть сомнение, какой формат брать, проще всего уточнить это в Telegram.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
