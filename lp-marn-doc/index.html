@@ -637,8 +637,13 @@
                 width: min(1240px, calc(100% - 24px));
             }
 
-            .doc-header { padding: 18px 80px 18px 18px; }
-            .hero-metaphor { top: 18px; right: 18px; width: 56px; height: 56px; }
+            .doc-header { padding: 18px; }
+            .hero-metaphor {
+                position: static;
+                width: 56px;
+                height: 56px;
+                margin: 0 0 12px auto;
+            }
 
             .hero-lines li {
                 grid-template-columns: 1fr;
@@ -654,8 +659,12 @@
             }
         }
         @media (max-width: 400px) {
-            .doc-header { padding: 16px 68px 16px 16px; }
-            .hero-metaphor { top: 16px; right: 16px; width: 48px; height: 48px; }
+            .doc-header { padding: 16px; }
+            .hero-metaphor {
+                width: 48px;
+                height: 48px;
+                margin-bottom: 10px;
+            }
         }
         @media (max-width: 840px) {
             .page {
@@ -716,7 +725,7 @@
                     </div>
                     <div class="meta-row">
                         <span class="meta-tag">version: LP-MARN-DOC v1.0</span>
-                        <span class="meta-tag">last updated: 2026-04-12</span>
+                        <span class="meta-tag">last updated: 2026-04-13</span>
                         <span class="meta-tag">level: practical</span>
                     </div>
                     <h1>Формула сознания</h1>

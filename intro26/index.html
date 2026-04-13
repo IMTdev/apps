@@ -8,6 +8,29 @@
       name="description"
       content="Короткая video-page IMT: альбомный ролик, 1:1 и Learning Path как два следующих шага."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Intro Video" />
+    <meta
+      property="og:description"
+      content="Короткий входной ролик IMT: сначала видео, потом либо серия консультаций, либо Learning Path."
+    />
+    <meta property="og:url" content="https://app.imt.dev/intro26/" />
+    <meta
+      property="og:image"
+      content="https://app.imt.dev/intro26/og-intro-video.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Intro Video" />
+    <meta
+      name="twitter:description"
+      content="Короткий входной ролик IMT: сначала видео, потом либо серия консультаций, либо Learning Path."
+    />
+    <meta
+      name="twitter:image"
+      content="https://app.imt.dev/intro26/og-intro-video.jpg"
+    />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -170,6 +193,7 @@
         max-width: 100%;
         aspect-ratio: 16 / 9;
         min-height: 260px;
+        overflow: hidden;
         background:
           radial-gradient(circle at top left, rgba(134, 182, 255, 0.2), transparent 24%),
           linear-gradient(180deg, rgba(17, 31, 55, 0.9), rgba(6, 11, 20, 0.96));
@@ -436,6 +460,10 @@
           border-radius: 28px;
         }
 
+        .video-stage {
+          min-height: 0;
+        }
+
         h1 {
           max-width: none;
           font-size: clamp(2rem, 12vw, 3.2rem);
@@ -507,7 +535,7 @@
                   <a
                     class="button button-primary"
                     id="cta-1to1-main"
-                    href="./1to1.html"
+                    href="https://app.imt.dev/1to1/"
                   >
                     Записаться на консультацию
                   </a>
@@ -535,13 +563,13 @@
 
       <div class="mobile-sticky" id="mobile-sticky">
         <div class="mobile-actions">
-          <a class="button button-secondary" id="cta-lp-mobile" href="https://imt.dev/#rec1912275383">
+          <a class="button button-secondary" id="cta-lp-mobile" href="https://app.imt.dev/lp-catalog">
             Learning Path
           </a>
           <a
             class="button button-primary"
             id="cta-1to1-mobile"
-            href="./1to1.html"
+            href="https://app.imt.dev/1to1/"
           >
             Серия консультаций
           </a>
