@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GA Smoke Test Tilda Bootstrap</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #0d1320;
+        --panel: #121c2e;
+        --line: rgba(255, 255, 255, 0.14);
+        --ink: #edf4ff;
+        --muted: rgba(237, 244, 255, 0.7);
+        --accent: #ffb86b;
+        --accent-2: #7ad7c3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        font-family: "Inter", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(255, 184, 107, 0.16), transparent 28%),
+          radial-gradient(circle at top right, rgba(122, 215, 195, 0.12), transparent 24%),
+          var(--bg);
+      }
+
+      main {
+        width: min(980px, calc(100% - 24px));
+        margin: 0 auto;
+        padding: 24px 0 48px;
+      }
+
+      h1,
+      h2,
+      p,
+      pre {
+        margin: 0;
+      }
+
+      .hero,
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+      }
+
+      .hero {
+        padding: 24px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        margin-top: 10px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .panel {
+        padding: 20px;
+      }
+
+      .panel h2 {
+        margin-bottom: 14px;
+        font-size: 1rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      button {
+        cursor: pointer;
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font: inherit;
+        font-weight: 600;
+        color: #08111d;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      .ghost {
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--line);
+      }
+
+      dl {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 10px 14px;
+        font-size: 0.95rem;
+      }
+
+      dt {
+        color: var(--muted);
+      }
+
+      dd {
+        margin: 0;
+        word-break: break-word;
+      }
+
+      pre {
+        min-height: 220px;
+        padding: 14px;
+        overflow: auto;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(0, 0, 0, 0.2);
+        font-family: "SFMono-Regular", "Consolas", monospace;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        white-space: pre-wrap;
+      }
+
+      .span-2 {
+        grid-column: 1 / -1;
+      }
+
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        dl {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <script>
+      window.__gaSmoke = {
+        hits: [],
+        scriptLoaded: false,
+        initMode: "tilda-exact",
+        awLoaded: false,
+        gaLoaded: false,
+      };
+
+      (function patchTransport() {
+        const matchesGa = (value) =>
+          typeof value === "string" &&
+          (value.includes("google-analytics.com") ||
+            value.includes("analytics.google.com") ||
+            value.includes("googletagmanager.com/gtag"));
+
+        const pushHit = (type, payload) => {
+          window.__gaSmoke.hits.push({
+            type,
+            payload,
+            ts: new Date().toISOString(),
+          });
+        };
+
+        const originalBeacon = navigator.sendBeacon?.bind(navigator);
+        if (originalBeacon) {
+          navigator.sendBeacon = function patchedBeacon(url, data) {
+            if (matchesGa(url)) pushHit("sendBeacon", { url, body: String(data || "") });
+            return originalBeacon(url, data);
+          };
+        }
+
+        const originalFetch = window.fetch?.bind(window);
+        if (originalFetch) {
+          window.fetch = function patchedFetch(input, init) {
+            const url = typeof input === "string" ? input : input?.url;
+            if (matchesGa(url)) {
+              pushHit("fetch", {
+                url,
+                method: init?.method || input?.method || "GET",
+              });
+            }
+            return originalFetch(input, init);
+          };
+        }
+
+        const OriginalXHR = window.XMLHttpRequest;
+        if (OriginalXHR) {
+          function PatchedXHR() {
+            const xhr = new OriginalXHR();
+            const open = xhr.open;
+            xhr.open = function patchedOpen(method, url, ...rest) {
+              if (matchesGa(url)) pushHit("xhr", { url, method });
+              return open.call(this, method, url, ...rest);
+            };
+            return xhr;
+          }
+          PatchedXHR.prototype = OriginalXHR.prototype;
+          window.XMLHttpRequest = PatchedXHR;
+        }
+      })();
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"
+      onload="window.__gaSmoke.awLoaded = true"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "AW-16453014043");
+    </script>
+    <script>
+      window.mainTracker = "gtag";
+      window.gtagTrackerID = "G-B2JG56FKGP";
+      setTimeout(function () {
+        (function (w, d, s, i) {
+          var f = d.getElementsByTagName(s)[0];
+          var j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + i;
+          j.onload = function () {
+            window.__gaSmoke.gaLoaded = true;
+            window.__gaSmoke.scriptLoaded = true;
+          };
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", i, {});
+        })(window, document, "script", window.gtagTrackerID);
+      }, 2000);
+    </script>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <h1>GA Smoke Test Tilda Bootstrap</h1>
+        <p>
+          Эта страница повторяет рабочий bootstrap с `imt.dev`: сначала грузится
+          `AW-16453014043`, затем через 2 секунды вставляется `G-B2JG56FKGP` и вызывается
+          `gtag('config', i, {})`.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <h2>Действия</h2>
+          <div class="actions">
+            <button id="btn-gtag-pageview">gtag page_view</button>
+            <button id="btn-gtag-event">gtag custom event</button>
+            <button id="btn-beacon">raw sendBeacon</button>
+            <button id="btn-refresh" class="ghost">обновить диагностику</button>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Ключевые поля</h2>
+          <dl>
+            <dt>Measurement ID</dt>
+            <dd>G-B2JG56FKGP</dd>
+            <dt>init mode</dt>
+            <dd>tilda-exact</dd>
+            <dt>navigator.doNotTrack</dt>
+            <dd id="field-dnt">...</dd>
+            <dt>AW tag loaded</dt>
+            <dd id="field-aw-loaded">...</dd>
+            <dt>GA tag loaded</dt>
+            <dd id="field-ga-loaded">...</dd>
+            <dt>gtag.js loaded</dt>
+            <dd id="field-script-loaded">...</dd>
+            <dt>client_id</dt>
+            <dd id="field-client-id">...</dd>
+            <dt>session_id</dt>
+            <dd id="field-session-id">...</dd>
+          </dl>
+        </article>
+
+        <article class="panel span-2">
+          <h2>Consent / Runtime</h2>
+          <pre id="runtime">...</pre>
+        </article>
+
+        <article class="panel span-2">
+          <h2>Captured network attempts</h2>
+          <pre id="hits">...</pre>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+
+      async function getGtagValue(field) {
+        return new Promise((resolve) => {
+          if (!window.gtag) {
+            resolve(null);
+            return;
+          }
+          gtag("get", "G-B2JG56FKGP", field, (value) => resolve(value ?? null));
+        });
+      }
+
+      async function refreshDiagnostics() {
+        $("field-dnt").textContent = String(navigator.doNotTrack);
+        $("field-aw-loaded").textContent = String(window.__gaSmoke.awLoaded);
+        $("field-ga-loaded").textContent = String(window.__gaSmoke.gaLoaded);
+        $("field-script-loaded").textContent = String(window.__gaSmoke.scriptLoaded);
+        $("field-client-id").textContent = String(await getGtagValue("client_id"));
+        $("field-session-id").textContent = String(await getGtagValue("session_id"));
+
+        const runtime = {
+          scripts: [...document.scripts].map((s) => s.src).filter(Boolean),
+          google_tag_manager_keys: Object.keys(window.google_tag_manager || {}),
+          google_tag_data: window.google_tag_data || null,
+          consent_entries: window.google_tag_data?.ics?.entries || null,
+          dataLayer_preview: Array.isArray(window.dataLayer)
+            ? window.dataLayer.slice(0, 20).map((item) =>
+                Array.isArray(item) ? item : typeof item === "object" ? Object.keys(item) : item
+              )
+            : null,
+        };
+
+        $("runtime").textContent = JSON.stringify(runtime, null, 2);
+        $("hits").textContent = JSON.stringify(window.__gaSmoke.hits, null, 2);
+      }
+
+      $("btn-gtag-pageview").addEventListener("click", () => {
+        gtag("event", "page_view", {
+          page_title: document.title,
+          page_location: location.href,
+          page_path: location.pathname,
+        });
+        setTimeout(refreshDiagnostics, 400);
+      });
+
+      $("btn-gtag-event").addEventListener("click", () => {
+        gtag("event", "ga_smoke_tilda_event", {
+          page_variant: "ga_smoke_tilda",
+          transport_hint: "auto",
+        });
+        setTimeout(refreshDiagnostics, 400);
+      });
+
+      $("btn-beacon").addEventListener("click", () => {
+        navigator.sendBeacon(
+          "https://www.google-analytics.com/g/collect?v=2&tid=G-B2JG56FKGP&cid=555&en=ga_smoke_tilda_beacon"
+        );
+        setTimeout(refreshDiagnostics, 400);
+      });
+
+      $("btn-refresh").addEventListener("click", refreshDiagnostics);
+
+      window.addEventListener("load", () => {
+        setTimeout(refreshDiagnostics, 3000);
+      });
+    </script>
+  </body>
+</html>
