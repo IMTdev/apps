@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-16453014043');
+</script>
+<script>
+  window.mainTracker = 'gtag';
+  window.gtagTrackerID = 'G-B2JG56FKGP';
+  setTimeout(function(){
+    (function(w,d,s,i){
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtag/js?id=' + i;
+      f.parentNode.insertBefore(j,f);
+      gtag('js', new Date());
+      gtag('config', i, {});
+    })(window,document,'script',window.gtagTrackerID);
+  }, 2000);
+</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>С чего начать в ИМТ</title>
+    <meta
+      name="description"
+      content="Короткий вход: сначала понять, что у тебя повторяется, а потом решить — консультации или Learning Path."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="С чего начать в ИМТ" />
+    <meta
+      property="og:description"
+      content="Короткий вход: сначала понять, что у тебя повторяется, а потом решить — консультации или Learning Path."
+    />
+    <meta property="og:url" content="https://app.imt.dev/intro/" />
+    <meta
+      property="og:image"
+      content="https://app.imt.dev/intro/og-intro-cover.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="С чего начать в ИМТ" />
+    <meta
+      name="twitter:description"
+      content="Короткий вход: сначала понять, что у тебя повторяется, а потом решить — консультации или Learning Path."
+    />
+    <meta
+      name="twitter:image"
+      content="https://app.imt.dev/intro/og-intro-cover.jpg"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --bg: #09111d;
+        --bg-top: #12233f;
+        --ink: #edf4ff;
+        --muted: rgba(237, 244, 255, 0.66);
+        --soft: rgba(237, 244, 255, 0.1);
+        --line: rgba(255, 255, 255, 0.1);
+        --panel: rgba(255, 255, 255, 0.04);
+        --accent: #86b6ff;
+        --accent-2: #7ad7c3;
+        --shadow: 0 40px 120px rgba(0, 0, 0, 0.34);
+        --radius-xl: 34px;
+        --radius-lg: 24px;
+        --content: 1280px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(134, 182, 255, 0.2), transparent 28%),
+          radial-gradient(circle at 88% 14%, rgba(122, 215, 195, 0.12), transparent 18%),
+          linear-gradient(180deg, var(--bg-top), var(--bg));
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.45;
+      }
+
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+        border: 0;
+        background: none;
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      .mono,
+      .brand-row,
+      .decision-kicker,
+      .video-tag,
+      .status-note {
+        font-family: "IBM Plex Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .page {
+        min-height: 100vh;
+        overflow-x: clip;
+      }
+
+      .shell {
+        width: min(var(--content), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        position: relative;
+        padding: clamp(24px, 4vw, 42px) 0 88px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 50% 28%, rgba(134, 182, 255, 0.08), transparent 26%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 30%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 26px;
+      }
+
+      .brand-block {
+        display: grid;
+        gap: 14px;
+      }
+
+      .brand-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(237, 244, 255, 0.64);
+        font-size: 0.78rem;
+      }
+
+      .brand-row a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 20px rgba(134, 182, 255, 0.55);
+      }
+
+      h1 {
+        max-width: none;
+        font-size: clamp(2.1rem, 4vw, 3.8rem);
+        line-height: 0.94;
+        letter-spacing: -0.07em;
+      }
+
+      .hero-note {
+        max-width: 32ch;
+        justify-self: end;
+        color: var(--muted);
+        font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+      }
+
+      .video-card {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+          rgba(7, 13, 24, 0.92);
+        box-shadow: var(--shadow);
+      }
+
+      .video-stage {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+        min-height: 260px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top left, rgba(134, 182, 255, 0.2), transparent 24%),
+          linear-gradient(180deg, rgba(17, 31, 55, 0.9), rgba(6, 11, 20, 0.96));
+      }
+
+      .video-stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 96px 96px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent 90%);
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .video-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(20px, 3vw, 30px);
+      }
+
+      .video-topline {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .video-tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(237, 244, 255, 0.78);
+        font-size: 0.68rem;
+      }
+
+      .status-note {
+        display: none;
+        max-width: 34ch;
+        justify-self: end;
+        color: rgba(237, 244, 255, 0.56);
+        font-size: 0.66rem;
+        text-align: right;
+      }
+
+      .status-note.visible {
+        display: block;
+      }
+
+      .video-center {
+        display: grid;
+        place-items: center;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .play-button {
+        display: inline-grid;
+        place-items: center;
+        width: 102px;
+        height: 102px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .play-button:hover,
+      .play-button:focus-visible {
+        transform: scale(1.04);
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.26);
+      }
+
+      .play-button svg {
+        width: 36px;
+        height: 36px;
+        margin-left: 5px;
+        fill: var(--ink);
+      }
+
+      .play-label {
+        color: rgba(237, 244, 255, 0.84);
+        font-size: 0.98rem;
+      }
+
+      .video-bottomline {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .video-caption {
+        max-width: 22ch;
+        color: rgba(237, 244, 255, 0.6);
+        font-size: 0.94rem;
+      }
+
+      .video-embed {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      .decision-strip {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .decision-option {
+        display: grid;
+        gap: 12px;
+        padding: 24px 26px 28px;
+      }
+
+      .decision-option + .decision-option {
+        border-left: 1px solid var(--line);
+      }
+
+      .decision-kicker {
+        color: rgba(237, 244, 255, 0.56);
+        font-size: 0.68rem;
+      }
+
+      .decision-option strong {
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+        letter-spacing: -0.04em;
+      }
+
+      .decision-option p {
+        max-width: 30ch;
+        color: var(--muted);
+      }
+
+      .meta-line {
+        color: rgba(237, 244, 255, 0.76);
+        font-size: 0.98rem;
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 4px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 54px;
+        padding: 0 24px;
+        border-radius: 999px;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        color: #08111f;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 18px 44px rgba(134, 182, 255, 0.24);
+      }
+
+      .button-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .mobile-sticky {
+        position: fixed;
+        inset: auto 14px 14px;
+        z-index: 30;
+        display: none;
+        padding: 10px;
+        border-radius: 20px;
+        background: rgba(8, 16, 28, 0.92);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
+      }
+
+      .mobile-sticky.visible {
+        display: block;
+      }
+
+      .mobile-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .mobile-actions .button {
+        min-height: 46px;
+        padding-inline: 16px;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 920px) {
+        .hero-top {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-note {
+          justify-self: start;
+        }
+
+        .decision-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .decision-option + .decision-option {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          width: calc(100% - 24px);
+        }
+
+        .hero {
+          padding-top: 18px;
+          padding-bottom: 84px;
+        }
+
+        .hero,
+        .hero-inner,
+        .video-card,
+        .video-stage {
+          overflow-x: clip;
+        }
+
+        .video-card {
+          border-radius: 28px;
+        }
+
+        .video-stage {
+          min-height: 0;
+        }
+
+        h1 {
+          max-width: none;
+          font-size: clamp(2rem, 12vw, 3.2rem);
+        }
+
+        .video-overlay {
+          padding: 16px;
+        }
+
+        .play-button {
+          width: 84px;
+          height: 84px;
+        }
+
+        .play-label,
+        .video-caption,
+        .meta-line {
+          font-size: 0.92rem;
+        }
+
+        .decision-option {
+          padding: 18px 18px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <main class="hero">
+        <div class="shell hero-inner">
+          <div class="hero-top">
+            <div class="brand-block">
+              <div class="brand-row">
+                <span class="brand-dot" aria-hidden="true"></span>
+                <a href="https://imt.dev/">IMT</a>
+                <span>/ intro video</span>
+              </div>
+              <h1>Короткий входной ролик</h1>
+            </div>
+
+            <p class="hero-note">
+              Для тех, у кого повторяющийся сценарий уже мешает решениям, ресурсу или
+              качеству действия. После ролика: либо живая серия консультаций,
+              либо более мягкий вход через <code>Learning Path</code>.
+            </p>
+          </div>
+
+          <div class="video-card" id="video-anchor">
+            <div class="video-stage">
+              <iframe
+                class="video-embed"
+                id="video-embed"
+                src="https://kinescope.io/embed/gzcNceLZSmyBNZZT9qwoD3"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                allowfullscreen
+                loading="eager"
+                referrerpolicy="strict-origin-when-cross-origin"
+                title="Короткий входной ролик IMT"
+              ></iframe>
+            </div>
+
+            <div class="decision-strip" id="cta-panel">
+              <div class="decision-option">
+                <span class="decision-kicker">если нужен живой разбор сейчас</span>
+                <strong>Серия консультаций</strong>
+                <div class="meta-line">4 сессии · 2ч + 1ч + 1ч + 1ч</div>
+                <p>Когда нужен не еще один инструмент, а персональный разбор причины и доведение до наблюдаемого сдвига.</p>
+                <div class="button-row">
+                  <a
+                    class="button button-primary"
+                    id="cta-1to1-main"
+                    href="https://app.imt.dev/1to1/"
+                  >
+                    Записаться на консультацию
+                  </a>
+                </div>
+              </div>
+
+              <div class="decision-option">
+                <span class="decision-kicker">если сначала нужен язык и карта</span>
+                <strong>Learning Path</strong>
+                <p>Более мягкий вход: сначала понять систему, распознать паттерн и потом решить, нужен ли живой формат.</p>
+                <div class="button-row">
+                  <a
+                    class="button button-secondary"
+                    id="cta-lp-main"
+                    href="https://app.imt.dev/lp-catalog"
+                  >
+                    Открыть Learning Path
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="mobile-sticky" id="mobile-sticky">
+        <div class="mobile-actions">
+          <a class="button button-secondary" id="cta-lp-mobile" href="https://app.imt.dev/lp-catalog">
+            Learning Path
+          </a>
+          <a
+            class="button button-primary"
+            id="cta-1to1-mobile"
+            href="https://app.imt.dev/1to1/"
+          >
+            Серия консультаций
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const PAGE_VARIANT = "intro_dual_cta_v1";
+      const FUNNEL_NAME = "intro_route_choice";
+      const SESSION_ROUTE_KEY = "imt_intro_route";
+
+      function trackEvent(name, params = {}) {
+        if (window.gtag) {
+          window.gtag("event", name, params);
+          return;
+        }
+
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push({ event: name, ...params });
+          return;
+        }
+
+        console.info("[track]", name, params);
+      }
+
+      function trackFunnelEvent(name, params = {}) {
+        trackEvent(name, {
+          funnel_name: FUNNEL_NAME,
+          page_variant: PAGE_VARIANT,
+          ...params,
+        });
+      }
+
+      function persistRouteContext(routeDestination, ctaId) {
+        try {
+          sessionStorage.setItem(
+            SESSION_ROUTE_KEY,
+            JSON.stringify({
+              route_destination: routeDestination,
+              cta_id: ctaId,
+              source_page: "intro",
+              ts: Date.now(),
+            })
+          );
+        } catch (error) {
+          console.info("[sessionStorage]", error);
+        }
+      }
+
+      function observeOnce(targetId, eventName, threshold, extra = {}) {
+        const node = document.getElementById(targetId);
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const [entry] = entries;
+            if (!entry.isIntersecting) return;
+            trackFunnelEvent(eventName, extra);
+            observer.disconnect();
+          },
+          { threshold }
+        );
+
+        observer.observe(node);
+      }
+
+      function initStickyCta() {
+        const sticky = document.getElementById("mobile-sticky");
+        const panel = document.getElementById("cta-panel");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const [entry] = entries;
+            if (window.innerWidth > 640) {
+              sticky.classList.remove("visible");
+              return;
+            }
+            sticky.classList.toggle("visible", !entry.isIntersecting);
+          },
+          { threshold: 0.18 }
+        );
+
+        observer.observe(panel);
+      }
+
+      function initVisibilityTracking() {
+        observeOnce("video-anchor", "intro_video_visible", 0.55, {
+          step_name: "video_stage",
+          step_index: 1,
+        });
+
+        observeOnce("cta-panel", "intro_decision_visible", 0.4, {
+          step_name: "route_choice",
+          step_index: 1,
+        });
+      }
+
+      function initEngagementTracking() {
+        window.setTimeout(() => {
+          trackFunnelEvent("intro_engaged_30s", {
+            engaged_seconds: 30,
+          });
+        }, 30000);
+      }
+
+      function initCtaTracking() {
+        const config = [
+          ["cta-1to1-main", "cta_1to1_click", "series_consultation"],
+          ["cta-1to1-mobile", "cta_1to1_click", "series_consultation"],
+          ["cta-lp-main", "cta_lp_click", "learning_path"],
+          ["cta-lp-mobile", "cta_lp_click", "learning_path"],
+        ];
+
+        config.forEach(([id, eventName, routeDestination]) => {
+          const node = document.getElementById(id);
+          if (!node) return;
+          node.addEventListener("click", () => {
+            const placement = id.includes("mobile") ? "mobile_sticky" : "decision_strip";
+            persistRouteContext(routeDestination, id);
+
+            trackFunnelEvent("intro_route_select", {
+              step_name: "route_choice",
+              step_index: 1,
+              route_destination: routeDestination,
+              cta_id: id,
+              placement,
+            });
+
+            trackEvent(eventName, {
+              cta_id: id,
+              placement,
+              route_destination: routeDestination,
+              page_variant: PAGE_VARIANT,
+            });
+
+            trackEvent("select_content", {
+              content_type: "next_step_route",
+              item_id: routeDestination,
+              cta_id: id,
+              placement,
+              funnel_name: FUNNEL_NAME,
+              page_variant: PAGE_VARIANT,
+            });
+          });
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        trackFunnelEvent("intro_view", {
+          step_name: "intro_video",
+          step_index: 1,
+        });
+
+        trackEvent("video_page_view", { page_variant: PAGE_VARIANT });
+
+        const video = document.getElementById("video-embed");
+        if (video) {
+          video.addEventListener(
+            "load",
+            () => {
+              trackFunnelEvent("intro_video_embed_loaded", {
+                step_name: "intro_video",
+                step_index: 1,
+              });
+            },
+            { once: true }
+          );
+        }
+
+        initStickyCta();
+        initVisibilityTracking();
+        initEngagementTracking();
+        initCtaTracking();
+      });
+    </script>
+  </body>
+</html>

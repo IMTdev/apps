@@ -528,7 +528,7 @@
             <span class="brand-dot" aria-hidden="true"></span>
             <a href="https://imt.dev/">IMT</a>
             <span>/</span>
-            <a href="/intro26/">intro video</a>
+            <a href="/intro/">intro video</a>
             <span>/ 1:1</span>
           </div>
 
@@ -941,9 +941,10 @@
     </div>
 
     <script>
-      const PAGE_VARIANT = "intro26_1to1_offer_v1";
-      const FUNNEL_NAME = "intro26_series_consultation";
-      const SESSION_ROUTE_KEY = "imt_intro26_route";
+      const PAGE_VARIANT = "intro_1to1_offer_v1";
+      const FUNNEL_NAME = "intro_series_consultation";
+      const SESSION_ROUTE_KEY = "imt_intro_route";
+      const LEGACY_SESSION_ROUTE_KEY = "imt_intro26_route";
 
       function trackEvent(name, params = {}) {
         if (window.gtag) {
@@ -969,7 +970,9 @@
 
       function getRouteContext() {
         try {
-          const raw = sessionStorage.getItem(SESSION_ROUTE_KEY);
+          const raw =
+            sessionStorage.getItem(SESSION_ROUTE_KEY) ||
+            sessionStorage.getItem(LEGACY_SESSION_ROUTE_KEY);
           return raw ? JSON.parse(raw) : null;
         } catch (error) {
           console.info("[sessionStorage]", error);
