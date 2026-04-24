@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-16453014043');
+</script>
+<script>
+  window.mainTracker = 'gtag';
+  window.gtagTrackerID = 'G-B2JG56FKGP';
+  setTimeout(function(){
+    (function(w,d,s,i){
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtag/js?id=' + i;
+      f.parentNode.insertBefore(j,f);
+      gtag('js', new Date());
+      gtag('config', i, {});
+    })(window,document,'script',window.gtagTrackerID);
+  }, 2000);
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMT Wiki — ИДЕАЛ-метод Тойча</title>
+    <meta name="description" content="Фактологичная IMT Wiki-страница об ИДЕАЛ-методе Тойча: основатели, ментальная генетика, андрофизика, духовные принципы и переобучение.">
+    <style>
+        :root {
+            --bg: #fafbfc;
+            --panel: #ffffff;
+            --line: #dde3ea;
+            --text: #0f1720;
+            --muted: #4a5768;
+            --link: #1b4ed8;
+            --warn-bg: #fff8ef;
+            --warn-line: #f2c085;
+            --ok-bg: #f3fcf6;
+            --ok-line: #9ad4ad;
+            --radius: 12px;
+            --space-1: 8px;
+            --space-2: 12px;
+            --space-3: 16px;
+            --space-4: 24px;
+            --space-5: 40px;
+            --space-6: 64px;
+            --measure: 78ch;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            font-weight: 400;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.58;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .container {
+            width: min(1240px, 100% - 40px);
+            margin-inline: auto;
+        }
+
+        .page {
+            padding: var(--space-5) 0 110px;
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        .main {
+            grid-column: 1 / span 8;
+        }
+
+        .sidebar {
+            grid-column: 9 / span 4;
+            position: sticky;
+            top: 20px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .doc-header {
+            position: relative;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 100px 22px 22px;
+            margin-bottom: var(--space-5);
+        }
+
+        .doc-header-nav {
+            margin-bottom: 14px;
+        }
+
+        .doc-header-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #fff;
+            color: #2f415f;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .hero-metaphor {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            width: 72px;
+            height: 72px;
+            color: var(--muted);
+        }
+
+        .hero-metaphor svg { width: 100%; height: 100%; display: block; }
+        .hero-metaphor .focus-center { fill: var(--link); animation: focus-pulse 1.5s ease-in-out infinite; transform-origin: center; }
+        @keyframes focus-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: var(--space-3);
+        }
+
+        .meta-tag {
+            font-size: 0.8rem;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 4px 10px;
+            background: #fff;
+        }
+
+        h1 {
+            font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        h2 {
+            font-size: clamp(1.32rem, 2.3vw, 1.74rem);
+            line-height: 1.2;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0;
+        }
+
+        h3 {
+            font-size: 1.08rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 0.96rem;
+            margin: 14px 0 6px;
+            font-weight: 700;
+            color: #22324f;
+        }
+
+        p, li {
+            max-width: var(--measure);
+            color: var(--text);
+        }
+
+        p + p {
+            margin-top: 10px;
+        }
+
+        .summary {
+            color: var(--muted);
+            max-width: var(--measure);
+        }
+
+        .hero-lines {
+            list-style: none;
+            margin-top: 12px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .hero-lines li {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 10px;
+            max-width: 100%;
+        }
+
+        .hero-lines .k {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .quick-specs {
+            margin-top: var(--space-3);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .spec {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 10px;
+            background: #fff;
+        }
+
+        .spec-label {
+            font-size: 0.77rem;
+            color: var(--muted);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .spec-value {
+            font-size: 0.96rem;
+            font-weight: 600;
+        }
+
+        .section {
+            padding: var(--space-6) 0;
+            border-top: 1px solid var(--line);
+            position: relative;
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px dashed #edf1f5;
+            transform: translateY(-8px);
+        }
+
+        .section-intro {
+            color: var(--muted);
+            margin-bottom: var(--space-3);
+            max-width: var(--measure);
+        }
+
+        .section-intro strong {
+            color: var(--text);
+        }
+
+        .callout {
+            border: 1px solid var(--line);
+            border-left-width: 4px;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin: var(--space-3) 0;
+            background: #fff;
+        }
+
+        .callout .callout-title {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .callout.example {
+            border-left-color: #9ca8b8;
+            background: #f8fafc;
+        }
+
+        .callout.warn {
+            border-left-color: var(--warn-line);
+            background: var(--warn-bg);
+        }
+
+        .callout.ok {
+            border-left-color: var(--ok-line);
+            background: var(--ok-bg);
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .panel,
+        .module-card,
+        .product-card,
+        .toc-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .panel {
+            padding: 16px;
+        }
+
+        .panel ul,
+        .module-card ul {
+            margin-left: 20px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .module-card {
+            padding: 14px;
+            transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+        }
+
+        .module-card:hover {
+            border-color: #b9c8eb;
+            box-shadow: 0 14px 34px rgba(27, 78, 216, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 3px 8px;
+            color: var(--muted);
+            background: #f8fafc;
+        }
+
+        .diff {
+            background: #f9fbff;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 12px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.88rem;
+            overflow-x: auto;
+            line-height: 1.45;
+            margin: var(--space-3) 0;
+        }
+
+        .packages-table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: var(--space-3) 0;
+        }
+
+        .packages {
+            width: 100%;
+            min-width: 620px;
+            border-collapse: collapse;
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            table-layout: fixed;
+        }
+
+        .packages th,
+        .packages td {
+            border-bottom: 1px solid var(--line);
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 0.93rem;
+        }
+
+        .packages th {
+            font-weight: 600;
+            background: #f8fafc;
+            color: #22324f;
+        }
+
+        .packages tr:last-child td,
+        .packages tr:last-child th {
+            border-bottom: none;
+        }
+
+        .packages .param {
+            font-weight: 600;
+            color: #22324f;
+        }
+
+        .steps {
+            counter-reset: step;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            margin-top: var(--space-3);
+        }
+
+        .steps li {
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px;
+            display: grid;
+            grid-template-columns: 36px 1fr;
+            gap: 10px;
+            max-width: 100%;
+        }
+
+        .steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #f8fafc;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            font-weight: 600;
+        }
+
+        .product-card,
+        .toc-card {
+            padding: 14px;
+        }
+
+        .product-price {
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1;
+            margin: 6px 0 8px;
+        }
+
+        .product-meta {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-bottom: 10px;
+        }
+
+        .stack-buttons {
+            display: grid;
+            gap: 8px;
+        }
+
+        .btn {
+            border: 1px solid transparent;
+            border-radius: 10px;
+            padding: 10px 12px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+        }
+
+        .btn-primary {
+            background: var(--link);
+            border-color: var(--link);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            border-color: var(--line);
+            color: var(--text);
+        }
+
+        .toc-card ul {
+            list-style: none;
+            display: grid;
+            gap: 4px;
+        }
+
+        .toc-card a {
+            display: block;
+            padding: 6px 8px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2f415f;
+            border: 1px solid transparent;
+            font-size: 0.93rem;
+        }
+
+        .toc-card a.active {
+            border-color: #b9c8eb;
+            background: #eef3ff;
+            color: #173f9f;
+            font-weight: 600;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .mobile-cta {
+            display: none;
+        }
+
+        @media (max-width: 1080px) {
+            .main {
+                grid-column: 1 / span 12;
+            }
+
+            .sidebar {
+                position: static;
+                grid-column: 1 / span 12;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                width: min(1240px, calc(100% - 24px));
+            }
+
+            .doc-header { padding: 18px; }
+            .hero-metaphor {
+                position: static;
+                width: 56px;
+                height: 56px;
+                margin: 0 0 12px auto;
+            }
+
+            .hero-lines li {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .hero-lines .k {
+                font-size: 0.74rem;
+            }
+
+            .quick-specs {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 840px) {
+            .page {
+                padding-bottom: 140px;
+            }
+
+            .quick-specs,
+            .two-col,
+            .module-grid,
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .doc-header-nav a {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .mobile-cta {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 14px;
+                border-top: 1px solid var(--line);
+                background: #fff;
+                z-index: 30;
+            }
+
+            .mobile-cta .price {
+                font-size: 1.05rem;
+                font-weight: 700;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="container page-grid">
+            <main class="main">
+                <header class="doc-header" id="hero">
+                    <div class="doc-header-nav"><a href="https://app.imt.dev/lp-catalog">← Каталог IMT</a></div>
+                    <div class="hero-metaphor" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" focusable="false">
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                            <line x1="50" y1="20" x2="50" y2="40" stroke="var(--link)" stroke-width="2"/>
+                            <line x1="50" y1="60" x2="50" y2="80" stroke="var(--link)" stroke-width="2"/>
+                            <line x1="20" y1="50" x2="40" y2="50" stroke="var(--link)" stroke-width="2"/>
+                            <line x1="60" y1="50" x2="80" y2="50" stroke="var(--link)" stroke-width="2"/>
+                            <circle class="focus-center" cx="50" cy="50" r="5"/>
+                        </svg>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-tag">version: IMT-WIKI v1.0</span>
+                        <span class="meta-tag">last updated: 2026-04-24</span>
+                        <span class="meta-tag">format: techdoc</span>
+                    </div>
+                    <h1>ИДЕАЛ-метод Тойча</h1>
+                    <p class="summary">Фактологичная справка о системе переобучения унаследованных паттернов: основатели, три основания метода, схема работы и индивидуальная консультация.</p>
+                    <ul class="hero-lines">
+                        <li><span class="k">Что это</span><span>Wiki-страница IMT о методе Тойча без личного вступления и без рекламной подачи.</span></li>
+                        <li><span class="k">Фокус</span><span>Ментальная генетика, андрофизика, духовные принципы и программа переобучения.</span></li>
+                        <li><span class="k">Контекст</span><span>Метод малоизвестен массовой аудитории, но в материалах школы связывается с работой со статусными клиентами.</span></li>
+                        <li><span class="k">Границы</span><span>Громкие имена, регалии и статистика отмечены как сведения материалов метода и требуют независимой проверки.</span></li>
+                    </ul>
+                    <div class="quick-specs">
+                        <div class="spec">
+                            <div class="spec-label">Тип</div>
+                            <div class="spec-value">IMT Wiki</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Основа</div>
+                            <div class="spec-value">LP-PATTERNS techdoc</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">Итог</div>
+                            <div class="spec-value">Карта метода и терминов</div>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="section" id="definition">
+                    <h2>Короткое определение</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> базовая рамка, чтобы дальше читать метод как систему понятий, а не как личную историю или мнение.</p>
+                    <p>ИДЕАЛ-метод Тойча, или IDEAL Method Teutsch, - авторская система анализа и переобучения устойчивых моделей мышления и поведения. Метод рассматривает повторяющиеся жизненные проблемы как закономерные результаты внутренних программ, часть которых связывается с родовой историей, ментальной генетикой, действием законов человеческой психики и духовными принципами.</p>
+                    <p>Практическая задача метода - не просто объяснить, почему возникла проблема, а построить индивидуальную программу переобучения: новое понимание, новые действия, письменную фиксацию и последовательную замену деструктивного паттерна на конструктивный.</p>
+                    <div class="callout example">
+                        <div class="callout-title">Формула</div>
+                        Если результат повторяется, метод ищет не единичное объяснение, а устойчивый внутренний закон, который снова производит этот результат.
+                    </div>
+                </section>
+
+                <section class="section" id="facts">
+                    <h2>Факт-карта</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> короткая техническая карта метода и его статуса.</p>
+                    <div class="packages-table-scroll">
+                        <table class="packages">
+                            <tbody>
+                                <tr><td class="param">Название</td><td>ИДЕАЛ-метод Тойча / IDEAL Method Teutsch</td></tr>
+                                <tr><td class="param">IDEAL</td><td>Individualized, Directive, Explanatory, Action, Log: индивидуальный, направляющий, объясняющий, с программой действий, зафиксированный письменно.</td></tr>
+                                <tr><td class="param">Основатели</td><td>Champion Kurt Teutsch и Joel Marie Teutsch.</td></tr>
+                                <tr><td class="param">Период формирования</td><td>В материалах IDEAL Law to Success указывается ранний период 1960-х годов. Даты требуют независимой проверки.</td></tr>
+                                <tr><td class="param">Центр метода</td><td>Повторяющиеся паттерны мышления, поведения, отношений, здоровья, денег, самооценки и жизненного результата.</td></tr>
+                                <tr><td class="param">Основная практика</td><td>Индивидуальная консультация, выявление повторяющегося закона, программа переобучения, новые действия, письменная фиксация.</td></tr>
+                                <tr><td class="param">Три основания</td><td>Ментальная генетика, андрофизика, духовные принципы.</td></tr>
+                                <tr><td class="param">Что требует проверки</td><td>Клиентские списки, титулы, число кейсов, академические степени, независимые публикации и точные библиографические данные.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="callout warn">
+                        <div class="callout-title">Важно</div>
+                        Эта страница не является медицинской, психологической или юридической рекомендацией. Она описывает ИДЕАЛ-метод как систему понятий и практик, используемую внутри школы Тойча и связанных с ней материалов.
+                    </div>
+                </section>
+
+                <section class="section" id="status">
+                    <h2>Статус и известные клиенты</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> почему метод одновременно малоизвестен в массовом поле и при этом имеет сильное статусное самоописание.</p>
+                    <p>ИДЕАЛ-метод не относится к массовым направлениям популярной психологии. Он редко встречается в широком публичном поле и чаще передается через книги, консультационные школы, обучающие программы, семинары и личные рекомендации. При этом внутри традиции метода постоянно подчеркивается, что он применялся не только обычными людьми, но и людьми с высокой социальной ответственностью, публичностью и ресурсом.</p>
+                    <div class="module-grid">
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">CLIENTS</span><span class="tag">CLAIMED IN METHOD MATERIALS</span></div>
+                            <h3>Предприниматели и публичные фигуры</h3>
+                            <p>В русскоязычных материалах среди клиентов и связанных с методом фигур называются состоятельные предприниматели, актеры, режиссеры, политики и президенты. В частности, упоминаются Марк Хьюз, Джим Керри, Элизабет Тейлор, Стивен Спилберг, Арнольд Шварценеггер, Рональд Рейган, Линдон Джонсон и Джордж Буш.</p>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">EDITORIAL RULE</span><span class="tag">WIKI TONE</span></div>
+                            <h3>Как это подавать серьезно</h3>
+                            <p>Конкретные имена лучше не использовать как рекламное доказательство. Корректная формула: "в материалах о методе утверждается". Для публичной версии нужны независимые источники, подтверждающие консультационные отношения и биографические детали.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="founders">
+                    <h2>Основатели метода</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> кто стоит за методом и какие регалии обычно указываются в материалах школы.</p>
+                    <div class="two-col">
+                        <article class="panel">
+                            <h3>Champion Kurt Teutsch</h3>
+                            <p>Champion Kurt Teutsch в материалах метода представлен как один из двух основателей ИДЕАЛ-метода, автор книг, статей, семинаров и консультант в области человеческой ментальной генетики. В донорской статье указывается, что он родился в 1921 году в Германии, эмигрировал в США, получил инженерно-техническое образование в Университете Флориды, служил в Вооруженных силах США и участвовал в боевых действиях как офицер воздушной разведки.</p>
+                            <p>В материалах IDEAL Law to Success он описывается как доктор физики и психологии, мастер-коуч и консультант, работавший более 50 лет. Там же заявлено более 140 тысяч успешно разрешенных случаев. Эти цифры и формулировки следует трактовать как внутренние сведения школы, пока не добавлены независимые источники.</p>
+                            <h4>Ключевые акценты</h4>
+                            <ul>
+                                <li>сооснователь метода вместе с Joel Marie Teutsch;</li>
+                                <li>автор и преподаватель, связанный с ментальной генетикой;</li>
+                                <li>в русскоязычной традиции связан с переносом физических законов на поведение и сознание;</li>
+                                <li>один из центральных авторов библиотеки метода.</li>
+                            </ul>
+                        </article>
+                        <article class="panel">
+                            <h3>Joel Marie Teutsch</h3>
+                            <p>Joel Marie Teutsch в материалах метода представлена как соосновательница ИДЕАЛ-метода, духовный наставник Champion Kurt Teutsch и самостоятельная фигура, повлиявшая на религиозное, медицинское, психологическое и философское измерение метода.</p>
+                            <p>С ее линией связывается акцент на духовных принципах, истинной природе человека, совести, законе воздаяния, отказе от жертвенности и переходе от деструктивных моделей к более целостному, радостному и эффективному способу жизни.</p>
+                            <h4>Ключевые акценты</h4>
+                            <ul>
+                                <li>соосновательница метода;</li>
+                                <li>духовный наставник Champion Kurt Teutsch;</li>
+                                <li>центральная фигура духовной части метода;</li>
+                                <li>связана с книгами "Откровения Джоэл", "Сага о Джоэл", "Духовный интеллект".</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="callout example">
+                        <div class="callout-title">Проверить перед публичной публикацией</div>
+                        Даты жизни, академические степени, военную службу, статус "Person of the Year 2003 / Healthcare Professional", статистику кейсов, California Television School, архив интервью с Дмитрием Дибровым и публикации в "Известиях".
+                    </div>
+                </section>
+
+                <section class="section" id="method">
+                    <h2>Что такое ИДЕАЛ-метод</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> метод как работа с законом поведения, а не только с симптомом.</p>
+                    <p>ИДЕАЛ-метод Тойча описывает человеческую проблему как проявление повторяющейся внутренней закономерности. В обычной логике человек часто воспринимает проблему как набор внешних обстоятельств: "не везет", "не та среда", "мало знаний", "не хватает дисциплины", "сложное детство", "плохой характер", "неправильные люди рядом". Метод Тойча предлагает смотреть глубже: какие повторяющиеся модели мышления, ожидания, страха, вины, выбора и действия воспроизводят один и тот же результат.</p>
+                    <p>В этой логике важен не только сам факт проблемы, но и ее повторяемость. Один конфликт может быть случайностью. Повторяющийся тип конфликтов уже похож на паттерн. Если человек снова и снова оказывается в похожей позиции, выбирает похожих людей, теряет похожие возможности, саботирует похожие цели или воспроизводит похожий уровень дохода, метод будет искать не единичное объяснение, а устойчивый закон, который управляет повтором.</p>
+                    <pre class="diff" aria-label="Схема повторяющегося закона">повторяющийся результат
+  ↓
+повторяющееся поведение
+  ↓
+повторяющееся мышление
+  ↓
+унаследованный или закрепленный закон
+  ↓
+причина закона
+  ↓
+переобучение
+  ↓
+новая модель действия</pre>
+                    <div class="module-grid">
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">SYMPTOM</span></div>
+                            <h3>Симптом</h3>
+                            <ul>
+                                <li>не получается увеличить доход;</li>
+                                <li>отношения повторяются по одному сценарию;</li>
+                                <li>после прогресса происходит откат;</li>
+                                <li>человек знает, что нужно делать, но не делает.</li>
+                            </ul>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">LAW</span></div>
+                            <h3>Закон</h3>
+                            <ul>
+                                <li>какая внутренняя норма делает результат логичным;</li>
+                                <li>где модель стала привычкой или "законом";</li>
+                                <li>какая родовая, физическая или духовная причина удерживает повтор;</li>
+                                <li>какое новое действие должно заменить старую реакцию.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="pillars">
+                    <h2>Три основания метода</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> три опоры, на которых строится объяснительная модель метода.</p>
+                    <pre class="diff" aria-label="Три основания">Ментальная генетика:
+  Откуда повторяющийся паттерн мог быть унаследован?
+
+Андрофизика:
+  По каким законам этот паттерн удерживается, разгоняется или меняет траекторию?
+
+Духовные принципы:
+  Какой принцип нарушен или не понят, и какая конструктивная модель должна заменить старую?</pre>
+                    <div class="module-grid">
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">PILLAR 01</span><span class="tag">MENTOGENETICS</span></div>
+                            <h3>Ментальная генетика</h3>
+                            <p>Ментальная генетика описывает идею, что человек наследует не только физические признаки, но и определенные модели мышления, поведения, реакций и жизненных сценариев. Если в нескольких поколениях повторяется схожая модель - потеря денег, подавление себя, конфликт с властью, жертвенность, одиночество или страх успеха, - метод рассматривает это как возможный наследуемый закон.</p>
+                            <p><strong>Книги:</strong> "Ментальная генетика", "Сага о Чемпионе", "Из человеческой неволи к свободе", "Девиктимология". Точные библиографические данные нужно добавить.</p>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">PILLAR 02</span><span class="tag">ANDROPHYSICS</span></div>
+                            <h3>Андрофизика</h3>
+                            <p>Андрофизика - терминологический слой ИДЕАЛ-метода, где человеческое поведение рассматривается через аналогии с физическими законами: инерцией, силой, направлением, массой, взаимодействием систем и изменением траектории под действием новой силы.</p>
+                            <p><strong>Книги:</strong> "Ментальная генетика" и "Сага о Чемпионе" как вероятные базовые источники. Нужны первичные материалы, где напрямую используется термин "андрофизика" и понятие "масса сознания".</p>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">PILLAR 03</span><span class="tag">SPIRITUAL PRINCIPLES</span></div>
+                            <h3>Духовные принципы</h3>
+                            <p>В логике метода духовные принципы описывают не моральную оценку человека, а причинный слой: какой принцип был нарушен, не понят или искажен, и какая конструктивная модель должна быть восстановлена, чтобы поведение перестало воспроизводить прежний результат.</p>
+                            <p><strong>Книги:</strong> "Откровения Джоэл", "Духовный интеллект", "Отсюда и к великому счастью", "Сага о Джоэл", "Ваше право на совершенное здоровье".</p>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">EDITORIAL NOTE</span></div>
+                            <h3>Где оставить плейсхолдеры</h3>
+                            <p>Нужно отдельно добавить точное определение андрофизики, оригинальный английский термин, список используемых физических законов, полный список духовных принципов и точные библиографические данные всех книг.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="schema">
+                    <h2>Общая схема метода</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> путь от фактов биографии и рода к новой модели действия.</p>
+                    <pre class="diff" aria-label="Общая схема ИДЕАЛ-метода">ИДЕАЛ-МЕТОД ТОЙЧА
+  ↓
+ФАКТЫ
+  ├─ биография человека
+  ├─ повторяющиеся жизненные результаты
+  ├─ ранний опыт и воспитание
+  ├─ факты родителей
+  ├─ факты бабушек и дедушек
+  └─ повторяющиеся родовые сценарии
+  ↓
+ДИАГНОСТИКА ЗАКОНА
+  ├─ какая модель повторяется?
+  ├─ где она стала "нормой"?
+  ├─ какой подсознательный закон управляет выбором?
+  └─ какой результат этот закон снова производит?
+  ↓
+ТРИ ОСНОВАНИЯ
+  ├─ Ментальная генетика: откуда унаследован паттерн
+  ├─ Андрофизика: как паттерн удерживается и движется
+  └─ Духовные принципы: какой закон нарушен или не понят
+  ↓
+ПЕРЕОБУЧЕНИЕ
+  ├─ новое объяснение
+  ├─ новая интерпретация опыта
+  ├─ индивидуальная программа действий
+  ├─ письменная фиксация
+  └─ повтор новых действий
+  ↓
+НОВЫЙ РЕЗУЛЬТАТ
+  ├─ меньше автоматического повтора
+  ├─ больше осознанного выбора
+  ├─ конструктивная модель вместо деструктивной
+  └─ устойчивое изменение поведения</pre>
+                </section>
+
+                <section class="section" id="consultation">
+                    <h2>Переобучение через индивидуальную консультацию</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> практический центр метода - как старый закон заменяется новой моделью.</p>
+                    <p>Переобучение в ИДЕАЛ-методе - это индивидуальная программа замены старого закона мышления и поведения на новый. Она строится не вокруг общей мотивации, а вокруг конкретного выявленного паттерна: что повторяется, откуда это пришло, какой принцип искажен, какое новое понимание нужно принять и какие действия должны закрепить новую модель.</p>
+                    <p>Индивидуальная консультация нужна потому, что метод работает не с абстрактным типом проблемы, а с конкретной конфигурацией человека. Два человека могут иметь одинаковый симптом, но разные причины. Например, одинаковая финансовая проблема может быть связана с жертвенностью, страхом превосходить родителя, наказанием за успех, наследуемой потерей имущества, виной перед семьей, конфликтом с авторитетом или неверной духовной установкой о деньгах.</p>
+                    <ol class="steps">
+                        <li><div><strong>Запрос.</strong><br>Что человек хочет изменить и какой повторяющийся результат больше не устраивает.</div></li>
+                        <li><div><strong>Факты.</strong><br>Какие события, повторения, биографические и родовые данные важны для диагностики.</div></li>
+                        <li><div><strong>Паттерн.</strong><br>Какая модель повторяется в разных обстоятельствах и почему это уже не похоже на случайность.</div></li>
+                        <li><div><strong>Закон.</strong><br>Какая подсознательная норма делает этот паттерн логичным и устойчивым.</div></li>
+                        <li><div><strong>Причина.</strong><br>Как связаны ментальная генетика, андрофизика и духовный принцип.</div></li>
+                        <li><div><strong>Переобучение.</strong><br>Какое новое понимание и какие новые действия должны заменить старую модель.</div></li>
+                    </ol>
+                    <div class="callout ok">
+                        <div class="callout-title">Ключ метода</div>
+                        Новое понимание без действия не меняет программу. Действие без понимания часто дает откат. Поэтому переобучение соединяет объяснение, действие, повтор и письменную фиксацию.
+                    </div>
+                </section>
+
+                <section class="section" id="terms">
+                    <h2>Базовые понятия</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> словарь терминов для дальнейшего IMT-слоя.</p>
+                    <div class="module-grid">
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">TERM</span></div>
+                            <h3>Закон мышления и поведения</h3>
+                            <p>Повторяющаяся внутренняя норма, по которой человек интерпретирует ситуацию, выбирает реакцию и производит результат.</p>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">TERM</span></div>
+                            <h3>Унаследованный паттерн</h3>
+                            <p>Модель, которая может прослеживаться в семье или роду и действует как программа, пока ее не выявят и не заменят.</p>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">TERM</span></div>
+                            <h3>Генетический транс</h3>
+                            <p>Состояние, в котором человек воспринимает унаследованный закон как реальность или как свою личность: "я такой", "у нас всегда так", "иначе невозможно".</p>
+                        </article>
+                        <article class="module-card">
+                            <div class="tag-row"><span class="tag">TERM</span></div>
+                            <h3>Масса сознания</h3>
+                            <p>Термин андрофизического слоя метода. В доступных материалах связан с устойчивостью, инерцией и взаимодействием сознания с другими сознаниями и законами. Точное определение нужно сверить по первоисточнику.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="books">
+                    <h2>Книги и материалы</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> библиотека, на которую можно опираться при дальнейшей проверке и расширении страницы.</p>
+                    <div class="packages-table-scroll">
+                        <table class="packages">
+                            <thead>
+                                <tr><th>Книга</th><th>Роль в странице</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="param">«Отсюда и к великому счастью»</td><td>Вводный текст о методе и практических шагах для повышения сознания.</td></tr>
+                                <tr><td class="param">«Откровения Джоэл»</td><td>Духовная рамка метода; Библия как практический учебник жизни.</td></tr>
+                                <tr><td class="param">«Сага о Джоэл»</td><td>Биографический источник о Joel Marie Teutsch.</td></tr>
+                                <tr><td class="param">«Сага о Чемпионе»</td><td>Биография Champion Kurt Teutsch и изложение основных концепций метода.</td></tr>
+                                <tr><td class="param">«Духовный интеллект»</td><td>Связь духовных принципов и человеческой эффективности.</td></tr>
+                                <tr><td class="param">«Ментальная генетика»</td><td>Ключевой источник по наследуемым моделям мышления и поведения. Требует точной библиографии.</td></tr>
+                                <tr><td class="param">«Девиктимология»</td><td>Выход из позиции жертвы и смена жизненной роли.</td></tr>
+                                <tr><td class="param">«Из человеческой неволи к свободе»</td><td>Примеры моделей поведения и способов разрешения сложных жизненных ситуаций.</td></tr>
+                                <tr><td class="param">«Ваше право на совершенное здоровье»</td><td>Материал о связи мыслительных концепций и здоровья в логике школы. Нужен медицинский дисклеймер.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="section" id="verification">
+                    <h2>Что нужно верифицировать</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> открытый список данных, которые нельзя оставлять как безусловные факты без первичных источников.</p>
+                    <div class="two-col">
+                        <article class="panel">
+                            <h3>Биография и регалии</h3>
+                            <ul>
+                                <li>точные биографические данные Champion Kurt Teutsch и Joel Marie Teutsch;</li>
+                                <li>академические степени и учебные заведения;</li>
+                                <li>военная служба и профессиональная биография;</li>
+                                <li>статус "Person of the Year 2003 / Healthcare Professional";</li>
+                                <li>заявление о 140 тысячах кейсов.</li>
+                            </ul>
+                        </article>
+                        <article class="panel">
+                            <h3>Метод и источники</h3>
+                            <ul>
+                                <li>первичный источник по термину "androphysics" / "андрофизика";</li>
+                                <li>точное определение "массы сознания";</li>
+                                <li>список физических законов, используемых в методе;</li>
+                                <li>полный список духовных принципов;</li>
+                                <li>точная библиография всех книг и переводов.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="sources">
+                    <h2>Источники</h2>
+                    <p class="section-intro"><strong>В этом разделе:</strong> материалы, использованные для сборки текущей версии страницы.</p>
+                    <ol class="source-list">
+                        <li>Андрей Цыганков. <a href="https://andreytsygankov.com/ideal-metod/chto-takoe-ideal-metod-tojcha-ideal-method-i-kak-on-rabotaet/" target="_blank" rel="noopener noreferrer">Что такое ИДЕАЛ-метод Тойча (IDEAL Method) и как он работает?</a></li>
+                        <li>IDEAL Law to Success. <a href="https://ideallawtosuccess.com/about-ideal-methods-teutsch/" target="_blank" rel="noopener noreferrer">About IDEAL-Methods Teutsch</a></li>
+                        <li>Андрей Цыганков. <a href="https://andreytsygankov.com/ideal-metod/knigi-po-ideal-metodu-chempion-kurt-tojch-dzhoel-mari-tojch/" target="_blank" rel="noopener noreferrer">Книги и аудиокниги по ИДЕАЛ-методу</a></li>
+                        <li>IDEAL Law to Success. <a href="https://ideallawtosuccess.com/individual-consultation/" target="_blank" rel="noopener noreferrer">Individual Consultation</a></li>
+                    </ol>
+                </section>
+            </main>
+
+            <aside class="sidebar">
+                <article class="product-card">
+                    <h3>IMT Wiki</h3>
+                    <div class="product-price">IDEAL</div>
+                    <div class="product-meta">Справочная страница · техдок · версия 1.0</div>
+                    <div class="stack-buttons">
+                        <a class="btn btn-primary" href="#schema">Смотреть схему</a>
+                        <a class="btn btn-secondary" href="#sources">Источники</a>
+                    </div>
+                </article>
+
+                <nav class="toc-card">
+                    <h3>Оглавление</h3>
+                    <ul id="toc">
+                        <li><a href="#hero">О странице</a></li>
+                        <li><a href="#definition">Определение</a></li>
+                        <li><a href="#facts">Факт-карта</a></li>
+                        <li><a href="#status">Статус</a></li>
+                        <li><a href="#founders">Основатели</a></li>
+                        <li><a href="#method">Метод</a></li>
+                        <li><a href="#pillars">Три основания</a></li>
+                        <li><a href="#schema">Схема</a></li>
+                        <li><a href="#consultation">Переобучение</a></li>
+                        <li><a href="#terms">Понятия</a></li>
+                        <li><a href="#books">Книги</a></li>
+                        <li><a href="#verification">Проверка</a></li>
+                        <li><a href="#sources">Источники</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+    </div>
+
+    <div class="mobile-cta">
+        <div class="price">IMT Wiki · IDEAL</div>
+        <a class="btn btn-primary" href="#toc">Оглавление</a>
+    </div>
+
+    <script>
+        const links = Array.from(document.querySelectorAll('#toc a'));
+        const targets = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+        const setActive = (id) => {
+            links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        };
+
+        const updateTocOnScroll = () => {
+            const threshold = 160;
+            let current = targets[0] ? targets[0].id : '';
+
+            targets.forEach((target) => {
+                const top = target.getBoundingClientRect().top;
+                if (top <= threshold) current = target.id;
+            });
+
+            if (current) setActive(current);
+        };
+
+        window.addEventListener('scroll', updateTocOnScroll, { passive: true });
+        window.addEventListener('resize', updateTocOnScroll);
+        updateTocOnScroll();
+    </script>
+</body>
+</html>
