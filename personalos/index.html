@@ -14,14 +14,16 @@
       property="og:description"
       content="AI-инструментов стало больше, а фокуса меньше? Собери систему с быстрым доступом, личным контекстом и понятным следующим действием."
     />
-    <meta property="og:image" content="https://app.imt.dev/intro/og-intro-cover.jpg" />
+    <meta property="og:image" content="https://app.imt.dev/personalos/assets/personal-os-system-map.png" />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Personal OS на AI" />
     <meta
       name="twitter:description"
       content="AI-инструментов стало больше, а фокуса меньше? Собери систему с быстрым доступом, личным контекстом и понятным следующим действием."
     />
-    <meta name="twitter:image" content="https://app.imt.dev/intro/og-intro-cover.jpg" />
+    <meta name="twitter:image" content="https://app.imt.dev/personalos/assets/personal-os-system-map.png" />
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
@@ -401,7 +403,7 @@
 
       .term-item--split {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(160px, 260px);
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 380px);
         gap: 24px;
         align-items: start;
       }
@@ -488,19 +490,30 @@
         text-align: center;
       }
 
-      .diagram-placeholder {
+      .diagram-figure {
         margin-top: 8px;
-        min-height: 180px;
+        width: 100%;
+        overflow: hidden;
         border-radius: var(--radius-lg);
-        border: 1px dashed var(--line);
+        border: 1px solid var(--line);
         background: rgba(255, 255, 255, 0.03);
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        color: rgba(237, 244, 255, 0.42);
-        font-size: 0.94rem;
-        text-transform: none;
-        letter-spacing: -0.01em;
+        padding: 0;
+        cursor: pointer;
+        transition:
+          border-color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .diagram-figure:hover,
+      .diagram-figure:focus-visible {
+        border-color: rgba(134, 182, 255, 0.35);
+        transform: translateY(-2px);
+      }
+
+      .diagram-figure img {
+        display: block;
+        width: 100%;
+        height: auto;
       }
 
       .media-lightbox {
@@ -898,7 +911,7 @@
 
               <div class="hero-actions">
                 <a class="button button-primary" href="#apply">Хочу Personal OS под себя</a>
-                <a class="button button-secondary" href="#map">Посмотреть мой сетап</a>
+                <a class="button button-secondary" href="#setup">Посмотреть мой сетап</a>
               </div>
             </div>
 
@@ -1073,7 +1086,7 @@
             </div>
           </section>
 
-          <section class="section reveal">
+          <section class="section reveal" id="system-map">
             <div class="section-grid">
               <div class="section-kicker">схема</div>
               <div class="section-body">
@@ -1082,9 +1095,20 @@
                   Telegram -&gt; Dashboard -&gt; Cursor + Codex / Claude Code -&gt; База
                   знаний -&gt; Спринты -&gt; Обратная связь.
                 </p>
-                <div class="diagram-placeholder" aria-hidden="true">
-                  место для схемы потока
-                </div>
+                <button
+                  type="button"
+                  class="diagram-figure js-lightbox-open"
+                  data-full="assets/personal-os-system-map.png"
+                  aria-label="Увеличить схему Personal OS"
+                >
+                  <img
+                    src="assets/personal-os-system-map.png"
+                    alt="Нелинейная схема Personal OS: Telegram, Dashboard, Cursor с Codex и Claude Code, база знаний, спринты и обратная связь"
+                    width="1672"
+                    height="941"
+                    loading="lazy"
+                  />
+                </button>
                 <p>
                   Смысл не в красивой архитектуре. Смысл в том, чтобы AI перестал
                   быть внешней умной штукой и стал помощником, который знает твой
@@ -1094,7 +1118,7 @@
             </div>
           </section>
 
-          <section class="section reveal">
+          <section class="section reveal" id="setup">
             <div class="section-grid">
               <div class="section-kicker">сетап</div>
               <div class="section-body">
@@ -1150,7 +1174,7 @@
             </div>
           </section>
 
-          <section class="section reveal">
+          <section class="section reveal" id="technical-notes">
             <div class="section-grid">
               <div class="section-kicker">заметки</div>
               <div class="section-body">
@@ -1173,16 +1197,16 @@
                     <div class="term-item__media">
                       <a
                         class="term-thumb term-thumb--youtube"
-                        href="https://www.youtube.com/"
+                        href="https://www.youtube.com/watch?v=_86wrHgvn1s"
                         target="_blank"
                         rel="noreferrer"
-                        aria-label="Открыть ролик на YouTube"
+                        aria-label="Открыть ролик про OpenClaw на YouTube"
                       >
                         <img
-                          src="https://picsum.photos/seed/personalos-yt/520/292"
-                          alt=""
-                          width="260"
-                          height="146"
+                          src="assets/openclaw-video-cover.jpeg"
+                          alt="Обложка YouTube-ролика про OpenClaw"
+                          width="2742"
+                          height="1536"
                           loading="lazy"
                         />
                       </a>
@@ -1205,14 +1229,14 @@
                       <button
                         type="button"
                         class="term-thumb js-lightbox-open"
-                        data-full="https://picsum.photos/seed/personalos-cc-codex/1600/900"
+                        data-full="assets/personal-os-claude-code-vs-codex.png"
                         aria-label="Увеличить изображение"
                       >
                         <img
-                          src="https://picsum.photos/seed/personalos-cc-codex/400/225"
-                          alt=""
-                          width="400"
-                          height="225"
+                          src="assets/personal-os-claude-code-vs-codex.png"
+                          alt="Claude Code и Codex как два AI-движка, подключенные к одному рабочему процессу в Cursor"
+                          width="1672"
+                          height="941"
                           loading="lazy"
                         />
                       </button>
@@ -1233,14 +1257,14 @@
                       <button
                         type="button"
                         class="term-thumb js-lightbox-open"
-                        data-full="https://picsum.photos/seed/personalos-cursor-obs/1600/900"
+                        data-full="assets/personal-os-cursor-vs-obsidian.png"
                         aria-label="Увеличить изображение"
                       >
                         <img
-                          src="https://picsum.photos/seed/personalos-cursor-obs/400/225"
-                          alt=""
-                          width="400"
-                          height="225"
+                          src="assets/personal-os-cursor-vs-obsidian.png"
+                          alt="Сравнение Obsidian как архива связей и Cursor как рабочего места с видимым контекстом"
+                          width="1672"
+                          height="941"
                           loading="lazy"
                         />
                       </button>
@@ -1261,14 +1285,14 @@
                       <button
                         type="button"
                         class="term-thumb js-lightbox-open"
-                        data-full="https://picsum.photos/seed/personalos-context/1600/900"
+                        data-full="assets/personal-os-context.png"
                         aria-label="Увеличить изображение"
                       >
                         <img
-                          src="https://picsum.photos/seed/personalos-context/400/225"
-                          alt=""
-                          width="400"
-                          height="225"
+                          src="assets/personal-os-context.png"
+                          alt="Личный и рабочий контекст собирается из голоса, сессий, дневников, созвонов, переписок, документов и стратегий"
+                          width="1672"
+                          height="941"
                           loading="lazy"
                         />
                       </button>
@@ -1291,14 +1315,14 @@
                       <button
                         type="button"
                         class="term-thumb js-lightbox-open"
-                        data-full="https://picsum.photos/seed/personalos-mcp/1600/900"
+                        data-full="assets/personal-os-skills-mcp.png"
                         aria-label="Увеличить изображение"
                       >
                         <img
-                          src="https://picsum.photos/seed/personalos-mcp/400/225"
-                          alt=""
-                          width="400"
-                          height="225"
+                          src="assets/personal-os-skills-mcp.png"
+                          alt="Скиллы задают поведение AI-агента, а MCP подключает актуальный контекст из ClickUp, SendPulse, Telegram, RescueTime, Figma и Analytics"
+                          width="1672"
+                          height="941"
                           loading="lazy"
                         />
                       </button>
@@ -1600,8 +1624,9 @@
           opens.addEventListener("click", () => {
             const full = opens.getAttribute("data-full");
             if (!full) return;
+            const preview = opens.querySelector("img");
             img.src = full;
-            img.alt = "";
+            img.alt = preview?.getAttribute("alt") || "";
             dialog.showModal();
           });
         });
