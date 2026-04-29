@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal OS на AI</title>
+    <meta
+      name="description"
+      content="Как собрать Personal OS на Claude Code, Cursor, Codex и Telegram без гонки за сотней инструментов."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Personal OS на AI" />
+    <meta
+      property="og:description"
+      content="AI-инструментов стало больше, а фокуса меньше? Собери систему с быстрым доступом, личным контекстом и понятным следующим действием."
+    />
+    <meta property="og:image" content="https://app.imt.dev/intro/og-intro-cover.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Personal OS на AI" />
+    <meta
+      name="twitter:description"
+      content="AI-инструментов стало больше, а фокуса меньше? Собери систему с быстрым доступом, личным контекстом и понятным следующим действием."
+    />
+    <meta name="twitter:image" content="https://app.imt.dev/intro/og-intro-cover.jpg" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --bg: #09111d;
+        --bg-top: #11213a;
+        --ink: #edf4ff;
+        --muted: rgba(237, 244, 255, 0.66);
+        --line: rgba(255, 255, 255, 0.1);
+        --soft: rgba(255, 255, 255, 0.04);
+        --accent: #86b6ff;
+        --accent-2: #7ad7c3;
+        --warn: #efbf7c;
+        --shadow: 0 32px 96px rgba(0, 0, 0, 0.28);
+        --shadow-soft: 0 22px 54px rgba(17, 21, 29, 0.08);
+        --content: 1240px;
+        --radius-lg: 28px;
+        --radius-xl: 34px;
+        --page-ink: #11151d;
+        --page-muted: #5d6676;
+        --page-line: rgba(17, 21, 29, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(134, 182, 255, 0.18), transparent 26%),
+          radial-gradient(circle at 88% 8%, rgba(122, 215, 195, 0.1), transparent 16%),
+          linear-gradient(180deg, var(--bg-top), var(--bg));
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.45;
+      }
+
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+        border: 0;
+        background: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .brand-row,
+      .section-kicker,
+      .meta-chip,
+      .system-label,
+      .step-index,
+      .small-link,
+      .price-line span {
+        font-family: "IBM Plex Mono", monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .page {
+        min-height: 100vh;
+        overflow-x: clip;
+      }
+
+      .shell {
+        width: min(var(--content), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        position: relative;
+        padding: clamp(24px, 4vw, 42px) 0 34px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 48% 18%, rgba(134, 182, 255, 0.08), transparent 24%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 32%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .brand-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(237, 244, 255, 0.64);
+        font-size: 0.78rem;
+      }
+
+      .brand-row a {
+        text-decoration: none;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 20px rgba(134, 182, 255, 0.55);
+      }
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.38fr) minmax(360px, 0.78fr);
+        gap: clamp(26px, 5vw, 70px);
+        align-items: center;
+        margin-top: 24px;
+      }
+
+      h1 {
+        max-width: 18ch;
+        font-size: clamp(1.8rem, 3.6vw, 3.96rem);
+        font-weight: 600;
+        line-height: 0.9;
+        letter-spacing: -0.07em;
+        width: fit-content;
+      }
+
+      .hero-note {
+        max-width: 58ch;
+        margin-top: 22px;
+        color: rgba(237, 244, 255, 0.78);
+        font-size: clamp(1rem, 1.45vw, 1.15rem);
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .meta-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(237, 244, 255, 0.76);
+        font-size: 0.7rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 56px;
+        padding: 0 24px;
+        border-radius: 999px;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        color: #08111f;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 18px 44px rgba(134, 182, 255, 0.24);
+      }
+
+      .button-secondary {
+        color: rgba(237, 244, 255, 0.86);
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .system-panel {
+        position: relative;
+        min-height: 530px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        background:
+          radial-gradient(circle at 20% 18%, rgba(134, 182, 255, 0.22), transparent 30%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
+          rgba(7, 13, 24, 0.88);
+        box-shadow: var(--shadow);
+      }
+
+      .system-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 76px 76px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 95%);
+        pointer-events: none;
+      }
+
+      .system-panel img {
+        position: absolute;
+        inset: auto -80px -160px auto;
+        width: min(520px, 90%);
+        opacity: 0.28;
+        filter: saturate(1.3);
+      }
+
+      .system-label {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        color: rgba(237, 244, 255, 0.56);
+        font-size: 0.7rem;
+      }
+
+      .system-nodes {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 12px;
+        padding: 76px 24px 24px;
+      }
+
+      .system-node {
+        display: grid;
+        grid-template-columns: minmax(86px, max-content) minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.045);
+        backdrop-filter: blur(10px);
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .system-node--stack-label {
+        align-items: start;
+      }
+
+      .node-code {
+        color: var(--accent-2);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.74rem;
+        text-transform: none;
+      }
+
+      .node-code--stack {
+        line-height: 1.25;
+      }
+
+      .system-node:hover {
+        transform: translateX(4px);
+        border-color: rgba(134, 182, 255, 0.28);
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .system-node strong {
+        display: block;
+        font-size: 1.08rem;
+        letter-spacing: -0.03em;
+      }
+
+      .system-node span:last-child {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .main {
+        padding: 18px 0 110px;
+      }
+
+      .section {
+        padding: 30px 0 32px;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      .section-kicker {
+        color: rgba(237, 244, 255, 0.52);
+        font-size: 0.7rem;
+      }
+
+      .section-body {
+        display: grid;
+        gap: 20px;
+      }
+
+      .section-body h2 {
+        font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+        letter-spacing: -0.05em;
+      }
+
+      .section-body p {
+        color: var(--muted);
+      }
+
+      .flow-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .flow-grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow-card {
+        min-height: 100%;
+        padding: 22px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background: var(--soft);
+      }
+
+      .flow-card h3 {
+        font-size: 1.18rem;
+        letter-spacing: -0.04em;
+      }
+
+      .flow-card p {
+        margin-top: 10px;
+      }
+
+      .terms-stack {
+        display: grid;
+      }
+
+      .term-item {
+        padding: 24px 0 26px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .term-item:last-child {
+        border-bottom: none;
+      }
+
+      .term-item--split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(160px, 260px);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .term-item__text {
+        min-width: 0;
+      }
+
+      .term-item__text p {
+        max-width: none;
+      }
+
+      .term-thumb {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        cursor: pointer;
+        padding: 0;
+        transition:
+          border-color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .term-thumb:hover,
+      .term-thumb:focus-visible {
+        border-color: rgba(134, 182, 255, 0.35);
+        transform: translateY(-2px);
+      }
+
+      .term-thumb img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .term-item__media {
+        min-width: 0;
+      }
+
+      a.term-thumb {
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+      }
+
+      .term-thumb--youtube {
+        aspect-ratio: 16 / 9;
+      }
+
+      .term-thumb--youtube img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .term-thumb--youtube::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.85);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        background:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E")
+            no-repeat 58% 50% / 22px 22px,
+          rgba(8, 16, 28, 0.72);
+        pointer-events: none;
+      }
+
+      .term-thumb__label {
+        display: block;
+        margin-top: 8px;
+        font-size: 0.68rem;
+        font-family: "IBM Plex Mono", monospace;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(237, 244, 255, 0.48);
+        text-align: center;
+      }
+
+      .diagram-placeholder {
+        margin-top: 8px;
+        min-height: 180px;
+        border-radius: var(--radius-lg);
+        border: 1px dashed var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        color: rgba(237, 244, 255, 0.42);
+        font-size: 0.94rem;
+        text-transform: none;
+        letter-spacing: -0.01em;
+      }
+
+      .media-lightbox {
+        max-width: min(96vw, 1100px);
+        width: 100%;
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .media-lightbox::backdrop {
+        background: rgba(4, 8, 14, 0.88);
+        backdrop-filter: blur(6px);
+      }
+
+      .media-lightbox__inner {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        background: #070d18;
+      }
+
+      .media-lightbox img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: min(85vh, 900px);
+        object-fit: contain;
+      }
+
+      .media-lightbox__close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: rgba(8, 16, 28, 0.85);
+        color: var(--ink);
+        font-size: 1.4rem;
+        line-height: 1;
+        display: grid;
+        place-items: center;
+      }
+
+      .media-lightbox__close:hover,
+      .media-lightbox__close:focus-visible {
+        border-color: rgba(134, 182, 255, 0.45);
+      }
+
+      .term-item h3 {
+        font-size: clamp(1.3rem, 2vw, 1.9rem);
+        letter-spacing: -0.04em;
+      }
+
+      .term-item p {
+        max-width: 68ch;
+        margin-top: 12px;
+        font-size: clamp(1rem, 1.35vw, 1.1rem);
+        color: rgba(237, 244, 255, 0.82);
+      }
+
+      .term-item ul,
+      .compact-list {
+        display: grid;
+        gap: 10px;
+        margin: 14px 0 0;
+        padding-left: 20px;
+        color: rgba(237, 244, 255, 0.78);
+      }
+
+      .decision-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: var(--line);
+      }
+
+      .decision-step {
+        min-height: 172px;
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .step-index {
+        color: var(--accent-2);
+        font-size: 0.68rem;
+      }
+
+      .decision-step h3 {
+        margin-top: 14px;
+        font-size: 1.24rem;
+        letter-spacing: -0.04em;
+      }
+
+      .decision-step p {
+        margin-top: 10px;
+      }
+
+      .split-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+      }
+
+      .plain-panel {
+        padding: 24px 0 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .plain-panel h3 {
+        font-size: clamp(1.4rem, 2vw, 2rem);
+        letter-spacing: -0.05em;
+      }
+
+      .setup-line {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .setup-item {
+        position: relative;
+        min-height: 230px;
+        overflow: hidden;
+        padding: 22px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--page-line);
+        background:
+          radial-gradient(circle at top left, var(--tone-glow), transparent 42%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.96));
+        color: var(--page-ink);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .setup-item img {
+        position: absolute;
+        right: -54px;
+        bottom: -70px;
+        width: 190px;
+        opacity: 0.3;
+      }
+
+      .setup-item h3 {
+        max-width: 11ch;
+        font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .setup-item p {
+        position: relative;
+        max-width: 32ch;
+        margin-top: 14px;
+        color: var(--page-muted);
+      }
+
+      .price-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .price-line span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(237, 244, 255, 0.76);
+        font-size: 0.68rem;
+      }
+
+      .pipeline {
+        display: grid;
+        gap: 10px;
+      }
+
+      .pipeline-row {
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .pipeline-row:last-child {
+        border-bottom: none;
+      }
+
+      .pipeline-dot {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(134, 182, 255, 0.24), rgba(122, 215, 195, 0.14));
+        color: var(--accent-2);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.76rem;
+      }
+
+      .pipeline-row h3 {
+        font-size: 1.16rem;
+        letter-spacing: -0.04em;
+      }
+
+      .pipeline-row p {
+        margin-top: 6px;
+      }
+
+      .cta-zone {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 20px;
+        align-items: center;
+        padding: 28px 0 12px;
+      }
+
+      .cta-zone h2 {
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        letter-spacing: -0.05em;
+      }
+
+      .cta-zone p {
+        margin-top: 10px;
+        max-width: 44ch;
+        color: var(--muted);
+      }
+
+      .small-link {
+        display: inline-flex;
+        width: fit-content;
+        color: rgba(237, 244, 255, 0.68);
+        font-size: 0.68rem;
+        text-decoration: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+          opacity 520ms ease,
+          transform 520ms ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-sticky {
+        position: fixed;
+        inset: auto 14px 14px;
+        z-index: 30;
+        display: none;
+        padding: 10px;
+        border-radius: 20px;
+        background: rgba(8, 16, 28, 0.92);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow);
+      }
+
+      .mobile-sticky.visible {
+        display: block;
+      }
+
+      .mobile-sticky .button {
+        width: 100%;
+        min-height: 48px;
+        padding-inline: 18px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .hero-layout,
+        .flow-grid,
+        .flow-grid.two,
+        .setup-line,
+        .decision-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .system-panel {
+          min-height: 460px;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .section-grid,
+        .cta-zone,
+        .split-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .term-item--split {
+          grid-template-columns: 1fr;
+        }
+
+        .term-item--split .term-thumb,
+        .term-item--split a.term-thumb {
+          max-width: 320px;
+          margin-inline: auto;
+        }
+
+        .term-thumb__label {
+          text-align: center;
+          max-width: 320px;
+          margin-inline: auto;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          width: min(var(--content), calc(100% - 20px));
+        }
+
+        .hero {
+          padding-top: 18px;
+        }
+
+        h1 {
+          max-width: 15ch;
+          font-size: clamp(1.47rem, 7.8vw, 2.4rem);
+        }
+
+        .hero-actions .button {
+          width: 100%;
+        }
+
+        .system-panel {
+          min-height: 520px;
+        }
+
+        .system-node {
+          grid-template-columns: 1fr;
+        }
+
+        .main {
+          padding-bottom: 92px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="shell hero-inner">
+          <div class="brand-row">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <a href="https://imt.dev/">IMT</a>
+            <span>/ personal os</span>
+          </div>
+
+          <div class="hero-layout">
+            <div class="hero-copy">
+              <h1>AI-инструментов стало больше, а фокуса меньше?</h1>
+
+              <p class="hero-note">
+                Claude Code, Cursor, Codex и ChatGPT дают огромный рычаг. Но
+                только если встроены в личную систему: быстрый доступ, твой
+                контекст, база знаний, ритуалы и понятное следующее действие.
+              </p>
+
+              <p class="hero-note">
+                Personal OS - это система, где AI держит твой контекст, помогает
+                не терять фокус и подсказывает, что делать дальше.
+              </p>
+
+              <div class="hero-meta">
+                <div class="meta-chip">25-мин разбор</div>
+                <div class="meta-chip">AI-экзоскелет</div>
+                <div class="meta-chip">Без гонки за инструментами</div>
+              </div>
+
+              <div class="hero-actions">
+                <a class="button button-primary" href="#apply">Хочу Personal OS под себя</a>
+                <a class="button button-secondary" href="#map">Посмотреть мой сетап</a>
+              </div>
+            </div>
+
+            <div class="system-panel" aria-label="Схема Personal OS">
+              <div class="system-label">personal os / current stack</div>
+              <img src="../svg/context-ai.svg" alt="" aria-hidden="true" />
+
+              <div class="system-nodes">
+                <div class="system-node">
+                  <span class="node-code">доступ</span>
+                  <span>
+                    <strong>Telegram</strong>
+                    быстрый доступ, дневники, напоминания, идеи
+                  </span>
+                </div>
+                <div class="system-node">
+                  <span class="node-code">анализ</span>
+                  <span>
+                    <strong>Dashboard</strong>
+                    актуальный контекст и быстрые действия
+                  </span>
+                </div>
+                <div class="system-node system-node--stack-label">
+                  <span class="node-code node-code--stack">глубокая<br />работа</span>
+                  <span>
+                    <strong>Cursor + Codex</strong>
+                    документы, транскрипты, база знаний, MCP
+                  </span>
+                </div>
+                <div class="system-node">
+                  <span class="node-code">процесс</span>
+                  <span>
+                    <strong>Спринты</strong>
+                    цель, фокус, обратная связь, корректировка
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="shell">
+          <section class="section reveal" id="apply">
+            <div class="section-grid">
+              <div class="section-kicker">вход</div>
+              <div class="section-body">
+                <h2>Что будет на 25-мин разборе</h2>
+                <p>
+                  За 25 минут мы не собираем всю Personal OS. Мы находим первый
+                  рычаг: где AI уже может сэкономить тебе время без добавления
+                  хаоса и какой следующий шаг даст максимум эффекта.
+                </p>
+
+                <div class="decision-strip">
+                  <div class="decision-step">
+                    <div class="step-index">01 / current</div>
+                    <h3>Что уже есть</h3>
+                    <p>Инструменты, задачи, контекст, рабочие ритуалы.</p>
+                  </div>
+                  <div class="decision-step">
+                    <div class="step-index">02 / bottleneck</div>
+                    <h3>Где узкое место</h3>
+                    <p>Доступ, контекст, база знаний, фокус или регулярность.</p>
+                  </div>
+                  <div class="decision-step">
+                    <div class="step-index">03 / first move</div>
+                    <h3>Что делать первым</h3>
+                    <p>2-3 шага, которые реально войдут в твой день.</p>
+                  </div>
+                </div>
+
+                <div class="hero-actions">
+                  <a
+                    class="button button-primary"
+                    id="cta-apply-main"
+                    href="https://t.me/dkompanets?text=После%20страницы%20про%20Personal%20OS%20хочу%20обсудить%2025-мин%20разбор.%20Коротко%20опишу%2C%20где%20AI%20сейчас%20добавляет%20хаоса%20или%20дает%20рычаг."
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Хочу 25-мин разбор
+                  </a>
+                  <a
+                    class="button button-secondary"
+                    id="cta-map-main"
+                    href="https://t.me/dkompanets?text=После%20страницы%20про%20Personal%20OS%20хочу%20забрать%20короткий%20self-audit."
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Забрать короткий self-audit
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="section-grid">
+              <div class="section-kicker">кому</div>
+              <div class="section-body">
+                <h2>Для кого и кому не надо</h2>
+                <div class="split-grid">
+                  <div class="plain-panel">
+                    <h3>Подойдет, если</h3>
+                    <ul class="compact-list">
+                      <li>не хочешь отстать от Claude Code, Cursor, Codex и AI-агентов;</li>
+                      <li>уже пробовал AI-инструменты, но не встроил их в работу;</li>
+                      <li>видишь больше беготни, тревожности и меньше времени на сон;</li>
+                      <li>хочешь систему под свою жизнь, а не еще один список тулов.</li>
+                    </ul>
+                  </div>
+
+                  <div class="plain-panel">
+                    <h3>Не надо, если</h3>
+                    <ul class="compact-list">
+                      <li>ищешь список из 50 модных инструментов;</li>
+                      <li>нужна универсальная пошаговая инструкция;</li>
+                      <li>хочется просто еще один красивый дэшборд;</li>
+                      <li>не готов собирать систему индивидуально.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal" id="map">
+            <div class="section-grid">
+              <div class="section-kicker">принцип</div>
+              <div class="section-body">
+                <h2>Две самые важные вещи</h2>
+                <p>
+                  Вопрос не в том, какой инструмент сейчас модный. Вопрос в том,
+                  как собрать связку, которая применяется каждый день в твоей жизни.
+                </p>
+
+                <div class="flow-grid two">
+                  <div class="flow-card">
+                    <h3>Доступ под рукой</h3>
+                    <p>Если инструмента нет рядом в моменте, ты им не пользуешься.</p>
+                  </div>
+                  <div class="flow-card">
+                    <h3>Персональный контекст</h3>
+                    <p>Если Personal OS не знает твой контекст, она остается не про тебя.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="section-grid">
+              <div class="section-kicker">результат</div>
+              <div class="section-body">
+                <h2>Что у тебя появится</h2>
+                <div class="flow-grid">
+                  <div class="flow-card">
+                    <h3>Быстрый вход</h3>
+                    <p>AI используется в моменте, а не живет отдельной вкладкой.</p>
+                  </div>
+                  <div class="flow-card">
+                    <h3>Единый контекст</h3>
+                    <p>Заметки, созвоны, дневники и документы перестают лежать россыпью.</p>
+                  </div>
+                  <div class="flow-card">
+                    <h3>Ритуалы фокуса</h3>
+                    <p>Система каждый день возвращает к главному и следующему шагу.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="section-grid">
+              <div class="section-kicker">схема</div>
+              <div class="section-body">
+                <h2>Как это связано</h2>
+                <p>
+                  Telegram -&gt; Dashboard -&gt; Cursor + Codex / Claude Code -&gt; База
+                  знаний -&gt; Спринты -&gt; Обратная связь.
+                </p>
+                <div class="diagram-placeholder" aria-hidden="true">
+                  место для схемы потока
+                </div>
+                <p>
+                  Смысл не в красивой архитектуре. Смысл в том, чтобы AI перестал
+                  быть внешней умной штукой и стал помощником, который знает твой
+                  контекст прямо сейчас.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="section-grid">
+              <div class="section-kicker">сетап</div>
+              <div class="section-body">
+                <h2>Мой текущий сетап</h2>
+                <p>
+                  За годы проб и тестов я пришел к такой связке. Это не
+                  единственно правильный вариант. Это моя рабочая система на
+                  конец апреля 2026 года.
+                </p>
+
+                <div class="setup-line">
+                  <div
+                    class="setup-item"
+                    style="--tone-glow: rgba(122, 215, 195, 0.28)"
+                  >
+                    <img src="../svg/exoskeleton.svg" alt="" aria-hidden="true" />
+                    <h3>Telegram</h3>
+                    <p>Быстрый доступ, напоминания, дневники, идеи, вопросы, разборы на ходу.</p>
+                  </div>
+                  <div
+                    class="setup-item"
+                    style="--tone-glow: rgba(134, 182, 255, 0.28)"
+                  >
+                    <img src="../svg/context-ai.svg" alt="" aria-hidden="true" />
+                    <h3>Web dashboard</h3>
+                    <p>Актуальный контекст, быстрые действия, возврат фокуса на главном.</p>
+                  </div>
+                  <div
+                    class="setup-item"
+                    style="--tone-glow: rgba(239, 191, 124, 0.28)"
+                  >
+                    <img src="../svg/second-brain.svg" alt="" aria-hidden="true" />
+                    <h3>Cursor + Codex</h3>
+                    <p>Глубокая работа с документами, базой знаний, транскриптами, MCP и проектами.</p>
+                  </div>
+                </div>
+
+                <p>По затратам это:</p>
+
+                <div class="price-line">
+                  <span>$20 Codex / ChatGPT Plus</span>
+                  <span>$20 Cursor</span>
+                  <span>$9 Netlify</span>
+                  <span>около $49/мес</span>
+                  <span>MacBook M1 достаточно</span>
+                </div>
+
+                <p>
+                  Итого $49/месяц за полноценный AI-экзоскелет с такой мощностью и
+                  объемами, которые еще надо постараться использовать за месяц.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="section-grid">
+              <div class="section-kicker">заметки</div>
+              <div class="section-body">
+                <h2>Технические заметки по сетапу</h2>
+                <p>Это не инструкция для копирования, а контекст: почему я собрал систему именно так.</p>
+
+                <div class="terms-stack">
+                  <div class="term-item term-item--split">
+                    <div class="term-item__text">
+                      <h3>Что не надо</h3>
+                      <p>
+                        Не надо начинать с тяжелой инфраструктуры. Я два месяца
+                        встраивал OpenClaw в Personal OS, но полностью переобулся
+                        (подробнее в ролике).
+                        Remodex и Claude Remote тоже пытался подружить со своими
+                        ритуалами. Не то. Мне нужна не максимальная удаленная
+                        разработка, а личная система фокуса, контекста и действий.
+                      </p>
+                    </div>
+                    <div class="term-item__media">
+                      <a
+                        class="term-thumb term-thumb--youtube"
+                        href="https://www.youtube.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Открыть ролик на YouTube"
+                      >
+                        <img
+                          src="https://picsum.photos/seed/personalos-yt/520/292"
+                          alt=""
+                          width="260"
+                          height="146"
+                          loading="lazy"
+                        />
+                      </a>
+                      <span class="term-thumb__label">Видео на YouTube</span>
+                    </div>
+                  </div>
+
+                  <div class="term-item term-item--split">
+                    <div class="term-item__text">
+                      <h3>Claude Code vs Codex</h3>
+                      <p>
+                        В начале 2026 года Claude Code был явно круче. На версии
+                        5.4 Codex его догнал, а в чем-то на конец апреля уже и
+                        перегнал: картинки в Image V2, computer use, работа как
+                        плагин к моему процессу. Для второго мнения использую
+                        небольшие лимиты Opus 4.7 в Cursor.
+                      </p>
+                    </div>
+                    <div class="term-item__media">
+                      <button
+                        type="button"
+                        class="term-thumb js-lightbox-open"
+                        data-full="https://picsum.photos/seed/personalos-cc-codex/1600/900"
+                        aria-label="Увеличить изображение"
+                      >
+                        <img
+                          src="https://picsum.photos/seed/personalos-cc-codex/400/225"
+                          alt=""
+                          width="400"
+                          height="225"
+                          loading="lazy"
+                        />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="term-item term-item--split">
+                    <div class="term-item__text">
+                      <h3>Cursor vs Obsidian</h3>
+                      <p>
+                        Я честно хотел ворваться в Obsidian в 2025 году. Но сейчас
+                        мне хватает Cursor: он хорошо отображает Markdown-файлы и
+                        индексирует локальные и облачные репозитории. Codex у меня
+                        работает как плагин к Cursor.
+                      </p>
+                    </div>
+                    <div class="term-item__media">
+                      <button
+                        type="button"
+                        class="term-thumb js-lightbox-open"
+                        data-full="https://picsum.photos/seed/personalos-cursor-obs/1600/900"
+                        aria-label="Увеличить изображение"
+                      >
+                        <img
+                          src="https://picsum.photos/seed/personalos-cursor-obs/400/225"
+                          alt=""
+                          width="400"
+                          height="225"
+                          loading="lazy"
+                        />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="term-item term-item--split">
+                    <div class="term-item__text">
+                      <h3>Контекст</h3>
+                      <p>
+                        Интервью с собой голосом, транскрипты терапевтических
+                        сессий, заметки, дневники, созвоны, переписки, лекции,
+                        ролики, книги, рабочие документы и стратегические файлы.
+                        Без этого AI остается умной, но внешней штукой.
+                      </p>
+                    </div>
+                    <div class="term-item__media">
+                      <button
+                        type="button"
+                        class="term-thumb js-lightbox-open"
+                        data-full="https://picsum.photos/seed/personalos-context/1600/900"
+                        aria-label="Увеличить изображение"
+                      >
+                        <img
+                          src="https://picsum.photos/seed/personalos-context/400/225"
+                          alt=""
+                          width="400"
+                          height="225"
+                          loading="lazy"
+                        />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="term-item term-item--split">
+                    <div class="term-item__text">
+                      <h3>Скиллы и MCP</h3>
+                      <p>
+                        Начать можно с Superpowers и освоить их. Не надо гоняться
+                        за количеством. MCP нужен, чтобы система видела не
+                        абстрактную задачу, а текущую жизнь и работу: ClickUp,
+                        SendPulse, Telegram, RescueTime, Figma, Google Analytics.
+                        Это не так сложно как кажется и позволяет системе быть в
+                        курсе твоего актуального контекста.
+                      </p>
+                    </div>
+                    <div class="term-item__media">
+                      <button
+                        type="button"
+                        class="term-thumb js-lightbox-open"
+                        data-full="https://picsum.photos/seed/personalos-mcp/1600/900"
+                        aria-label="Увеличить изображение"
+                      >
+                        <img
+                          src="https://picsum.photos/seed/personalos-mcp/400/225"
+                          alt=""
+                          width="400"
+                          height="225"
+                          loading="lazy"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="section-grid">
+              <div class="section-kicker">ритм</div>
+              <div class="section-body">
+                <h2>Как это увязать в систему</h2>
+                <p>
+                  Я умею в AJTBD и бизнес-трекинг. Лучше, чем спринты, я пока не
+                  нашел.
+                </p>
+
+                <div class="pipeline">
+                  <div class="pipeline-row">
+                    <div class="pipeline-dot">01</div>
+                    <div>
+                      <h3>Стратегическая цель</h3>
+                      <p>Большая цель, декомпозиция, метрики, делегирование ИИ-агентам по максимуму.</p>
+                    </div>
+                  </div>
+                  <div class="pipeline-row">
+                    <div class="pipeline-dot">02</div>
+                    <div>
+                      <h3>Планирование и ежедневный фокус</h3>
+                      <p>
+                        Планирование в понедельник вместе с консилиумом агентов,
+                        обученных на курсах Замесина и Калинина, утренний вопрос в
+                        Telegram, daily в Cursor с Codex и MCP.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="pipeline-row">
+                    <div class="pipeline-dot">03</div>
+                    <div>
+                      <h3>Дневники, идеи, реакции</h3>
+                      <p>
+                        Днем - напоминания, фиксация идей и разбор негативных
+                        реакций. Вечером - короткая ретроспектива.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="pipeline-row">
+                    <div class="pipeline-dot">04</div>
+                    <div>
+                      <h3>Недельное ретро</h3>
+                      <p>
+                        Консилиум экспертов, реальные фидбеки из внешнего мира,
+                        личные ощущения и корректировка следующей недели. Если не
+                        разобрался с негативными реакциями или потерял фокус и
+                        просел - иду за подпиткой к живому консультанту с
+                        конкретными вопросами. Транскрипт сессии глубоко разбирает
+                        ИИ-агент и закидывает актуальный контекст и напоминания в
+                        того же Telegram-бота. Так у меня всегда максимально
+                        актуальный и в контексте ИИ-помощник под рукой.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="section-grid">
+              <div class="section-kicker">голос</div>
+              <div class="section-body">
+                <h2>Голосовой ввод как вишенка</h2>
+                <p>
+                  Я не был фанатом голосовых. Но с приходом ИИ-агентов оценил,
+                  насколько они ускоряют и расширяют контекст.
+                </p>
+
+                <div class="flow-grid">
+                  <div class="flow-card">
+                    <h3>Задача голосом</h3>
+                    <p>Получается развернутее. Писать столько часто просто лень.</p>
+                  </div>
+                  <div class="flow-card">
+                    <h3>Дневник на ходу</h3>
+                    <p>Telegram + Whisper API хорошо ложатся в ежедневный ритм.</p>
+                  </div>
+                  <div class="flow-card">
+                    <h3>Драфт поста</h3>
+                    <p>Надиктовать часто быстрее раза в два, чем набрать руками.</p>
+                  </div>
+                </div>
+
+                <p>
+                  Так что это неизбежность, плюс иногда даже полезно выразить немножко
+                  эмоций, а не с каменным лицом барабанить по клавиатуре.
+                </p>
+
+                <p>
+                  Я использую MacWhisper для транскрибации звонков и лекций,
+                  Monologue для голосового ввода в чаты, Whisper API в Telegram
+                  для дневников. Это избыточно. Многим достаточно Granola,
+                  WhisperFlow или одного MacWhisper.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="section-grid">
+              <div class="section-kicker">обучение</div>
+              <div class="section-body">
+                <h2>Где этому научиться?</h2>
+                <p>
+                  Пошаговой инструкции нет и не будет. У каждого своя жизнь,
+                  ритуалы, ограничения и уровень технической готовности. Плюс
+                  инструменты выходят и обновляются каждый день, любая инструкция
+                  устареет через неделю.
+                </p>
+                <p>
+                  Скопировать чью-то Personal OS не получится - все люди разные.
+                </p>
+                <p>
+                  Я делюсь своим текущим сетапом. Через полгода он точно будет
+                  другим. Могу показать направление, поделиться готовыми модулями
+                  Telegram и dashboard, дать скиллы и совместно спроектировать твою
+                  Personal OS.
+                </p>
+                <p>Жить с этой системой тебе. Поэтому создавать ее нужно индивидуально.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal">
+            <div class="cta-zone" id="final-cta">
+              <div>
+                <h2>Хочешь не отстать от AI, но без хаоса?</h2>
+                <p>
+                  Напиши в Telegram. Разберем, с чего тебе начинать: с
+                  инструментов, контекста, базы знаний, спринтов или простого
+                  ежедневного ритуала.
+                </p>
+              </div>
+
+              <a
+                class="button button-primary"
+                id="cta-apply-final"
+                href="https://t.me/dkompanets?text=После%20страницы%20про%20Personal%20OS%20хочу%20понять%2C%20с%20чего%20начинать%20с%20AI%20без%20хаоса."
+                target="_blank"
+                rel="noreferrer"
+              >
+                Написать в Telegram
+              </a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <dialog class="media-lightbox" id="media-lightbox" aria-label="Увеличенное изображение">
+        <div class="media-lightbox__inner">
+          <button type="button" class="media-lightbox__close" id="media-lightbox-close" aria-label="Закрыть">
+            &times;
+          </button>
+          <img id="media-lightbox-img" src="" alt="" decoding="async" />
+        </div>
+      </dialog>
+
+      <div class="mobile-sticky" id="mobile-sticky">
+        <a
+          class="button button-primary"
+          id="cta-apply-mobile"
+          href="https://t.me/dkompanets?text=После%20страницы%20про%20Personal%20OS%20хочу%20обсудить%2025-мин%20разбор."
+          target="_blank"
+          rel="noreferrer"
+        >
+          Хочу 25-мин разбор
+        </a>
+      </div>
+    </div>
+
+    <script>
+      const PAGE_VARIANT = "personal_os_ai_v1";
+      const FUNNEL_NAME = "personal_os_ai";
+
+      function trackEvent(name, params = {}) {
+        if (window.gtag) {
+          window.gtag("event", name, params);
+          return;
+        }
+
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push({ event: name, ...params });
+          return;
+        }
+
+        console.info("[track]", name, params);
+      }
+
+      function trackFunnelEvent(name, params = {}) {
+        trackEvent(name, {
+          funnel_name: FUNNEL_NAME,
+          page_variant: PAGE_VARIANT,
+          ...params,
+        });
+      }
+
+      function initStickyCta() {
+        const sticky = document.getElementById("mobile-sticky");
+        const panel = document.getElementById("apply");
+
+        if (!sticky || !panel) return;
+
+        function updateSticky() {
+          if (window.innerWidth > 640) {
+            sticky.classList.remove("visible");
+            return;
+          }
+
+          const panelRect = panel.getBoundingClientRect();
+          const panelVisible =
+            panelRect.top < window.innerHeight * 0.82 && panelRect.bottom > 80;
+          const scrolledEnough = window.scrollY > window.innerHeight * 0.72;
+
+          sticky.classList.toggle("visible", scrolledEnough && !panelVisible);
+        }
+
+        updateSticky();
+        window.addEventListener("scroll", updateSticky, { passive: true });
+        window.addEventListener("resize", updateSticky);
+      }
+
+      function initReveals() {
+        const sections = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      }
+
+      function initTracking() {
+        trackFunnelEvent("personal_os_view", {
+          step_name: "page_view",
+          step_index: 1,
+        });
+
+        ["cta-apply-main", "cta-map-main", "cta-apply-final", "cta-apply-mobile"].forEach((id) => {
+          const node = document.getElementById(id);
+          if (!node) return;
+
+          node.addEventListener("click", () => {
+            trackFunnelEvent("personal_os_cta_click", {
+              cta_id: id,
+              placement: id.includes("mobile")
+                ? "mobile_sticky"
+                : id.includes("final")
+                  ? "final_cta"
+                  : "decision_block",
+            });
+          });
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        initStickyCta();
+        initReveals();
+        initTracking();
+        initMediaLightbox();
+      });
+
+      function initMediaLightbox() {
+        const dialog = document.getElementById("media-lightbox");
+        const img = document.getElementById("media-lightbox-img");
+        const btnClose = document.getElementById("media-lightbox-close");
+
+        if (!dialog || !img || !btnClose) return;
+
+        btnClose.addEventListener("click", () => dialog.close());
+
+        dialog.addEventListener("click", (e) => {
+          if (e.target === dialog) dialog.close();
+        });
+
+        dialog.addEventListener("close", () => {
+          img.removeAttribute("src");
+        });
+
+        document.querySelectorAll(".js-lightbox-open").forEach((opens) => {
+          opens.addEventListener("click", () => {
+            const full = opens.getAttribute("data-full");
+            if (!full) return;
+            img.src = full;
+            img.alt = "";
+            dialog.showModal();
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
