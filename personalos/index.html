@@ -1,6 +1,33 @@
 <!doctype html>
 <html lang="ru">
   <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16453014043");
+    </script>
+    <script>
+      window.mainTracker = "gtag";
+      window.gtagTrackerID = "G-B2JG56FKGP";
+      setTimeout(function () {
+        (function (w, d, s, i) {
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + i;
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", i, {});
+        })(window, document, "script", window.gtagTrackerID);
+      }, 2000);
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal OS на AI</title>
@@ -14,7 +41,10 @@
       property="og:description"
       content="AI-инструментов стало больше, а фокуса меньше? Собери систему с быстрым доступом, личным контекстом и понятным следующим действием."
     />
-    <meta property="og:image" content="https://app.imt.dev/personalos/assets/personal-os-system-map.png" />
+    <meta
+      property="og:image"
+      content="https://app.imt.dev/personalos/assets/personal-os-system-map.png"
+    />
     <meta property="og:image:width" content="1672" />
     <meta property="og:image:height" content="941" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -23,7 +53,10 @@
       name="twitter:description"
       content="AI-инструментов стало больше, а фокуса меньше? Собери систему с быстрым доступом, личным контекстом и понятным следующим действием."
     />
-    <meta name="twitter:image" content="https://app.imt.dev/personalos/assets/personal-os-system-map.png" />
+    <meta
+      name="twitter:image"
+      content="https://app.imt.dev/personalos/assets/personal-os-system-map.png"
+    />
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
@@ -61,8 +94,16 @@
         min-width: 320px;
         color: var(--ink);
         background:
-          radial-gradient(circle at top left, rgba(134, 182, 255, 0.18), transparent 26%),
-          radial-gradient(circle at 88% 8%, rgba(122, 215, 195, 0.1), transparent 16%),
+          radial-gradient(
+            circle at top left,
+            rgba(134, 182, 255, 0.18),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at 88% 8%,
+            rgba(122, 215, 195, 0.1),
+            transparent 16%
+          ),
           linear-gradient(180deg, var(--bg-top), var(--bg));
         font-family: "Space Grotesk", "Segoe UI", sans-serif;
         line-height: 1.45;
@@ -119,7 +160,11 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at 48% 18%, rgba(134, 182, 255, 0.08), transparent 24%),
+          radial-gradient(
+            circle at 48% 18%,
+            rgba(134, 182, 255, 0.08),
+            transparent 24%
+          ),
           linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 32%);
         pointer-events: none;
       }
@@ -237,8 +282,16 @@
         border: 1px solid var(--line);
         border-radius: var(--radius-xl);
         background:
-          radial-gradient(circle at 20% 18%, rgba(134, 182, 255, 0.22), transparent 30%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
+          radial-gradient(
+            circle at 20% 18%,
+            rgba(134, 182, 255, 0.22),
+            transparent 30%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.025)
+          ),
           rgba(7, 13, 24, 0.88);
         box-shadow: var(--shadow);
       }
@@ -251,7 +304,11 @@
           linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
         background-size: 76px 76px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 95%);
+        mask-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.85),
+          transparent 95%
+        );
         pointer-events: none;
       }
 
@@ -650,8 +707,16 @@
         border-radius: var(--radius-lg);
         border: 1px solid var(--page-line);
         background:
-          radial-gradient(circle at top left, var(--tone-glow), transparent 42%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.96));
+          radial-gradient(
+            circle at top left,
+            var(--tone-glow),
+            transparent 42%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.96)
+          );
         color: var(--page-ink);
         box-shadow: var(--shadow-soft);
       }
@@ -720,7 +785,11 @@
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        background: linear-gradient(135deg, rgba(134, 182, 255, 0.24), rgba(122, 215, 195, 0.14));
+        background: linear-gradient(
+          135deg,
+          rgba(134, 182, 255, 0.24),
+          rgba(122, 215, 195, 0.14)
+        );
         color: var(--accent-2);
         font-family: "IBM Plex Mono", monospace;
         font-size: 0.76rem;
@@ -910,8 +979,12 @@
               </div>
 
               <div class="hero-actions">
-                <a class="button button-primary" href="#apply">Хочу Personal OS под себя</a>
-                <a class="button button-secondary" href="#setup">Посмотреть мой сетап</a>
+                <a class="button button-primary" href="#apply"
+                  >Хочу Personal OS под себя</a
+                >
+                <a class="button button-secondary" href="#setup"
+                  >Посмотреть мой сетап</a
+                >
               </div>
             </div>
 
@@ -935,7 +1008,9 @@
                   </span>
                 </div>
                 <div class="system-node system-node--stack-label">
-                  <span class="node-code node-code--stack">глубокая<br />работа</span>
+                  <span class="node-code node-code--stack"
+                    >глубокая<br />работа</span
+                  >
                   <span>
                     <strong>Cursor + Codex</strong>
                     документы, транскрипты, база знаний, MCP
@@ -976,7 +1051,9 @@
                   <div class="decision-step">
                     <div class="step-index">02 / bottleneck</div>
                     <h3>Где узкое место</h3>
-                    <p>Доступ, контекст, база знаний, фокус или регулярность.</p>
+                    <p>
+                      Доступ, контекст, база знаний, фокус или регулярность.
+                    </p>
                   </div>
                   <div class="decision-step">
                     <div class="step-index">03 / first move</div>
@@ -998,11 +1075,9 @@
                   <a
                     class="button button-secondary"
                     id="cta-map-main"
-                    href="https://t.me/dkompanets?text=После%20страницы%20про%20Personal%20OS%20хочу%20забрать%20короткий%20self-audit."
-                    target="_blank"
-                    rel="noreferrer"
+                    href="https://app.imt.dev/personalos/self-audit/"
                   >
-                    Забрать короткий self-audit
+                    Пройти короткий квиз
                   </a>
                 </div>
               </div>
@@ -1018,10 +1093,25 @@
                   <div class="plain-panel">
                     <h3>Подойдет, если</h3>
                     <ul class="compact-list">
-                      <li>не хочешь отстать от Claude Code, Cursor, Codex и AI-агентов;</li>
-                      <li>уже пробовал AI-инструменты, но не встроил их в работу;</li>
-                      <li>видишь больше беготни, тревожности и меньше времени на сон;</li>
-                      <li>хочешь систему под свою жизнь, а не еще один список тулов.</li>
+                      <li>
+                        не хочешь отстать от Claude Code, Cursor, Codex и
+                        AI-агентов;
+                      </li>
+                      <li>
+                        уже пробовал AI-инструменты, но не встроил их в работу;
+                      </li>
+                      <li>
+                        видишь больше беготни, тревожности и меньше времени на
+                        сон;
+                      </li>
+                      <li>
+                        хочешь систему под свою жизнь, а не еще один список
+                        тулов;
+                      </li>
+                      <li>
+                        чувствуешь, что вопрос уже не в инструментах, но не
+                        понимаешь, в чём именно.
+                      </li>
                     </ul>
                   </div>
 
@@ -1046,17 +1136,24 @@
                 <h2>Две самые важные вещи</h2>
                 <p>
                   Вопрос не в том, какой инструмент сейчас модный. Вопрос в том,
-                  как собрать связку, которая применяется каждый день в твоей жизни.
+                  как собрать связку, которая применяется каждый день в твоей
+                  жизни.
                 </p>
 
                 <div class="flow-grid two">
                   <div class="flow-card">
                     <h3>Доступ под рукой</h3>
-                    <p>Если инструмента нет рядом в моменте, ты им не пользуешься.</p>
+                    <p>
+                      Если инструмента нет рядом в моменте, ты им не
+                      пользуешься.
+                    </p>
                   </div>
                   <div class="flow-card">
                     <h3>Персональный контекст</h3>
-                    <p>Если Personal OS не знает твой контекст, она остается не про тебя.</p>
+                    <p>
+                      Если Personal OS не знает твой контекст, она остается не
+                      про тебя.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1071,15 +1168,23 @@
                 <div class="flow-grid">
                   <div class="flow-card">
                     <h3>Быстрый вход</h3>
-                    <p>AI используется в моменте, а не живет отдельной вкладкой.</p>
+                    <p>
+                      AI используется в моменте, а не живет отдельной вкладкой.
+                    </p>
                   </div>
                   <div class="flow-card">
                     <h3>Единый контекст</h3>
-                    <p>Заметки, созвоны, дневники и документы перестают лежать россыпью.</p>
+                    <p>
+                      Заметки, созвоны, дневники и документы перестают лежать
+                      россыпью.
+                    </p>
                   </div>
                   <div class="flow-card">
                     <h3>Ритуалы фокуса</h3>
-                    <p>Система каждый день возвращает к главному и следующему шагу.</p>
+                    <p>
+                      Система каждый день возвращает к главному и следующему
+                      шагу.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1092,8 +1197,8 @@
               <div class="section-body">
                 <h2>Как это связано</h2>
                 <p>
-                  Telegram -&gt; Dashboard -&gt; Cursor + Codex / Claude Code -&gt; База
-                  знаний -&gt; Спринты -&gt; Обратная связь.
+                  Telegram -&gt; Dashboard -&gt; Cursor + Codex / Claude Code
+                  -&gt; База знаний -&gt; Спринты -&gt; Обратная связь.
                 </p>
                 <button
                   type="button"
@@ -1110,9 +1215,9 @@
                   />
                 </button>
                 <p>
-                  Смысл не в красивой архитектуре. Смысл в том, чтобы AI перестал
-                  быть внешней умной штукой и стал помощником, который знает твой
-                  контекст прямо сейчас.
+                  Смысл не в красивой архитектуре. Смысл в том, чтобы AI
+                  перестал быть внешней умной штукой и стал помощником, который
+                  знает твой контекст прямо сейчас.
                 </p>
               </div>
             </div>
@@ -1134,25 +1239,46 @@
                     class="setup-item"
                     style="--tone-glow: rgba(122, 215, 195, 0.28)"
                   >
-                    <img src="../svg/exoskeleton.svg" alt="" aria-hidden="true" />
+                    <img
+                      src="../svg/exoskeleton.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
                     <h3>Telegram</h3>
-                    <p>Быстрый доступ, напоминания, дневники, идеи, вопросы, разборы на ходу.</p>
+                    <p>
+                      Быстрый доступ, напоминания, дневники, идеи, вопросы,
+                      разборы на ходу.
+                    </p>
                   </div>
                   <div
                     class="setup-item"
                     style="--tone-glow: rgba(134, 182, 255, 0.28)"
                   >
-                    <img src="../svg/context-ai.svg" alt="" aria-hidden="true" />
+                    <img
+                      src="../svg/context-ai.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
                     <h3>Web dashboard</h3>
-                    <p>Актуальный контекст, быстрые действия, возврат фокуса на главном.</p>
+                    <p>
+                      Актуальный контекст, быстрые действия, возврат фокуса на
+                      главном.
+                    </p>
                   </div>
                   <div
                     class="setup-item"
                     style="--tone-glow: rgba(239, 191, 124, 0.28)"
                   >
-                    <img src="../svg/second-brain.svg" alt="" aria-hidden="true" />
+                    <img
+                      src="../svg/second-brain.svg"
+                      alt=""
+                      aria-hidden="true"
+                    />
                     <h3>Cursor + Codex</h3>
-                    <p>Глубокая работа с документами, базой знаний, транскриптами, MCP и проектами.</p>
+                    <p>
+                      Глубокая работа с документами, базой знаний,
+                      транскриптами, MCP и проектами.
+                    </p>
                   </div>
                 </div>
 
@@ -1167,8 +1293,9 @@
                 </div>
 
                 <p>
-                  Итого $49/месяц за полноценный AI-экзоскелет с такой мощностью и
-                  объемами, которые еще надо постараться использовать за месяц.
+                  Итого $49/месяц за полноценный AI-экзоскелет с такой мощностью
+                  и объемами, которые еще надо постараться использовать за
+                  месяц.
                 </p>
               </div>
             </div>
@@ -1179,7 +1306,10 @@
               <div class="section-kicker">заметки</div>
               <div class="section-body">
                 <h2>Технические заметки по сетапу</h2>
-                <p>Это не инструкция для копирования, а контекст: почему я собрал систему именно так.</p>
+                <p>
+                  Это не инструкция для копирования, а контекст: почему я собрал
+                  систему именно так.
+                </p>
 
                 <div class="terms-stack">
                   <div class="term-item term-item--split">
@@ -1187,11 +1317,11 @@
                       <h3>Что не надо</h3>
                       <p>
                         Не надо начинать с тяжелой инфраструктуры. Я два месяца
-                        встраивал OpenClaw в Personal OS, но полностью переобулся
-                        (подробнее в ролике).
-                        Remodex и Claude Remote тоже пытался подружить со своими
-                        ритуалами. Не то. Мне нужна не максимальная удаленная
-                        разработка, а личная система фокуса, контекста и действий.
+                        встраивал OpenClaw в Personal OS, но полностью
+                        переобулся (подробнее в ролике). Remodex и Claude Remote
+                        тоже пытался подружить со своими ритуалами. Не то. Мне
+                        нужна не максимальная удаленная разработка, а личная
+                        система фокуса, контекста и действий.
                       </p>
                     </div>
                     <div class="term-item__media">
@@ -1247,10 +1377,10 @@
                     <div class="term-item__text">
                       <h3>Cursor vs Obsidian</h3>
                       <p>
-                        Я честно хотел ворваться в Obsidian в 2025 году. Но сейчас
-                        мне хватает Cursor: он хорошо отображает Markdown-файлы и
-                        индексирует локальные и облачные репозитории. Codex у меня
-                        работает как плагин к Cursor.
+                        Я честно хотел ворваться в Obsidian в 2025 году. Но
+                        сейчас мне хватает Cursor: он хорошо отображает
+                        Markdown-файлы и индексирует локальные и облачные
+                        репозитории. Codex у меня работает как плагин к Cursor.
                       </p>
                     </div>
                     <div class="term-item__media">
@@ -1303,12 +1433,12 @@
                     <div class="term-item__text">
                       <h3>Скиллы и MCP</h3>
                       <p>
-                        Начать можно с Superpowers и освоить их. Не надо гоняться
-                        за количеством. MCP нужен, чтобы система видела не
-                        абстрактную задачу, а текущую жизнь и работу: ClickUp,
-                        SendPulse, Telegram, RescueTime, Figma, Google Analytics.
-                        Это не так сложно как кажется и позволяет системе быть в
-                        курсе твоего актуального контекста.
+                        Начать можно с Superpowers и освоить их. Не надо
+                        гоняться за количеством. MCP нужен, чтобы система видела
+                        не абстрактную задачу, а текущую жизнь и работу:
+                        ClickUp, SendPulse, Telegram, RescueTime, Figma, Google
+                        Analytics. Это не так сложно как кажется и позволяет
+                        системе быть в курсе твоего актуального контекста.
                       </p>
                     </div>
                     <div class="term-item__media">
@@ -1348,7 +1478,10 @@
                     <div class="pipeline-dot">01</div>
                     <div>
                       <h3>Стратегическая цель</h3>
-                      <p>Большая цель, декомпозиция, метрики, делегирование ИИ-агентам по максимуму.</p>
+                      <p>
+                        Большая цель, декомпозиция, метрики, делегирование
+                        ИИ-агентам по максимуму.
+                      </p>
                     </div>
                   </div>
                   <div class="pipeline-row">
@@ -1357,8 +1490,8 @@
                       <h3>Планирование и ежедневный фокус</h3>
                       <p>
                         Планирование в понедельник вместе с консилиумом агентов,
-                        обученных на курсах Замесина и Калинина, утренний вопрос в
-                        Telegram, daily в Cursor с Codex и MCP.
+                        обученных на курсах Замесина и Калинина, утренний вопрос
+                        в Telegram, daily в Cursor с Codex и MCP.
                       </p>
                     </div>
                   </div>
@@ -1378,13 +1511,14 @@
                       <h3>Недельное ретро</h3>
                       <p>
                         Консилиум экспертов, реальные фидбеки из внешнего мира,
-                        личные ощущения и корректировка следующей недели. Если не
-                        разобрался с негативными реакциями или потерял фокус и
-                        просел - иду за подпиткой к живому консультанту с
-                        конкретными вопросами. Транскрипт сессии глубоко разбирает
-                        ИИ-агент и закидывает актуальный контекст и напоминания в
-                        того же Telegram-бота. Так у меня всегда максимально
-                        актуальный и в контексте ИИ-помощник под рукой.
+                        личные ощущения и корректировка следующей недели. Если
+                        не разобрался с негативными реакциями или потерял фокус
+                        и просел - иду за подпиткой к живому консультанту с
+                        конкретными вопросами. Транскрипт сессии глубоко
+                        разбирает ИИ-агент и закидывает актуальный контекст и
+                        напоминания в того же Telegram-бота. Так у меня всегда
+                        максимально актуальный и в контексте ИИ-помощник под
+                        рукой.
                       </p>
                     </div>
                   </div>
@@ -1406,21 +1540,28 @@
                 <div class="flow-grid">
                   <div class="flow-card">
                     <h3>Задача голосом</h3>
-                    <p>Получается развернутее. Писать столько часто просто лень.</p>
+                    <p>
+                      Получается развернутее. Писать столько часто просто лень.
+                    </p>
                   </div>
                   <div class="flow-card">
                     <h3>Дневник на ходу</h3>
-                    <p>Telegram + Whisper API хорошо ложатся в ежедневный ритм.</p>
+                    <p>
+                      Telegram + Whisper API хорошо ложатся в ежедневный ритм.
+                    </p>
                   </div>
                   <div class="flow-card">
                     <h3>Драфт поста</h3>
-                    <p>Надиктовать часто быстрее раза в два, чем набрать руками.</p>
+                    <p>
+                      Надиктовать часто быстрее раза в два, чем набрать руками.
+                    </p>
                   </div>
                 </div>
 
                 <p>
-                  Так что это неизбежность, плюс иногда даже полезно выразить немножко
-                  эмоций, а не с каменным лицом барабанить по клавиатуре.
+                  Так что это неизбежность, плюс иногда даже полезно выразить
+                  немножко эмоций, а не с каменным лицом барабанить по
+                  клавиатуре.
                 </p>
 
                 <p>
@@ -1441,19 +1582,22 @@
                 <p>
                   Пошаговой инструкции нет и не будет. У каждого своя жизнь,
                   ритуалы, ограничения и уровень технической готовности. Плюс
-                  инструменты выходят и обновляются каждый день, любая инструкция
-                  устареет через неделю.
+                  инструменты выходят и обновляются каждый день, любая
+                  инструкция устареет через неделю.
                 </p>
                 <p>
                   Скопировать чью-то Personal OS не получится - все люди разные.
                 </p>
                 <p>
                   Я делюсь своим текущим сетапом. Через полгода он точно будет
-                  другим. Могу показать направление, поделиться готовыми модулями
-                  Telegram и dashboard, дать скиллы и совместно спроектировать твою
-                  Personal OS.
+                  другим. Могу показать направление, поделиться готовыми
+                  модулями Telegram и dashboard, дать скиллы и совместно
+                  спроектировать твою Personal OS.
                 </p>
-                <p>Жить с этой системой тебе. Поэтому создавать ее нужно индивидуально.</p>
+                <p>
+                  Жить с этой системой тебе. Поэтому создавать ее нужно
+                  индивидуально.
+                </p>
               </div>
             </div>
           </section>
@@ -1466,6 +1610,14 @@
                   Напиши в Telegram. Разберем, с чего тебе начинать: с
                   инструментов, контекста, базы знаний, спринтов или простого
                   ежедневного ритуала.
+                </p>
+                <p>
+                  Personal OS закрывает фокус, контекст и ритм. Это много, но не
+                  всё. Иногда сильные люди приходят с запросом про инструменты,
+                  а уходят с другим разговором - про то, на чём теперь держится
+                  их способ вести и принимать решения, когда AI заходит на
+                  территорию интеллекта. Если в твоём случае это уже на
+                  поверхности - скажи, я работаю и с этим слоем тоже.
                 </p>
               </div>
 
@@ -1483,9 +1635,18 @@
         </div>
       </main>
 
-      <dialog class="media-lightbox" id="media-lightbox" aria-label="Увеличенное изображение">
+      <dialog
+        class="media-lightbox"
+        id="media-lightbox"
+        aria-label="Увеличенное изображение"
+      >
         <div class="media-lightbox__inner">
-          <button type="button" class="media-lightbox__close" id="media-lightbox-close" aria-label="Закрыть">
+          <button
+            type="button"
+            class="media-lightbox__close"
+            id="media-lightbox-close"
+            aria-label="Закрыть"
+          >
             &times;
           </button>
           <img id="media-lightbox-img" src="" alt="" decoding="async" />
@@ -1508,6 +1669,7 @@
     <script>
       const PAGE_VARIANT = "personal_os_ai_v1";
       const FUNNEL_NAME = "personal_os_ai";
+      const SESSION_ROUTE_KEY = "imt_personal_os_route";
 
       function trackEvent(name, params = {}) {
         if (window.gtag) {
@@ -1529,6 +1691,40 @@
           page_variant: PAGE_VARIANT,
           ...params,
         });
+      }
+
+      function persistRouteContext(routeDestination, ctaId, placement) {
+        try {
+          sessionStorage.setItem(
+            SESSION_ROUTE_KEY,
+            JSON.stringify({
+              route_destination: routeDestination,
+              cta_id: ctaId,
+              placement,
+              source_page: "personal_os",
+              ts: Date.now(),
+            }),
+          );
+        } catch (error) {
+          console.info("[sessionStorage]", error);
+        }
+      }
+
+      function observeOnce(targetId, eventName, threshold, extra = {}) {
+        const node = document.getElementById(targetId);
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const [entry] = entries;
+            if (!entry.isIntersecting) return;
+            trackFunnelEvent(eventName, extra);
+            observer.disconnect();
+          },
+          { threshold },
+        );
+
+        observer.observe(node);
       }
 
       function initStickyCta() {
@@ -1567,10 +1763,45 @@
               observer.unobserve(entry.target);
             });
           },
-          { threshold: 0.12 }
+          { threshold: 0.12 },
         );
 
         sections.forEach((section) => observer.observe(section));
+      }
+
+      function initVisibilityTracking() {
+        observeOnce("apply", "personal_os_entry_visible", 0.32, {
+          step_name: "entry",
+          step_index: 1,
+        });
+
+        observeOnce("map", "personal_os_map_visible", 0.32, {
+          step_name: "system_map",
+          step_index: 1,
+        });
+
+        observeOnce("setup", "personal_os_setup_visible", 0.32, {
+          step_name: "setup",
+          step_index: 1,
+        });
+
+        observeOnce("technical-notes", "personal_os_notes_visible", 0.25, {
+          step_name: "technical_notes",
+          step_index: 1,
+        });
+
+        observeOnce("final-cta", "personal_os_apply_visible", 0.42, {
+          step_name: "apply",
+          step_index: 1,
+        });
+      }
+
+      function initEngagementTracking() {
+        window.setTimeout(() => {
+          trackFunnelEvent("personal_os_engaged_45s", {
+            engaged_seconds: 45,
+          });
+        }, 45000);
       }
 
       function initTracking() {
@@ -1579,18 +1810,61 @@
           step_index: 1,
         });
 
-        ["cta-apply-main", "cta-map-main", "cta-apply-final", "cta-apply-mobile"].forEach((id) => {
+        trackEvent("personal_os_page_view", { page_variant: PAGE_VARIANT });
+
+        const config = [
+          [
+            "cta-apply-main",
+            "personal_os_apply_click",
+            "telegram_consultation",
+            "decision_block",
+          ],
+          [
+            "cta-map-main",
+            "personal_os_self_audit_click",
+            "self_audit",
+            "decision_block",
+          ],
+          [
+            "cta-apply-final",
+            "personal_os_apply_click",
+            "telegram_consultation",
+            "final_cta",
+          ],
+          [
+            "cta-apply-mobile",
+            "personal_os_apply_click",
+            "telegram_consultation",
+            "mobile_sticky",
+          ],
+        ];
+
+        config.forEach(([id, eventName, routeDestination, placement]) => {
           const node = document.getElementById(id);
           if (!node) return;
 
           node.addEventListener("click", () => {
-            trackFunnelEvent("personal_os_cta_click", {
+            persistRouteContext(routeDestination, id, placement);
+
+            trackFunnelEvent(eventName, {
+              step_name:
+                routeDestination === "self_audit" ? "self_audit" : "apply",
+              step_index: 1,
               cta_id: id,
-              placement: id.includes("mobile")
-                ? "mobile_sticky"
-                : id.includes("final")
-                  ? "final_cta"
-                  : "decision_block",
+              placement,
+              route_destination: routeDestination,
+            });
+
+            trackEvent("select_content", {
+              content_type:
+                routeDestination === "self_audit"
+                  ? "self_audit"
+                  : "telegram_consultation",
+              item_id: routeDestination,
+              cta_id: id,
+              placement,
+              funnel_name: FUNNEL_NAME,
+              page_variant: PAGE_VARIANT,
             });
           });
         });
@@ -1599,6 +1873,8 @@
       window.addEventListener("DOMContentLoaded", () => {
         initStickyCta();
         initReveals();
+        initVisibilityTracking();
+        initEngagementTracking();
         initTracking();
         initMediaLightbox();
       });
@@ -1625,8 +1901,22 @@
             const full = opens.getAttribute("data-full");
             if (!full) return;
             const preview = opens.querySelector("img");
+            const assetName = full.split("/").pop() || full;
             img.src = full;
             img.alt = preview?.getAttribute("alt") || "";
+
+            trackEvent("personal_os_media_open", {
+              asset_name: assetName,
+              page_variant: PAGE_VARIANT,
+            });
+
+            trackEvent("select_content", {
+              content_type: "system_map_asset",
+              item_id: assetName,
+              page_variant: PAGE_VARIANT,
+              funnel_name: FUNNEL_NAME,
+            });
+
             dialog.showModal();
           });
         });

@@ -1,0 +1,1772 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16453014043");
+    </script>
+    <script>
+      window.mainTracker = "gtag";
+      window.gtagTrackerID = "G-B2JG56FKGP";
+      setTimeout(function () {
+        (function (w, d, s, i) {
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + i;
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", i, {});
+        })(window, document, "script", window.gtagTrackerID);
+      }, 2000);
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-audit Personal OS</title>
+    <meta
+      name="description"
+      content="Короткий квиз: на какой стадии у тебя сейчас AI-контур и что мешает перейти к Personal OS."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Self-audit Personal OS" />
+    <meta
+      property="og:description"
+      content="10 вопросов, чтобы увидеть свою стадию взаимодействия с AI: от FOMO до Personal OS."
+    />
+    <meta
+      property="og:image"
+      content="https://app.imt.dev/personalos/assets/personal-os-system-map.png"
+    />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Self-audit Personal OS" />
+    <meta
+      name="twitter:description"
+      content="10 вопросов, чтобы увидеть свою стадию взаимодействия с AI: от FOMO до Personal OS."
+    />
+    <meta
+      name="twitter:image"
+      content="https://app.imt.dev/personalos/assets/personal-os-system-map.png"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --bg: #09111d;
+        --bg-top: #11213a;
+        --ink: #edf4ff;
+        --muted: rgba(237, 244, 255, 0.66);
+        --quiet: rgba(237, 244, 255, 0.46);
+        --line: rgba(255, 255, 255, 0.1);
+        --soft: rgba(255, 255, 255, 0.04);
+        --soft-strong: rgba(255, 255, 255, 0.075);
+        --accent: #86b6ff;
+        --accent-2: #7ad7c3;
+        --warn: #efbf7c;
+        --shadow: 0 32px 96px rgba(0, 0, 0, 0.28);
+        --content: 1240px;
+        --radius-lg: 28px;
+        --radius-xl: 34px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(134, 182, 255, 0.18),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at 88% 8%,
+            rgba(122, 215, 195, 0.1),
+            transparent 16%
+          ),
+          linear-gradient(180deg, var(--bg-top), var(--bg));
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.45;
+      }
+
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      button {
+        border: 0;
+        background: none;
+        cursor: pointer;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .mono,
+      .brand-row,
+      .meta-chip,
+      .section-kicker,
+      .stage-code,
+      .question-count,
+      .progress-label,
+      .answer-score,
+      .result-eyebrow,
+      .mini-label {
+        font-family: "IBM Plex Mono", monospace;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .page {
+        min-height: 100vh;
+        overflow-x: clip;
+      }
+
+      .shell {
+        width: min(var(--content), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        position: relative;
+        padding: clamp(24px, 4vw, 42px) 0 38px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.032) 1px,
+            transparent 1px
+          );
+        background-size: 78px 78px;
+        mask-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.72),
+          transparent 88%
+        );
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .brand-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(237, 244, 255, 0.64);
+        font-size: 0.78rem;
+      }
+
+      .brand-row a {
+        text-decoration: none;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 20px rgba(134, 182, 255, 0.55);
+      }
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.72fr);
+        gap: clamp(28px, 5vw, 74px);
+        align-items: center;
+        margin-top: clamp(24px, 4vw, 54px);
+      }
+
+      .hero-copy {
+        max-width: 900px;
+      }
+
+      h1 {
+        max-width: 14ch;
+        width: fit-content;
+        font-size: clamp(2.05rem, 4.7vw, 5.1rem);
+        font-weight: 600;
+        line-height: 0.88;
+        letter-spacing: -0.07em;
+      }
+
+      .hero-note {
+        max-width: 58ch;
+        margin-top: 22px;
+        color: rgba(237, 244, 255, 0.78);
+        font-size: clamp(1rem, 1.45vw, 1.16rem);
+      }
+
+      .hero-trust-note {
+        max-width: 60ch;
+        margin-top: 14px;
+        color: rgba(237, 244, 255, 0.64);
+        font-size: 0.96rem;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .meta-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(237, 244, 255, 0.76);
+        font-size: 0.7rem;
+      }
+
+      .hero-visual {
+        position: relative;
+        display: grid;
+        min-height: clamp(320px, 36vw, 500px);
+        place-items: center;
+        isolation: isolate;
+      }
+
+      .hero-visual::before {
+        content: "";
+        position: absolute;
+        inset: 9% 3%;
+        z-index: -1;
+        border: 1px solid rgba(122, 215, 195, 0.22);
+        border-radius: 50%;
+        transform: rotate(-8deg);
+      }
+
+      .hero-visual img {
+        width: min(100%, 520px);
+        height: auto;
+        filter: drop-shadow(0 28px 58px rgba(0, 0, 0, 0.28));
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 56px;
+        padding: 0 24px;
+        border-radius: 999px;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        color: #08111f;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 18px 44px rgba(134, 182, 255, 0.24);
+      }
+
+      .button-secondary {
+        color: rgba(237, 244, 255, 0.86);
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .future-panel {
+        position: relative;
+        min-height: 560px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.025)
+          ),
+          rgba(7, 13, 24, 0.88);
+        box-shadow: var(--shadow);
+      }
+
+      .future-panel img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.24;
+        filter: saturate(1.1);
+      }
+
+      .future-panel::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(7, 13, 24, 0.2), rgba(7, 13, 24, 0.94)),
+          radial-gradient(
+            circle at 28% 20%,
+            rgba(134, 182, 255, 0.2),
+            transparent 38%
+          );
+      }
+
+      .future-content {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        min-height: 560px;
+        align-content: end;
+        padding: 28px;
+      }
+
+      .stage-ladder {
+        display: grid;
+        gap: 10px;
+      }
+
+      .stage-row {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.055);
+        backdrop-filter: blur(10px);
+      }
+
+      .stage-row:last-child {
+        border-color: rgba(122, 215, 195, 0.35);
+        background: rgba(122, 215, 195, 0.105);
+      }
+
+      .stage-code {
+        color: var(--accent-2);
+        font-size: 0.68rem;
+      }
+
+      .stage-row strong {
+        display: block;
+        font-size: 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .stage-row span:last-child {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .main {
+        padding: 18px 0 110px;
+      }
+
+      .section {
+        padding: 30px 0 34px;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      .section-kicker {
+        color: rgba(237, 244, 255, 0.52);
+        font-size: 0.7rem;
+      }
+
+      .section-body {
+        display: grid;
+        gap: 20px;
+      }
+
+      .section-body h2 {
+        font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+        letter-spacing: -0.05em;
+      }
+
+      .section-body p {
+        color: var(--muted);
+      }
+
+      .stage-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: var(--line);
+      }
+
+      .stage-card {
+        min-height: 190px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .stage-card h3 {
+        margin-top: 12px;
+        font-size: 1.05rem;
+        letter-spacing: -0.04em;
+      }
+
+      .stage-card p {
+        margin-top: 10px;
+        font-size: 0.94rem;
+      }
+
+      .quiz-layout {
+        display: grid;
+        grid-template-columns: minmax(240px, 310px) minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .quiz-aside {
+        position: sticky;
+        top: 18px;
+        display: grid;
+        gap: 16px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .progress-label {
+        color: var(--quiet);
+        font-size: 0.68rem;
+      }
+
+      .progress-track {
+        height: 8px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .progress-fill {
+        width: 0;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        transition: width 220ms ease;
+      }
+
+      .quiz-progress {
+        display: grid;
+        width: min(100%, 860px);
+        margin: 0 auto 18px;
+        padding: 0 2px;
+      }
+
+      .quiz-progress.is-hidden {
+        display: none;
+      }
+
+      .current-score {
+        display: grid;
+        gap: 4px;
+      }
+
+      .current-score strong {
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .current-score span {
+        color: var(--muted);
+      }
+
+      .mini-stack {
+        display: grid;
+        gap: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--line);
+      }
+
+      .mini-label {
+        color: var(--quiet);
+        font-size: 0.66rem;
+      }
+
+      .mini-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .mini-dot {
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        color: var(--quiet);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .mini-dot.done {
+        color: #08111f;
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      }
+
+      .question-panel {
+        min-height: 640px;
+        padding: clamp(20px, 3vw, 34px);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: var(--shadow);
+      }
+
+      .question-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .question-count {
+        color: var(--accent-2);
+        font-size: 0.72rem;
+      }
+
+      .dimension-pill {
+        display: inline-flex;
+        min-height: 32px;
+        align-items: center;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        white-space: nowrap;
+      }
+
+      .question-title {
+        max-width: 760px;
+        margin-top: 16px;
+        font-size: clamp(1.8rem, 3vw, 3.15rem);
+        line-height: 0.98;
+        letter-spacing: -0.06em;
+      }
+
+      .question-help {
+        max-width: 70ch;
+        margin-top: 16px;
+        color: var(--muted);
+      }
+
+      .answers {
+        display: grid;
+        gap: 10px;
+        margin-top: 26px;
+      }
+
+      .answer {
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 14px;
+        width: 100%;
+        min-height: 78px;
+        align-items: center;
+        padding: 14px 16px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.035);
+        text-align: left;
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .answer:hover,
+      .answer:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(134, 182, 255, 0.32);
+        background: rgba(255, 255, 255, 0.065);
+      }
+
+      .answer.selected {
+        border-color: rgba(122, 215, 195, 0.52);
+        background: rgba(122, 215, 195, 0.12);
+      }
+
+      .answer-score {
+        display: grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid rgba(237, 244, 255, 0.3);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .answer.selected .answer-score {
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      }
+
+      .answer-text {
+        color: rgba(237, 244, 255, 0.84);
+        font-size: 1rem;
+      }
+
+      .quiz-controls {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .quiz-controls .button {
+        min-width: 150px;
+      }
+
+      .button[disabled] {
+        pointer-events: none;
+        opacity: 0.45;
+      }
+
+      .result-panel {
+        display: none;
+        margin-top: 28px;
+        padding: clamp(22px, 3vw, 34px);
+        border: 1px solid rgba(122, 215, 195, 0.3);
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(
+            135deg,
+            rgba(134, 182, 255, 0.12),
+            rgba(122, 215, 195, 0.08)
+          ),
+          rgba(255, 255, 255, 0.04);
+      }
+
+      .result-panel.visible {
+        display: block;
+      }
+
+      .result-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.78fr);
+        gap: clamp(24px, 4vw, 54px);
+        align-items: start;
+      }
+
+      .result-main,
+      .result-os {
+        display: grid;
+        gap: 18px;
+      }
+
+      .result-os {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(22px, 3vw, 30px);
+        border: 1px solid rgba(122, 215, 195, 0.38);
+        border-radius: 28px;
+        background:
+          radial-gradient(
+            circle at 80% 8%,
+            rgba(122, 215, 195, 0.26),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 12% 96%,
+            rgba(134, 182, 255, 0.24),
+            transparent 34%
+          ),
+          linear-gradient(
+            145deg,
+            rgba(237, 244, 255, 0.13),
+            rgba(122, 215, 195, 0.075)
+          ),
+          rgba(255, 255, 255, 0.052);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.14),
+          0 28px 72px rgba(122, 215, 195, 0.12);
+      }
+
+      .result-os::before {
+        content: "";
+        position: absolute;
+        inset: auto -18% -28% 18%;
+        height: 160px;
+        border-radius: 999px;
+        background: rgba(122, 215, 195, 0.18);
+        filter: blur(34px);
+        pointer-events: none;
+      }
+
+      .result-os > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .result-os-title {
+        max-width: 12ch;
+        font-size: clamp(2rem, 3vw, 3.2rem);
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+      }
+
+      .result-eyebrow {
+        color: var(--accent-2);
+        font-size: 0.7rem;
+      }
+
+      .result-title {
+        font-size: clamp(2rem, 3.6vw, 4rem);
+        line-height: 0.92;
+        letter-spacing: -0.07em;
+      }
+
+      .result-stage-copy,
+      .result-next p,
+      .future-copy {
+        color: rgba(237, 244, 255, 0.78);
+      }
+
+      .result-next {
+        display: grid;
+        gap: 12px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .result-next strong {
+        font-size: 1.12rem;
+        letter-spacing: -0.03em;
+      }
+
+      .result-layer-note {
+        display: grid;
+        gap: 10px;
+        padding: 18px 20px;
+        border: 1px solid rgba(122, 215, 195, 0.22);
+        border-radius: 22px;
+        background: rgba(122, 215, 195, 0.055);
+      }
+
+      .result-layer-note strong {
+        font-size: 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .result-layer-note p {
+        color: rgba(237, 244, 255, 0.72);
+      }
+
+      .future-copy {
+        display: grid;
+        gap: 14px;
+        max-width: 66ch;
+      }
+
+      .future-copy p {
+        color: rgba(237, 244, 255, 0.82);
+        font-size: 1.05rem;
+      }
+
+      .future-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .future-list li {
+        position: relative;
+        padding-left: 22px;
+        color: rgba(237, 244, 255, 0.78);
+      }
+
+      .future-list li::before {
+        content: "";
+        position: absolute;
+        top: 0.66em;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 18px rgba(122, 215, 195, 0.42);
+      }
+
+      .result-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-end;
+      }
+
+      .full-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .summary-row {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 14px;
+        align-items: start;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .summary-row:last-child {
+        border-bottom: none;
+      }
+
+      .summary-row .answer-score {
+        width: 36px;
+        height: 36px;
+      }
+
+      .summary-row h3 {
+        font-size: 1.08rem;
+        letter-spacing: -0.04em;
+      }
+
+      .summary-row p {
+        margin-top: 6px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .hero-layout,
+        .stage-grid,
+        .quiz-layout,
+        .result-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 360px;
+        }
+
+        .result-actions {
+          justify-content: flex-start;
+        }
+
+        .future-panel,
+        .future-content {
+          min-height: 500px;
+        }
+
+        .quiz-aside {
+          position: static;
+        }
+
+        .stage-grid {
+          background: transparent;
+          border: 0;
+          border-radius: 0;
+          gap: 12px;
+          overflow: visible;
+        }
+
+        .stage-card {
+          border: 1px solid var(--line);
+          border-radius: 22px;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(var(--content), calc(100% - 20px));
+        }
+
+        .hero {
+          padding-top: 18px;
+        }
+
+        .hero-visual {
+          min-height: 260px;
+        }
+
+        .hero-visual img {
+          max-height: 300px;
+        }
+
+        h1 {
+          max-width: 12ch;
+          font-size: clamp(2.15rem, 11vw, 3.4rem);
+        }
+
+        .hero-actions .button,
+        .quiz-controls .button,
+        .result-actions .button {
+          width: 100%;
+        }
+
+        .future-panel,
+        .future-content {
+          min-height: 560px;
+        }
+
+        .future-content {
+          padding: 18px;
+        }
+
+        .stage-row {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+
+        .section-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .question-panel {
+          min-height: auto;
+          border-radius: 24px;
+        }
+
+        .question-head {
+          display: grid;
+        }
+
+        .dimension-pill {
+          width: fit-content;
+          white-space: normal;
+        }
+
+        .question-title {
+          font-size: clamp(1.65rem, 8.2vw, 2.3rem);
+        }
+
+        .quiz-progress {
+          position: fixed;
+          inset: auto 14px 14px;
+          z-index: 40;
+          width: auto;
+          margin: 0;
+          padding: 10px;
+          border: 1px solid var(--line);
+          border-radius: 999px;
+          background: rgba(8, 16, 28, 0.92);
+          box-shadow: var(--shadow);
+          backdrop-filter: blur(16px);
+        }
+
+        .answer {
+          grid-template-columns: 24px minmax(0, 1fr);
+          gap: 12px;
+          padding: 13px;
+          border-radius: 18px;
+        }
+
+        .answer-score {
+          width: 20px;
+          height: 20px;
+        }
+
+        .quiz-controls {
+          display: grid;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="shell hero-inner">
+          <div class="brand-row">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <a href="/personalos/">Personal OS</a>
+            <span>/ self-audit</span>
+          </div>
+
+          <div class="hero-layout">
+            <div class="hero-copy">
+              <h1>На какой стадии твой AI-контур?</h1>
+              <p class="hero-note">
+                10 вопросов, чтобы увидеть разрыв между FOMO, разрозненными
+                чатами, рабочим AI-контуром и персональной операционной
+                системой.
+              </p>
+              <p class="hero-note">
+                На выходе - стадия, главное узкое место и следующий шаг на 30-60
+                минут.
+              </p>
+              <p class="hero-trust-note">
+                Email в конце не попрошу, личные ответы никуда не сохраняю.
+                Поэтому отвечай честно: для твоей пользы важен сам процесс, а не
+                красивый результат.
+              </p>
+
+              <div class="hero-meta">
+                <div class="meta-chip">10 вопросов</div>
+                <div class="meta-chip">5 стадий</div>
+                <div class="meta-chip">7-10 минут</div>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <img
+                src="/svg/intent-economy.svg"
+                alt=""
+                decoding="async"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="shell">
+          <section class="section" id="quiz">
+            <div class="quiz-progress" aria-label="Прогресс квиза">
+              <div
+                class="progress-track"
+                id="progressTrack"
+                role="progressbar"
+                aria-label="Прогресс квиза"
+                aria-valuemin="0"
+                aria-valuemax="10"
+                aria-valuenow="0"
+              >
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+
+            <article class="question-panel" id="questionPanel">
+              <div class="question-head">
+                <div>
+                  <div class="question-count" id="questionCount">01 / 10</div>
+                  <h2 class="question-title" id="questionTitle"></h2>
+                </div>
+                <div class="dimension-pill" id="questionDimension"></div>
+              </div>
+
+              <p class="question-help" id="questionHelp"></p>
+              <div class="answers" id="answers"></div>
+
+              <div class="quiz-controls">
+                <button
+                  class="button button-secondary"
+                  type="button"
+                  id="prevButton"
+                >
+                  Назад
+                </button>
+                <button
+                  class="button button-primary"
+                  type="button"
+                  id="nextButton"
+                >
+                  Дальше
+                </button>
+              </div>
+            </article>
+
+            <section class="result-panel" id="resultPanel" aria-live="polite">
+              <div class="result-grid">
+                <div class="result-main">
+                  <div>
+                    <div class="result-eyebrow" id="resultEyebrow">
+                      результат
+                    </div>
+                    <h2 class="result-title" id="resultTitle"></h2>
+                  </div>
+
+                  <p class="result-stage-copy" id="resultDescription"></p>
+
+                  <div class="result-next">
+                    <strong id="resultBottleneck"></strong>
+                    <p id="resultNext"></p>
+                  </div>
+
+                  <div class="result-layer-note">
+                    <strong>Ещё один слой</strong>
+                    <p>
+                      Это твоя позиция по техническому контуру. Часто за этим
+                      стоит ещё один слой: на чём держится твой способ принимать
+                      решения, когда AI заходит на территорию интеллекта. Если
+                      по этому слою есть свой запрос - напиши отдельно, у меня
+                      есть формат, в котором это разбирается.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="result-os">
+                  <div class="mini-label">следующий уровень</div>
+                  <h3 class="result-os-title" id="resultOsTitle">
+                    Personal OS
+                  </h3>
+                  <div class="future-copy" id="resultFuture"></div>
+
+                  <div class="result-actions">
+                    <a
+                      class="button button-primary"
+                      id="personalOsLink"
+                      href="/personalos/"
+                    >
+                      Построй свою Personal OS
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const PAGE_VARIANT = "personal_os_self_audit_v1";
+      const FUNNEL_NAME = "personal_os_self_audit";
+      const SESSION_ROUTE_KEY = "imt_personal_os_route";
+
+      function trackEvent(name, params = {}) {
+        if (window.gtag) {
+          window.gtag("event", name, params);
+          return;
+        }
+
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push({ event: name, ...params });
+          return;
+        }
+
+        console.info("[track]", name, params);
+      }
+
+      function trackFunnelEvent(name, params = {}) {
+        trackEvent(name, {
+          funnel_name: FUNNEL_NAME,
+          page_variant: PAGE_VARIANT,
+          ...params,
+        });
+      }
+
+      function getRouteContext() {
+        try {
+          const raw = sessionStorage.getItem(SESSION_ROUTE_KEY);
+          return raw ? JSON.parse(raw) : null;
+        } catch (error) {
+          console.info("[sessionStorage]", error);
+          return null;
+        }
+      }
+
+      function persistRouteContext(routeDestination, ctaId, placement) {
+        try {
+          sessionStorage.setItem(
+            SESSION_ROUTE_KEY,
+            JSON.stringify({
+              route_destination: routeDestination,
+              cta_id: ctaId,
+              placement,
+              source_page: "personal_os_self_audit",
+              ts: Date.now(),
+            }),
+          );
+        } catch (error) {
+          console.info("[sessionStorage]", error);
+        }
+      }
+
+      function observeOnce(targetId, eventName, threshold, extra = {}) {
+        const node = document.getElementById(targetId);
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const [entry] = entries;
+            if (!entry.isIntersecting) return;
+            trackFunnelEvent(eventName, extra);
+            observer.disconnect();
+          },
+          { threshold },
+        );
+
+        observer.observe(node);
+      }
+
+      const questions = [
+        {
+          title:
+            "Если завтра исчезнут все твои AI-чаты, что ты потеряешь в работе и жизни?",
+          dimension: "накопление",
+          help: "Проверяем, превращаются ли диалоги в систему, или весь эффект живет только в истории чатов.",
+          answers: [
+            "Почти ничего. Там были тесты, случайные вопросы и несколько прикольных ответов.",
+            "Потеряю полезные диалоги и промпты, но ничего критичного для работы, быта или личных решений.",
+            "Потеряю часть материалов: исследования, черновики, разборы, идеи, заметки по жизни и решениям.",
+            "Потеряю заметную часть рабочего и личного процесса. Придется восстанавливать контекст, цепочки решений и договоренности.",
+            "Сами чаты не критичны, потому что важное уже уходит в базу знаний, файлы, задачи, дневники, личные заметки и контекст Personal OS.",
+          ],
+        },
+        {
+          title: "Где сейчас живет твой актуальный контекст?",
+          dimension: "контекст",
+          help: "AI становится твоим помощником только тогда, когда видит не абстрактную задачу, а твою реальную систему.",
+          answers: [
+            "В голове. Иногда еще в переписках и заметках.",
+            "В нескольких местах: Telegram, заметки, документы, задачник, чаты. Целиком его нигде нет.",
+            "Есть основное место для документов / заметок, но AI сам его не видит или видит кусками.",
+            "Есть база знаний / папка / dashboard, куда регулярно попадает рабочий контекст.",
+            "Контекст живой: цели, проекты, ограничения, дневники, созвоны, переписки и документы доступны AI в нужный момент.",
+          ],
+        },
+        {
+          title: "Какое у тебя соотношение тест AI / польза от AI по времени?",
+          dimension: "эффект",
+          help: "Если тяжело ответить, можно посмотреть через RescueTime: сколько часов ушло на изучение и сколько на реальный полезный результат.",
+          answers: [
+            "В основном учусь, смотрю обзоры, пробую инструменты. Реальной пользы мало.",
+            "Примерно 70% тестов и изучения, 30% полезного применения.",
+            "Примерно 50/50: часть времени уже дает пользу, но много уходит на перебор и настройку.",
+            "Примерно 20-30% обучения и тестов, 70-80% пользы.",
+            "Примерно 10% обучения и 90% пользы. AI используется каждый день как рабочий рычаг, а не как бесконечная учебная зона.",
+          ],
+        },
+        {
+          title: "Есть ли у тебя ритуал входа в день через AI?",
+          dimension: "ритуалы",
+          help: "Без ритуала AI остается инструментом по запросу. С ритуалом он начинает держать фокус.",
+          answers: [
+            "Нет. День собирается из входящих, срочного и случайного.",
+            "Иногда спрашиваю AI, что делать, но это нерегулярно.",
+            "AI помогает с задачами и планом, но без устойчивого ежедневного ритуала.",
+            "Есть утренний фокус, daily или вечерняя ретроспектива с AI.",
+            "AI встроен в день: утром фокус, днем фиксация идей / реакций, перед daily напоминание о главном, вечером короткая ретро.",
+          ],
+        },
+        {
+          title:
+            "Что происходит после созвона, лекции, ролика или длинной переписки?",
+          dimension: "база знаний",
+          help: "Проверяем, превращается ли информация в контекст, или опыт каждый раз остается отдельным следом.",
+          answers: [
+            "Ничего системного. Осталось в голове, записи или чате.",
+            "Иногда сохраняю запись / ссылку / конспект, но редко возвращаюсь.",
+            "AI помогает сделать summary, но дальше оно часто лежит отдельным файлом.",
+            "Транскрипты, summary и важные выводы попадают в базу знаний с понятными названиями и тегами.",
+            "Созвоны, переписки, лекции и документы обновляют контекст системы: база знаний, задачи, напоминания, гипотезы и следующие действия.",
+          ],
+        },
+        {
+          title: "Насколько связаны твои AI-инструменты?",
+          dimension: "связанность",
+          help: "Система начинается там, где AI перестает быть набором отдельных умных окон.",
+          answers: [
+            "Есть один инструмент. Остальное не трогаю или почти не использую.",
+            "Инструментов несколько, но все по отдельности: ChatGPT отдельно, Cursor отдельно, заметки отдельно, задачи отдельно.",
+            "AI может смотреть в единый контекст, но я вручную подсовываю файлы, ссылки, папки или summary.",
+            "Есть автоматизация, но она кривая: многое надо двигать руками, чинить, переносить, проверять.",
+            "Есть один удобный интерфейс и общий контекст, а под капотом могут работать разные AI: ChatGPT / Codex / Claude Code / Cursor / Telegram-боты.",
+          ],
+        },
+        {
+          title: "Какое главное ощущение от использования AI сейчас?",
+          dimension: "состояние",
+          help: "Самый честный вариант важнее самого умного. AI может давать пользу и одновременно перегревать нервную систему.",
+          answers: [
+            "Страх не успеть. Страшно, что заменит. Непонятно, с чего начинать.",
+            "Сложно, дорого, пластиково, похоже на баловство. Часто кажется, что оно тупое или мне бесполезно.",
+            "Любопытно. Иногда полезно. Есть ощущение, что тут что-то есть, но пока без устойчивого эффекта.",
+            "Восхищение и польза. Уже сложно представить, как раньше обходился без AI, но иногда стало больше шума и беготни.",
+            "Спокойный рабочий рычаг. AI не пугает и не развлекает, а помогает держать главное, ускорять работу и принимать следующие решения.",
+          ],
+        },
+        {
+          title:
+            "Есть ли у тебя место, где видно цель, фокус, действия и обратную связь?",
+          dimension: "управление",
+          help: "AI без управляющего слоя часто превращается в генератор вариантов, а не в помощника движения.",
+          answers: [
+            "Нет. Все держится в голове и текущих задачах.",
+            "Есть задачник или заметки, но они не показывают общую картину.",
+            "Есть план / dashboard / документ, но обновляется нерегулярно.",
+            "Есть рабочее место, где видно цель, текущий фокус, ближайшие действия и результаты недели.",
+            "Есть живой dashboard / Personal OS-контур: цель, фокус, задачи, ритуалы, обратная связь, контекст и следующий шаг связаны между собой.",
+          ],
+        },
+        {
+          title: "Что сейчас больше всего мешает получить эффект от AI?",
+          dimension: "узкое место",
+          help: "Ищем не виноватый инструмент, а слой, который первым даст рычаг.",
+          answers: [
+            "Не понимаю, зачем мне это прямо сейчас. Больше ощущение внешнего давления и FOMO.",
+            "Не хватает времени разобраться. Инструментов много, входов много, все быстро меняется.",
+            "Инструменты есть, но нет привычки и понятного места, куда их встроить.",
+            "Польза есть, но мешает отсутствие единого контекста, нормальной базы знаний или связки между инструментами.",
+            "Главное узкое место уже не как начать, а как улучшать систему: метрики, ритуалы, автоматизацию, качество контекста и делегирование AI-агентам.",
+          ],
+        },
+        {
+          title:
+            "Сколько денег вкладываешь в AI и насколько используются лимиты?",
+          dimension: "экономика",
+          help: "Важна не сумма сама по себе, а связка: расход, утилизация, полезный результат.",
+          answers: [
+            "Почти ничего не плачу или плачу случайно. Ценного регулярного результата пока нет.",
+            "Есть одна-две подписки, но использую мало. Скорее чтобы было.",
+            "Вкладываю примерно $20-50/мес, лимиты использую частично. Польза есть, но ROI неочевиден.",
+            "Вкладываю примерно $50-100/мес, использую регулярно, понимаю, за какие задачи это окупается.",
+            "Расход осознанный, есть понятная отдача с 80-90% утилизацией лимитов подписок.",
+          ],
+        },
+      ];
+
+      const stages = [
+        {
+          name: "Наблюдатель / FOMO",
+          range: "1.0-1.7",
+          description:
+            "AI где-то рядом, но пока больше давит, чем помогает: много новостей, тестов и тревоги, а регулярного применения мало. Польза еще не измеряется, поэтому каждый новый инструмент выглядит как еще один повод догонять рынок.",
+          future:
+            "Следующая стадия начинается с одного инструмента и одной регулярной задачи, где AI дает быстрый повторяемый результат.",
+          next: "Выбери одну зону: тексты, исследования, планирование, документы или идеи. 7 дней используй AI только там и фиксируй пользу.",
+        },
+        {
+          name: "Разрозненные чаты",
+          range: "1.8-2.6",
+          description:
+            "AI уже дает отдельные полезные ответы, но все держится на ручном объяснении контекста. Каждый чат приходится заново вводить в курс дела, поэтому ценные выводы легко остаются в истории и не превращаются в общий рабочий слой.",
+          future:
+            "Появляется первый слой контекста: файл, папка или база, откуда AI понимает, кто ты, чем занят и что сейчас важно.",
+          next: "Собери один context.md: цели, проекты, ограничения, текущая неделя, главные задачи, стиль работы и важные ссылки.",
+        },
+        {
+          name: "Прикладной помощник",
+          range: "2.7-3.4",
+          description:
+            "AI уже помогает работать быстрее, но система еще зависит от ручного управления. Польза появляется в отдельных задачах, а узкое место остается в ритуалах, общем контексте и переносе результатов из чатов в базу, задачи и следующие действия.",
+          future:
+            "AI входит в ритуалы: утром фокус, днем фиксация, после созвонов summary в базу, вечером ретро, раз в неделю спринт.",
+          next: "Встрой один ритуал: утренний daily или вечернюю ретроспективу в Telegram / Cursor. Не добавляй новые инструменты, пока ритуал не прожил неделю.",
+        },
+        {
+          name: "Рабочий контур",
+          range: "3.5-4.3",
+          description:
+            "AI уже встроен в процессы, но связанность и автоматизация пока не идеальны. Есть рабочие ритуалы и понятная польза, однако часть стыков все еще держится руками: summary, база знаний, задачи, напоминания и обновление контекста.",
+          future:
+            "Система начинает работать как единый контур: один вход, актуальный контекст, разные AI под капотом, обратная связь и следующий шаг.",
+          next: "Найди самый дорогой ручной стык: созвон -> summary -> база -> задача -> напоминание. Упрости именно его.",
+        },
+        {
+          name: "Personal OS",
+          range: "4.4-5.0",
+          description:
+            "AI стал персональной операционной системой: быстрый доступ, живой контекст, ритуалы, обратная связь и регулярная польза связаны в один контур. Дальше рост идет не через новые подписки, а через качество контекста, метрики, делегирование агентам и более чистую автоматизацию.",
+          future:
+            "Ты не догоняешь AI-рынок. Ты используешь AI как экзоскелет: утром система поднимает цель, днем ловит идеи, после созвонов обновляет контекст, вечером помогает увидеть сдвиг.",
+          next: "Не расширяй стек бесконечно. Улучшай качество контекста, ритуалы, делегирование агентам и метрики полезности.",
+        },
+      ];
+
+      const personalOSVision = [
+        "Важные диалоги превращаются в базу знаний, файлы, задачи, дневники и личный контекст.",
+        "Система видит цели, проекты, ограничения, созвоны, переписки, заметки и документы в нужный момент.",
+        "Утром она собирает фокус дня, днем ловит идеи и вопросы, вечером помогает увидеть сдвиг.",
+        "Есть один удобный вход, общий контекст и разные AI под капотом.",
+        "Деньги вкладываются не в FOMO, а в рабочий AI-экзоскелет с понятной отдачей.",
+      ];
+
+      const answers = Array(questions.length).fill(null);
+      const state = { index: 0 };
+      const trackingState = {
+        started: false,
+        midpoint: false,
+        resultShown: false,
+      };
+      const routeContext = getRouteContext();
+      const entryRoute = routeContext?.route_destination || "direct";
+      const sourceCtaId = routeContext?.cta_id || "direct";
+
+      const questionCount = document.getElementById("questionCount");
+      const questionTitle = document.getElementById("questionTitle");
+      const questionHelp = document.getElementById("questionHelp");
+      const questionDimension = document.getElementById("questionDimension");
+      const answersNode = document.getElementById("answers");
+      const prevButton = document.getElementById("prevButton");
+      const nextButton = document.getElementById("nextButton");
+      const progressTrack = document.getElementById("progressTrack");
+      const progressFill = document.getElementById("progressFill");
+      const quizProgress = document.querySelector(".quiz-progress");
+      const questionPanel = document.getElementById("questionPanel");
+      const resultPanel = document.getElementById("resultPanel");
+      const resultEyebrow = document.getElementById("resultEyebrow");
+      const resultTitle = document.getElementById("resultTitle");
+      const resultDescription = document.getElementById("resultDescription");
+      const resultFuture = document.getElementById("resultFuture");
+      const resultBottleneck = document.getElementById("resultBottleneck");
+      const resultNext = document.getElementById("resultNext");
+      const mobileQuestionQuery = window.matchMedia("(max-width: 760px)");
+      const reduceMotionQuery = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      );
+
+      function trackQuizStarted() {
+        if (trackingState.started) return;
+        trackingState.started = true;
+
+        trackFunnelEvent("personal_os_quiz_started", {
+          step_name: "first_answer",
+          step_index: 1,
+          entry_route: entryRoute,
+          source_cta_id: sourceCtaId,
+        });
+      }
+
+      function maybeTrackMidpoint() {
+        if (trackingState.midpoint || getAnswered().length < 5) return;
+        trackingState.midpoint = true;
+
+        trackFunnelEvent("personal_os_quiz_midpoint", {
+          step_name: "midpoint",
+          step_index: 1,
+          answered_count: getAnswered().length,
+          entry_route: entryRoute,
+          source_cta_id: sourceCtaId,
+        });
+      }
+
+      function trackAnswerSelection(question, questionIndex, score) {
+        trackQuizStarted();
+
+        trackEvent("personal_os_quiz_answer", {
+          question_index: questionIndex + 1,
+          question_dimension: question.dimension,
+          answer_score: score,
+          entry_route: entryRoute,
+          source_cta_id: sourceCtaId,
+          page_variant: PAGE_VARIANT,
+        });
+      }
+
+      function scrollToQuestionStart() {
+        if (!mobileQuestionQuery.matches) return;
+        requestAnimationFrame(() => {
+          questionPanel.scrollIntoView({
+            behavior: reduceMotionQuery.matches ? "auto" : "smooth",
+            block: "start",
+          });
+        });
+      }
+
+      function getStageIndex(score) {
+        if (score < 1.8) return 0;
+        if (score < 2.7) return 1;
+        if (score < 3.5) return 2;
+        if (score < 4.4) return 3;
+        return 4;
+      }
+
+      function getAnswered() {
+        return answers.filter((answer) => answer !== null);
+      }
+
+      function getAverage() {
+        const done = getAnswered();
+        if (!done.length) return null;
+        return (
+          done.reduce((sum, answer) => sum + answer.score, 0) / done.length
+        );
+      }
+
+      function getBottleneck() {
+        const answeredWithIndex = answers
+          .map((answer, index) => ({ answer, index }))
+          .filter((item) => item.answer !== null)
+          .sort((a, b) => a.answer.score - b.answer.score);
+
+        if (!answeredWithIndex.length) return null;
+
+        const lowest = answeredWithIndex[0];
+        return {
+          dimension: questions[lowest.index].dimension,
+          score: lowest.answer.score,
+        };
+      }
+
+      function renderProgress() {
+        const doneCount = getAnswered().length;
+        const progress = (doneCount / questions.length) * 100;
+
+        if (doneCount < questions.length) {
+          quizProgress.classList.remove("is-hidden");
+        }
+        progressFill.style.width = `${progress}%`;
+        progressTrack.setAttribute("aria-valuenow", String(doneCount));
+      }
+
+      function renderQuestion() {
+        const question = questions[state.index];
+        const selected = answers[state.index];
+
+        questionCount.textContent = `${String(state.index + 1).padStart(2, "0")} / ${questions.length}`;
+        questionTitle.textContent = question.title;
+        questionHelp.textContent = question.help;
+        questionDimension.textContent = question.dimension;
+
+        answersNode.innerHTML = "";
+        question.answers.forEach((answerText, index) => {
+          const score = index + 1;
+          const answer = document.createElement("button");
+          answer.type = "button";
+          answer.className =
+            "answer" + (selected?.score === score ? " selected" : "");
+          answer.innerHTML = `
+            <span class="answer-score" aria-hidden="true"></span>
+            <span class="answer-text">${answerText}</span>
+          `;
+          answer.addEventListener("click", () => {
+            trackAnswerSelection(question, state.index, score);
+            const shouldScrollToNextQuestion =
+              state.index < questions.length - 1;
+            answers[state.index] = { score, text: answerText };
+            maybeTrackMidpoint();
+            if (shouldScrollToNextQuestion) {
+              state.index += 1;
+            }
+            renderAll();
+            if (shouldScrollToNextQuestion) {
+              scrollToQuestionStart();
+            }
+          });
+          answersNode.appendChild(answer);
+        });
+
+        prevButton.disabled = state.index === 0;
+        nextButton.textContent =
+          state.index === questions.length - 1
+            ? "Показать результат"
+            : "Дальше";
+        nextButton.disabled = !answers[state.index];
+
+        renderProgress();
+      }
+
+      function showResult() {
+        const average = getAverage();
+        if (average === null || getAnswered().length < questions.length) return;
+
+        const stageIndex = getStageIndex(average);
+        const stage = stages[stageIndex];
+        const bottleneck = getBottleneck();
+        const bottleneckText =
+          bottleneck && bottleneck.score < 4
+            ? `Главное узкое место: ${bottleneck.dimension}`
+            : "Явного провала нет. Дальше важнее улучшать качество контекста, ритуалы и метрики полезности.";
+
+        if (!trackingState.resultShown) {
+          trackingState.resultShown = true;
+
+          trackFunnelEvent("personal_os_quiz_completed", {
+            step_name: "result",
+            step_index: 2,
+            stage_name: stage.name,
+            stage_range: stage.range,
+            average_score: Number(average.toFixed(2)),
+            bottleneck_dimension: bottleneck?.dimension || "none",
+            entry_route: entryRoute,
+            source_cta_id: sourceCtaId,
+          });
+
+          trackEvent("personal_os_stage_result", {
+            page_variant: PAGE_VARIANT,
+            stage_name: stage.name,
+            stage_range: stage.range,
+            average_score: Number(average.toFixed(2)),
+            bottleneck_dimension: bottleneck?.dimension || "none",
+            entry_route: entryRoute,
+            source_cta_id: sourceCtaId,
+          });
+        }
+
+        resultPanel.classList.add("visible");
+        quizProgress.classList.add("is-hidden");
+        resultEyebrow.textContent = "твоя стадия";
+        resultTitle.textContent = stage.name;
+        resultDescription.textContent = stage.description;
+        renderPersonalOSVision(stage);
+        resultBottleneck.textContent = bottleneckText;
+        resultNext.textContent = stage.next;
+        resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function renderPersonalOSVision(stage) {
+        const lead = document.createElement("p");
+        lead.textContent = `Из стадии «${stage.name}» можно перейти в систему, где AI не шумит вокруг, а держит цель, контекст и следующий шаг.`;
+
+        const list = document.createElement("ul");
+        list.className = "future-list";
+
+        personalOSVision.forEach((item) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          list.appendChild(listItem);
+        });
+
+        resultFuture.replaceChildren(lead, list);
+      }
+
+      function renderAll() {
+        renderQuestion();
+        if (getAnswered().length === questions.length) {
+          showResult();
+        }
+      }
+
+      prevButton.addEventListener("click", () => {
+        if (state.index > 0) {
+          state.index -= 1;
+          renderQuestion();
+        }
+      });
+
+      nextButton.addEventListener("click", () => {
+        if (!answers[state.index]) return;
+        if (state.index < questions.length - 1) {
+          state.index += 1;
+          renderQuestion();
+          scrollToQuestionStart();
+        } else {
+          showResult();
+        }
+      });
+
+      const demoScore = Number(
+        new URLSearchParams(window.location.search).get("demo"),
+      );
+      if (Number.isInteger(demoScore) && demoScore >= 1 && demoScore <= 5) {
+        answers.fill({ score: demoScore, text: "Demo answer" });
+      }
+
+      observeOnce("questionPanel", "personal_os_quiz_visible", 0.32, {
+        step_name: "quiz_panel",
+        step_index: 1,
+        entry_route: entryRoute,
+        source_cta_id: sourceCtaId,
+      });
+
+      observeOnce("resultPanel", "personal_os_result_visible", 0.2, {
+        step_name: "result_panel",
+        step_index: 2,
+        entry_route: entryRoute,
+        source_cta_id: sourceCtaId,
+      });
+
+      trackFunnelEvent("personal_os_self_audit_view", {
+        step_name: "quiz_view",
+        step_index: 1,
+        entry_route: entryRoute,
+        source_cta_id: sourceCtaId,
+      });
+
+      trackEvent("personal_os_self_audit_page_view", {
+        page_variant: PAGE_VARIANT,
+        entry_route: entryRoute,
+        source_cta_id: sourceCtaId,
+      });
+
+      const personalOsLink = document.getElementById("personalOsLink");
+      if (personalOsLink) {
+        personalOsLink.addEventListener("click", () => {
+          persistRouteContext("personal_os_page", "personalOsLink", "result_panel");
+
+          trackFunnelEvent("personal_os_result_cta_click", {
+            step_name: "result_cta",
+            step_index: 2,
+            cta_id: "personalOsLink",
+            placement: "result_panel",
+            entry_route: entryRoute,
+            source_cta_id: sourceCtaId,
+          });
+
+          trackEvent("select_content", {
+            content_type: "next_step_route",
+            item_id: "personal_os_page",
+            cta_id: "personalOsLink",
+            placement: "result_panel",
+            funnel_name: FUNNEL_NAME,
+            page_variant: PAGE_VARIANT,
+          });
+        });
+      }
+
+      renderAll();
+    </script>
+  </body>
+</html>
