@@ -227,6 +227,23 @@
         border-radius: 20px;
       }
 
+      .technical-figure {
+        margin: 6px 0 0;
+        padding: 18px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+          rgba(255, 255, 255, 0.025);
+      }
+
+      .technical-figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+      }
+
       .bullet-list {
         list-style: none;
         padding: 0;
@@ -357,10 +374,10 @@
       }
 
       .summary-point--strong {
-        border-color: rgba(122, 215, 195, 0.3);
+        border-color: rgba(134, 182, 255, 0.22);
         background:
-          linear-gradient(180deg, rgba(122, 215, 195, 0.14), rgba(255, 255, 255, 0.05)),
-          rgba(255, 255, 255, 0.07);
+          linear-gradient(180deg, rgba(134, 182, 255, 0.12), rgba(255, 255, 255, 0.04)),
+          rgba(255, 255, 255, 0.055);
       }
 
       .summary-point--wide {
@@ -369,8 +386,9 @@
 
       .summary-point--strong p {
         color: var(--text);
-        font-size: 1.2rem;
-        font-weight: 700;
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
       }
 
       .technical-wrap {
@@ -601,7 +619,7 @@
                           </svg>
                         </div>
                         <div class="tool-body">
-                          <div class="tool-eyebrow">ai stack desctop</div>
+                          <div class="tool-eyebrow">ai stack desktop</div>
                           <div class="tool-head">
                             <div class="tool-title">Cursor + Codex</div>
                             <div class="tool-tag">AI runtime</div>
@@ -623,17 +641,31 @@
                       <div class="tool-card">
                         <div class="tool-icon" aria-hidden="true">
                           <svg viewBox="0 0 24 24" fill="none">
+                            <defs>
+                              <linearGradient
+                                id="clickupGradient"
+                                x1="5"
+                                y1="4"
+                                x2="19"
+                                y2="20"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop stop-color="#A259FF" />
+                                <stop offset="0.55" stop-color="#4E8CFF" />
+                                <stop offset="1" stop-color="#27D7A1" />
+                              </linearGradient>
+                            </defs>
                             <path
-                              d="M7.2 5.2 12 10l4.8-4.8"
-                              stroke="#7AD7C3"
-                              stroke-width="2.1"
+                              d="M6.8 7.1 12 12.1l5.2-5"
+                              stroke="url(#clickupGradient)"
+                              stroke-width="2.15"
                               stroke-linecap="round"
                               stroke-linejoin="round"
                             />
                             <path
-                              d="M7.2 18.8 12 14l4.8 4.8"
-                              stroke="#86B6FF"
-                              stroke-width="2.1"
+                              d="M8.3 16.8 12 13.2l3.7 3.6"
+                              stroke="url(#clickupGradient)"
+                              stroke-width="2.15"
                               stroke-linecap="round"
                               stroke-linejoin="round"
                             />
@@ -694,6 +726,16 @@
                     </div>
                   </article>
                 </div>
+
+                <figure class="technical-figure">
+                  <img
+                    src="assets/pos-technical-illustration.png"
+                    alt="Иллюстрация живого технического слоя Personal OS как среды, в которой стратегический и тактический контуры работают вместе"
+                    width="1672"
+                    height="941"
+                    loading="lazy"
+                  />
+                </figure>
 
               <div class="summary-grid">
                 <div class="summary-point summary-point--warn">
