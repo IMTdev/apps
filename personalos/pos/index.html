@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Стратегия и тактика в Personal OS</title>
+    <meta
+      name="description"
+      content="Стратегический и тактический треки Personal OS: смысл, ритм и инструменты применения."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Стратегия и тактика в Personal OS"
+    />
+    <meta
+      property="og:description"
+      content="Как держать стратегический фокус и тактическое применение в одной Personal OS."
+    />
+    <meta property="og:url" content="https://app.imt.dev/personalos/pos" />
+    <meta
+      property="og:image"
+      content="https://app.imt.dev/personalos/assets/pos-principle-illustration.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Стратегия и тактика в Personal OS"
+    />
+    <meta
+      name="twitter:description"
+      content="Как держать стратегический фокус и тактическое применение в одной Personal OS."
+    />
+    <meta
+      name="twitter:image"
+      content="https://app.imt.dev/personalos/assets/pos-principle-illustration.png"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+      :root {
+        --bg: #09111d;
+        --bg-top: #12213a;
+        --panel: rgba(255, 255, 255, 0.045);
+        --panel-strong: rgba(255, 255, 255, 0.06);
+        --line: rgba(255, 255, 255, 0.1);
+        --text: #edf4ff;
+        --muted: rgba(237, 244, 255, 0.68);
+        --soft: rgba(237, 244, 255, 0.52);
+        --accent: #86b6ff;
+        --accent-2: #7ad7c3;
+        --warn: #efbf7c;
+        --danger: #cc7a88;
+        --radius-lg: 30px;
+        --radius-md: 24px;
+        --content: 1580px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 10% 0%,
+            rgba(134, 182, 255, 0.16),
+            transparent 26%
+          ),
+          radial-gradient(
+            circle at 88% 12%,
+            rgba(122, 215, 195, 0.08),
+            transparent 16%
+          ),
+          linear-gradient(180deg, var(--bg-top), var(--bg));
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        line-height: 1.45;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul {
+        margin: 0;
+      }
+
+      .page {
+        min-height: 100vh;
+        padding: 28px 0 64px;
+      }
+
+      .shell {
+        width: min(var(--content), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        border-top: 1px solid var(--line);
+        padding-top: 46px;
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      .kicker,
+      .lane-meta,
+      .tool-eyebrow,
+      .tool-tag {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .kicker {
+        color: rgba(237, 244, 255, 0.52);
+        padding-top: 8px;
+      }
+
+      .body {
+        display: grid;
+        gap: 20px;
+      }
+
+      .body--principle {
+        padding-top: 4px;
+      }
+
+      .body--technical {
+        display: grid;
+        gap: 24px;
+      }
+
+      .body h1 {
+        max-width: 12ch;
+        font-size: clamp(2.3rem, 5vw, 4.4rem);
+        line-height: 0.94;
+        letter-spacing: -0.07em;
+      }
+
+      .lead {
+        max-width: 40ch;
+        color: var(--soft);
+        font-size: clamp(1.14rem, 2vw, 1.34rem);
+      }
+
+      .text {
+        max-width: 64ch;
+        color: var(--muted);
+        font-size: 1.02rem;
+      }
+
+      .lane-grid,
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+      }
+
+      .lane-card,
+      .summary-card {
+        padding: 28px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+          var(--panel);
+      }
+
+      .lane-card {
+        display: grid;
+        gap: 18px;
+        align-content: start;
+      }
+
+      .lane-card--compact {
+        gap: 10px;
+      }
+
+      .lane-meta,
+      .tool-eyebrow {
+        color: rgba(237, 244, 255, 0.52);
+      }
+
+      .lane-card h2,
+      .subhead {
+        font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+        letter-spacing: -0.05em;
+      }
+
+      .lane-card h3 {
+        font-size: 1.3rem;
+        letter-spacing: -0.04em;
+      }
+
+      .principle-figure {
+        margin: 4px 0 0;
+        padding: 18px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+          rgba(255, 255, 255, 0.028);
+      }
+
+      .principle-figure img {
+        display: block;
+        width: 50%;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 20px;
+      }
+
+      .bullet-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .bullet-list li {
+        position: relative;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .bullet-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.63em;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 12px rgba(134, 182, 255, 0.34);
+      }
+
+      .tool-stack {
+        display: grid;
+        gap: 14px;
+      }
+
+      .tool-card {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 14px;
+        align-items: start;
+        padding: 18px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--panel-strong);
+      }
+
+      .tool-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(10, 16, 27, 0.9);
+        color: var(--text);
+        flex-shrink: 0;
+      }
+
+      .tool-icon svg {
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+
+      .tool-body {
+        display: grid;
+        gap: 8px;
+      }
+
+      .tool-head {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .tool-title {
+        font-size: 1.2rem;
+        letter-spacing: -0.04em;
+      }
+
+      .tool-tag {
+        min-height: 24px;
+        padding: 0 9px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(237, 244, 255, 0.68);
+        letter-spacing: 0.04em;
+      }
+
+      .summary-card {
+        display: grid;
+        gap: 14px;
+      }
+
+      .summary-card strong {
+        color: var(--text);
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .summary-point {
+        padding: 22px 24px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(134, 182, 255, 0.2);
+        background:
+          linear-gradient(180deg, rgba(134, 182, 255, 0.11), rgba(255, 255, 255, 0.04)),
+          rgba(255, 255, 255, 0.06);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+
+      .summary-point p {
+        color: rgba(237, 244, 255, 0.84);
+        font-size: 1rem;
+      }
+
+      .summary-point--warn {
+        border-color: rgba(204, 122, 136, 0.24);
+        background:
+          linear-gradient(180deg, rgba(204, 122, 136, 0.13), rgba(255, 255, 255, 0.035)),
+          rgba(255, 255, 255, 0.055);
+      }
+
+      .summary-point--warn p {
+        color: rgba(255, 234, 238, 0.86);
+      }
+
+      .summary-point--strong {
+        border-color: rgba(122, 215, 195, 0.3);
+        background:
+          linear-gradient(180deg, rgba(122, 215, 195, 0.14), rgba(255, 255, 255, 0.05)),
+          rgba(255, 255, 255, 0.07);
+      }
+
+      .summary-point--wide {
+        grid-column: 1 / -1;
+      }
+
+      .summary-point--strong p {
+        color: var(--text);
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .technical-wrap {
+        margin-top: 26px;
+        padding-top: 34px;
+        border-top: 1px solid var(--line);
+      }
+
+      .principle-wrap {
+        margin-top: 22px;
+        padding-top: 30px;
+        border-top: 1px solid var(--line);
+      }
+
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 28px;
+      }
+
+      .intro-spacer {
+        visibility: hidden;
+      }
+
+      .kicker--empty {
+        visibility: hidden;
+      }
+
+      @media (max-width: 1100px) {
+        .lane-grid,
+        .tech-grid,
+        .summary-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .section-grid,
+        .intro-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .principle-figure img {
+          width: 70%;
+        }
+
+        .intro-spacer,
+        .kicker--empty {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding-top: 20px;
+          padding-bottom: 36px;
+        }
+
+        .shell {
+          width: min(var(--content), calc(100% - 20px));
+        }
+
+        .section {
+          padding-top: 28px;
+        }
+
+        .lane-card,
+        .summary-card {
+          padding: 22px;
+        }
+
+        .tool-card {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="section">
+        <div class="shell">
+          <div class="intro-grid">
+            <div class="intro-spacer" aria-hidden="true">.</div>
+            <div class="body">
+              <h1>Personal OS</h1>
+              <p class="lead">
+                Я 8 лет строю под себя системы. Сотни итераций. Сейчас с AI+MCP
+                это стало работать.
+              </p>
+              <p class="text">
+                Я пришёл к двум трекам, которые должны идти одновременно:
+                стратегический держит смысл и направление, тактический доводит
+                это до ежедневного применения.
+              </p>
+            </div>
+          </div>
+
+          <div class="principle-wrap">
+            <div class="section-grid">
+              <div class="kicker">принцип</div>
+              <div class="body body--principle">
+              <div class="lane-grid">
+                <article class="lane-card">
+                  <div class="lane-meta">зачем</div>
+                  <h3>Стратегический</h3>
+                  <ul class="bullet-list">
+                    <li>цель - каким я хочу стать;</li>
+                    <li>направление и вектор;</li>
+                    <li>уровень причины всей дальнейшей деятельности;</li>
+                    <li>ожидающий фактор.</li>
+                  </ul>
+                </article>
+
+                <article class="lane-card">
+                  <div class="lane-meta">как именно и сегодня</div>
+                  <h3>Тактический</h3>
+                  <ul class="bullet-list">
+                    <li>переставляние ног по направлению к цели;</li>
+                    <li>ежедневная деятельность;</li>
+                    <li>планнинг - дейли - ретро;</li>
+                    <li>исполняющий фактор.</li>
+                  </ul>
+                </article>
+              </div>
+
+              <figure class="principle-figure">
+                <img
+                  src="assets/pos-principle-illustration.png"
+                  alt="Абстрактная иллюстрация функционального целого: стратегический и тактический треки образуют одну сбалансированную систему"
+                  width="1536"
+                  height="1024"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+          </div>
+
+          <div class="technical-wrap">
+            <div class="section-grid">
+              <div class="kicker">техническая сторона</div>
+              <div class="body body--technical">
+                <div class="tech-grid">
+                  <article class="lane-card">
+                    <div class="lane-meta">стратегический</div>
+                    <div class="tool-stack">
+                      <div class="tool-card">
+                        <div class="tool-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <rect
+                              x="3.5"
+                              y="5"
+                              width="17"
+                              height="11.5"
+                              rx="2.5"
+                              stroke="currentColor"
+                              stroke-width="1.6"
+                            />
+                            <path
+                              d="M9 19h6M12 16.5V19"
+                              stroke="currentColor"
+                              stroke-width="1.6"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </div>
+                        <div class="tool-body">
+                          <div class="tool-eyebrow">web mobile</div>
+                          <div class="tool-head">
+                            <div class="tool-title">Personal OS в Web</div>
+                            <div class="tool-tag">netlify</div>
+                          </div>
+                          <ul class="bullet-list">
+                            <li>дэшборд;</li>
+                            <li>саммари свежей сессии с наставником;</li>
+                            <li>
+                              мой компактизированный контекст: био, большие
+                              цели, мотивации, таланты, паттерны;
+                            </li>
+                            <li>отслеживание прогресса по новым реакциям;</li>
+                            <li>хранилище дневников и разборов реакций;</li>
+                            <li>управление переменными в боте.</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="tool-card">
+                        <div class="tool-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M20.2 5.3 17.5 18c-.2.9-.8 1.1-1.5.7l-4.1-3-2 1.9c-.2.2-.4.4-.8.4l.3-4.3 7.9-7.1c.3-.3-.1-.4-.5-.2L7 12.5l-4.2-1.3c-.9-.3-.9-.9.2-1.3l16.2-6.2c.8-.3 1.4.2 1 1.6Z"
+                              fill="#4EA4F6"
+                            />
+                          </svg>
+                        </div>
+                        <div class="tool-body">
+                          <div class="tool-eyebrow">telegram</div>
+                          <div class="tool-head">
+                            <div class="tool-title">Telegram-бот</div>
+                            <div class="tool-tag">SendPulse</div>
+                          </div>
+                          <ul class="bullet-list">
+                            <li>напоминания актуальные утром, днём и вечером;</li>
+                            <li>
+                              быстрая запись дневников: успехи, идеи,
+                              негативные реакции;
+                            </li>
+                            <li>
+                              разбор негативных реакций через GoR и 7 вопросов;
+                            </li>
+                            <li>общение с ИИ-ассистентом по моему контексту.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="lane-card lane-card--compact">
+                    <div class="lane-meta">тактический</div>
+                    <div class="tool-stack">
+                      <div class="tool-card">
+                        <div class="tool-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M4 6.5 9 4l5 2.5-5 2.5L4 6.5Zm10 0L19 4l1 4-5 2.5L14 6.5ZM4 12l5-2.5 5 2.5-5 2.5L4 12Zm11 .4 4.9-2.4L20 20l-5-2.5v-5.1Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </div>
+                        <div class="tool-body">
+                          <div class="tool-eyebrow">ai stack desctop</div>
+                          <div class="tool-head">
+                            <div class="tool-title">Cursor + Codex</div>
+                            <div class="tool-tag">AI runtime</div>
+                          </div>
+                          <ul class="bullet-list">
+                            <li>планнинги, дейли, ретро;</li>
+                            <li>анализ активности и отклонений от вектора;</li>
+                            <li>
+                              консилиум с ролями Замесина, Калинина, наставника;
+                            </li>
+                            <li>
+                              база знаний на 11k файлов для глубоких вопросов и
+                              создания контента.
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="tool-card">
+                        <div class="tool-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M7.2 5.2 12 10l4.8-4.8"
+                              stroke="#7AD7C3"
+                              stroke-width="2.1"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M7.2 18.8 12 14l4.8 4.8"
+                              stroke="#86B6FF"
+                              stroke-width="2.1"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <div class="tool-body">
+                          <div class="tool-eyebrow">task ops</div>
+                          <div class="tool-head">
+                            <div class="tool-title">ClickUp</div>
+                            <div class="tool-tag">MCP</div>
+                          </div>
+                          <ul class="bullet-list">
+                            <li>управление задачами через MCP.</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="tool-card">
+                        <div class="tool-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <rect
+                              x="4"
+                              y="11"
+                              width="3.5"
+                              height="8"
+                              rx="1.6"
+                              fill="#E9A54A"
+                            />
+                            <rect
+                              x="10.2"
+                              y="7.5"
+                              width="3.5"
+                              height="11.5"
+                              rx="1.6"
+                              fill="#F4C768"
+                            />
+                            <rect
+                              x="16.4"
+                              y="4"
+                              width="3.5"
+                              height="15"
+                              rx="1.6"
+                              fill="#86B6FF"
+                            />
+                          </svg>
+                        </div>
+                        <div class="tool-body">
+                          <div class="tool-eyebrow">analytics</div>
+                          <div class="tool-head">
+                            <div class="tool-title">GA4</div>
+                            <div class="tool-tag">MCP</div>
+                          </div>
+                          <ul class="bullet-list">
+                            <li>метрики прогресса через MCP.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+              <div class="summary-grid">
+                <div class="summary-point summary-point--warn">
+                  <p>
+                    Одна стратегия без дисциплины применения остаётся
+                    нереализованной мечтой, потому что инерция сознания
+                    саботирует воплощение.
+                  </p>
+                </div>
+                <div class="summary-point summary-point--warn">
+                  <p>
+                    Применение без смысла и связи с собой за пару спринтов
+                    превращается в мучение и самобичевание.
+                  </p>
+                </div>
+                <div class="summary-point summary-point--strong summary-point--wide">
+                  <p>
+                    Только вместе получается баланс: стратегический фокус во
+                    главе и доведение до желательных результатов ежедневно.
+                  </p>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
