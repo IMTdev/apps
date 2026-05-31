@@ -1,0 +1,3533 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16453014043");
+    </script>
+    <script>
+      window.mainTracker = "gtag";
+      window.gtagTrackerID = "G-B2JG56FKGP";
+      setTimeout(function () {
+        (function (w, d, s, i) {
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + i;
+          f.parentNode.insertBefore(j, f);
+          gtag("js", new Date());
+          gtag("config", i, {});
+        })(window, document, "script", window.gtagTrackerID);
+      }, 2000);
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMT Intensive — Telegram-бот и AI-контекст</title>
+    <meta
+      name="description"
+      content="Три ближайших потока IMT Intensive: Telegram-бот или Codex-поток на MacBook. За неделю — один разобранный сценарий, бот или AI-контекст, ритм вопросов и план месяца."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@1,400&display=swap");
+
+      :root {
+        --ink: #101623;
+        --ink-soft: rgba(16, 22, 35, 0.68);
+        --ink-mute: rgba(16, 22, 35, 0.42);
+        --paper: #ffffff;
+        --warm: #f3ece2;
+        --warm-soft: #f9f5ee;
+        --line: rgba(16, 22, 35, 0.1);
+        --line-strong: rgba(16, 22, 35, 0.2);
+        --blue: #247c68;
+        --blue-dark: #174f45;
+        --mint: #67c9ae;
+        --cyan: #d9eadf;
+        --gold: #d99a45;
+        --rose: #f3d7da;
+        --dark: #09111f;
+        --dark-soft: #12223c;
+        --shadow: 0 4px 24px rgba(16, 22, 35, 0.08);
+        --shadow-hover: 0 10px 34px rgba(16, 22, 35, 0.16);
+        --max-w: 1440px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      section[id],
+      article[id],
+      main[id],
+      #buy-placeholder {
+        scroll-margin-top: 92px;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 17px;
+        line-height: 1.55;
+        overflow-x: hidden;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      ul,
+      ol {
+        margin: 0;
+      }
+
+      ul,
+      ol {
+        padding: 0;
+        list-style: none;
+      }
+
+      .mono {
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+      }
+
+      .ital {
+        font-family: "IBM Plex Serif", Georgia, serif;
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .container {
+        width: min(var(--max-w), 100%);
+        margin: 0 auto;
+        padding: 0 56px;
+      }
+
+      .text-blue {
+        color: var(--blue);
+      }
+
+      .text-mint {
+        color: #1d967d;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 58px;
+        padding: 16px 28px;
+        border: 1.5px solid transparent;
+        border-radius: 999px;
+        font-weight: 700;
+        line-height: 1;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .btn-primary {
+        color: var(--paper);
+        background: var(--ink);
+        box-shadow: 0 10px 26px rgba(16, 22, 35, 0.18);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .btn-secondary {
+        color: var(--ink);
+        background: transparent;
+        border-color: var(--line-strong);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--ink);
+      }
+
+      .site-header {
+        position: fixed;
+        z-index: 50;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(16, 22, 35, 0.08);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        min-height: 73px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        color: var(--ink);
+        background: linear-gradient(135deg, #f2dfc1, var(--mint));
+        box-shadow: inset 0 0 0 1px rgba(16, 22, 35, 0.08);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .brand-sub {
+        color: var(--ink-soft);
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        color: var(--ink-soft);
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: var(--blue-dark);
+      }
+
+      .nav-cta {
+        min-height: 44px;
+        padding: 12px 22px;
+        font-size: 15px;
+      }
+
+      .hero {
+        padding: 120px 0 60px;
+        background:
+          radial-gradient(circle at 83% 16%, rgba(103, 201, 174, 0.18), transparent 30%),
+          radial-gradient(circle at 12% 20%, rgba(217, 154, 69, 0.11), transparent 26%),
+          linear-gradient(110deg, rgba(249, 245, 238, 0.72), #ffffff 54%, rgba(243, 236, 226, 0.5));
+      }
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
+        align-items: center;
+        gap: 54px;
+      }
+
+      .stream-pills {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 34px;
+      }
+
+      .stream-label {
+        color: var(--ink-mute);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .stream-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 38px;
+        padding: 7px 16px;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        background: var(--paper);
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .stream-pill strong {
+        color: var(--ink);
+      }
+
+      h1 {
+        max-width: 920px;
+        font-size: 58px;
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        font-weight: 700;
+      }
+
+      .hero-lead {
+        max-width: 680px;
+        margin-top: 24px;
+        color: var(--ink-soft);
+        font-size: 20px;
+        line-height: 1.55;
+      }
+
+      .artifact-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-width: 720px;
+        margin-top: 22px;
+      }
+
+      .artifact-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 7px 12px;
+        border: 1px solid rgba(36, 124, 104, 0.22);
+        border-radius: 999px;
+        color: var(--blue-dark);
+        background: rgba(103, 201, 174, 0.12);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 38px;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 560px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--dark);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-visual img {
+        height: 100%;
+        min-height: 560px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero-card {
+        position: absolute;
+        right: 28px;
+        bottom: 28px;
+        width: min(360px, calc(100% - 56px));
+        padding: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 6px;
+        color: var(--paper);
+        background: rgba(9, 17, 31, 0.82);
+        backdrop-filter: blur(10px);
+      }
+
+      .hero-card ul {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .hero-card li {
+        position: relative;
+        padding-left: 18px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 14px;
+      }
+
+      .hero-card li::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 2px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--mint);
+      }
+
+      .hero-card strong {
+        display: block;
+        margin-bottom: 2px;
+        color: var(--paper);
+        font-size: 18px;
+      }
+
+      .stats-strip {
+        display: grid;
+        grid-template-columns: 1.6fr repeat(3, 1fr);
+        margin-top: 26px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--paper);
+      }
+
+      .stat-cell {
+        min-height: 112px;
+        padding: 26px 22px;
+        border-right: 1px solid var(--line);
+      }
+
+      .stat-cell:last-child {
+        border-right: 0;
+      }
+
+      .stat-value {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 36px;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .stat-label {
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .section {
+        padding: 86px 0;
+      }
+
+      .section-alt {
+        background: var(--warm-soft);
+      }
+
+      .section-dark {
+        color: var(--paper);
+        background: var(--dark);
+      }
+
+      .section-head {
+        max-width: 860px;
+        margin-bottom: 36px;
+      }
+
+      .section-head.wide {
+        max-width: 1120px;
+      }
+
+      h2 {
+        font-size: 72px;
+        line-height: 1.03;
+        letter-spacing: -0.045em;
+        font-weight: 500;
+      }
+
+      .section-head p {
+        max-width: 760px;
+        margin-top: 18px;
+        color: var(--ink-soft);
+        font-size: 18px;
+      }
+
+      .section-dark .section-head p {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .cards-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .cards-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .card-pad {
+        padding: 30px;
+      }
+
+      .card h3 {
+        margin-bottom: 18px;
+        font-size: 22px;
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+      }
+
+      .card p,
+      .card li {
+        color: var(--ink-soft);
+      }
+
+      .bullets {
+        display: grid;
+        gap: 12px;
+      }
+
+      .bullets li {
+        position: relative;
+        padding-left: 22px;
+      }
+
+      .bullets li::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 4px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--ink);
+      }
+
+      .aha {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1fr);
+        align-items: center;
+        gap: 54px;
+        min-height: 330px;
+        padding: 50px 56px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background:
+          radial-gradient(circle at 88% 18%, rgba(103, 201, 174, 0.18), transparent 32%),
+          radial-gradient(circle at 18% 86%, rgba(217, 154, 69, 0.12), transparent 34%),
+          linear-gradient(135deg, #fffdf9 0%, var(--warm-soft) 52%, #f1e4d2 100%);
+      }
+
+      .aha h2 {
+        color: var(--ink);
+      }
+
+      .aha-highlight {
+        display: inline-flex;
+        align-items: center;
+        min-height: 76px;
+        padding: 0 18px 4px;
+        color: var(--ink);
+        border: 1px solid rgba(16, 22, 35, 0.1);
+        border-radius: 6px;
+        background: linear-gradient(135deg, #f0dfc3 0%, rgba(103, 201, 174, 0.78) 100%);
+        box-shadow: 0 14px 34px rgba(36, 124, 104, 0.12);
+      }
+
+      .aha p {
+        max-width: 640px;
+        color: var(--ink-soft);
+        font-size: 20px;
+        line-height: 1.55;
+      }
+
+      .stream-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+
+      .route-chooser {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin: 0 0 22px;
+      }
+
+      .route-card {
+        display: grid;
+        gap: 12px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .route-card.highlight {
+        border-color: rgba(103, 201, 174, 0.66);
+        background:
+          radial-gradient(circle at 84% 18%, rgba(103, 201, 174, 0.14), transparent 30%),
+          var(--paper);
+      }
+
+      .route-card h3 {
+        font-size: 24px;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+      }
+
+      .route-card p {
+        color: var(--ink-soft);
+      }
+
+      .route-fact {
+        display: inline-flex;
+        width: fit-content;
+        min-height: 32px;
+        align-items: center;
+        padding: 6px 11px;
+        border-radius: 999px;
+        color: var(--ink);
+        background: var(--warm);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .stream-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .stream-media {
+        height: 250px;
+        overflow: hidden;
+        background: var(--dark);
+      }
+
+      .stream-media img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .stream-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 30px;
+      }
+
+      .stream-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 5px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--ink-soft);
+        background: rgba(16, 22, 35, 0.03);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .stream-body h3 {
+        margin-bottom: 12px;
+        font-size: 32px;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+      }
+
+      .stream-body p {
+        color: var(--ink-soft);
+      }
+
+      .stream-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: auto;
+        padding-top: 26px;
+      }
+
+      .stream-date {
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .project-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .project-shot {
+        height: 230px;
+        border-bottom: 1px solid var(--line);
+        overflow: hidden;
+        background: var(--dark);
+      }
+
+      .project-shot img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .project-body {
+        padding: 20px;
+      }
+
+      .project-title {
+        margin-bottom: 8px;
+        font-size: 18px;
+        line-height: 1.25;
+        font-weight: 700;
+      }
+
+      .project-meta {
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .request-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .request-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 360px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .request-card h3 {
+        margin-bottom: 14px;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
+      .solution-label {
+        margin: 20px 0 8px;
+        color: var(--ink-mute);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .reactions {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
+        padding-top: 24px;
+      }
+
+      .reaction {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        min-height: 34px;
+        padding: 6px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--ink-soft);
+        background: var(--paper);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 13px;
+      }
+
+      .quiz {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1fr);
+        align-items: center;
+        gap: 56px;
+        padding: 50px 56px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        box-shadow: var(--shadow);
+        background:
+          radial-gradient(circle at 13% 16%, rgba(217, 154, 69, 0.12), transparent 28%),
+          radial-gradient(circle at 90% 78%, rgba(103, 201, 174, 0.16), transparent 28%),
+          linear-gradient(135deg, var(--warm-soft) 0%, #ffffff 54%, #edf6f1 100%);
+        color: var(--ink);
+      }
+
+      .quiz h2 {
+        margin: 18px 0 18px;
+        color: var(--ink);
+      }
+
+      .quiz p {
+        color: var(--ink-soft);
+        font-size: 18px;
+      }
+
+      .quiz .tag {
+        color: var(--blue-dark);
+        border-color: rgba(36, 124, 104, 0.22);
+        background: rgba(103, 201, 174, 0.13);
+      }
+
+      .quiz .btn-secondary {
+        color: var(--ink);
+        border-color: var(--line-strong);
+      }
+
+      .quiz .btn-secondary:hover {
+        border-color: var(--ink);
+      }
+
+      .quiz-panel {
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 28px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 18px 40px rgba(16, 22, 35, 0.08);
+      }
+
+      .quiz-step-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .quiz-question {
+        margin-bottom: 18px;
+        font-size: 28px;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+      }
+
+      .quiz-options {
+        display: grid;
+        gap: 10px;
+      }
+
+      .quiz-option {
+        display: grid;
+        grid-template-columns: 18px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        width: 100%;
+        min-height: 58px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        color: var(--ink);
+        background: var(--paper);
+        text-align: left;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .quiz-option:hover,
+      .quiz-option:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(36, 124, 104, 0.34);
+        background: rgba(103, 201, 174, 0.08);
+      }
+
+      .quiz-option-dot {
+        width: 12px;
+        height: 12px;
+        margin-top: 7px;
+        border: 1px solid rgba(36, 124, 104, 0.42);
+        border-radius: 50%;
+        background: rgba(103, 201, 174, 0.16);
+      }
+
+      .quiz-result {
+        display: grid;
+        gap: 14px;
+        padding: 22px;
+        border: 1px solid rgba(36, 124, 104, 0.24);
+        border-radius: 6px;
+        background:
+          radial-gradient(circle at 90% 0%, rgba(103, 201, 174, 0.18), transparent 34%),
+          var(--paper);
+      }
+
+      .quiz-result[hidden] {
+        display: none;
+      }
+
+      .quiz-result h3 {
+        font-size: 28px;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+      }
+
+      .quiz-result p {
+        color: var(--ink-soft);
+      }
+
+      .quiz-result-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 4px;
+      }
+
+      .quiz-row {
+        display: grid;
+        grid-template-columns: 40px 8px 1fr;
+        align-items: center;
+        gap: 16px;
+        min-height: 56px;
+        border-bottom: 1px solid var(--line);
+        color: var(--ink);
+      }
+
+      .quiz-row:last-child {
+        border-bottom: 0;
+      }
+
+      .quiz-num {
+        color: var(--ink-mute);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+      }
+
+      .quiz-bar {
+        width: 4px;
+        height: 24px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, var(--mint), var(--gold));
+      }
+
+      .receipt {
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .receipt-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 18px;
+        align-items: end;
+        padding: 28px 32px;
+        color: var(--paper);
+        background: var(--ink);
+      }
+
+      .receipt-head h3 {
+        max-width: 760px;
+        font-size: 28px;
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+      }
+
+      .receipt-mark {
+        color: var(--mint);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .receipt-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .receipt-item {
+        display: grid;
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 18px;
+        min-height: 116px;
+        padding: 24px 28px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .receipt-item:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .receipt-item:nth-last-child(-n + 2) {
+        border-bottom: 0;
+      }
+
+      .receipt-num {
+        color: var(--ink-mute);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-weight: 700;
+      }
+
+      .receipt-item strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .receipt-item p {
+        color: var(--ink-soft);
+      }
+
+      .receipt-footer {
+        padding: 18px 28px;
+        border-top: 1px solid var(--line);
+        color: var(--ink-soft);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 13px;
+      }
+
+      .cohort-switcher {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-bottom: 32px;
+        padding: 6px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+      }
+
+      .cohort-tab {
+        border: 0;
+        border-radius: 6px;
+        padding: 15px 18px;
+        color: var(--ink);
+        background: rgba(16, 22, 35, 0.04);
+        font-weight: 700;
+      }
+
+      .cohort-tab.active {
+        color: var(--paper);
+        background: var(--ink);
+      }
+
+      .program-list {
+        display: grid;
+        gap: 18px;
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+      }
+
+      .program-list[hidden] {
+        display: none;
+      }
+
+      .program-note {
+        padding: 20px 24px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        color: var(--ink-soft);
+      }
+
+      .schedule-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .schedule-cell {
+        min-height: 174px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--paper);
+        box-shadow: 0 2px 12px rgba(16, 22, 35, 0.04);
+      }
+
+      .schedule-weekday {
+        min-height: auto;
+        padding: 12px 14px;
+        border-bottom: 3px solid var(--ink);
+        color: var(--ink);
+        background: var(--warm-soft);
+        box-shadow: none;
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .schedule-cell.live {
+        color: var(--paper);
+        background: var(--ink);
+      }
+
+      .schedule-cell.demo {
+        border-color: rgba(36, 124, 104, 0.48);
+      }
+
+      .schedule-cell.practice {
+        background:
+          radial-gradient(circle at 88% 18%, rgba(103, 201, 174, 0.14), transparent 32%),
+          var(--paper);
+      }
+
+      .schedule-cell.async {
+        border-style: dashed;
+      }
+
+      .schedule-cell.qa {
+        border: 2px solid var(--ink);
+      }
+
+      .schedule-cell.final {
+        border-color: rgba(36, 124, 104, 0.42);
+      }
+
+      .schedule-cell.empty {
+        color: var(--ink-mute);
+        background: rgba(16, 22, 35, 0.025);
+        box-shadow: none;
+      }
+
+      .schedule-day {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 22px;
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .schedule-day span {
+        white-space: nowrap;
+      }
+
+      .schedule-kind {
+        color: var(--blue-dark);
+        white-space: nowrap;
+      }
+
+      .schedule-cell.live .schedule-kind {
+        color: var(--mint);
+      }
+
+      .schedule-cell.empty .schedule-kind {
+        color: var(--ink-mute);
+      }
+
+      .schedule-cell h3 {
+        margin-bottom: 10px;
+        font-size: 17px;
+        line-height: 1.14;
+        letter-spacing: -0.025em;
+      }
+
+      .schedule-cell p {
+        color: var(--ink-soft);
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .schedule-cell.live p {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .schedule-foot {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--paper);
+      }
+
+      .schedule-fact {
+        padding: 18px 20px;
+        border-right: 1px solid var(--line);
+      }
+
+      .schedule-fact:last-child {
+        border-right: 0;
+      }
+
+      .schedule-fact strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 22px;
+      }
+
+      .schedule-fact span {
+        color: var(--ink-mute);
+        font-size: 14px;
+      }
+
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .tech-track {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .tech-head {
+        padding: 28px;
+        color: var(--paper);
+        background: var(--ink);
+      }
+
+      .tech-head .tag {
+        border-color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .tech-head h3 {
+        margin-top: 16px;
+        font-size: 28px;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+      }
+
+      .tech-list {
+        display: grid;
+      }
+
+      .tech-row {
+        display: grid;
+        grid-template-columns: 132px minmax(0, 1fr);
+        gap: 18px;
+        padding: 18px 28px;
+        border-top: 1px solid var(--line);
+      }
+
+      .tech-label {
+        color: var(--ink-mute);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .tech-note {
+        margin-top: 18px;
+        padding: 20px 24px;
+        border: 1px solid rgba(36, 124, 104, 0.22);
+        border-radius: 6px;
+        background: rgba(103, 201, 174, 0.1);
+        color: var(--ink-soft);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .pricing-card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .pricing-card.featured {
+        border-color: var(--mint);
+        box-shadow: 0 0 0 1px rgba(103, 201, 174, 0.82), var(--shadow);
+      }
+
+      .pricing-head {
+        padding: 30px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .pricing-name {
+        margin-bottom: 12px;
+        font-size: 26px;
+        line-height: 1.1;
+        font-weight: 800;
+      }
+
+      .price {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: 52px;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .price small {
+        color: var(--ink-mute);
+        font-size: 16px;
+        letter-spacing: 0;
+      }
+
+      .pricing-body {
+        flex: 1;
+        padding: 30px;
+      }
+
+      .pricing-foot {
+        padding: 0 30px 30px;
+      }
+
+      .pricing-foot .btn {
+        width: 100%;
+      }
+
+      .seat-note {
+        margin-top: 14px;
+        color: var(--ink-soft);
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .guarantee-note {
+        margin-top: 22px;
+        padding: 20px 24px;
+        border: 1px solid rgba(36, 124, 104, 0.22);
+        border-radius: 6px;
+        background: rgba(103, 201, 174, 0.1);
+        color: var(--ink-soft);
+      }
+
+      .case-source {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 18px;
+        color: var(--blue-dark);
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .author {
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1fr);
+        gap: 48px;
+        align-items: start;
+      }
+
+      .author-panel {
+        display: grid;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .author-mention {
+        padding: 26px 28px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .author-mention:last-child {
+        border-bottom: 0;
+      }
+
+      .author-mention strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+
+      .author-mention p {
+        color: var(--ink-soft);
+      }
+
+      .author-layer {
+        display: inline-flex;
+        margin-bottom: 14px;
+        color: var(--blue-dark);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .testimonials {
+        display: flex;
+        gap: 14px;
+        overflow: hidden;
+      }
+
+      .testimonial {
+        flex: 0 0 300px;
+        min-height: 360px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .testimonial p {
+        color: var(--ink);
+      }
+
+      .testimonial-meta {
+        margin-top: 80px;
+        color: var(--ink-mute);
+        font-size: 14px;
+      }
+
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      details {
+        margin-bottom: 12px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--paper);
+        overflow: hidden;
+      }
+
+      summary {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 22px 26px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary span {
+        flex: 0 0 auto;
+        width: 20px;
+        text-align: center;
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .faq-answer {
+        padding: 0 26px 24px;
+        color: var(--ink-soft);
+      }
+
+      .final-cta {
+        text-align: center;
+      }
+
+      .final-cta p {
+        max-width: 640px;
+        margin: 16px auto 30px;
+        color: var(--ink-soft);
+        font-size: 18px;
+      }
+
+      footer {
+        padding: 38px 0;
+        border-top: 1px solid var(--line);
+        color: var(--ink-mute);
+        font-size: 14px;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .case-modal {
+        position: fixed;
+        z-index: 100;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+        background: rgba(9, 17, 31, 0.68);
+        backdrop-filter: blur(8px);
+      }
+
+      .case-modal.active {
+        display: flex;
+      }
+
+      .case-dialog {
+        width: min(760px, 100%);
+        max-height: min(760px, 88vh);
+        overflow: auto;
+        border-radius: 6px;
+        background: var(--paper);
+      }
+
+      .case-dialog-inner {
+        padding: 40px;
+      }
+
+      .case-close {
+        float: right;
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 50%;
+        color: var(--paper);
+        background: var(--ink);
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .case-dialog h3 {
+        max-width: 560px;
+        margin: 34px 0 22px;
+        font-size: 34px;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+      }
+
+      .case-columns {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin: 22px 0;
+      }
+
+      .case-box {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+
+      @media (max-width: 1180px) {
+        h1 {
+          font-size: 48px;
+        }
+
+        h2 {
+          font-size: 56px;
+        }
+
+        .hero-layout,
+        .author {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 440px;
+        }
+
+        .hero-visual img {
+          min-height: 440px;
+        }
+
+        .stats-strip,
+        .cards-3,
+        .project-grid,
+        .request-grid,
+        .receipt-grid,
+        .schedule-foot {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+      }
+
+      @media (max-width: 900px) {
+        .container {
+          padding: 0 20px;
+        }
+
+        .nav-links,
+        .brand-sub {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 112px;
+        }
+
+        .hero-layout,
+        .aha,
+        .quiz,
+        .route-chooser,
+        .stream-grid,
+        .cards-2,
+        .tech-grid,
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 64px 0;
+        }
+
+        h1 {
+          font-size: 36px;
+          letter-spacing: -0.035em;
+        }
+
+        h2 {
+          font-size: 42px;
+          letter-spacing: -0.04em;
+        }
+
+        .hero-lead {
+          font-size: 18px;
+        }
+
+        .stats-strip,
+        .cards-3,
+        .project-grid,
+        .request-grid,
+        .receipt-grid,
+        .schedule-grid,
+        .schedule-foot {
+          grid-template-columns: 1fr;
+        }
+
+        .receipt-head {
+          grid-template-columns: 1fr;
+        }
+
+        .receipt-item,
+        .receipt-item:nth-child(2n),
+        .receipt-item:nth-last-child(-n + 2) {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .receipt-item:last-child {
+          border-bottom: 0;
+        }
+
+        .stat-cell {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .stat-cell:last-child {
+          border-bottom: 0;
+        }
+
+        .hero-visual {
+          min-height: 360px;
+        }
+
+        .hero-visual img {
+          min-height: 360px;
+        }
+
+        .hero-card {
+          position: static;
+          width: auto;
+          margin: -4px;
+          border-radius: 0;
+        }
+
+        .aha,
+        .quiz {
+          padding: 34px 24px;
+        }
+
+        .stream-card {
+          min-height: auto;
+        }
+
+        .cohort-switcher {
+          grid-template-columns: 1fr;
+        }
+
+        .schedule-weekday,
+        .schedule-cell.empty {
+          display: none;
+        }
+
+        .schedule-cell,
+        .schedule-cell:nth-child(2n),
+        .schedule-cell:nth-child(-n + 2) {
+          min-height: auto;
+        }
+
+        .schedule-fact {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .schedule-fact:last-child {
+          border-bottom: 0;
+        }
+
+        .tech-row {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .case-columns {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-row {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .btn {
+          width: 100%;
+          min-height: 56px;
+        }
+
+        .site-header .btn {
+          width: auto;
+        }
+
+        .nav-inner {
+          gap: 12px;
+          min-height: 68px;
+        }
+
+        .brand {
+          min-width: 0;
+          gap: 9px;
+          font-size: 15px;
+          line-height: 1.1;
+        }
+
+        .brand-mark {
+          flex: 0 0 auto;
+          width: 30px;
+          height: 30px;
+        }
+
+        .nav-cta {
+          flex: 0 0 auto;
+          min-height: 40px;
+          padding: 11px 18px;
+          font-size: 14px;
+        }
+
+        .stream-pills {
+          align-items: stretch;
+          flex-direction: column;
+          margin-bottom: 26px;
+        }
+
+        .stream-pill {
+          justify-content: space-between;
+        }
+
+        .hero {
+          padding-top: 92px;
+        }
+
+        .hero .hero-actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          margin-top: 28px;
+        }
+
+        .hero .hero-actions .btn {
+          width: 100%;
+          padding-right: 14px;
+          padding-left: 14px;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .hero-lead {
+          margin-top: 18px;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+
+        .artifact-chip {
+          min-height: 30px;
+          padding: 6px 9px;
+          font-size: 11px;
+        }
+
+        h2 {
+          font-size: 36px;
+        }
+
+        .quiz-question,
+        .quiz-result h3 {
+          font-size: 24px;
+        }
+
+        .card-pad,
+        .request-card,
+        .pricing-head,
+        .pricing-body {
+          padding: 24px;
+        }
+
+        .price {
+          font-size: 44px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="IMT Intensive">
+          <span class="brand-mark">IMT</span>
+          <span>IMT Intensive</span>
+          <span class="brand-sub">Telegram-бот и AI-контекст</span>
+        </a>
+        <nav class="nav-links" aria-label="Главная навигация">
+          <a href="#streams">Потоки</a>
+          <a href="#program">Программа</a>
+          <a href="#proof">Доказательства</a>
+          <a href="#pricing">Тарифы</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a
+          class="btn btn-primary nav-cta"
+          id="cta-buy-header"
+          href="https://t.me/dkompanets"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Купить</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-layout">
+            <div>
+              <div class="stream-pills" aria-label="Ближайшие потоки">
+                <span class="stream-label">Ближайшие потоки</span>
+                <a class="stream-pill" href="#telegram-stream">
+                  <strong>Поток 1</strong>
+                  <span>3-12 июля</span>
+                </a>
+                <a class="stream-pill" href="#codex-stream">
+                  <strong>Поток 2</strong>
+                  <span>17-26 июля</span>
+                </a>
+                <a class="stream-pill" href="#program" data-program-jump="telegram-next">
+                  <strong>Поток 3</strong>
+                  <span>31 июля - 9 августа</span>
+                </a>
+              </div>
+
+              <h1>
+                За неделю соберёшь
+                <span class="text-blue">рабочую систему</span> для одного
+                внутреннего бага
+              </h1>
+              <p class="hero-lead">
+                Это не курс “про себя вообще”. Ты приносишь одну повторяющуюся
+                ситуацию: где срываешься, замираешь, откладываешь или теряешь
+                ясность. Вместо ещё одного конспекта у тебя будет разобранный повтор,
+                бот или AI-контекст, записи встреч, Q&A и месяц, в котором система
+                возвращает тебя к выбранному сценарию.
+              </p>
+
+              <div class="artifact-strip" aria-label="Артефакты после недели">
+                <span class="artifact-chip">карта дефекта</span>
+                <span class="artifact-chip">запись демо-консультации</span>
+                <span class="artifact-chip">разбор консультации</span>
+                <span class="artifact-chip">бот или AI-контекст</span>
+                <span class="artifact-chip">ритм вопросов</span>
+                <span class="artifact-chip">ретро недели</span>
+                <span class="artifact-chip">план месяца</span>
+              </div>
+
+              <div class="hero-actions">
+                <a
+                  class="btn btn-primary"
+                  id="cta-buy-hero"
+                  href="https://t.me/dkompanets"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Купить</a>
+                <a class="btn btn-secondary" id="cta-program-hero" href="#program">Расписание</a>
+              </div>
+            </div>
+
+            <aside class="hero-visual" aria-label="Визуальная карта духовной ОС">
+              <img
+                src="assets/imt-intensive-hero-context-lab.webp"
+                alt="Тёплая визуальная метафора личного контекста, духовной ОС и AI-памяти"
+              />
+              <div class="hero-card">
+                <ul>
+                  <li>Один повторяющийся сценарий вместо попытки чинить всю жизнь</li>
+                  <li>Живой материал: демо-консультация, дневники, разбор и вопросы группы</li>
+                  <li>Бот на месяц или AI-контекст, чтобы выводы не исчезли через три дня</li>
+                </ul>
+                <strong>2 типа потока, 3 ближайшие даты</strong>
+                <span>простая и продвинутая траектория входа</span>
+              </div>
+            </aside>
+          </div>
+
+          <div class="stats-strip" aria-label="Короткие факты интенсива">
+            <div class="stat-cell">
+              <strong>
+                Выберем повторяющийся сценарий, разберём его на живом материале
+                и настроим бот или AI-контекст, чтобы выводы не исчезли через три дня.
+              </strong>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-value">$100</span>
+              <span class="stat-label">стоимость каждого потока</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-value">8ч</span>
+              <span class="stat-label">live-работы и разборов</span>
+            </div>
+            <div class="stat-cell">
+              <span class="stat-value">20</span>
+              <span class="stat-label">человек максимум в группе</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="outcomes">
+        <div class="container">
+          <div class="section-head">
+            <h2>За неделю проходишь один полный цикл</h2>
+          </div>
+
+          <div class="cards-3">
+            <article class="card card-pad">
+              <h3>Вытащишь один сценарий из тумана</h3>
+              <ul class="bullets">
+                <li>Выберешь не “всё со мной”, а одну повторяющуюся ситуацию.</li>
+                <li>Увидишь, где запускается старая реакция и чем она заканчивается.</li>
+                <li>Получишь фокус, который можно удерживать неделю и месяц после.</li>
+              </ul>
+            </article>
+            <article class="card card-pad">
+              <h3>Превратишь сессию и дневники в систему</h3>
+              <ul class="bullets">
+                <li>Соберёшь заметки, демо-консультацию, вопросы и ретро вокруг одного повтора.</li>
+                <li>Настроишь Telegram-ритм или AI-контекст под этот сценарий.</li>
+                <li>Получишь рабочую систему, которая возвращает выводы в ежедневное действие.</li>
+              </ul>
+            </article>
+            <article class="card card-pad">
+              <h3>Проверишь, что выводы выдерживают обычную неделю</h3>
+              <ul class="bullets">
+                <li>Не оставишь инсайт в записи или конспекте.</li>
+                <li>Увидишь, где старое понимание возвращается в быту.</li>
+                <li>Закончишь интенсив следующим шагом, а не набором впечатлений.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="aha">
+            <div>
+              <h2>
+                <span class="aha-highlight">1 неделя</span><br />
+                и у тебя есть не конспект, а проверенный цикл
+              </h2>
+            </div>
+            <div>
+              <p>
+                На старте ты приносишь конкретный эпизод из жизни. К концу недели
+                он проходит через демо-консультацию, разбор,
+                дневники, вопросы группы и ретро,
+                а не остаётся красивым выводом в голове.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="streams">
+        <div class="container">
+          <div class="section-head wide">
+            <h2>Два типа потока под разные старые решения</h2>
+            <p>
+              Если ты уже теряешь выводы между сессиями и дневниками — начинай
+              с Telegram. Если AI помогает в моменте, но не становится твоей
+              памятью — иди в Codex-поток.
+            </p>
+          </div>
+
+          <div class="route-chooser" aria-label="Как выбрать поток">
+            <article class="route-card highlight">
+              <span class="route-fact">Telegram · телефона достаточно</span>
+              <h3>Хочу начать без технического стека</h3>
+              <p>
+                Умеешь пользоваться Telegram — этого достаточно. Бот держит
+                утренние и вечерние вопросы, дневники, ретро и выбранный сценарий.
+              </p>
+            </article>
+            <article class="route-card">
+              <span class="route-fact">Codex · нужен MacBook на M</span>
+              <h3>Хочу собрать личный AI-контекст</h3>
+              <p>
+                Подходит, если есть MacBook на Apple Silicon и ChatGPT Plus или
+                Cursor. Собираем папку, правила и рабочий AI-контекст.
+              </p>
+            </article>
+          </div>
+
+          <div class="stream-grid">
+            <article class="stream-card" id="telegram-stream">
+              <div class="stream-media">
+                <img
+                  src="assets/imt-intensive-telegram-os.webp"
+                  alt="Визуальная карта простого Telegram-ритма, дневников и ретро"
+                />
+              </div>
+              <div class="stream-body">
+                <div class="stream-meta">
+                  <span class="tag">телефон + Telegram</span>
+                  <span class="tag">без Mac и Codex</span>
+                  <span class="tag">15 мест осталось</span>
+                </div>
+                <h3>Telegram-поток: бот и ритм вопросов</h3>
+                <p>
+                  Для тех, кто всё понимает на сессии, а через три дня снова
+                  живёт по старому сценарию. Без технического стека: один повтор,
+                  разбор, вопросы, дневники и ретро через бота.
+                </p>
+                <ul class="bullets" style="margin-top: 22px">
+                  <li>Telegram-бот держит выбранный сценарий в утренних и вечерних вопросах.</li>
+                  <li>Одна демо-консультация с записью превращается в материал для разбора.</li>
+                  <li>Неделя поддержки, Q&A и месяц, чтобы система не умерла после старта.</li>
+                </ul>
+                <div class="stream-foot">
+                  <span class="stream-date">Старт: 3 июля</span>
+                  <a class="btn btn-primary" id="cta-buy-telegram-card" href="#pricing">Выбрать</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="stream-card" id="codex-stream">
+              <div class="stream-media">
+                <img
+                  src="assets/imt-intensive-codex-os.webp"
+                  alt="AI/Codex-контекст с личной памятью и рабочей средой"
+                />
+              </div>
+              <div class="stream-body">
+                <div class="stream-meta">
+                  <span class="tag">MacBook M</span>
+                  <span class="tag">ChatGPT Plus / Cursor</span>
+                  <span class="tag">12 мест осталось</span>
+                </div>
+                <h3>Codex-поток: личный AI-контекст</h3>
+                <p>
+                  Для тех, кто уже пользуется AI, но каждый раз заново объясняет
+                  ему себя. Собираем личную папку контекста, правила работы,
+                  модели и режим без постоянного переключения контекста.
+                </p>
+                <ul class="bullets" style="margin-top: 22px">
+                  <li>Нужен MacBook на M и ChatGPT Plus или Cursor за $20.</li>
+                  <li>Собираем папку, AGENTS.md и правила компактизации под твою историю.</li>
+                  <li>AI перестаёт быть вкладкой для разовых вопросов и становится рабочей памятью.</li>
+                </ul>
+                <div class="stream-foot">
+                  <span class="stream-date">Старт: 17 июля</span>
+                  <a class="btn btn-primary" id="cta-buy-codex-card" href="#pricing">Выбрать</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="container">
+          <div class="section-head wide">
+            <h2>Кейсы показывают не впечатление, а повторяющийся сценарий</h2>
+            <p>
+              В каталоге IMT уже есть обезличенные истории: какой сценарий
+              повторялся, что человек считал “здравым смыслом” и какой новый
+              шаг появился после разбора.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <button class="project-card" type="button" data-case="case-os">
+              <div class="project-shot">
+                <img
+                  src="assets/imt-intensive-case-spiritual-os.webp"
+                  alt="Карта одного периода в духовной ОС"
+                />
+              </div>
+              <div class="project-body">
+                <div class="project-title">Когда план становится лжебогом</div>
+                <div class="project-meta">Лея · базовый кейс · счастье привязано к плану</div>
+              </div>
+            </button>
+            <button class="project-card" type="button" data-case="case-debug">
+              <div class="project-shot">
+                <img
+                  src="assets/imt-intensive-case-debug.webp"
+                  alt="Разбор повторяющегося сценария как переход от старой реакции к новому шагу"
+                />
+              </div>
+              <div class="project-body">
+                <div class="project-title">Я складирую жизнь на потом</div>
+                <div class="project-meta">Злата · продвинутый кейс · жизнь уходит в папки</div>
+              </div>
+            </button>
+            <button class="project-card" type="button" data-case="case-codex">
+              <div class="project-shot">
+                <img
+                  src="assets/imt-intensive-case-ai-folder.webp"
+                  alt="Личный AI-контекст с рабочей памятью"
+                />
+              </div>
+              <div class="project-body">
+                <div class="project-title">Сначала допилю систему, потом применю к себе</div>
+                <div class="project-meta">Тимур · экспертный кейс · система подменяет применение</div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Ты узнаешь себя, если старые способы уже не держат</h2>
+          </div>
+
+          <div class="request-grid">
+            <article class="request-card">
+              <h3>“Я всё понимаю на сессии, но через неделю снова живу по старому сценарию”</h3>
+              <p>Был инсайт, была ясность, были заметки. Потом пришла обычная неделя, и система не выдержала.</p>
+              <div class="solution-label">Решение</div>
+              <p>Берём один сценарий и переводим его в вопросы, разбор, ретро и следующий шаг.</p>
+              <div class="reactions">
+                <button class="reaction" type="button">+ <span>34</span></button>
+                <button class="reaction" type="button">сердце <span>12</span></button>
+              </div>
+            </article>
+            <article class="request-card">
+              <h3>“Я пишу дневник, но не понимаю следующий шаг”</h3>
+              <p>Текстов много, повторов много, а решения и следующего шага нет.</p>
+              <div class="solution-label">Решение</div>
+              <p>Достаём из дневников повтор: что запускает реакцию, чем она заканчивается и какой шаг попробовать.</p>
+              <div class="reactions">
+                <button class="reaction" type="button">+ <span>29</span></button>
+                <button class="reaction" type="button">сердце <span>9</span></button>
+              </div>
+            </article>
+            <article class="request-card">
+              <h3>“AI помогает, но каждый раз не помнит меня”</h3>
+              <p>Он помогает в моменте, но не знает историю, старые реакции, решения и ограничения.</p>
+              <div class="solution-label">Решение</div>
+              <p>В Codex-потоке собираем AI-контекст, правила и режим работы без вечного старта с нуля.</p>
+              <div class="reactions">
+                <button class="reaction" type="button">+ <span>26</span></button>
+                <button class="reaction" type="button">сердце <span>11</span></button>
+              </div>
+            </article>
+            <article class="request-card">
+              <h3>“Я хочу попробовать ИМТ руками, а не слушать ещё одну теорию”</h3>
+              <p>Интерес к методу есть, но длинная работа 1:1 пока кажется слишком большим шагом.</p>
+              <div class="solution-label">Решение</div>
+              <p>Делаем короткий цикл: один эпизод, демо-консультация, разбор, дневники, ретро и Q&A.</p>
+              <div class="reactions">
+                <button class="reaction" type="button">+ <span>22</span></button>
+                <button class="reaction" type="button">сердце <span>8</span></button>
+              </div>
+            </article>
+            <article class="request-card">
+              <h3>“У меня много инструментов, но каждый живёт отдельно”</h3>
+              <p>Codex, Cursor, ChatGPT, папки, модели и заметки помогают точечно, но не складываются в рабочую память.</p>
+              <div class="solution-label">Решение</div>
+              <p>Собираем одну папку, правила AGENTS.md, модельный режим и понятный вход в работу.</p>
+              <div class="reactions">
+                <button class="reaction" type="button">+ <span>18</span></button>
+                <button class="reaction" type="button">сердце <span>7</span></button>
+              </div>
+            </article>
+            <article class="request-card">
+              <h3>“Мне важно понять, подходит ли мне такой способ работы”</h3>
+              <p>Не хочется покупать длинный путь вслепую. Хочется увидеть, что происходит на живом материале.</p>
+              <div class="solution-label">Решение</div>
+              <p>Интенсив даёт короткий вход: один сценарий, группа до 20 человек, опросники на входе и выходе.</p>
+              <div class="reactions">
+                <button class="reaction" type="button">+ <span>16</span></button>
+                <button class="reaction" type="button">сердце <span>6</span></button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="quiz" id="route-quiz">
+            <div>
+              <span class="tag">мини-квиз · 5 вопросов</span>
+              <h2>Какой поток тебе ближе сейчас?</h2>
+              <p>
+                Упрощённая версия self-audit: отвечаешь на пять коротких
+                вопросов и видишь, начинать с Telegram-бота или идти сразу в
+                Codex-контекст на MacBook.
+              </p>
+            </div>
+            <div class="quiz-panel" aria-live="polite">
+              <div id="intensive-quiz-step">
+                <div class="quiz-step-meta">
+                  <span class="quiz-num" id="intensive-quiz-count">01 / 05</span>
+                  <span class="tag" id="intensive-quiz-dimension">вход</span>
+                </div>
+                <h3 class="quiz-question" id="intensive-quiz-question">Где сейчас чаще теряется твой результат?</h3>
+                <div class="quiz-options" id="intensive-quiz-options"></div>
+              </div>
+
+              <div class="quiz-result" id="intensive-quiz-result" hidden>
+                <span class="tag" id="intensive-quiz-result-tag">результат</span>
+                <h3 id="intensive-quiz-result-title"></h3>
+                <p id="intensive-quiz-result-text"></p>
+                <div class="quiz-result-actions">
+                  <a class="btn btn-primary" id="intensive-quiz-result-buy" href="#pricing">Выбрать поток</a>
+                  <button class="btn btn-secondary" id="intensive-quiz-restart" type="button">Пройти ещё раз</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-head wide">
+            <h2>Что унесёшь после недели</h2>
+            <p>
+              Ты выходишь не с пониманием, а с повторяемым контуром:
+              что заметить, куда записать, какой шаг сделать.
+            </p>
+          </div>
+
+          <div class="receipt" aria-label="Итоговый комплект участника">
+            <div class="receipt-head">
+              <h3>Итоговый комплект для одного внутреннего бага</h3>
+              <span class="receipt-mark">live material · not templates</span>
+            </div>
+            <div class="receipt-grid">
+              <div class="receipt-item">
+                <span class="receipt-num">01</span>
+                <div>
+                  <strong>Карта дефекта</strong>
+                  <p>Что запускает повтор, что он защищает и какой новый выбор появляется.</p>
+                </div>
+              </div>
+              <div class="receipt-item">
+                <span class="receipt-num">02</span>
+                <div>
+                  <strong>Запись демо-консультации</strong>
+                  <p>Живой материал, на котором видно, как запрос превращается в разбор.</p>
+                </div>
+              </div>
+              <div class="receipt-item">
+                <span class="receipt-num">03</span>
+                <div>
+                  <strong>Summary разбора</strong>
+                  <p>Старое понимание, новая связка, следующий шаг и открытые вопросы.</p>
+                </div>
+              </div>
+              <div class="receipt-item">
+                <span class="receipt-num">04</span>
+                <div>
+                  <strong>Telegram-ритм или AI-контекст</strong>
+                  <p>Минимальная система, которая возвращает к выбранной ситуации после интенсива.</p>
+                </div>
+              </div>
+              <div class="receipt-item">
+                <span class="receipt-num">05</span>
+                <div>
+                  <strong>Утренние и вечерние вопросы</strong>
+                  <p>Список вопросов под твой сценарий, чтобы день не распадался на заметки.</p>
+                </div>
+              </div>
+              <div class="receipt-item">
+                <span class="receipt-num">06</span>
+                <div>
+                  <strong>Ретро и план месяца</strong>
+                  <p>Где система выдержала неделю, где сломалась и что проверять дальше.</p>
+                </div>
+              </div>
+            </div>
+            <div class="receipt-footer">
+              Не скачанные промпты, а система на твоём живом материале.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="program">
+        <div class="container">
+          <div class="section-head wide">
+            <h2>Программа и расписание</h2>
+          </div>
+
+          <div class="cohort-switcher" role="tablist" aria-label="Переключение потоков">
+            <button class="cohort-tab active" type="button" data-program="telegram">
+              Telegram · 3-12 июля
+            </button>
+            <button class="cohort-tab" type="button" data-program="codex">
+              Codex на MacBook M · 17-26 июля
+            </button>
+            <button class="cohort-tab" type="button" data-program="telegram-next">
+              Telegram · 31 июля - 9 августа
+            </button>
+          </div>
+
+          <div class="program-list" data-program-panel="telegram">
+            <div class="program-note">
+              Telegram-поток: телефона достаточно. Интенсив не чинит всю жизнь:
+              он берёт один повтор и доводит его до рабочей системы.
+            </div>
+            <div class="schedule-grid" aria-label="Календарь Telegram-потока 3-12 июля">
+              <div class="schedule-cell schedule-weekday">Пн</div>
+              <div class="schedule-cell schedule-weekday">Вт</div>
+              <div class="schedule-cell schedule-weekday">Ср</div>
+              <div class="schedule-cell schedule-weekday">Чт</div>
+              <div class="schedule-cell schedule-weekday">Пт</div>
+              <div class="schedule-cell schedule-weekday">Сб</div>
+              <div class="schedule-cell schedule-weekday">Вс</div>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Формулируешь один повтор, который хочется проверить на интенсиве.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Без домашних заданий: достаточно прийти с живым запросом.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Можно просто наблюдать, где в неделе повторяется старый сценарий.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Техническая настройка не нужна: достаточно Telegram.</p>
+              </article>
+              <article class="schedule-cell live">
+                <div class="schedule-day"><span>Пт · 3 июл</span><span class="schedule-kind">live 1ч</span></div>
+                <h3>Установка</h3>
+                <p>Карта работы, вход в бот, опросник и выбор предварительного сценария.</p>
+              </article>
+              <article class="schedule-cell live demo">
+                <div class="schedule-day"><span>Сб · 4 июл</span><span class="schedule-kind">live 4ч</span></div>
+                <h3>Демо-консультация + разбор</h3>
+                <p>Один живой запрос, запись, summary, старое понимание и новый выбор.</p>
+              </article>
+              <article class="schedule-cell async">
+                <div class="schedule-day"><span>Вс · 5 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Записи</h3>
+                <p>Смотришь вводные ролики и отмечаешь, что откликается в твоём сценарии.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Пн · 6 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-ботом</h3>
+                <p>Утренний вопрос, дневник, просмотр записи и первый маленький шаг.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Вт · 7 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-ботом</h3>
+                <p>Бот возвращает к выбранному повтору, записи дают язык для разбора.</p>
+              </article>
+              <article class="schedule-cell qa">
+                <div class="schedule-day"><span>Ср · 8 июл</span><span class="schedule-kind">Q&A 1ч</span></div>
+                <h3>Q&A по практике</h3>
+                <p>Разбираем первые сбои: где бот помогает, а где сценарий уводит в старое.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Чт · 9 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-ботом</h3>
+                <p>Проверяешь новый выбор в обычном дне и фиксируешь наблюдения.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Пт · 10 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-ботом</h3>
+                <p>Смотришь записи, отвечаешь на вопросы и готовишь материал для ретро.</p>
+              </article>
+              <article class="schedule-cell async">
+                <div class="schedule-day"><span>Сб · 11 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Ретро недели</h3>
+                <p>Собираешь, где система выдержала неделю, а где нужен новый вопрос.</p>
+              </article>
+              <article class="schedule-cell live final">
+                <div class="schedule-day"><span>Вс · 12 июл</span><span class="schedule-kind">live 2ч</span></div>
+                <h3>Финальная лекция</h3>
+                <p>Ретро недели, ответы на вопросы и план следующего месяца.</p>
+              </article>
+            </div>
+            <div class="schedule-foot">
+              <div class="schedule-fact"><strong>8ч</strong><span>live-работы</span></div>
+              <div class="schedule-fact"><strong>12ч</strong><span>материалов и записей</span></div>
+              <div class="schedule-fact"><strong>1 мес</strong><span>бота после старта</span></div>
+              <div class="schedule-fact"><strong>15</strong><span>мест осталось</span></div>
+            </div>
+          </div>
+
+          <div class="program-list" data-program-panel="codex" hidden>
+            <div class="program-note">
+              Codex-поток: MacBook на M, ChatGPT Plus или Cursor. AI не
+              заменяет работу с собой, он даёт ей память, форму и ритм.
+            </div>
+            <div class="schedule-grid" aria-label="Календарь Codex-потока 17-26 июля">
+              <div class="schedule-cell schedule-weekday">Пн</div>
+              <div class="schedule-cell schedule-weekday">Вт</div>
+              <div class="schedule-cell schedule-weekday">Ср</div>
+              <div class="schedule-cell schedule-weekday">Чт</div>
+              <div class="schedule-cell schedule-weekday">Пт</div>
+              <div class="schedule-cell schedule-weekday">Сб</div>
+              <div class="schedule-cell schedule-weekday">Вс</div>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Проверяешь MacBook на M и доступ к ChatGPT Plus или Cursor.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Собираешь 2-3 заметки или файла, где виден повторяющийся сценарий.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Отмечаешь, где AI уже помогает, но не помнит контекст.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Ничего настраивать заранее не нужно: стартуем вместе.</p>
+              </article>
+              <article class="schedule-cell live">
+                <div class="schedule-day"><span>Пт · 17 июл</span><span class="schedule-kind">live 1ч</span></div>
+                <h3>Установка AI-стека</h3>
+                <p>Codex App, рабочая папка, входные файлы и базовая структура памяти.</p>
+              </article>
+              <article class="schedule-cell live demo">
+                <div class="schedule-day"><span>Сб · 18 июл</span><span class="schedule-kind">live 4ч</span></div>
+                <h3>AGENTS.md + личный контекст</h3>
+                <p>Правила памяти, компактизация, модели, генограмма и работа без потери контекста.</p>
+              </article>
+              <article class="schedule-cell async">
+                <div class="schedule-day"><span>Вс · 19 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Записи</h3>
+                <p>Смотришь ролики по Codex, компактизации, моделям и сбору контекста.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Пн · 20 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-контекстом</h3>
+                <p>Кладёшь живой материал в папку и проверяешь первые правила AGENTS.md.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Вт · 21 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-контекстом</h3>
+                <p>Уточняешь файлы, модели и вход в работу без постоянного старта с нуля.</p>
+              </article>
+              <article class="schedule-cell qa">
+                <div class="schedule-day"><span>Ср · 22 июл</span><span class="schedule-kind">Q&A 1ч</span></div>
+                <h3>Q&A по стеку</h3>
+                <p>Разбираем ошибки структуры, контекст, mobile Codex и выбор модели.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Чт · 23 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-контекстом</h3>
+                <p>Добавляешь генограмму, изображения или файлы под выбранную задачу.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Пт · 24 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-контекстом</h3>
+                <p>Смотришь записи и доводишь папку до состояния рабочего входа.</p>
+              </article>
+              <article class="schedule-cell async">
+                <div class="schedule-day"><span>Сб · 25 июл</span><span class="schedule-kind">async</span></div>
+                <h3>Ретро системы</h3>
+                <p>Фиксируешь, что AI уже помнит, а что ещё нужно вынести в правила.</p>
+              </article>
+              <article class="schedule-cell live final">
+                <div class="schedule-day"><span>Вс · 26 июл</span><span class="schedule-kind">live 2ч</span></div>
+                <h3>Финальная лекция + разбор систем</h3>
+                <p>Где AI-контекст уже работает, где распадается и какой следующий шаг фиксируем.</p>
+              </article>
+            </div>
+            <div class="schedule-foot">
+              <div class="schedule-fact"><strong>8ч</strong><span>live-работы</span></div>
+              <div class="schedule-fact"><strong>12ч</strong><span>материалов и записей</span></div>
+              <div class="schedule-fact"><strong>Mac M</strong><span>+ ChatGPT Plus/Cursor</span></div>
+              <div class="schedule-fact"><strong>12</strong><span>мест осталось</span></div>
+            </div>
+          </div>
+
+          <div class="program-list" data-program-panel="telegram-next" hidden>
+            <div class="program-note">
+              Следующий Telegram-поток: тот же маршрут для тех, кому удобнее
+              зайти после Codex-даты.
+            </div>
+            <div class="schedule-grid" aria-label="Календарь Telegram-потока 31 июля - 9 августа">
+              <div class="schedule-cell schedule-weekday">Пн</div>
+              <div class="schedule-cell schedule-weekday">Вт</div>
+              <div class="schedule-cell schedule-weekday">Ср</div>
+              <div class="schedule-cell schedule-weekday">Чт</div>
+              <div class="schedule-cell schedule-weekday">Пт</div>
+              <div class="schedule-cell schedule-weekday">Сб</div>
+              <div class="schedule-cell schedule-weekday">Вс</div>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Формулируешь один повтор, который хочется проверить на интенсиве.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Без домашних заданий: достаточно прийти с живым запросом.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Можно просто наблюдать, где в неделе повторяется старый сценарий.</p>
+              </article>
+              <article class="schedule-cell empty">
+                <div class="schedule-day"><span>до старта</span><span class="schedule-kind">wait</span></div>
+                <h3>Подготовка</h3>
+                <p>Техническая настройка не нужна: достаточно Telegram.</p>
+              </article>
+              <article class="schedule-cell live">
+                <div class="schedule-day"><span>Пт · 31 июл</span><span class="schedule-kind">live 1ч</span></div>
+                <h3>Установка</h3>
+                <p>Карта работы, вход в бот, опросник и выбор предварительного сценария.</p>
+              </article>
+              <article class="schedule-cell live demo">
+                <div class="schedule-day"><span>Сб · 1 авг</span><span class="schedule-kind">live 4ч</span></div>
+                <h3>Демо-консультация + разбор</h3>
+                <p>Один живой запрос, запись, summary, старое понимание и новый выбор.</p>
+              </article>
+              <article class="schedule-cell async">
+                <div class="schedule-day"><span>Вс · 2 авг</span><span class="schedule-kind">async</span></div>
+                <h3>Записи</h3>
+                <p>Смотришь вводные ролики и отмечаешь, что откликается в твоём сценарии.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Пн · 3 авг</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-ботом</h3>
+                <p>Утренний вопрос, дневник, просмотр записи и первый маленький шаг.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Вт · 4 авг</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-ботом</h3>
+                <p>Бот возвращает к выбранному повтору, записи дают язык для разбора.</p>
+              </article>
+              <article class="schedule-cell qa">
+                <div class="schedule-day"><span>Ср · 5 авг</span><span class="schedule-kind">Q&A 1ч</span></div>
+                <h3>Q&A по практике</h3>
+                <p>Разбираем первые сбои: где бот помогает, а где сценарий уводит в старое.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Чт · 6 авг</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-ботом</h3>
+                <p>Проверяешь новый выбор в обычном дне и фиксируешь наблюдения.</p>
+              </article>
+              <article class="schedule-cell practice">
+                <div class="schedule-day"><span>Пт · 7 авг</span><span class="schedule-kind">async</span></div>
+                <h3>Практика с AI-ботом</h3>
+                <p>Смотришь записи, отвечаешь на вопросы и готовишь материал для ретро.</p>
+              </article>
+              <article class="schedule-cell async">
+                <div class="schedule-day"><span>Сб · 8 авг</span><span class="schedule-kind">async</span></div>
+                <h3>Ретро недели</h3>
+                <p>Собираешь, где система выдержала неделю, а где нужен новый вопрос.</p>
+              </article>
+              <article class="schedule-cell live final">
+                <div class="schedule-day"><span>Вс · 9 авг</span><span class="schedule-kind">live 2ч</span></div>
+                <h3>Финальная лекция</h3>
+                <p>Ретро недели, ответы на вопросы и план следующего месяца.</p>
+              </article>
+            </div>
+            <div class="schedule-foot">
+              <div class="schedule-fact"><strong>8ч</strong><span>live-работы</span></div>
+              <div class="schedule-fact"><strong>12ч</strong><span>материалов и записей</span></div>
+              <div class="schedule-fact"><strong>1 мес</strong><span>бота после старта</span></div>
+              <div class="schedule-fact"><strong>15</strong><span>мест осталось</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Тебя может тревожить</h2>
+          </div>
+
+          <div class="cards-3">
+            <article class="card card-pad">
+              <h3>“А если тема слишком личная?”</h3>
+              <p>
+                Чем быстрее разберёшься с вопросом, который управляет жизнью,
+                тем меньше его нужно скрывать. С AI проще начинать: это не
+                человек, он не смотрит на тебя и не может осудить.
+              </p>
+            </article>
+            <article class="card card-pad">
+              <h3>“Будет ли публичный разбор?”</h3>
+              <p>
+                Да. Это и есть демо-консультация: из группы
+                выбирается один человек, который за смелость получает разбор
+                ценностью $200. Остальные учатся на живом материале.
+              </p>
+            </article>
+            <article class="card card-pad">
+              <h3>“Это терапия или обучение?”</h3>
+              <p>
+                Это исследование себя: инструмент, методика и навык видеть
+                повторяющуюся реакцию. Мы не лечим травму, а учимся распознавать
+                сценарий и переводить его в действие.
+              </p>
+            </article>
+            <article class="card card-pad">
+              <h3>“Что если я не знаю, какой сценарий выбрать?”</h3>
+              <p>
+                У каждого есть зона, которая не устраивает на 100%: деньги,
+                отношения, энергия, апатия, цель, которая не достигается.
+                Интенсив помогает прислушаться к реакциям и выбрать направление.
+              </p>
+            </article>
+            <article class="card card-pad">
+              <h3>“Что если я не технарь?”</h3>
+              <p>
+                Если умеешь пользоваться Telegram, тебе достаточно первого
+                потока. В этом и разница: Telegram-поток работает с телефона,
+                Codex-поток требует MacBook на M и AI-инструменты.
+              </p>
+            </article>
+            <article class="card card-pad">
+              <h3>“Что будет с моими данными?”</h3>
+              <p>
+                Я не использую личные данные участников: это противоречит
+                этике, и у меня есть более интересные дела, чем читать чужие
+                переписки с ботом. При этом всё, что попадает в интернет,
+                уже проходит через Apple, Google, Telegram, ChatGPT и посредников.
+                Раз уж битва за абсолютную приватность проиграна, лучше извлекать
+                из цифрового следа пользу для своего развития.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head wide">
+            <h2>Как это работает технически</h2>
+            <p>
+              Не сложный стек ради стека, а минимальная конструкция под твою
+              ситуацию. Если через три дня всё снова как раньше, проблема не в
+              инсайте, а в отсутствии держателя контекста.
+            </p>
+          </div>
+
+          <div class="tech-grid">
+            <article class="tech-track">
+              <div class="tech-head">
+                <span class="tag">Telegram · можно с телефона</span>
+                <h3>Бот держит ритм, когда нет желания собирать стек</h3>
+              </div>
+              <div class="tech-list">
+                <div class="tech-row">
+                  <span class="tech-label">устройство</span>
+                  <p>Телефон и Telegram. MacBook, Codex и Cursor не нужны.</p>
+                </div>
+                <div class="tech-row">
+                  <span class="tech-label">контур</span>
+                  <p>Опросник, утренние и вечерние вопросы, дневники, ретро недели.</p>
+                </div>
+                <div class="tech-row">
+                  <span class="tech-label">результат</span>
+                  <p>Один повтор не исчезает в заметках, а возвращается в ежедневный выбор.</p>
+                </div>
+              </div>
+            </article>
+            <article class="tech-track">
+              <div class="tech-head">
+                <span class="tag">Codex · MacBook M</span>
+                <h3>AI-контекст помнит историю, правила и рабочую задачу</h3>
+              </div>
+              <div class="tech-list">
+                <div class="tech-row">
+                  <span class="tech-label">стек</span>
+                  <p>MacBook на M, ChatGPT Plus или Cursor, Codex App.</p>
+                </div>
+                <div class="tech-row">
+                  <span class="tech-label">память</span>
+                  <p>Папка контекста, AGENTS.md, правила компактизации, модели.</p>
+                </div>
+                <div class="tech-row">
+                  <span class="tech-label">результат</span>
+                  <p>AI не начинает с нуля и держит выбранный сценарий между сессиями.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="tech-note">
+            AI не заменяет работу с собой: он даёт ей память, форму и ритм.
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="pricing">
+        <div class="container">
+          <div class="section-head wide">
+            <h2>Выбери, где сейчас разваливается твоя система</h2>
+            <p>
+              Оба типа потока стоят одинаково. Разница не в “уровне духовности”, а
+              в старом способе справляться: дневники и бот в Telegram или AI и
+              личный AI-контекст на MacBook.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card featured">
+              <div class="pricing-head">
+                <div class="pricing-name">Если инсайты теряются между сессией и неделей</div>
+                <div class="price">$100 <small>за поток</small></div>
+                <p>Старт 3 июля · 15 мест осталось</p>
+              </div>
+              <div class="pricing-body">
+                <ul class="bullets">
+                  <li>8 часов live-работы: установка, демо-консультация, разбор, Q&A, финальная лекция.</li>
+                  <li>Один повторяющийся сценарий, выбранный и разобранный на живом материале.</li>
+                  <li>Telegram-бот на месяц, чтобы вопросы возвращали тебя к выбранному сценарию.</li>
+                  <li>12 часов записей и опросники на входе и выходе.</li>
+                </ul>
+              </div>
+              <div class="pricing-foot">
+                <a
+                  class="btn btn-primary"
+                  id="cta-buy-telegram-price"
+                  href="https://t.me/dkompanets"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Купить через Telegram</a>
+                <div class="seat-note">Напиши “Telegram-поток 3 июля”</div>
+              </div>
+            </article>
+
+            <article class="pricing-card">
+              <div class="pricing-head">
+                <div class="pricing-name">Если AI помогает, но не становится памятью</div>
+                <div class="price">$100 <small>за поток</small></div>
+                <p>Старт 17 июля · 12 мест осталось</p>
+              </div>
+              <div class="pricing-body">
+                <ul class="bullets">
+                  <li>Всё расписание интенсива: 8 часов live и неделя поддержки.</li>
+                  <li>Личный AI-контекст, AGENTS.md, Codex App, компактизация и правила памяти.</li>
+                  <li>Генограмма, различие моделей, изображения, mobile Codex.</li>
+                  <li>Нужен MacBook на M и ChatGPT Plus или Cursor.</li>
+                </ul>
+              </div>
+              <div class="pricing-foot">
+                <a
+                  class="btn btn-primary"
+                  id="cta-buy-codex-price"
+                  href="https://t.me/dkompanets"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Купить через Telegram</a>
+                <div class="seat-note">Напиши “Codex-поток 17 июля”</div>
+              </div>
+            </article>
+          </div>
+
+          <div class="guarantee-note">
+            Если после установочной встречи понимаешь, что формат не твой,
+            я верну оплату до начала разбора. Важно зайти в работу, а не
+            продавить себя через неподходящий формат.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container author">
+          <div class="section-head">
+            <h2>Дмитрий Компанец — автор интенсива</h2>
+            <p>
+              В интенсиве соединяются два слоя: метод работы с повторяющимся
+              сценарием и архитектура, которая не даёт выводам исчезнуть после
+              консультации.
+            </p>
+          </div>
+          <div class="author-panel">
+            <div class="author-mention">
+              <span class="author-layer">слой 01 · метод</span>
+              <strong>ИМТ и Сознательный Дебаг</strong>
+              <p>
+                Помогает выбрать один повтор, увидеть старую связку и перевести
+                её в новый способ действия, а не в ещё одну красивую мысль.
+              </p>
+            </div>
+            <div class="author-mention">
+              <span class="author-layer">слой 02 · архитектура</span>
+              <strong>Telegram-бот и личный кабинет</strong>
+              <p>
+                Держит опросники, дневники, summary, повторы, ретро и вопросы,
+                чтобы один сценарий проверялся в обычной неделе.
+              </p>
+            </div>
+            <div class="author-mention">
+              <span class="author-layer">точка сборки</span>
+              <strong>AI-контекст и папка Аладдина</strong>
+              <p>
+                Для продвинутого потока метод переносится в Codex: AGENTS.md,
+                правила памяти, файлы контекста и работа без постоянного старта с нуля.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Что видно по кейсам</h2>
+          </div>
+          <div class="testimonials" aria-label="Наблюдения из кейсов IMT">
+            <article class="testimonial">
+              <p>Человек приходит не с “проблемой вообще”, а с повтором: план ломается — и вместе с ним ломается состояние.</p>
+              <div class="testimonial-meta">Лея · план как хозяин</div>
+            </article>
+            <article class="testimonial">
+              <p>Идеи могут годами уходить в папки “на потом”. Сдвиг начинается с короткого живого шага, а не с идеальной системы.</p>
+              <div class="testimonial-meta">Злата · жизнь в архиве</div>
+            </article>
+            <article class="testimonial">
+              <p>Инструменты могут стать способом не применять к себе то, что уже понятно. Поэтому система должна служить действию.</p>
+              <div class="testimonial-meta">Тимур · система вместо применения</div>
+            </article>
+            <article class="testimonial">
+              <p>Внешняя оценка может звучать как приговор. Разбор возвращает факты доверия, собственную ценность и свой стандарт качества.</p>
+              <div class="testimonial-meta">Нора · чужая оценка как правда</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <h2>Частые вопросы</h2>
+          </div>
+
+          <div class="faq-list">
+            <details open>
+              <summary>Можно ли прийти без технического опыта?<span>-</span></summary>
+              <div class="faq-answer">
+                Да. Для этого есть Telegram-поток. В нём не нужен MacBook, Codex или Cursor.
+              </div>
+            </details>
+            <details>
+              <summary>Что нужно для Codex-потока?<span>+</span></summary>
+              <div class="faq-answer">
+                MacBook на Apple Silicon, ChatGPT Plus или Cursor за $20 и
+                готовность работать с файлами. Этот поток нужен тем, кто хочет
+                превратить AI из разовой вкладки в личную рабочую память.
+              </div>
+            </details>
+            <details>
+              <summary>Будет ли публичный разбор?<span>+</span></summary>
+              <div class="faq-answer">
+                Да. Один человек из группы проходит демо-консультацию
+                с записью и получает разбор ценностью $200. Остальные учатся на живом
+                материале и применяют рамку к своим ситуациям.
+              </div>
+            </details>
+            <details>
+              <summary>Что я получу после недели?<span>+</span></summary>
+              <div class="faq-answer">
+                12 часов материалов, записи live-встреч, бота на месяц или
+                готовый AI/Codex-контекст, один разобранный сценарий и карту
+                продолжения после недели.
+              </div>
+            </details>
+            <details>
+              <summary>Это терапия?<span>+</span></summary>
+              <div class="faq-answer">
+                Нет. Это исследование себя через инструмент, методику и навык.
+                Мы работаем с повторяющимся сценарием, а не с терапевтическим
+                лечением травмы.
+              </div>
+            </details>
+            <details>
+              <summary>Почему всего до 20 человек?<span>+</span></summary>
+              <div class="faq-answer">
+                Формат завязан на живые вопросы, разборы и поддержку в группе. При большем количестве теряется плотность сопровождения.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container final-cta">
+          <h2>Выбери, где сейчас нужен держатель контекста</h2>
+          <p>
+            Если выводы теряются между сессией, дневником и неделей — иди в
+            Telegram-поток 3 июля или следующий Telegram-поток 31 июля.
+            Если AI уже рядом, но каждый раз начинает с нуля — выбирай
+            Codex-поток 17 июля.
+          </p>
+          <a
+            class="btn btn-primary"
+            id="cta-buy-final"
+            href="https://t.me/dkompanets"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Купить через Telegram</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <span>IMT Intensive · draft v0.1</span>
+        <span id="buy-placeholder">Оплата и вопросы: https://t.me/dkompanets</span>
+      </div>
+    </footer>
+
+    <div class="case-modal" id="case-modal" aria-hidden="true">
+      <div class="case-dialog" role="dialog" aria-modal="true" aria-labelledby="case-title">
+        <div class="case-dialog-inner">
+          <button class="case-close" type="button" aria-label="Закрыть">×</button>
+          <span class="tag">кейс из каталога IMT</span>
+          <h3 id="case-title">[Заголовок кейса]</h3>
+          <div class="case-columns">
+            <div class="case-box">
+              <strong>До интенсива</strong>
+              <p id="case-before">[Описание исходной ситуации]</p>
+            </div>
+            <div class="case-box">
+              <strong>После интенсива</strong>
+              <p id="case-after">[Описание сдвига и артефакта]</p>
+            </div>
+          </div>
+          <p id="case-story">
+            [История кейса загрузится при клике.]
+          </p>
+          <a
+            class="case-source"
+            id="case-source"
+            href="https://app.imt.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Открыть исходный кейс</a>
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              id="cta-buy-case-modal"
+              href="https://t.me/dkompanets"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Тоже хочу так</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const PAGE_VARIANT = "imt_intensive_v1";
+      const FUNNEL_NAME = "imt_intensive";
+      const SESSION_ROUTE_KEY = "imt_intensive_route";
+
+      function trackEvent(name, params = {}) {
+        if (window.gtag) {
+          window.gtag("event", name, params);
+          return;
+        }
+
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push({ event: name, ...params });
+          return;
+        }
+
+        console.info("[track]", name, params);
+      }
+
+      function trackFunnelEvent(name, params = {}) {
+        trackEvent(name, {
+          funnel_name: FUNNEL_NAME,
+          page_variant: PAGE_VARIANT,
+          ...params,
+        });
+      }
+
+      function persistRouteContext(routeDestination, ctaId, placement) {
+        try {
+          sessionStorage.setItem(
+            SESSION_ROUTE_KEY,
+            JSON.stringify({
+              route_destination: routeDestination,
+              source_page: "imt_intensive",
+              source_cta_id: ctaId,
+              placement,
+              ts: Date.now(),
+            }),
+          );
+        } catch (error) {
+          console.info("[sessionStorage]", error);
+        }
+      }
+
+      function observeOnce(targetId, eventName, threshold, extra = {}) {
+        const node = document.getElementById(targetId);
+        if (!node || !("IntersectionObserver" in window)) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const [entry] = entries;
+            if (!entry.isIntersecting) return;
+            trackFunnelEvent(eventName, extra);
+            observer.disconnect();
+          },
+          { threshold },
+        );
+
+        observer.observe(node);
+      }
+
+      function initVisibilityTracking() {
+        observeOnce("streams", "imt_intensive_streams_visible", 0.28, {
+          section_name: "streams",
+        });
+
+        observeOnce("program", "imt_intensive_program_visible", 0.28, {
+          section_name: "program",
+        });
+
+        observeOnce("pricing", "imt_intensive_pricing_visible", 0.32, {
+          section_name: "pricing",
+        });
+      }
+
+      function initEngagementTracking() {
+        window.setTimeout(() => {
+          trackFunnelEvent("imt_intensive_engaged_45s", {
+            engaged_seconds: 45,
+          });
+        }, 45000);
+      }
+
+      function initCtaTracking() {
+        const ctaConfig = [
+          ["cta-buy-header", "imt_intensive_buy_click", "telegram_contact", "header"],
+          ["cta-buy-hero", "imt_intensive_buy_click", "telegram_contact", "hero"],
+          ["cta-program-hero", "imt_intensive_program_click", "program", "hero"],
+          ["cta-buy-telegram-card", "imt_intensive_buy_click", "pricing", "telegram_card"],
+          ["cta-buy-codex-card", "imt_intensive_buy_click", "pricing", "codex_card"],
+          [
+            "cta-buy-telegram-price",
+            "imt_intensive_buy_click",
+            "telegram_contact",
+            "telegram_price",
+          ],
+          [
+            "cta-buy-codex-price",
+            "imt_intensive_buy_click",
+            "telegram_contact",
+            "codex_price",
+          ],
+          ["cta-buy-final", "imt_intensive_buy_click", "telegram_contact", "final_cta"],
+          ["cta-buy-case-modal", "imt_intensive_buy_click", "telegram_contact", "case_modal"],
+        ];
+
+        ctaConfig.forEach(([id, eventName, routeDestination, placement]) => {
+          const node = document.getElementById(id);
+          if (!node) return;
+
+          node.addEventListener("click", () => {
+            persistRouteContext(routeDestination, id, placement);
+
+            trackFunnelEvent(eventName, {
+              cta_id: id,
+              placement,
+              route_destination: routeDestination,
+            });
+
+            trackEvent("select_content", {
+              content_type: "imt_intensive_route",
+              item_id: routeDestination,
+              cta_id: id,
+              placement,
+              funnel_name: FUNNEL_NAME,
+              page_variant: PAGE_VARIANT,
+            });
+          });
+        });
+      }
+
+      function initBaseTracking() {
+        trackFunnelEvent("imt_intensive_view", {
+          step_name: "page_view",
+          step_index: 1,
+        });
+
+        trackEvent("imt_intensive_page_view", {
+          funnel_name: FUNNEL_NAME,
+          page_variant: PAGE_VARIANT,
+        });
+
+        initVisibilityTracking();
+        initEngagementTracking();
+        initCtaTracking();
+      }
+
+      const caseData = {
+        "case-os": {
+          title: "Когда план становится лжебогом",
+          before:
+            "Бытовые сбои и сломанный маршрут выбрасывали человека из жизни: счастье оказывалось привязано к плану.",
+          after:
+            "План снова стал инструментом, а не хозяином. Появился живой критерий: что прямо сейчас возвращает любовь и действие.",
+          story:
+            "Такой кейс хорошо показывает механику интенсива: мы берём не абстрактную проблему, а конкретный повтор в дне, вытаскиваем ложную опору и превращаем её в карту для следующей недели.",
+          sourceUrl: "https://app.imt.dev/case-plan-idol-01/",
+        },
+        "case-debug": {
+          title: "Я складирую жизнь на потом",
+          before:
+            "Живые идеи уходили в папки, списки и красивые системы. Было ощущение, что сначала нужно всё подготовить, а жить можно потом.",
+          after:
+            "Первым стал короткий живой шаг, а система начала обслуживать действие, а не заменять его.",
+          story:
+            "Это ровно тот тип материала, который полезен для Telegram-потока: дневники перестают быть складом наблюдений и становятся способом выбрать маленький следующий шаг.",
+          sourceUrl: "https://app.imt.dev/case-impulse-later-01/",
+        },
+        "case-codex": {
+          title: "Сначала допилю систему, потом применю к себе",
+          before:
+            "Красивые инструменты и архитектура подменяли личное применение. Система росла, а реальное изменение откладывалось.",
+          after:
+            "Система снова подчинилась росту жизни: папки, правила и AI стали обслуживать конкретное применение, а не бесконечную настройку.",
+          story:
+            "Это сильный мост к Codex-потоку: AI-контекст нужен не ради технической красоты, а чтобы каждый день возвращать тебя к выбранной задаче и не прятаться в настройках.",
+          sourceUrl: "https://app.imt.dev/case-system-instead-self-01/",
+        },
+      };
+
+      const modal = document.querySelector("#case-modal");
+      const modalTitle = document.querySelector("#case-title");
+      const modalBefore = document.querySelector("#case-before");
+      const modalAfter = document.querySelector("#case-after");
+      const modalStory = document.querySelector("#case-story");
+      const modalSource = document.querySelector("#case-source");
+      const closeModal = () => {
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      };
+
+      document.querySelectorAll("[data-case]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = caseData[button.dataset.case];
+          if (!item) return;
+          modalTitle.textContent = item.title;
+          modalBefore.textContent = item.before;
+          modalAfter.textContent = item.after;
+          modalStory.textContent = item.story;
+          modalSource.href = item.sourceUrl;
+          modal.classList.add("active");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+          trackFunnelEvent("imt_intensive_case_open", {
+            case_id: button.dataset.case,
+            placement: "proof",
+          });
+        });
+      });
+
+      document.querySelector(".case-close").addEventListener("click", closeModal);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.classList.contains("active")) closeModal();
+      });
+
+      document.querySelectorAll(".reaction").forEach((button) => {
+        button.addEventListener("click", () => {
+          const value = button.querySelector("span");
+          value.textContent = String(Number(value.textContent) + 1);
+          trackFunnelEvent("imt_intensive_reaction_click", {
+            placement: "request_cards",
+            reaction_label: button.firstChild.textContent.trim(),
+          });
+        });
+      });
+
+      const tabs = document.querySelectorAll("[data-program]");
+      const panels = document.querySelectorAll("[data-program-panel]");
+      function activateProgramTab(program, placement = "program_tabs") {
+        tabs.forEach((item) => {
+          item.classList.toggle("active", item.dataset.program === program);
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.programPanel !== program;
+        });
+        trackFunnelEvent("imt_intensive_program_tab_click", {
+          cta_id: `program_tab_${program}`,
+          placement,
+          selected_program: program,
+        });
+      }
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          activateProgramTab(tab.dataset.program);
+        });
+      });
+
+      document.querySelectorAll("[data-program-jump]").forEach((link) => {
+        link.addEventListener("click", () => {
+          activateProgramTab(link.dataset.programJump, "hero_pills");
+        });
+      });
+
+      document.querySelectorAll(".faq-list details").forEach((item) => {
+        const icon = item.querySelector("summary span");
+        if (!icon) return;
+        icon.textContent = item.open ? "-" : "+";
+        item.addEventListener("toggle", () => {
+          icon.textContent = item.open ? "-" : "+";
+        });
+      });
+
+      const routeQuizQuestions = [
+        {
+          dimension: "текущий сбой",
+          title: "Где чаще всего пропадает результат?",
+          answers: [
+            {
+              text: "После сессии или дневника всё понятно, а через три дня я снова живу по старому сценарию.",
+              telegram: 2,
+              codex: 0,
+            },
+            {
+              text: "AI помогает в моменте, но каждый раз не помнит мою историю, решения и ограничения.",
+              telegram: 0,
+              codex: 2,
+            },
+            {
+              text: "Пока не могу выбрать один эпизод: есть много неудовлетворённости, но нет фокуса.",
+              telegram: 1,
+              codex: 0,
+            },
+          ],
+        },
+        {
+          dimension: "инструменты",
+          title: "Что у тебя точно есть под рукой?",
+          answers: [
+            {
+              text: "Телефон и Telegram. Не хочу начинать с технической настройки.",
+              telegram: 2,
+              codex: 0,
+            },
+            {
+              text: "MacBook на Apple Silicon и ChatGPT Plus или Cursor. Готов работать с файлами.",
+              telegram: 0,
+              codex: 3,
+            },
+            {
+              text: "AI есть, но я хочу сначала понять себя, а не собирать ещё один стек.",
+              telegram: 2,
+              codex: 0,
+            },
+          ],
+        },
+        {
+          dimension: "ритм",
+          title: "Что тебе важнее на ближайший месяц?",
+          answers: [
+            {
+              text: "Чтобы бот каждый день возвращал меня к выбранной ситуации и вопросам.",
+              telegram: 2,
+              codex: 0,
+            },
+            {
+              text: "Чтобы AI видел мои файлы, заметки, генограмму, правила и не начинал с нуля.",
+              telegram: 0,
+              codex: 2,
+            },
+            {
+              text: "Чтобы кто-то помог сузить запрос до одного повторяющегося сценария.",
+              telegram: 1,
+              codex: 0,
+            },
+          ],
+        },
+        {
+          dimension: "готовность",
+          title: "Как тебе идея живого разбора?",
+          answers: [
+            {
+              text: "Хочу сначала посмотреть на демо-консультацию другого участника и применить к себе.",
+              telegram: 2,
+              codex: 0,
+            },
+            {
+              text: "Мне важнее разобрать, как этот материал попадёт в AI-контекст и правила работы.",
+              telegram: 0,
+              codex: 2,
+            },
+            {
+              text: "Готов быть тем самым участником, если запрос созрел.",
+              telegram: 1,
+              codex: 1,
+            },
+          ],
+        },
+        {
+          dimension: "артефакт",
+          title: "С чем ты хочешь выйти после недели?",
+          answers: [
+            {
+              text: "Карта ситуации, запись разбора, ритм вопросов, ретро и Telegram-бот на месяц.",
+              telegram: 3,
+              codex: 0,
+            },
+            {
+              text: "Личный AI-контекст, AGENTS.md, правила компактизации и режим работы без потери контекста.",
+              telegram: 0,
+              codex: 3,
+            },
+            {
+              text: "Пока главное — выбрать один повтор, который действительно стоит разбирать.",
+              telegram: 1,
+              codex: 0,
+            },
+          ],
+        },
+      ];
+
+      function initRouteQuiz() {
+        const step = document.querySelector("#intensive-quiz-step");
+        const count = document.querySelector("#intensive-quiz-count");
+        const dimension = document.querySelector("#intensive-quiz-dimension");
+        const question = document.querySelector("#intensive-quiz-question");
+        const options = document.querySelector("#intensive-quiz-options");
+        const result = document.querySelector("#intensive-quiz-result");
+        const resultTag = document.querySelector("#intensive-quiz-result-tag");
+        const resultTitle = document.querySelector("#intensive-quiz-result-title");
+        const resultText = document.querySelector("#intensive-quiz-result-text");
+        const resultBuy = document.querySelector("#intensive-quiz-result-buy");
+        const restart = document.querySelector("#intensive-quiz-restart");
+
+        if (!step || !options || !result) return;
+
+        const state = {
+          index: 0,
+          telegram: 0,
+          codex: 0,
+          answers: [],
+        };
+
+        function resetQuiz() {
+          state.index = 0;
+          state.telegram = 0;
+          state.codex = 0;
+          state.answers = [];
+          step.hidden = false;
+          result.hidden = true;
+          renderQuestion();
+        }
+
+        function renderQuestion() {
+          const item = routeQuizQuestions[state.index];
+          count.textContent = `${String(state.index + 1).padStart(2, "0")} / ${String(routeQuizQuestions.length).padStart(2, "0")}`;
+          dimension.textContent = item.dimension;
+          question.textContent = item.title;
+          options.innerHTML = "";
+
+          item.answers.forEach((answer, answerIndex) => {
+            const button = document.createElement("button");
+            button.className = "quiz-option";
+            button.type = "button";
+            button.innerHTML = `
+              <span class="quiz-option-dot" aria-hidden="true"></span>
+              <span>${answer.text}</span>
+            `;
+
+            button.addEventListener("click", () => {
+              state.telegram += answer.telegram;
+              state.codex += answer.codex;
+              state.answers.push({
+                question_index: state.index + 1,
+                answer_index: answerIndex + 1,
+              });
+
+              trackFunnelEvent("imt_intensive_quiz_answer", {
+                question_index: state.index + 1,
+                answer_index: answerIndex + 1,
+                answer_telegram_score: answer.telegram,
+                answer_codex_score: answer.codex,
+              });
+
+              if (state.index < routeQuizQuestions.length - 1) {
+                state.index += 1;
+                renderQuestion();
+                return;
+              }
+
+              showResult();
+            });
+
+            options.appendChild(button);
+          });
+        }
+
+        function showResult() {
+          const codexWins = state.codex > state.telegram + 1;
+          const resultKey = codexWins ? "codex" : "telegram";
+
+          step.hidden = true;
+          result.hidden = false;
+
+          if (codexWins) {
+            resultTag.textContent = "тебе ближе Codex-поток";
+            resultTitle.textContent = "Собирай личный AI-контекст на MacBook";
+            resultText.textContent =
+              "У тебя уже есть AI-инструменты или готовность работать с файлами. Тебе важнее, чтобы ChatGPT/Codex видел историю, правила и контекст, а не начинал каждый разговор с нуля.";
+            resultBuy.href = "#codex-stream";
+            resultBuy.textContent = "Смотреть Codex-поток";
+          } else {
+            resultTag.textContent = "тебе ближе Telegram-поток";
+            resultTitle.textContent = "Начни с бота и одного повторяющегося сценария";
+            resultText.textContent =
+              "Сейчас важнее не технический стек, а удержать одну ситуацию в вопросах, дневниках, ретро и разборе. Достаточно телефона и Telegram.";
+            resultBuy.href = "#telegram-stream";
+            resultBuy.textContent = "Смотреть Telegram-поток";
+          }
+
+          trackFunnelEvent("imt_intensive_quiz_completed", {
+            result: resultKey,
+            telegram_score: state.telegram,
+            codex_score: state.codex,
+          });
+        }
+
+        resultBuy.addEventListener("click", () => {
+          trackFunnelEvent("imt_intensive_quiz_result_click", {
+            route_destination: resultBuy.getAttribute("href"),
+            telegram_score: state.telegram,
+            codex_score: state.codex,
+          });
+        });
+
+        restart.addEventListener("click", () => {
+          trackFunnelEvent("imt_intensive_quiz_restart", {
+            placement: "route_quiz",
+          });
+          resetQuiz();
+        });
+
+        renderQuestion();
+      }
+
+      initRouteQuiz();
+      initBaseTracking();
+    </script>
+  </body>
+</html>
