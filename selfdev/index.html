@@ -30,10 +30,34 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IMT Intensive — Telegram-бот и AI-контекст</title>
+    <title>Интенсив по Сознательному Дебагу</title>
     <meta
       name="description"
-      content="Три ближайших потока IMT Intensive: Telegram-бот или Codex-поток на MacBook. За неделю — один разобранный сценарий, бот или AI-контекст, ритм вопросов и план месяца."
+      content="Интенсив по Сознательному Дебагу: за неделю соберёшь рабочую систему для одного внутреннего бага через Telegram-бот или AI-контекст."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Интенсив по Сознательному Дебагу" />
+    <meta
+      property="og:description"
+      content="За неделю соберёшь рабочую систему для одного внутреннего бага через Telegram-бот или AI-контекст."
+    />
+    <meta property="og:url" content="https://app.imt.dev/selfdev/" />
+    <meta
+      property="og:image"
+      content="https://app.imt.dev/selfdev/assets/imt-intensive-telegram-os.webp"
+    />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Интенсив по Сознательному Дебагу" />
+    <meta
+      name="twitter:description"
+      content="За неделю соберёшь рабочую систему для одного внутреннего бага через Telegram-бот или AI-контекст."
+    />
+    <meta
+      name="twitter:image"
+      content="https://app.imt.dev/selfdev/assets/imt-intensive-telegram-os.webp"
     />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@1,400&display=swap");
@@ -786,25 +810,39 @@
         font-weight: 800;
       }
 
-      .reactions {
+      .request-markers {
         display: flex;
+        flex-wrap: wrap;
         gap: 10px;
         margin-top: auto;
         padding-top: 24px;
       }
 
-      .reaction {
+      .request-marker {
         display: inline-flex;
         align-items: center;
-        gap: 7px;
+        gap: 8px;
         min-height: 34px;
-        padding: 6px 12px;
+        padding: 6px 11px;
         border: 1px solid var(--line);
         border-radius: 999px;
         color: var(--ink-soft);
-        background: var(--paper);
+        background: rgba(249, 245, 238, 0.62);
         font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-        font-size: 13px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .request-marker svg,
+      .request-marker img {
+        flex: 0 0 16px;
+        width: 16px;
+        height: 16px;
+        color: var(--blue-dark);
+        filter: hue-rotate(-55deg) saturate(0.75) brightness(0.84);
+        object-fit: contain;
       }
 
       .quiz {
@@ -2190,9 +2228,22 @@
               <p>Был инсайт, была ясность, были заметки. Потом пришла обычная неделя, и система не выдержала.</p>
               <div class="solution-label">Решение</div>
               <p>Берём один сценарий и переводим его в вопросы, разбор, ретро и следующий шаг.</p>
-              <div class="reactions">
-                <button class="reaction" type="button">+ <span>34</span></button>
-                <button class="reaction" type="button">сердце <span>12</span></button>
+              <div class="request-markers" aria-label="Маркеры ситуации">
+                <span class="request-marker">
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <ellipse cx="40" cy="24" rx="22" ry="7" fill="none" stroke="currentColor" stroke-width="4" />
+                    <ellipse cx="40" cy="40" rx="22" ry="7" fill="none" stroke="currentColor" stroke-width="4" opacity="0.72" />
+                    <ellipse cx="40" cy="56" rx="22" ry="7" fill="none" stroke="currentColor" stroke-width="4" opacity="0.42" />
+                    <line x1="18" y1="24" x2="18" y2="56" stroke="currentColor" stroke-width="4" opacity="0.72" />
+                    <line x1="62" y1="24" x2="62" y2="56" stroke="currentColor" stroke-width="4" opacity="0.72" />
+                    <circle cx="40" cy="40" r="4" fill="currentColor" />
+                  </svg>
+                  держатель контекста
+                </span>
+                <span class="request-marker">
+                  <img src="../svg/lp-relearn-pipeline.svg" alt="" />
+                  повторяемый контур
+                </span>
               </div>
             </article>
             <article class="request-card">
@@ -2200,9 +2251,21 @@
               <p>Текстов много, повторов много, а решения и следующего шага нет.</p>
               <div class="solution-label">Решение</div>
               <p>Достаём из дневников повтор: что запускает реакцию, чем она заканчивается и какой шаг попробовать.</p>
-              <div class="reactions">
-                <button class="reaction" type="button">+ <span>29</span></button>
-                <button class="reaction" type="button">сердце <span>9</span></button>
+              <div class="request-markers" aria-label="Маркеры ситуации">
+                <span class="request-marker">
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <rect x="16" y="14" width="48" height="52" rx="4" fill="none" stroke="currentColor" stroke-width="4" />
+                    <line x1="28" y1="30" x2="52" y2="30" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.72" />
+                    <line x1="28" y1="42" x2="48" y2="42" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.52" />
+                    <line x1="28" y1="54" x2="44" y2="54" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.34" />
+                    <circle cx="54" cy="54" r="4" fill="currentColor" />
+                  </svg>
+                  дневник в действие
+                </span>
+                <span class="request-marker">
+                  <img src="../svg/lp-patterns-focus.svg" alt="" />
+                  фокус на повторе
+                </span>
               </div>
             </article>
             <article class="request-card">
@@ -2210,9 +2273,26 @@
               <p>Он помогает в моменте, но не знает историю, старые реакции, решения и ограничения.</p>
               <div class="solution-label">Решение</div>
               <p>В Codex-потоке собираем AI-контекст, правила и режим работы без вечного старта с нуля.</p>
-              <div class="reactions">
-                <button class="reaction" type="button">+ <span>26</span></button>
-                <button class="reaction" type="button">сердце <span>11</span></button>
+              <div class="request-markers" aria-label="Маркеры ситуации">
+                <span class="request-marker">
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <circle cx="20" cy="20" r="4" fill="currentColor" />
+                    <circle cx="40" cy="20" r="4" fill="currentColor" opacity="0.62" />
+                    <circle cx="60" cy="20" r="4" fill="currentColor" opacity="0.62" />
+                    <circle cx="20" cy="40" r="4" fill="currentColor" opacity="0.62" />
+                    <circle cx="40" cy="40" r="5" fill="currentColor" />
+                    <circle cx="60" cy="40" r="4" fill="currentColor" opacity="0.62" />
+                    <circle cx="20" cy="60" r="4" fill="currentColor" opacity="0.62" />
+                    <circle cx="40" cy="60" r="4" fill="currentColor" opacity="0.62" />
+                    <circle cx="60" cy="60" r="4" fill="currentColor" opacity="0.62" />
+                    <path d="M20 20H60M20 40H60M20 60H60M20 20V60M40 20V60M60 20V60" stroke="currentColor" stroke-width="2" opacity="0.28" />
+                  </svg>
+                  AI-контекст
+                </span>
+                <span class="request-marker">
+                  <img src="../svg/lp-science-network.svg" alt="" />
+                  память решений
+                </span>
               </div>
             </article>
             <article class="request-card">
@@ -2220,9 +2300,21 @@
               <p>Интерес к методу есть, но длинная работа 1:1 пока кажется слишком большим шагом.</p>
               <div class="solution-label">Решение</div>
               <p>Делаем короткий цикл: один эпизод, демо-консультация, разбор, дневники, ретро и Q&A.</p>
-              <div class="reactions">
-                <button class="reaction" type="button">+ <span>22</span></button>
-                <button class="reaction" type="button">сердце <span>8</span></button>
+              <div class="request-markers" aria-label="Маркеры ситуации">
+                <span class="request-marker">
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <path d="M14 40H56" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                    <path d="M48 30L60 40L48 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="20" cy="40" r="5" fill="currentColor" />
+                    <circle cx="40" cy="40" r="5" fill="currentColor" opacity="0.62" />
+                    <circle cx="60" cy="40" r="5" fill="currentColor" opacity="0.34" />
+                  </svg>
+                  короткий вход
+                </span>
+                <span class="request-marker">
+                  <img src="../svg/four-weeks.svg" alt="" />
+                  цикл на неделе
+                </span>
               </div>
             </article>
             <article class="request-card">
@@ -2230,9 +2322,20 @@
               <p>Codex, Cursor, ChatGPT, папки, модели и заметки помогают точечно, но не складываются в рабочую память.</p>
               <div class="solution-label">Решение</div>
               <p>Собираем одну папку, правила AGENTS.md, модельный режим и понятный вход в работу.</p>
-              <div class="reactions">
-                <button class="reaction" type="button">+ <span>18</span></button>
-                <button class="reaction" type="button">сердце <span>7</span></button>
+              <div class="request-markers" aria-label="Маркеры ситуации">
+                <span class="request-marker">
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <rect x="20" y="24" width="40" height="34" rx="4" fill="none" stroke="currentColor" stroke-width="4" />
+                    <path d="M28 20H44L50 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <line x1="30" y1="36" x2="50" y2="36" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.64" />
+                    <line x1="30" y1="48" x2="44" y2="48" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.42" />
+                  </svg>
+                  папка + правила
+                </span>
+                <span class="request-marker">
+                  <img src="../svg/context-ai.svg" alt="" />
+                  единая память
+                </span>
               </div>
             </article>
             <article class="request-card">
@@ -2240,9 +2343,20 @@
               <p>Не хочется покупать длинный путь вслепую. Хочется увидеть, что происходит на живом материале.</p>
               <div class="solution-label">Решение</div>
               <p>Интенсив даёт короткий вход: один сценарий, группа до 20 человек, опросники на входе и выходе.</p>
-              <div class="reactions">
-                <button class="reaction" type="button">+ <span>16</span></button>
-                <button class="reaction" type="button">сердце <span>6</span></button>
+              <div class="request-markers" aria-label="Маркеры ситуации">
+                <span class="request-marker">
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <polyline points="16,18 64,18 50,44 50,62" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <polyline points="16,18 30,44 30,56" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.62" />
+                    <circle cx="30" cy="62" r="4" fill="currentColor" opacity="0.62" />
+                    <circle cx="50" cy="68" r="4" fill="currentColor" />
+                  </svg>
+                  понятный отбор
+                </span>
+                <span class="request-marker">
+                  <img src="../svg/lp-self-pyramid.svg" alt="" />
+                  проба метода
+                </span>
               </div>
             </article>
           </div>
@@ -3244,17 +3358,6 @@
       });
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && modal.classList.contains("active")) closeModal();
-      });
-
-      document.querySelectorAll(".reaction").forEach((button) => {
-        button.addEventListener("click", () => {
-          const value = button.querySelector("span");
-          value.textContent = String(Number(value.textContent) + 1);
-          trackFunnelEvent("imt_intensive_reaction_click", {
-            placement: "request_cards",
-            reaction_label: button.firstChild.textContent.trim(),
-          });
-        });
       });
 
       const tabs = document.querySelectorAll("[data-program]");
