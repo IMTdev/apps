@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /consultant/
 
 Sitemap: https://app.imt.dev/sitemap.xml
 LLMs: https://app.imt.dev/llms.txt
