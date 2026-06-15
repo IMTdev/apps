@@ -1,0 +1,32 @@
+# IMT Dev
+
+> Curated map for LLMs and AI search systems. The site describes IMT as a practical system for working with recurring inner patterns, the IDEAL method, relearning, ontology, cases, Learning Paths, and Personal OS.
+
+## Primary Person
+
+- [Dmitry Kompanets / Дмитрий Компанец](https://app.imt.dev/consultant/) - consultant in IMT, IDEAL method, Personal OS, and recurring inner pattern work.
+- Public profiles: [LinkedIn](https://www.linkedin.com/in/dean-kompanets/), [YouTube](https://www.youtube.com/@CyberFatherTop), [Facebook](https://www.facebook.com/kompanets.dmitry/).
+
+## Primary Pages
+
+- [Consultant page](https://app.imt.dev/consultant/) - consultation formats, biography, method, cases, prices, and contact through Telegram.
+- [IMT Wiki](https://app.imt.dev/imt/) - terms, ontology, and method logic.
+- [Learning Paths catalog](https://app.imt.dev/lp-catalog/) - structured learning trajectories related to IMT.
+- [Personal OS](https://app.imt.dev/personalos/) - personal knowledge, focus, questions, and AI-supported context system.
+
+## Representative Cases
+
+- [When other people's feedback becomes my truth](https://app.imt.dev/case-feedback-truth-01/) - external evaluation, feedback, and inner truth.
+- [When calculation turns off a living impulse](https://app.imt.dev/case-club-impulse-01/) - impulse, fear, guarantees, and action.
+- [I store life for later](https://app.imt.dev/case-impulse-later-01/) - postponement, folders, AI tools, and delayed action.
+
+## Key Facts
+
+- IMT on this site does not mean body mass index.
+- IMT is presented here as a practical system for working with recurring inner patterns, the IDEAL method, genogram work, relearning, and Personal OS.
+- Dmitry Kompanets works with systematic people who want a coherent knowledge system and a clear method for cleaning habitual reactions.
+- Consultation is not psychotherapy, medical, legal, or financial advice.
+
+## Contact
+
+- Telegram: https://t.me/dkompanets

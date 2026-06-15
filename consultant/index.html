@@ -71,8 +71,58 @@
             "description": "Консультации по ИМТ для системных людей: онтология, ИДЕАЛ-метод, Personal OS и работа с повторяющимися реакциями.",
             "inLanguage": "ru",
             "dateModified": "2026-06-15",
+            "isPartOf": { "@id": "https://app.imt.dev/#website" },
+            "breadcrumb": { "@id": "https://app.imt.dev/consultant/#breadcrumb" },
             "about": { "@id": "https://app.imt.dev/consultant/#person" },
-            "mainEntity": { "@id": "https://app.imt.dev/consultant/#service" }
+            "mainEntity": { "@id": "https://app.imt.dev/consultant/#service" },
+            "mentions": [
+              {
+                "@type": "WebPage",
+                "name": "ИМТ Wiki",
+                "url": "https://app.imt.dev/imt/"
+              },
+              {
+                "@type": "WebPage",
+                "name": "Каталог Learning Paths",
+                "url": "https://app.imt.dev/lp-catalog/"
+              },
+              {
+                "@type": "WebPage",
+                "name": "Personal OS",
+                "url": "https://app.imt.dev/personalos/"
+              },
+              {
+                "@type": "WebPage",
+                "name": "Публичные кейсы ИМТ",
+                "url": "https://app.imt.dev/case-feedback-truth-01/"
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://app.imt.dev/#website",
+            "url": "https://app.imt.dev/",
+            "name": "IMT Dev",
+            "inLanguage": "ru",
+            "publisher": { "@id": "https://app.imt.dev/consultant/#person" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://app.imt.dev/consultant/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "IMT Dev",
+                "item": "https://app.imt.dev/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Консультант по ИМТ",
+                "item": "https://app.imt.dev/consultant/"
+              }
+            ]
           },
           {
             "@type": "Person",
@@ -1535,7 +1585,7 @@
         </div>
       </section>
 
-      <section class="section section-dark">
+      <section id="ecosystem" class="section section-dark">
         <div class="container ecosystem">
           <div class="ecosystem-copy reveal">
             <div class="section-kicker mono">после встречи</div>
@@ -1635,36 +1685,274 @@
     </footer>
 
     <script>
-      var revealItems = document.querySelectorAll(".reveal");
-      if ("IntersectionObserver" in window) {
+      const PAGE_VARIANT = "consultant_v1";
+      const FUNNEL_NAME = "consultant_imt";
+      const SESSION_ROUTE_KEY = "imt_consultant_route";
+
+      function readUtmParams() {
+        var result = {};
+        var params = new URLSearchParams(window.location.search);
+        [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "utm_term"
+        ].forEach(function (key) {
+          var value = params.get(key);
+          if (value) result[key] = value;
+        });
+        return result;
+      }
+
+      function enrichParams(params) {
+        return Object.assign(
+          {
+            page_location: window.location.href,
+            page_path: window.location.pathname
+          },
+          readUtmParams(),
+          params
+        );
+      }
+
+      function trackEvent(name, params = {}) {
+        var enriched = enrichParams(params);
+
+        if (typeof window.gtag === "function") {
+          window.gtag("event", name, enriched);
+          return;
+        }
+
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push(Object.assign({ event: name }, enriched));
+          return;
+        }
+
+        console.info("[track]", name, enriched);
+      }
+
+      function trackFunnelEvent(name, params = {}) {
+        trackEvent(
+          name,
+          Object.assign(
+            {
+              funnel_name: FUNNEL_NAME,
+              page_variant: PAGE_VARIANT
+            },
+            params
+          )
+        );
+      }
+
+      function persistRouteContext(routeDestination, ctaId, placement) {
+        try {
+          sessionStorage.setItem(
+            SESSION_ROUTE_KEY,
+            JSON.stringify({
+              route_destination: routeDestination,
+              source_page: "consultant",
+              source_cta_id: ctaId,
+              placement: placement,
+              ts: Date.now()
+            })
+          );
+        } catch (error) {
+          console.info("[sessionStorage]", error);
+        }
+      }
+
+      function observeOnce(targetId, eventName, threshold, extra) {
+        var node = document.getElementById(targetId);
+        if (!node || !("IntersectionObserver" in window)) return;
+
         var observer = new IntersectionObserver(
           function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            });
+            var entry = entries[0];
+            if (!entry.isIntersecting) return;
+            trackFunnelEvent(eventName, extra || {});
+            observer.disconnect();
           },
-          { threshold: 0.14 }
+          { threshold: threshold }
         );
-        revealItems.forEach(function (item) {
-          observer.observe(item);
+
+        observer.observe(node);
+      }
+
+      function initReveals() {
+        var revealItems = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window) {
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.14 }
+          );
+          revealItems.forEach(function (item) {
+            observer.observe(item);
+          });
+        } else {
+          revealItems.forEach(function (item) {
+            item.classList.add("is-visible");
+          });
+        }
+      }
+
+      function initVisibilityTracking() {
+        observeOnce("top", "consultant_hero_visible", 0.2, {
+          step_name: "hero",
+          step_index: 1
         });
-      } else {
-        revealItems.forEach(function (item) {
-          item.classList.add("is-visible");
+        observeOnce("experience", "consultant_experience_visible", 0.24, {
+          step_name: "experience",
+          step_index: 2
+        });
+        observeOnce("method", "consultant_method_visible", 0.24, {
+          step_name: "method",
+          step_index: 3
+        });
+        observeOnce("cases", "consultant_cases_visible", 0.24, {
+          step_name: "cases",
+          step_index: 4
+        });
+        observeOnce("formats", "consultant_formats_visible", 0.24, {
+          step_name: "formats",
+          step_index: 5
+        });
+        observeOnce("ecosystem", "consultant_ecosystem_visible", 0.24, {
+          step_name: "ecosystem",
+          step_index: 6
         });
       }
 
-      document.querySelectorAll("[data-cta]").forEach(function (link) {
-        link.addEventListener("click", function () {
-          if (typeof gtag === "function") {
-            gtag("event", "consultant_telegram_click", {
-              event_category: "consultant",
-              event_label: link.getAttribute("data-cta")
+      function initEngagementTracking() {
+        window.setTimeout(function () {
+          trackFunnelEvent("consultant_engaged_45s", {
+            engaged_seconds: 45
+          });
+        }, 45000);
+      }
+
+      function placementFromCta(ctaId) {
+        if (ctaId === "nav") return "nav";
+        if (ctaId === "hero") return "hero";
+        if (ctaId === "formats") return "formats";
+        if (ctaId === "final") return "final_cta";
+        return ctaId || "unknown";
+      }
+
+      function initTelegramCtaTracking() {
+        document.querySelectorAll("[data-cta]").forEach(function (link) {
+          link.addEventListener("click", function () {
+            var sourceCta = link.getAttribute("data-cta") || "unknown";
+            var ctaId = "consultant_" + sourceCta + "_telegram";
+            var placement = placementFromCta(sourceCta);
+
+            persistRouteContext("telegram", ctaId, placement);
+
+            trackFunnelEvent("consultant_telegram_click", {
+              step_name: "lead",
+              step_index: 1,
+              cta_id: ctaId,
+              placement: placement,
+              route_destination: "telegram"
             });
-          }
+
+            trackEvent("generate_lead", {
+              cta_id: ctaId,
+              placement: placement,
+              route_destination: "telegram",
+              page_variant: PAGE_VARIANT,
+              funnel_name: FUNNEL_NAME
+            });
+
+            trackEvent("select_content", {
+              content_type: "telegram_contact",
+              item_id: "telegram",
+              cta_id: ctaId,
+              placement: placement,
+              route_destination: "telegram",
+              page_variant: PAGE_VARIANT,
+              funnel_name: FUNNEL_NAME
+            });
+          });
+        });
+      }
+
+      function initCaseTracking() {
+        document.querySelectorAll("#cases a[href*='/case-']").forEach(function (link) {
+          link.addEventListener("click", function () {
+            var url = new URL(link.href);
+            var caseId = url.pathname.replace(/^\/|\/$/g, "");
+
+            trackFunnelEvent("consultant_case_click", {
+              step_name: "case_proof",
+              step_index: 1,
+              cta_id: caseId,
+              placement: "cases",
+              route_destination: url.href
+            });
+
+            trackEvent("select_content", {
+              content_type: "case_page",
+              item_id: caseId,
+              cta_id: caseId,
+              placement: "cases",
+              route_destination: url.href,
+              page_variant: PAGE_VARIANT,
+              funnel_name: FUNNEL_NAME
+            });
+          });
+        });
+      }
+
+      function initEcosystemTracking() {
+        document.querySelectorAll("#ecosystem a[href]").forEach(function (link) {
+          link.addEventListener("click", function () {
+            var url = new URL(link.href);
+            var itemId = url.pathname.replace(/^\/|\/$/g, "") || "home";
+
+            trackFunnelEvent("consultant_ecosystem_link_click", {
+              step_name: "ecosystem",
+              step_index: 1,
+              cta_id: itemId,
+              placement: "ecosystem",
+              route_destination: url.href
+            });
+
+            trackEvent("select_content", {
+              content_type: "ecosystem_page",
+              item_id: itemId,
+              cta_id: itemId,
+              placement: "ecosystem",
+              route_destination: url.href,
+              page_variant: PAGE_VARIANT,
+              funnel_name: FUNNEL_NAME
+            });
+          });
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", function () {
+        initReveals();
+        initVisibilityTracking();
+        initEngagementTracking();
+        initTelegramCtaTracking();
+        initCaseTracking();
+        initEcosystemTracking();
+
+        trackFunnelEvent("consultant_view", {
+          step_name: "page_view",
+          step_index: 1
+        });
+        trackEvent("consultant_page_view", {
+          page_variant: PAGE_VARIANT,
+          funnel_name: FUNNEL_NAME
         });
       });
     </script>
