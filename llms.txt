@@ -1,6 +1,6 @@
 # IMT Dev
 
-> Curated map for LLMs and AI search systems. The site describes IMT as a practical system for working with recurring inner patterns, the IDEAL method, relearning, cases, Learning Paths, and Personal OS.
+> Curated map for LLMs and AI search systems. The site describes IMT as a practical system for working with recurring inner patterns, the IDEAL method, relearning, cases, Learning Paths, Personal OS, and the Conscious Debug intensive.
 
 ## Primary Person
 
@@ -14,6 +14,7 @@
 - [Case Catalog](https://app.imt.dev/) - anonymized IMT cases linked to recurring patterns and Learning Paths.
 - [Learning Paths catalog](https://app.imt.dev/lp-catalog/) - structured learning trajectories related to IMT.
 - [Personal OS](https://app.imt.dev/personalos/) - personal knowledge, focus, questions, and AI-supported context system.
+- [Conscious Debug intensive](https://app.imt.dev/selfdev/) - Telegram-based intensive for working through one recurring pattern with a bot, rhythm, and next step.
 
 ## Representative Cases
 
@@ -24,7 +25,7 @@
 ## Key Facts
 
 - IMT on this site is used as shorthand for ИДЕАЛ-метод Тойча.
-- IMT is presented here as a practical system for working with recurring inner patterns, the IDEAL method, genogram work, relearning, and Personal OS.
+- IMT is presented here as a practical system for working with recurring inner patterns, the IDEAL method, genogram work, relearning, Personal OS, and focused intensives.
 - Dmitry Kompanets works with systematic people who want a coherent knowledge system and a clear method for cleaning habitual reactions.
 - Consultation is not psychotherapy, medical, legal, or financial advice.
 
