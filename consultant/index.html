@@ -343,14 +343,6 @@
         min-height: 70px;
       }
 
-      .nav-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        min-width: 0;
-      }
-
       .brand {
         display: flex;
         flex-direction: column;
@@ -402,79 +394,6 @@
         color: var(--paper);
         background: var(--ink);
         border-color: var(--ink);
-      }
-
-      .nav-toggle {
-        display: none;
-        position: relative;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        padding: 0;
-        border: 1px solid var(--line-strong);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.64);
-        color: var(--ink);
-      }
-
-      .nav-toggle::before {
-        content: "×";
-        position: absolute;
-        font-size: 24px;
-        line-height: 1;
-        font-weight: 400;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-      }
-
-      .nav-toggle span {
-        display: block;
-        position: absolute;
-        left: 50%;
-        width: 18px;
-        height: 2px;
-        border-radius: 999px;
-        background: currentColor;
-        transition:
-          transform 0.2s ease,
-          opacity 0.2s ease,
-          top 0.2s ease;
-        transform: translateX(-50%);
-      }
-
-      .nav-toggle span:nth-child(1) {
-        top: 14px;
-      }
-
-      .nav-toggle span:nth-child(2) {
-        top: 21px;
-      }
-
-      .nav-toggle span:nth-child(3) {
-        top: 28px;
-      }
-
-      .site-header[data-menu-open="true"] .nav-toggle span:nth-child(1) {
-        top: 21px;
-        transform: translateX(-50%) rotate(45deg);
-      }
-
-      .site-header[data-menu-open="true"] .nav-toggle span {
-        opacity: 0;
-      }
-
-      .site-header[data-menu-open="true"] .nav-toggle span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .site-header[data-menu-open="true"] .nav-toggle span:nth-child(3) {
-        top: 21px;
-        transform: translateX(-50%) rotate(-45deg);
-      }
-
-      .site-header[data-menu-open="true"] .nav-toggle::before {
-        opacity: 1;
       }
 
       .btn {
@@ -1330,19 +1249,11 @@
         }
 
         .nav {
-          display: grid;
+          align-items: flex-start;
+          flex-direction: column;
           gap: 10px;
           min-height: auto;
           padding: 12px 0;
-        }
-
-        .nav-top {
-          width: 100%;
-        }
-
-        .nav-toggle {
-          display: inline-flex;
-          flex: 0 0 auto;
         }
 
         .brand strong {
@@ -1354,30 +1265,16 @@
         }
 
         .nav-links {
-          display: none;
-          grid-template-columns: 1fr;
-          gap: 0;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 6px 14px;
           width: 100%;
-          padding: 12px 18px;
-          border: 1px solid var(--line);
-          border-radius: var(--radius);
-          background: rgba(255, 255, 255, 0.96);
-          box-shadow: var(--shadow);
-        }
-
-        .site-header[data-menu-open="true"] .nav-links {
-          display: grid;
+          font-size: 13px;
+          line-height: 1.2;
         }
 
         .nav-links a {
-          display: block;
-          padding: 12px 0;
-          border-bottom: 1px solid var(--line);
-          font-size: 15px;
-        }
-
-        .nav-links a:last-child {
-          border-bottom: 0;
+          padding: 0;
         }
 
         .nav-links a:not(.nav-cta) {
@@ -1385,12 +1282,18 @@
         }
 
         .nav-cta {
-          width: 100%;
-          margin-top: 4px;
-          padding: 14px 18px;
-          color: var(--paper);
-          background: var(--ink);
-          border-color: var(--ink);
+          min-height: auto;
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+          color: var(--ink-soft);
+          background: transparent;
+          font-weight: 500;
+        }
+
+        .nav-cta:hover {
+          color: var(--ink);
+          background: transparent;
         }
 
         .hero {
@@ -1524,23 +1427,10 @@
   <body>
     <header class="site-header">
       <div class="container nav">
-        <div class="nav-top">
-          <a class="brand" href="#top" aria-label="Дмитрий Компанец">
-            <strong>Дмитрий Компанец</strong>
-            <span>ИДЕАЛ-метод Тойча (ИМТ)</span>
-          </a>
-          <button
-            class="nav-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="site-nav"
-            aria-label="Открыть меню"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+        <a class="brand" href="#top" aria-label="Дмитрий Компанец">
+          <strong>Дмитрий Компанец</strong>
+          <span>ИДЕАЛ-метод Тойча (ИМТ)</span>
+        </a>
         <nav class="nav-links" id="site-nav" aria-label="Навигация по странице">
           <a href="#experience">Опыт</a>
           <a href="#method">Метод</a>
@@ -2033,8 +1923,8 @@
               >
                 <span class="artifact-thumb">
                   <img
-                    src="https://app.imt.dev/selfdev/assets/imt-intensive-telegram-os.webp"
-                    alt="Интенсив по Сознательному Дебагу"
+                    src="https://app.imt.dev/svg/lp-marn-filter.svg"
+                    alt="Иконка интенсива по Сознательному Дебагу"
                     loading="lazy"
                     decoding="async"
                   />
@@ -2327,57 +2217,6 @@
         });
       }
 
-      function initMobileNav() {
-        var header = document.querySelector(".site-header");
-        var toggle = document.querySelector(".nav-toggle");
-        var nav = document.getElementById("site-nav");
-        if (!header || !toggle || !nav) return;
-
-        function closeMenu() {
-          header.setAttribute("data-menu-open", "false");
-          toggle.setAttribute("aria-expanded", "false");
-          toggle.setAttribute("aria-label", "Открыть меню");
-        }
-
-        function openMenu() {
-          header.setAttribute("data-menu-open", "true");
-          toggle.setAttribute("aria-expanded", "true");
-          toggle.setAttribute("aria-label", "Закрыть меню");
-        }
-
-        function isOpen() {
-          return header.getAttribute("data-menu-open") === "true";
-        }
-
-        closeMenu();
-
-        toggle.addEventListener("click", function () {
-          if (isOpen()) {
-            closeMenu();
-          } else {
-            openMenu();
-          }
-        });
-
-        nav.querySelectorAll("a").forEach(function (link) {
-          link.addEventListener("click", closeMenu);
-        });
-
-        document.addEventListener("click", function (event) {
-          if (!isOpen()) return;
-          if (header.contains(event.target)) return;
-          closeMenu();
-        });
-
-        document.addEventListener("keydown", function (event) {
-          if (event.key === "Escape" && isOpen()) closeMenu();
-        });
-
-        window.addEventListener("resize", function () {
-          if (window.innerWidth > 760) closeMenu();
-        });
-      }
-
       function initCaseTracking() {
         document.querySelectorAll("#cases a[href*='/case-']").forEach(function (link) {
           link.addEventListener("click", function () {
@@ -2438,7 +2277,6 @@
       }
 
       window.addEventListener("DOMContentLoaded", function () {
-        initMobileNav();
         initReveals();
         initVisibilityTracking();
         initEngagementTracking();
