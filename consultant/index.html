@@ -899,6 +899,124 @@
         gap: 10px;
       }
 
+      .artifact-stack {
+        display: grid;
+        gap: 16px;
+      }
+
+      .artifact-primary {
+        display: grid;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24);
+      }
+
+      .artifact-primary-media {
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .artifact-primary-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .artifact-primary-copy {
+        display: grid;
+        gap: 10px;
+        padding: 20px 22px 22px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .artifact-kicker {
+        color: var(--gold);
+        font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .artifact-primary h3,
+      .artifact-item strong {
+        color: var(--paper);
+      }
+
+      .artifact-primary h3 {
+        font-size: 26px;
+        line-height: 1.15;
+      }
+
+      .artifact-primary p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 16px;
+      }
+
+      .artifact-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .artifact-item {
+        display: grid;
+        grid-template-columns: 84px minmax(0, 1fr);
+        gap: 16px;
+        align-items: center;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        color: inherit;
+        transition:
+          transform 0.24s ease,
+          border-color 0.24s ease,
+          background 0.24s ease;
+      }
+
+      .artifact-item:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .artifact-thumb {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.07);
+        padding: 14px;
+      }
+
+      .artifact-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .artifact-text {
+        display: grid;
+        gap: 5px;
+      }
+
+      .artifact-text strong {
+        font-size: 21px;
+        line-height: 1.18;
+      }
+
+      .artifact-text span {
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 15px;
+        line-height: 1.42;
+      }
+
       .link-row {
         display: grid;
         grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1fr);
@@ -1183,6 +1301,16 @@
 
         .step h3 {
           font-size: 20px;
+        }
+
+        .artifact-item {
+          grid-template-columns: 72px minmax(0, 1fr);
+          gap: 14px;
+        }
+
+        .artifact-primary h3,
+        .artifact-text strong {
+          font-size: 22px;
         }
 
         .link-row {
@@ -1628,38 +1756,88 @@
               держать в базе знаний, учебных траекториях, Personal OS и публичных кейсах.
             </p>
           </div>
-          <div class="link-list reveal">
-            <div class="link-row">
+          <div class="artifact-stack reveal">
+            <a
+              class="artifact-primary"
+              href="https://app.imt.dev/personalos/"
+              data-ecosystem-id="personalos"
+              data-placement="ecosystem"
+            >
+              <div class="artifact-primary-media">
+                <img
+                  src="https://app.imt.dev/personalos/assets/personal-os-system-map.png"
+                  alt="Карта Personal OS"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="artifact-primary-copy">
+                <div class="artifact-kicker">Primary artifact</div>
+                <h3>Personal OS</h3>
+                <p>Живая система документов, вопросов, AI-поддержки и регулярного обновления фокуса между консультациями.</p>
+              </div>
+            </a>
+
+            <div class="artifact-list">
               <a
+                class="artifact-item"
                 href="https://app.imt.dev/imt/"
                 data-ecosystem-id="imt-wiki"
                 data-placement="ecosystem"
-              >ИМТ Wiki</a>
-              <p>Термины, базовая онтология и логика работы с повторяющимися паттернами.</p>
-            </div>
-            <div class="link-row">
+              >
+                <span class="artifact-thumb">
+                  <img
+                    src="https://app.imt.dev/svg/lp-science-network.svg"
+                    alt="Иконка IMT Wiki"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="artifact-text">
+                  <strong>ИМТ Wiki</strong>
+                  <span>Термины, базовая онтология и логика работы с повторяющимися паттернами.</span>
+                </span>
+              </a>
+
               <a
+                class="artifact-item"
                 href="https://app.imt.dev/lp-catalog/"
                 data-ecosystem-id="lp-catalog"
                 data-placement="ecosystem"
-              >Каталог Learning Paths</a>
-              <p>Структурированные траектории для закрепления нового понимания в практике.</p>
-            </div>
-            <div class="link-row">
+              >
+                <span class="artifact-thumb">
+                  <img
+                    src="https://app.imt.dev/svg/lp-relearn-pipeline.svg"
+                    alt="Иконка каталога Learning Paths"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="artifact-text">
+                  <strong>Каталог Learning Paths</strong>
+                  <span>Структурированные траектории для закрепления нового понимания в практике.</span>
+                </span>
+              </a>
+
               <a
-                href="https://app.imt.dev/personalos/"
-                data-ecosystem-id="personalos"
-                data-placement="ecosystem"
-              >Personal OS</a>
-              <p>Личная система документов, вопросов, AI-поддержки и регулярного обновления фокуса.</p>
-            </div>
-            <div class="link-row">
-              <a
+                class="artifact-item"
                 href="https://app.imt.dev/case-feedback-truth-01/"
                 data-ecosystem-id="public-cases"
                 data-placement="ecosystem"
-              >Публичные кейсы</a>
-              <p>Анонимизированные разборы: от симптома к внутреннему закону и следующему шагу.</p>
+              >
+                <span class="artifact-thumb">
+                  <img
+                    src="https://app.imt.dev/svg/lp-patterns-focus.svg"
+                    alt="Иконка публичных кейсов"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="artifact-text">
+                  <strong>Публичные кейсы</strong>
+                  <span>Анонимизированные разборы: от симптома к внутреннему закону и следующему шагу.</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
