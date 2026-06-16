@@ -93,8 +93,8 @@
               },
               {
                 "@type": "WebPage",
-                "name": "Публичные кейсы ИМТ",
-                "url": "https://app.imt.dev/case-feedback-truth-01/"
+                "name": "Каталог кейсов ИМТ",
+                "url": "https://app.imt.dev/"
               }
             ]
           },
@@ -877,18 +877,19 @@
 
       .ecosystem {
         display: grid;
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
-        gap: 48px;
+        gap: 28px;
         align-items: start;
       }
 
       .ecosystem-copy {
         display: grid;
-        gap: 18px;
+        grid-template-columns: minmax(0, 0.94fr) minmax(0, 1fr);
+        gap: 28px 44px;
+        align-items: end;
       }
 
       .ecosystem-copy p {
-        max-width: 620px;
+        max-width: none;
         color: rgba(255, 255, 255, 0.72);
         font-size: 20px;
         line-height: 1.45;
@@ -901,11 +902,14 @@
 
       .artifact-stack {
         display: grid;
-        gap: 16px;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.76fr);
+        gap: 18px;
+        align-items: start;
       }
 
       .artifact-primary {
         display: grid;
+        min-height: 100%;
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 22px;
@@ -967,6 +971,7 @@
         grid-template-columns: 84px minmax(0, 1fr);
         gap: 16px;
         align-items: center;
+        min-height: 116px;
         padding: 14px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 20px;
@@ -1150,6 +1155,8 @@
         .story-grid,
         .method-layout,
         .ecosystem,
+        .ecosystem-copy,
+        .artifact-stack,
         .section-heading {
           grid-template-columns: 1fr;
         }
@@ -1749,11 +1756,14 @@
       <section id="ecosystem" class="section section-dark" data-track-visible="consultant_ecosystem_visible">
         <div class="container ecosystem">
           <div class="ecosystem-copy reveal">
-            <div class="section-kicker mono">после встречи</div>
-            <h2>Чтобы понимание не осталось разговором</h2>
+            <div>
+              <div class="section-kicker mono">после встречи</div>
+              <h2>Чтобы понимание не осталось разговором</h2>
+            </div>
             <p>
               На консультации мы формулируем паттерн и следующий шаг. Дальше опору можно
-              держать в базе знаний, учебных траекториях, Personal OS и публичных кейсах.
+              держать в базе знаний, учебных траекториях, Personal OS и каталоге
+              анонимизированных кейсов.
             </p>
           </div>
           <div class="artifact-stack reveal">
@@ -1767,7 +1777,8 @@
                 <img
                   src="https://app.imt.dev/personalos/assets/personal-os-system-map.png"
                   alt="Карта Personal OS"
-                  loading="lazy"
+                  loading="eager"
+                  fetchpriority="high"
                   decoding="async"
                 />
               </div>
@@ -1821,21 +1832,21 @@
 
               <a
                 class="artifact-item"
-                href="https://app.imt.dev/case-feedback-truth-01/"
-                data-ecosystem-id="public-cases"
+                href="https://app.imt.dev/"
+                data-ecosystem-id="case-catalog"
                 data-placement="ecosystem"
               >
                 <span class="artifact-thumb">
                   <img
                     src="https://app.imt.dev/svg/lp-patterns-focus.svg"
-                    alt="Иконка публичных кейсов"
+                    alt="Иконка каталога кейсов"
                     loading="lazy"
                     decoding="async"
                   />
                 </span>
                 <span class="artifact-text">
-                  <strong>Публичные кейсы</strong>
-                  <span>Анонимизированные разборы: от симптома к внутреннему закону и следующему шагу.</span>
+                  <strong>Каталог кейсов</strong>
+                  <span>Анонимизированные разборы: от симптома к внутреннему закону, паттерну и следующему шагу.</span>
                 </span>
               </a>
             </div>
