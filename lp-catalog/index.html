@@ -29,6 +29,53 @@
       name="description"
       content="Каталог Learning Paths IMT: Переобучение, Формула сознания, Концепция себя, Научный трек и Паттерны поведения."
     />
+    <link rel="canonical" href="https://app.imt.dev/lp-catalog/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Learning Paths — Каталог IMT" />
+    <meta property="og:description" content="Пять Learning Paths IMT: отдельные траектории входа в систему через паттерны, self, science, переобучение и формулу сознания." />
+    <meta property="og:url" content="https://app.imt.dev/lp-catalog/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Learning Paths — Каталог IMT" />
+    <meta name="twitter:description" content="Пять Learning Paths IMT: отдельные траектории входа в систему через паттерны, self, science, переобучение и формулу сознания." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://app.imt.dev/#website",
+            "url": "https://app.imt.dev/",
+            "name": "IMT Dev"
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://app.imt.dev/lp-catalog/#webpage",
+            "url": "https://app.imt.dev/lp-catalog/",
+            "name": "Learning Paths — Каталог IMT",
+            "description": "Пять Learning Paths IMT: отдельные траектории входа в систему через паттерны, self, science, переобучение и формулу сознания.",
+            "isPartOf": {
+              "@id": "https://app.imt.dev/#website"
+            },
+            "about": [
+              {
+                "@type": "Thing",
+                "name": "Learning Paths"
+              },
+              {
+                "@type": "Thing",
+                "name": "ИДЕАЛ-метод Тойча (ИМТ)"
+              }
+            ],
+            "relatedLink": [
+              "https://app.imt.dev/consultant/",
+              "https://app.imt.dev/imt/",
+              "https://app.imt.dev/",
+              "https://app.imt.dev/personalos/"
+            ]
+          }
+        ]
+      }
+    </script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
@@ -226,6 +273,32 @@
         font-size: clamp(1.5rem, 3vw, 2rem);
         line-height: 1.08;
         letter-spacing: -0.04em;
+      }
+
+      .system-links {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .system-links a {
+        display: grid;
+        gap: 4px;
+        padding: 14px 16px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f7fb;
+        text-decoration: none;
+      }
+
+      .system-links strong {
+        font-size: 0.96rem;
+      }
+
+      .system-links span {
+        color: rgba(245, 247, 251, 0.72);
+        font-size: 0.88rem;
       }
 
       .catalog {
@@ -502,6 +575,24 @@
             <aside class="hero-note">
               <span class="course-kicker">Навигация по продуктам</span>
               <strong>Это части полного курса - выбери с чего начать</strong>
+              <div class="system-links">
+                <a href="https://app.imt.dev/consultant/">
+                  <strong>Дмитрий Компанец / consultant</strong>
+                  <span>Авторская страница и 1:1 формат работы.</span>
+                </a>
+                <a href="https://app.imt.dev/imt/">
+                  <strong>ИМТ Wiki</strong>
+                  <span>Главная method-page с понятиями и логикой метода.</span>
+                </a>
+                <a href="https://app.imt.dev/">
+                  <strong>Каталог кейсов</strong>
+                  <span>Обезличенные разборы, связанные с Learning Paths.</span>
+                </a>
+                <a href="https://app.imt.dev/personalos/">
+                  <strong>Personal OS</strong>
+                  <span>Система контекста и AI-поддержки между шагами.</span>
+                </a>
+              </div>
             </aside>
           </div>
         </div>

@@ -1,6 +1,6 @@
 # IMT Dev
 
-> Curated map for LLMs and AI search systems. The site describes IMT as a practical system for working with recurring inner patterns, the IDEAL method, relearning, ontology, cases, Learning Paths, and Personal OS.
+> Curated map for LLMs and AI search systems. The site describes IMT as a practical system for working with recurring inner patterns, the IDEAL method, relearning, cases, Learning Paths, and Personal OS.
 
 ## Primary Person
 
@@ -9,8 +9,9 @@
 
 ## Primary Pages
 
-- [Consultant page](https://app.imt.dev/consultant/) - consultation formats, biography, method, cases, prices, and contact through Telegram.
-- [IMT Wiki](https://app.imt.dev/imt/) - terms, ontology, and method logic.
+- [Consultant page](https://app.imt.dev/consultant/) - main author page, 1:1 work format, cases, method context, and contact through Telegram.
+- [IMT Wiki](https://app.imt.dev/imt/) - main method page with terms, method logic, and core reference context.
+- [Case Catalog](https://app.imt.dev/) - anonymized IMT cases linked to recurring patterns and Learning Paths.
 - [Learning Paths catalog](https://app.imt.dev/lp-catalog/) - structured learning trajectories related to IMT.
 - [Personal OS](https://app.imt.dev/personalos/) - personal knowledge, focus, questions, and AI-supported context system.
 
@@ -22,7 +23,7 @@
 
 ## Key Facts
 
-- IMT on this site does not mean body mass index.
+- IMT on this site is used as shorthand for ИДЕАЛ-метод Тойча.
 - IMT is presented here as a practical system for working with recurring inner patterns, the IDEAL method, genogram work, relearning, and Personal OS.
 - Dmitry Kompanets works with systematic people who want a coherent knowledge system and a clear method for cleaning habitual reactions.
 - Consultation is not psychotherapy, medical, legal, or financial advice.
