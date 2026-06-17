@@ -85,7 +85,7 @@
             "name": "Дмитрий Компанец — консультации по ИДЕАЛ-методу Тойча (ИМТ)",
             "description": "1:1 консультации по ИДЕАЛ-методу Тойча (ИМТ) для системных людей: повторяющиеся реакции, причинно-следственные связи, Personal OS и следующий практический шаг.",
             "inLanguage": "ru",
-            "dateModified": "2026-06-16",
+            "dateModified": "2026-06-17",
             "isPartOf": { "@id": "https://app.imt.dev/#website" },
             "breadcrumb": { "@id": "https://app.imt.dev/consultant/#breadcrumb" },
             "about": { "@id": "https://app.imt.dev/consultant/#person" },
@@ -110,6 +110,11 @@
                 "@type": "WebPage",
                 "name": "Каталог кейсов ИМТ",
                 "url": "https://app.imt.dev/"
+              },
+              {
+                "@type": "WebPage",
+                "name": "Книга Сознательный Дебаг",
+                "url": "https://debug.imt.dev/"
               }
             ]
           },
@@ -320,19 +325,14 @@
       }
 
       section[id] {
-        scroll-margin-top: 92px;
+        scroll-margin-top: 28px;
       }
 
       .site-header {
-        position: fixed;
-        z-index: 30;
-        top: 0;
-        left: 0;
-        width: 100%;
+        position: relative;
         border-bottom: 1px solid var(--line);
-        background: rgba(249, 245, 238, 0.9);
+        background: var(--warm-soft);
         color: var(--ink);
-        backdrop-filter: blur(16px);
       }
 
       .nav {
@@ -451,7 +451,7 @@
 
       .hero {
         min-height: 760px;
-        padding: 132px 0 72px;
+        padding: 72px 0 72px;
         background: var(--warm);
         border-bottom: 1px solid var(--line);
       }
@@ -1245,7 +1245,7 @@
         }
 
         .site-header {
-          position: sticky;
+          position: relative;
         }
 
         .nav {
@@ -1932,6 +1932,26 @@
                 <span class="artifact-text">
                   <strong>Интенсив по Сознательному Дебагу</strong>
                   <span>Telegram-интенсив для закрепления одного повторяющегося сценария через ритм вопросов, бота и следующий шаг.</span>
+                </span>
+              </a>
+
+              <a
+                class="artifact-item"
+                href="https://debug.imt.dev/"
+                data-ecosystem-id="debug-book"
+                data-placement="ecosystem"
+              >
+                <span class="artifact-thumb">
+                  <img
+                    src="https://debug.imt.dev/favicon.svg"
+                    alt="Иконка книги Сознательный Дебаг"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="artifact-text">
+                  <strong>Книга "Сознательный Дебаг"</strong>
+                  <span>Современная адаптация книги о совершенном здоровье для спокойного чтения, понимания и применения между встречами.</span>
                 </span>
               </a>
             </div>
