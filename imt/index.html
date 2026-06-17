@@ -179,6 +179,47 @@
             text-decoration: none;
         }
 
+        .page-footer {
+            margin-top: var(--space-4);
+        }
+
+        .page-footer-shell {
+            display: grid;
+            gap: 12px;
+            padding: 18px 22px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .page-footer-title {
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .page-footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .page-footer-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: #fff;
+            color: #2f415f;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
         .hero-metaphor {
             position: absolute;
             top: 22px;
@@ -639,6 +680,11 @@
                 justify-content: center;
             }
 
+            .page-footer-nav a {
+                width: 100%;
+                justify-content: center;
+            }
+
             .mobile-cta {
                 position: fixed;
                 left: 0;
@@ -667,11 +713,7 @@
             <main class="main">
                 <header class="doc-header" id="hero">
                     <div class="doc-header-nav">
-                        <a href="https://app.imt.dev/consultant/">Дмитрий Компанец / consultant</a>
-                        <a href="https://app.imt.dev/">Каталог кейсов</a>
-                        <a href="https://app.imt.dev/lp-catalog/">Learning Paths</a>
-                        <a href="https://app.imt.dev/personalos/">Personal OS</a>
-                        <a href="https://app.imt.dev/selfdev/">Сознательный Дебаг</a>
+                        <a href="https://app.imt.dev/selfdev/">Интенсив</a>
                     </div>
                     <div class="hero-metaphor" aria-hidden="true">
                         <svg viewBox="0 0 100 100" focusable="false">
@@ -684,7 +726,7 @@
                         </svg>
                     </div>
                     <div class="meta-row">
-                        <span class="meta-tag">version: IMT-WIKI v1.0</span>
+                        <span class="meta-tag">version: IMT-WIKI v1.1</span>
                         <span class="meta-tag">last updated: 2026-06-17</span>
                         <span class="meta-tag">format: techdoc</span>
                     </div>
@@ -1024,7 +1066,6 @@
                         <li>Find a Grave. <a href="https://www.findagrave.com/memorial/107297016/joel-marie-teutsch" target="_blank" rel="noopener noreferrer">Joel Marie Teutsch</a></li>
                         <li>Coda Gene. <a href="https://www.coda-gene.com/the-ideal-method-by-dr-champion-kurt" target="_blank" rel="noopener noreferrer">The IDEAL Method by Dr. Champion Kurt</a></li>
                         <li>IDEAL Law to Success. <a href="https://ideallawtosuccess.com/about-ideal-methods-teutsch" target="_blank" rel="noopener noreferrer">About IDEAL-Methods Teutsch</a></li>
-                        <li>WorldCat. <a href="https://search.worldcat.org/title/From-here-to-greater-happiness-%3A-or-How-to-change-your-life-for-good%21/oclc/2074806" target="_blank" rel="noopener noreferrer">From Here to Greater Happiness</a></li>
                         <li>WorldCat. <a href="https://search.worldcat.org/title/from-here-to-happiness-understand-and-raise-your-consciousness/oclc/13954221" target="_blank" rel="noopener noreferrer">From Here to Happiness: Understand and Raise Your Consciousness</a></li>
                         <li>Циклопедия / Cyclowiki. <a href="https://cyclowiki.org/wiki/%D0%A7%D0%B5%D0%BC%D0%BF%D0%B8%D0%BE%D0%BD_%D0%A2%D0%BE%D0%B9%D1%87" target="_blank" rel="noopener noreferrer">Чемпион Тойч</a></li>
                         <li>АНО ИМГА. <a href="https://anoimga.ru/" target="_blank" rel="noopener noreferrer">Институт ментальной генетики и андрофизики</a></li>
@@ -1037,7 +1078,7 @@
                 <article class="product-card">
                     <h3>IMT Wiki</h3>
                     <div class="product-price">IDEAL</div>
-                    <div class="product-meta">Справочная страница · техдок · версия 1.0</div>
+                    <div class="product-meta">Справочная страница · техдок · версия 1.1</div>
                     <div class="stack-buttons">
                         <a class="btn btn-primary" href="#schema">Смотреть схему</a>
                         <a class="btn btn-secondary" href="#sources">Источники</a>
@@ -1064,6 +1105,20 @@
                 </nav>
             </aside>
         </div>
+
+        <footer class="page-footer">
+            <div class="container">
+                <div class="page-footer-shell">
+                    <div class="page-footer-title">Системные страницы IMT</div>
+                    <nav class="page-footer-nav" aria-label="Системные страницы IMT">
+                        <a href="https://app.imt.dev/consultant/">Дмитрий Компанец / consultant</a>
+                        <a href="https://app.imt.dev/">Каталог кейсов</a>
+                        <a href="https://app.imt.dev/lp-catalog/">Learning Paths</a>
+                        <a href="https://app.imt.dev/personalos/">Personal OS</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <div class="mobile-cta">
