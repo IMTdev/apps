@@ -15,6 +15,7 @@
 - [Learning Paths catalog](https://app.imt.dev/lp-catalog/) - structured learning trajectories related to IMT.
 - [Personal OS](https://app.imt.dev/personalos/) - personal knowledge, focus, questions, and AI-supported context system.
 - [Conscious Debug intensive](https://app.imt.dev/selfdev/) - Telegram-based intensive for working through one recurring pattern with a bot, rhythm, and next step.
+- [Comparison of change systems](https://app.imt.dev/comparison/) - comparison of teachings and relearning technologies: worldview, diagnosis, practice, purpose, IDEAL method, and IMT relearning.
 
 ## Representative Cases
 
@@ -26,6 +27,7 @@
 
 - IMT on this site is used as shorthand for ИДЕАЛ-метод Тойча.
 - IMT is presented here as a practical system for working with recurring inner patterns, the IDEAL method, genogram work, relearning, Personal OS, and focused intensives.
+- The comparison page separates full teachings from practical technologies and positions the IDEAL method / IMT as both a worldview layer and a relearning technology.
 - Dmitry Kompanets works with systematic people who want a coherent knowledge system and a clear method for cleaning habitual reactions.
 - Consultation is not psychotherapy, medical, legal, or financial advice.
 

@@ -37,6 +37,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://app.imt.dev/comparison/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://app.imt.dev/case-feedback-truth-01/</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
