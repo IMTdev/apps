@@ -609,6 +609,9 @@
       const PAGE_VARIANT = "comparison_v2_research";
       const FUNNEL_NAME = "comparison";
       const SESSION_ROUTE_KEY = "imt_comparison_route_context";
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        document.querySelectorAll(".corpus-evidence").forEach((node) => node.removeAttribute("open"));
+      }
       function trackEvent(name, params = {}) { if (typeof window.gtag === "function") window.gtag("event", name, params); }
       function trackFunnelEvent(name, params = {}) { trackEvent(name, { funnel_name: FUNNEL_NAME, page_variant: PAGE_VARIANT, page_location: window.location.href, ...params }); }
       trackFunnelEvent("comparison_view", { page_title: document.title });
