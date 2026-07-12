@@ -53,9 +53,11 @@
       .corpus-evidence summary::after{content:"+";font-family:"IBM Plex Mono",monospace;color:var(--green-dark)}
       .corpus-evidence[open] summary::after{content:"−"}
       .evidence-body{padding:0 20px 20px}
-      .evidence-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
-      .evidence-list li{display:grid;grid-template-columns:minmax(190px,.34fr) minmax(0,1fr);gap:18px;padding-top:12px;border-top:1px solid var(--line)}
-      .evidence-list span{color:var(--ink-soft)}
+      .evidence-list{display:grid;gap:0;margin:0;padding:0;list-style:none}
+      .evidence-list li{display:flex;flex-direction:column;gap:10px;padding:20px 0;border-top:1px solid var(--line)}
+      .evidence-list li>span{order:1;color:var(--ink);font-size:19px;line-height:1.52}
+      .evidence-source{order:2;align-self:flex-start;color:var(--green-dark);font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+      .debate-axis[hidden]{display:none!important}
       .source-chip{color:var(--green-dark);font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere;transition:color .15s ease,background-color .15s ease}
       .source-chip:hover,.source-chip:focus-visible{color:var(--ink);background:rgba(103,201,174,.16)}
       .debate-axis{margin:28px 0 38px;padding:24px;border-left:3px solid var(--gold);background:var(--warm-soft)}
@@ -70,6 +72,38 @@
       .source-map-list li{padding:16px 0;border-top:1px solid var(--line)}
       .source-map-list span{color:var(--ink-soft)}
       @media(max-width:760px){.evidence-list li,.debate-grid,.source-map-list{grid-template-columns:1fr}.corpus-evidence summary{padding:16px}.evidence-body{padding:0 16px 16px}.debate-axis{padding:18px}}
+
+      #tables .module-body,[data-observe="5-samaya-poleznaya-matrica-tehnologiy"] .module-body{max-width:none}
+      .matrix-selector fieldset{margin:22px 0;padding:0;border:0}
+      .matrix-selector legend{margin-bottom:10px;font-weight:800}
+      .matrix-option-list{display:flex;flex-wrap:wrap;gap:8px}
+      .matrix-option{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:7px 11px;border:1px solid var(--line-strong);border-radius:4px;background:#fff;font-size:13px;cursor:pointer;transition:border-color .15s ease,background-color .15s ease,opacity .15s ease}
+      .matrix-option:has(input:checked){border-color:var(--green);background:rgba(103,201,174,.12)}
+      .matrix-option:has(input:disabled){opacity:.45;cursor:not-allowed}
+      .matrix-option input{margin:0;accent-color:var(--green)}
+      .matrix-selection-status{display:block;margin-top:9px;color:var(--ink-mute);font-size:13px}
+      .focused-matrix-grid{--system-count:3;display:grid;width:100%;border-top:1px solid var(--line);border-left:1px solid var(--line);background:#fff}
+      .focused-row{display:grid;grid-column:1/-1;grid-template-columns:minmax(128px,.72fr) repeat(var(--system-count),minmax(0,1fr))}
+      .focused-row>*{min-width:0;padding:12px 10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+      .focused-head{background:var(--warm-soft);font-size:13px;font-weight:800}
+      .criterion-cell{color:var(--ink);font-size:12px;font-weight:800}
+      .matrix-value{color:var(--ink-soft);font-size:13px;line-height:1.4}
+      .matrix-value strong{display:none}
+      .tone-strength .criterion-cell{box-shadow:inset 3px 0 0 var(--green);background:rgba(36,124,104,.06)}
+      .tone-weak .criterion-cell{box-shadow:inset 3px 0 0 #a7473f;background:rgba(167,71,63,.06)}
+      .full-matrix{margin-top:22px;border-top:1px solid var(--line)}
+      .full-matrix summary{padding:16px 0;cursor:pointer;font-weight:800}
+      .full-matrix .table-scroll{margin-top:0}
+      @media(max-width:760px){
+        .focused-matrix-grid{display:block;border-left:0}
+        .focused-row{display:block;margin-bottom:18px;border:1px solid var(--line)}
+        .focused-head{display:none}
+        .focused-row>*{border-right:0}
+        .criterion-cell{padding:10px 12px;background:var(--warm-soft)}
+        .matrix-value{padding:12px}
+        .matrix-value strong{display:block;margin-bottom:4px;font-size:13px}
+        .matrix-option{font-size:12px}
+      }
       @media(prefers-reduced-motion:reduce){.source-chip{transition:none}}
     </style>
   </head>
@@ -97,7 +131,7 @@
             <div>
               <div class="stream-pills">
                 <span class="stream-label mono">сравнение систем</span>
-                <span class="stream-pill">last updated: 2026-07-10</span>
+                <span class="stream-pill">last updated: 2026-07-12</span>
                 <span class="stream-pill">учения + методики</span>
               </div>
               <span class="research-edition">research edition · опоры из первоисточников</span>
@@ -186,14 +220,14 @@
 <details class="corpus-evidence" open data-v2-only>
   <summary>Опоры из корпуса · Эпиктет / «Энхиридион»</summary>
   <div class="evidence-body"><ul class="evidence-list">
-    <li><a class="source-chip" href="https://epictetus.2pub.me/concepts/dihotomiya-kontrolya">epictetus / dihotomiya-kontrolya</a><span>Практика начинается со строгого различения: суждение, побуждение и выбор подвластны человеку; тело, имущество, репутация и должности не подвластны ему полностью.</span></li>
-    <li><a class="source-chip" href="https://epictetus.2pub.me/concepts/sudzhdeniya-ne-veshchi">epictetus / sudzhdeniya-ne-veshchi</a><span>Между событием и страданием стоит принятое о нём суждение. Поэтому точка приложения работы переносится с внешнего события на собственную оценку.</span></li>
-    <li><a class="source-chip" href="https://epictetus.2pub.me/concepts/proairesis">epictetus / proairesis</a><span>Свобода связывается со способностью выбора и согласия, а не с возможностью управлять всеми обстоятельствами.</span></li>
+    <li><span>Практика начинается со строгого различения: суждение, побуждение и выбор подвластны человеку; тело, имущество, репутация и должности не подвластны ему полностью.</span><a class="source-chip evidence-source" href="https://epictetus.2pub.me/concepts/dihotomiya-kontrolya">Эпиктет, «Энхиридион»</a></li>
+    <li><span>Между событием и страданием стоит принятое о нём суждение. Поэтому точка приложения работы переносится с внешнего события на собственную оценку.</span><a class="source-chip evidence-source" href="https://epictetus.2pub.me/concepts/sudzhdeniya-ne-veshchi">Эпиктет, «Энхиридион»</a></li>
+    <li><span>Свобода связывается со способностью выбора и согласия, а не с возможностью управлять всеми обстоятельствами.</span><a class="source-chip evidence-source" href="https://epictetus.2pub.me/concepts/proairesis">Эпиктет, «Энхиридион»</a></li>
   </ul></div>
 </details>
 <!-- V2:EVIDENCE:END -->
 <!-- V2:DEBATE:START -->
-<aside class="debate-axis" aria-label="Ось спора" data-v2-only>
+<aside class="debate-axis" aria-label="Ось спора" data-v2-only hidden>
   <h4>Ось спора · как освобождаться от страдания</h4>
   <div class="debate-grid">
     <div class="debate-side"><strong>Эпиктет</strong><p>Возвращает свободу через различение подвластного и проверку суждения о событии.</p><a class="source-chip" href="https://epictetus.2pub.me/concepts/dihotomiya-kontrolya">dihotomiya-kontrolya</a></div>
@@ -203,7 +237,7 @@
 </aside>
 <!-- V2:DEBATE:END -->
 <!-- V2:DEBATE:START -->
-<aside class="debate-axis" aria-label="Ось спора" data-v2-only>
+<aside class="debate-axis" aria-label="Ось спора" data-v2-only hidden>
   <h4>Ось спора · что делать с волей и страданием</h4>
   <div class="debate-grid">
     <div class="debate-side"><strong>Шопенгауэр</strong><p>Ненасытность желания воспроизводит боль; мудрость связывается с ограничением и ослаблением власти воли.</p><a class="source-chip" href="https://schopenhauer.2pub.me/concepts/mayatnik_boli_i_skuki">mayatnik-boli-i-skuki</a></div>
@@ -224,15 +258,15 @@
 <details class="corpus-evidence" open data-v2-only>
   <summary>Опоры из корпусов · христианская линия</summary>
   <div class="evidence-body"><ul class="evidence-list">
-    <li><a class="source-chip" href="https://ignatius.2pub.me/concepts/nachalo-i-osnovanie">ignatius / nachalo-i-osnovanie</a><span>Игнатий начинает с цели человека и оценивает остальные средства по тому, помогают ли они этой цели.</span></li>
-    <li><a class="source-chip" href="https://tolstoy.2pub.me/concepts/vera-sila-zhizni">tolstoy / vera-sila-zhizni</a><span>В «Исповеди» вера определяется как знание смысла жизни, благодаря которому человек продолжает жить даже перед лицом страдания и смерти.</span></li>
-    <li><a class="source-chip" href="https://pascal.2pub.me/concepts/serdtse_i_razum">pascal / serdtse-i-razum</a><span>Паскаль различает работу рассуждения и непосредственное узнавание первых начал «сердцем»; это не простая оппозиция эмоции и логики.</span></li>
-    <li><a class="source-chip" href="https://larochefoucauld.2pub.me/concepts/amour_propre">larochefoucauld / amour-propre</a><span>Ларошфуко показывает, как любовь к себе маскируется под добродетель, дружбу и даже самоотречение. Это усиливает тему проверки скрытого мотива и самообмана.</span></li>
+    <li><span>Игнатий начинает с цели человека и оценивает остальные средства по тому, помогают ли они этой цели.</span><a class="source-chip evidence-source" href="https://ignatius.2pub.me/concepts/nachalo-i-osnovanie">Игнатий Лойола, «Духовные упражнения»</a></li>
+    <li><span>В «Исповеди» вера определяется как знание смысла жизни, благодаря которому человек продолжает жить даже перед лицом страдания и смерти.</span><a class="source-chip evidence-source" href="https://tolstoy.2pub.me/concepts/vera-sila-zhizni">Лев Толстой, «Исповедь»</a></li>
+    <li><span>Паскаль различает работу рассуждения и непосредственное узнавание первых начал «сердцем»; это не простая оппозиция эмоции и логики.</span><a class="source-chip evidence-source" href="https://pascal.2pub.me/concepts/serdtse_i_razum">Блез Паскаль, «Мысли»</a></li>
+    <li><span>Ларошфуко показывает, как любовь к себе маскируется под добродетель, дружбу и даже самоотречение. Это усиливает тему проверки скрытого мотива и самообмана.</span><a class="source-chip evidence-source" href="https://larochefoucauld.2pub.me/concepts/amour_propre">Франсуа де Ларошфуко, «Максимы»</a></li>
   </ul></div>
 </details>
 <!-- V2:EVIDENCE:END -->
 <!-- V2:DEBATE:START -->
-<aside class="debate-axis" aria-label="Ось спора" data-v2-only>
+<aside class="debate-axis" aria-label="Ось спора" data-v2-only hidden>
   <h4>Ось спора · как исследовать себя</h4>
   <div class="debate-grid">
     <div class="debate-side"><strong>Игнатий Лойола</strong><p>Предлагает дисциплинированную последовательность упражнений, испытание совести и различение движения помыслов относительно выбранной цели.</p><a class="source-chip" href="https://ignatius.2pub.me/concepts/ispytanie-sovesti">ispytanie-sovesti</a></div>
@@ -262,9 +296,9 @@
 <details class="corpus-evidence" open data-v2-only>
   <summary>Сопоставительный контраст · Лао-цзы / «Дао дэ цзин»</summary>
   <div class="evidence-body"><ul class="evidence-list">
-    <li><a class="source-chip" href="https://laozi.2pub.me/concepts/wuwei">laozi / wuwei</a><span>Недеяние описывает не пассивность, а действие без насилия над ходом вещей и без попытки форсировать результат.</span></li>
-    <li><a class="source-chip" href="https://laozi.2pub.me/concepts/ziran">laozi / ziran</a><span>Естественность означает «само-так»: возможность вещам разворачиваться из собственной природы, а не из навязанной схемы.</span></li>
-    <li><a class="source-chip" href="https://laozi.2pub.me/concepts/water">laozi / water</a><span>Образ воды показывает мягкую силу, которая не спорит с твёрдым напрямую, но со временем преодолевает его.</span></li>
+    <li><span>Недеяние описывает не пассивность, а действие без насилия над ходом вещей и без попытки форсировать результат.</span><a class="source-chip evidence-source" href="https://laozi.2pub.me/concepts/wuwei">Лао-цзы, «Дао дэ цзин»</a></li>
+    <li><span>Естественность означает «само-так»: возможность вещам разворачиваться из собственной природы, а не из навязанной схемы.</span><a class="source-chip evidence-source" href="https://laozi.2pub.me/concepts/ziran">Лао-цзы, «Дао дэ цзин»</a></li>
+    <li><span>Образ воды показывает мягкую силу, которая не спорит с твёрдым напрямую, но со временем преодолевает его.</span><a class="source-chip evidence-source" href="https://laozi.2pub.me/concepts/water">Лао-цзы, «Дао дэ цзин»</a></li>
   </ul><p><strong>Граница сопоставления:</strong> эти опоры дают полезный контраст к дисциплине и различению в йоге и Веданте, но не делают даосизм их разновидностью.</p></div>
 </details>
 <!-- V2:EVIDENCE:END -->
@@ -280,10 +314,10 @@
 <details class="corpus-evidence" open data-v2-only>
   <summary>Опоры из корпусов · деятельность, характер и цель</summary>
   <div class="evidence-body"><ul class="evidence-list">
-    <li><a class="source-chip" href="https://goethe.2pub.me/concepts/trebovanie_dnya">goethe / trebovanie-dnya</a><span>Гёте возвращает абстрактный долг к ближайшей конкретной задаче: характер проявляется в том, как человек отвечает на требование сегодняшнего дня.</span></li>
-    <li><a class="source-chip" href="https://goethe.2pub.me/concepts/poznanie_cherez_deystvie">goethe / poznanie-cherez-deystvie</a><span>Самопознание проверяется деятельностью. Человек узнаёт себя не только наблюдением, но и тем, что способен сделать в реальной ситуации.</span></li>
-    <li><a class="source-chip" href="https://goethe.2pub.me/concepts/deyatelnost_i_mera">goethe / deyatelnost-i-mera</a><span>Действие требует знания и меры: ограничение здесь выступает условием мастерства, а не признаком ущербности.</span></li>
-    <li><a class="source-chip" href="https://adler.2pub.me/concepts/stil_zhizni">adler / stil-zhizni</a><span>Адлер описывает стиль жизни как устойчивое единство цели и способов действия. Это современная опора для разговора о характере как повторяемой организации поведения.</span></li>
+    <li><span>Гёте возвращает абстрактный долг к ближайшей конкретной задаче: характер проявляется в том, как человек отвечает на требование сегодняшнего дня.</span><a class="source-chip evidence-source" href="https://goethe.2pub.me/concepts/trebovanie_dnya">Иоганн Вольфганг Гёте, «Максимы и размышления»</a></li>
+    <li><span>Самопознание проверяется деятельностью. Человек узнаёт себя не только наблюдением, но и тем, что способен сделать в реальной ситуации.</span><a class="source-chip evidence-source" href="https://goethe.2pub.me/concepts/poznanie_cherez_deystvie">Иоганн Вольфганг Гёте, «Максимы и размышления»</a></li>
+    <li><span>Действие требует знания и меры: ограничение здесь выступает условием мастерства, а не признаком ущербности.</span><a class="source-chip evidence-source" href="https://goethe.2pub.me/concepts/deyatelnost_i_mera">Иоганн Вольфганг Гёте, «Максимы и размышления»</a></li>
+    <li><span>Адлер описывает стиль жизни как устойчивое единство цели и способов действия. Это современная опора для разговора о характере как повторяемой организации поведения.</span><a class="source-chip evidence-source" href="https://adler.2pub.me/concepts/stil_zhizni">Альфред Адлер, «Понимание человеческой природы»</a></li>
   </ul></div>
 </details>
 <!-- V2:EVIDENCE:END -->
@@ -299,14 +333,14 @@
 <details class="corpus-evidence" open data-v2-only>
   <summary>Опоры из корпуса · Конфуций / «Лунь юй»</summary>
   <div class="evidence-body"><ul class="evidence-list">
-    <li><a class="source-chip" href="https://confucius.2pub.me/concepts/ren">confucius / ren</a><span>Человечность — не врождённая мягкость, а достигаемое в отношениях качество, связанное с преодолением себя и практикой.</span></li>
-    <li><a class="source-chip" href="https://confucius.2pub.me/concepts/li">confucius / li</a><span>Ритуальная форма воспитывает внутреннее, но без человечности превращается в пустую форму. Поэтому li нельзя сводить к этикету.</span></li>
-    <li><a class="source-chip" href="https://confucius.2pub.me/principles/samovospitanie">confucius / samovospitanie</a><span>Проверка начинается с себя: благородный человек ищет причину и меру собственного действия, а не только оценивает других.</span></li>
+    <li><span>Человечность — не врождённая мягкость, а достигаемое в отношениях качество, связанное с преодолением себя и практикой.</span><a class="source-chip evidence-source" href="https://confucius.2pub.me/concepts/ren">Конфуций, «Лунь юй»</a></li>
+    <li><span>Ритуальная форма воспитывает внутреннее, но без человечности превращается в пустую форму. Поэтому li нельзя сводить к этикету.</span><a class="source-chip evidence-source" href="https://confucius.2pub.me/concepts/li">Конфуций, «Лунь юй»</a></li>
+    <li><span>Проверка начинается с себя: благородный человек ищет причину и меру собственного действия, а не только оценивает других.</span><a class="source-chip evidence-source" href="https://confucius.2pub.me/principles/samovospitanie">Конфуций, «Лунь юй»</a></li>
   </ul></div>
 </details>
 <!-- V2:EVIDENCE:END -->
 <!-- V2:DEBATE:START -->
-<aside class="debate-axis" aria-label="Ось спора" data-v2-only>
+<aside class="debate-axis" aria-label="Ось спора" data-v2-only hidden>
   <h4>Ось спора · форма или недеяние</h4>
   <div class="debate-grid">
     <div class="debate-side"><strong>Конфуций</strong><p>Человечность воспитывается через отношения, обучение, ритуальную форму и исправление собственного поведения.</p><a class="source-chip" href="https://confucius.2pub.me/concepts/li">li</a></div>
@@ -411,9 +445,9 @@
 <details class="corpus-evidence" open data-v2-only>
   <summary>Опоры из корпуса · стоическая практика</summary>
   <div class="evidence-body"><ul class="evidence-list">
-    <li><a class="source-chip" href="https://epictetus.2pub.me/concepts/dihotomiya-kontrolya">epictetus / dihotomiya-kontrolya</a><span>Первый шаг упражнения — не «повысить влияние», а отделить собственный выбор от всего, чем человек не распоряжается полностью.</span></li>
-    <li><a class="source-chip" href="https://epictetus.2pub.me/concepts/sudzhdeniya-ne-veshchi">epictetus / sudzhdeniya-ne-veshchi</a><span>Проверка реакции направлена на суждение: какое значение было присвоено событию и почему оно принято за благо или зло.</span></li>
-    <li><a class="source-chip" href="https://epictetus.2pub.me/concepts/proairesis">epictetus / proairesis</a><span>Практика завершается выбором достойного действия, а не только интеллектуальным объяснением эмоции.</span></li>
+    <li><span>Первый шаг упражнения — не «повысить влияние», а отделить собственный выбор от всего, чем человек не распоряжается полностью.</span><a class="source-chip evidence-source" href="https://epictetus.2pub.me/concepts/dihotomiya-kontrolya">Эпиктет, «Энхиридион»</a></li>
+    <li><span>Проверка реакции направлена на суждение: какое значение было присвоено событию и почему оно принято за благо или зло.</span><a class="source-chip evidence-source" href="https://epictetus.2pub.me/concepts/sudzhdeniya-ne-veshchi">Эпиктет, «Энхиридион»</a></li>
+    <li><span>Практика завершается выбором достойного действия, а не только интеллектуальным объяснением эмоции.</span><a class="source-chip evidence-source" href="https://epictetus.2pub.me/concepts/proairesis">Эпиктет, «Энхиридион»</a></li>
   </ul></div>
 </details>
 <!-- V2:EVIDENCE:END -->
@@ -428,9 +462,9 @@
 <details class="corpus-evidence" open data-v2-only>
   <summary>Опоры из корпуса · Игнатий Лойола / «Духовные упражнения»</summary>
   <div class="evidence-body"><ul class="evidence-list">
-    <li><a class="source-chip" href="https://ignatius.2pub.me/concepts/nachalo-i-osnovanie">ignatius / nachalo-i-osnovanie</a><span>Практика получает критерий из цели: средство применяется настолько, насколько помогает человеку двигаться к ней.</span></li>
-    <li><a class="source-chip" href="https://ignatius.2pub.me/concepts/ispytanie-sovesti">ignatius / ispytanie-sovesti</a><span>Испытание совести включает работу с одним выбранным дефектом и ежедневную последовательность: благодарение, просьба о свете, обзор, прощение и новое намерение.</span></li>
-    <li><a class="source-chip" href="https://ignatius.2pub.me/concepts/razlichenie-dukhov">ignatius / razlichenie-dukhov</a><span>Помысел проверяется по его движению и последствиям, а не только по привлекательному началу: важно, куда он ведёт человека.</span></li>
+    <li><span>Практика получает критерий из цели: средство применяется настолько, насколько помогает человеку двигаться к ней.</span><a class="source-chip evidence-source" href="https://ignatius.2pub.me/concepts/nachalo-i-osnovanie">Игнатий Лойола, «Духовные упражнения»</a></li>
+    <li><span>Испытание совести включает работу с одним выбранным дефектом и ежедневную последовательность: благодарение, просьба о свете, обзор, прощение и новое намерение.</span><a class="source-chip evidence-source" href="https://ignatius.2pub.me/concepts/ispytanie-sovesti">Игнатий Лойола, «Духовные упражнения»</a></li>
+    <li><span>Помысел проверяется по его движению и последствиям, а не только по привлекательному началу: важно, куда он ведёт человека.</span><a class="source-chip evidence-source" href="https://ignatius.2pub.me/concepts/razlichenie-dukhov">Игнатий Лойола, «Духовные упражнения»</a></li>
   </ul></div>
 </details>
 <!-- V2:EVIDENCE:END -->
@@ -487,7 +521,13 @@
 </ol></div></section>
 
 <section id="tables" class="content-module module-summary" data-observe="3-samaya-poleznaya-matrica-ucheniy"><h2 id="3-samaya-poleznaya-matrica-ucheniy" class="reader-heading reader-heading-major">3. Самая полезная матрица учений</h2><div class="module-body"><p class="module-lead">Эта таблица нужна не для полного описания учений, а для быстрого сравнения по главным осям.</p>
-<div class="table-scroll"><table>
+<div class="matrix-explorer" data-matrix-kind="teaching">
+  <div class="matrix-selector"></div>
+  <div class="focused-matrix" aria-live="polite"></div>
+</div>
+<details class="full-matrix">
+<summary>Показать исходную полную таблицу</summary>
+<div class="table-scroll"><table id="teaching-matrix-source">
 <thead><tr><th>Учение</th><th>Картина человека</th><th>Главная проблема</th><th>Высшая цель</th><th>Критерий истины</th><th>Индивидуальная задача / таланты</th><th>Отношение к страданию</th><th>Сильная сторона</th><th>Слабое место</th></tr></thead>
 <tbody>
 <tr><td>Стоицизм</td><td>Человек — разумное и социальное существо, часть разумного космоса</td><td>Ложные суждения о добре и зле, зависимость от внешнего</td><td>Добродетель, жизнь согласно природе и разуму</td><td>Соответствие разуму, природе, добродетели и внутренней свободе</td><td>Таланты — материал судьбы и роли, через который проявляется добродетель</td><td>Испытание суждений и тренировка добродетели</td><td>Очень силён для переоценки страхов, обид, тревог и внешних потерь</td><td>Слабее раскрывает уникальную жизненную задачу и личное призвание</td></tr>
@@ -499,7 +539,7 @@
 <tr><td>Суфизм</td><td>Человек имеет сердце, способное к очищению и познанию Бога</td><td>Нечистота сердца, эго, забывание Бога</td><td>Любовь к Богу, очищение сердца, близость к Богу</td><td>Соответствие Богу, любви, смирению и наставлению шейха</td><td>Дары используются как путь служения и любви, не ради эго</td><td>Очищение, испытание, путь смирения</td><td>Силен для очищения сердца, любви, наставничества и духовной дисциплины</td><td>Встроен в исламскую картину мира; вне неё трудно брать целиком</td></tr>
 <tr><td>Логотерапия</td><td>Человек — существо, ориентированное на смысл, свободу и ответственность</td><td>Экзистенциальный вакуум, утрата смысла, бегство от ответственности</td><td>Найти и исполнить конкретный смысл жизни</td><td>Реальность смысла, ответственность перед задачей, совестью и жизнью</td><td>Очень сильный акцент на уникальном смысле, задаче и ответственности человека</td><td>Может иметь смысл, если человек выбирает правильное отношение</td><td>Лучше психотерапий закрывает вопрос смысла и жизненной задачи</td><td>Слабее как полноценная онтология и как техника автоматизации реакций</td></tr>
 <tr><td>ИДЕАЛ-метод Тойча (ИМТ)</td><td>Человек — носитель повторяющихся внутренних шаблонов поведения, наследуемых и закреплённых программ</td><td>Ложный внутренний шаблон, который снова производит старый результат</td><td>Переобучение реакции, раскрытие конструктивной модели и движение к жизненной задаче</td><td>Проверка по повторяемости результата, причинности, новому действию и устойчивому изменению</td><td>Способности раскрываются через замену ложной программы на конструктивный шаблон</td><td>Страдание показывает повторяющийся шаблон, который требует диагностики и переобучения</td><td>Соединяет учение, диагностику паттерна и прикладную программу действий</td><td>Требует точной диагностики и честной проверки результата</td></tr>
-</tbody></table></div></div></section>
+</tbody></table></div></details></div></section>
 
 <section class="content-module module-summary" data-observe="4-edinye-kriterii-sravneniya-tehnologiy"><h2 id="4-edinye-kriterii-sravneniya-tehnologiy" class="reader-heading reader-heading-major">4. Единые критерии сравнения методик</h2><div class="module-body"><p class="module-lead">Для сравнения методик используем отдельный набор критериев:</p>
 <ol class="reader-list">
@@ -514,7 +554,13 @@
 </ol></div></section>
 
 <section class="content-module module-summary" data-observe="5-samaya-poleznaya-matrica-tehnologiy"><h2 id="5-samaya-poleznaya-matrica-tehnologiy" class="reader-heading reader-heading-major">5. Самая полезная матрица методик</h2><div class="module-body"><p class="module-lead">Эта таблица показывает, какую методику брать под конкретную задачу переобучения.</p>
-<div class="table-scroll"><table>
+<div class="matrix-explorer" data-matrix-kind="method">
+  <div class="matrix-selector"></div>
+  <div class="focused-matrix" aria-live="polite"></div>
+</div>
+<details class="full-matrix">
+<summary>Показать исходную полную таблицу</summary>
+<div class="table-scroll"><table id="method-matrix-source">
 <thead><tr><th>Методика</th><th>С чем работает</th><th>Как находит старую реакцию</th><th>Как меняет понимание</th><th>Как закрепляет новую реакцию</th><th>Где сильна</th><th>Чего не хватает</th><th>Совместимость с учением</th></tr></thead>
 <tbody>
 <tr><td>КПТ</td><td>Мысли, убеждения, эмоции, поведение</td><td>Через дневник мыслей, связь события, мысли, эмоции и действия</td><td>Проверка доказательств, альтернативная мысль, поведенческий эксперимент</td><td>Повторение новых мыслей и действий в ситуациях</td><td>Автоматические мысли, страхи, тревогу, искажённые убеждения</td><td>Слабая онтология, нет высшей цели жизни</td><td>Хорошо совместима со стоицизмом, логотерапией, частично с христианской аскетикой</td></tr>
@@ -528,7 +574,7 @@
 <tr><td>Буддийская медитативная практика</td><td>Внимание, ум, желание, отвращение, привязанность</td><td>Через наблюдение ума, тела, чувства и обусловленного возникновения</td><td>Прямое видение непостоянства, неудовлетворительности и отсутствия устойчивого «я»</td><td>Регулярная медитация, этика, внимательность в жизни</td><td>Реактивность, привязанность, тревогу, зависимость от желаний</td><td>Может конфликтовать с персоналистскими учениями о душе и призвании</td><td>Естественно совместима с буддизмом; частично совместима с ACT и mindfulness-подходами</td></tr>
 <tr><td>Йогическая практика</td><td>Тело, дыхание, чувства, внимание, ум, желания</td><td>Через наблюдение ума, дисциплину тела и дыхания, различение</td><td>Остановка колебаний ума, различение истинного и неистинного</td><td>Постоянная садхана, этика, концентрация, медитация</td><td>Рассеянность, желания, телесно-эмоциональную неустойчивость</td><td>Может увести в технику ради техники или абстрактную метафизику</td><td>Естественно совместима с йогой / ведантой; частично с другими учениями как дисциплина внимания и тела</td></tr>
 <tr><td>Методика переобучения по ИМТ</td><td>Повторяющийся результат, шаблон реакции, понимание, действие, письменная фиксация</td><td>Через разбор триггера, старой реакции, родового или закреплённого шаблона и повторяющегося результата</td><td>Формулирует новое понимание и новый конструктивный шаблон вместо старой программы</td><td>Через письменную фиксацию, новое действие, повторение и проверку результата</td><td>Повторяющиеся сценарии, привычные реакции, внутренний саботаж, откаты после инсайтов</td><td>Нужна точная диагностика и регулярная практика, иначе метод остаётся объяснением</td><td>Естественно совместима с ИДЕАЛ-методом; может усиливать логотерапию, стоицизм, КПТ и схема-терапию</td></tr>
-</tbody></table></div></div></section>
+</tbody></table></div></details></div></section>
 
 <section class="content-module module-summary" data-observe="6-kak-chitat-eti-matricy"><h2 id="6-kak-chitat-eti-matricy" class="reader-heading reader-heading-major">6. Как читать эти матрицы</h2><div class="module-body"><p class="module-lead">Не нужно выбирать одну систему «на всю жизнь» только по таблице. Таблица нужна для сборки рабочей связки.</p>
 <p class="mini-lead">Правильный порядок выбора:</p>
@@ -598,7 +644,7 @@
 
     <footer class="footer">
       <div class="container footer-grid">
-        <div><strong>IMT Dev</strong><div class="brand-sub">Системы изменения человека · research edition · updated 2026-07-10</div></div>
+        <div><strong>IMT Dev</strong><div class="brand-sub">Системы изменения человека · research edition · updated 2026-07-12</div></div>
         <nav class="footer-links" aria-label="Связанные страницы">
           <a href="https://app.imt.dev/imt/">ИМТ Wiki</a><a href="https://app.imt.dev/comparison/stoicism-imt/">Стоицизм и ИМТ</a><a href="https://app.imt.dev/consultant/">Консультант</a><a href="https://app.imt.dev/">Кейсы</a><a href="https://app.imt.dev/lp-catalog/">Learning Paths</a><a href="https://debug.imt.dev/">Сознательный Дебаг</a>
         </nav>
@@ -606,9 +652,180 @@
     </footer>
 
     <script>
-      const PAGE_VARIANT = "comparison_v2_research";
+      const PAGE_VARIANT = "comparison_v2_focus_matrices";
       const FUNNEL_NAME = "comparison";
       const SESSION_ROUTE_KEY = "imt_comparison_route_context";
+
+      const MATRIX_CONFIG = {
+        teaching: {
+          tableId: "teaching-matrix-source",
+          param: "teach",
+          legend: "Выберите учения для сравнения",
+          defaults: ["stoicism", "christianity", "imt"],
+          keys: {
+            "Стоицизм": "stoicism",
+            "Христианство": "christianity",
+            "Буддизм": "buddhism",
+            "Йога / Веданта": "yoga-vedanta",
+            "Аристотелевская этика": "aristotle",
+            "Конфуцианство": "confucianism",
+            "Суфизм": "sufism",
+            "Логотерапия": "logotherapy",
+            "ИДЕАЛ-метод Тойча (ИМТ)": "imt"
+          }
+        },
+        method: {
+          tableId: "method-matrix-source",
+          param: "method",
+          legend: "Выберите методики для сравнения",
+          defaults: ["stoic-practice", "christian-ascetic", "imt-retraining"],
+          keys: {
+            "КПТ": "cbt",
+            "ACT": "act",
+            "Гештальт": "gestalt",
+            "Схема-терапия": "schema-therapy",
+            "IFS": "ifs",
+            "Логотерапия": "logotherapy",
+            "Стоическая практика": "stoic-practice",
+            "Христианская аскетическая практика": "christian-ascetic",
+            "Буддийская медитативная практика": "buddhist-meditation",
+            "Йогическая практика": "yogic-practice",
+            "Методика переобучения по ИМТ": "imt-retraining"
+          }
+        }
+      };
+
+      function readMatrix(config) {
+        const table = document.getElementById(config.tableId);
+        const criteria = [...table.querySelectorAll("thead th")].slice(1).map((node) => node.textContent.trim());
+        const systems = [...table.querySelectorAll("tbody tr")].map((row) => {
+          const cells = [...row.querySelectorAll("td")].map((node) => node.textContent.trim());
+          return { name: cells[0], key: config.keys[cells[0]], values: cells.slice(1) };
+        });
+        if (systems.some((system) => !system.key)) throw new Error("Неизвестная система в матрице");
+        return { criteria, systems };
+      }
+
+      function readSelection(config, systems) {
+        const valid = new Set(systems.map((item) => item.key));
+        const requested = new URLSearchParams(location.search).get(config.param)?.split(",").filter((key) => valid.has(key)) || [];
+        const unique = [...new Set(requested)].slice(0, 3);
+        return unique.length >= 2 ? unique : [...config.defaults];
+      }
+
+      function writeSelection(config, selected) {
+        const url = new URL(location.href);
+        url.searchParams.set(config.param, selected.join(","));
+        history.replaceState(null, "", url);
+      }
+
+      function renderFocusedMatrix(host, data, selected) {
+        const chosen = selected.map((key) => data.systems.find((system) => system.key === key)).filter(Boolean);
+        const grid = document.createElement("div");
+        grid.className = "focused-matrix-grid";
+        grid.setAttribute("role", "table");
+        grid.style.setProperty("--system-count", chosen.length);
+
+        const head = document.createElement("div");
+        head.className = "focused-row focused-head";
+        head.setAttribute("role", "row");
+        const criterionHead = document.createElement("div");
+        criterionHead.className = "criterion-cell";
+        criterionHead.setAttribute("role", "columnheader");
+        criterionHead.textContent = "Критерий";
+        head.append(criterionHead);
+        chosen.forEach((system) => {
+          const cell = document.createElement("div");
+          cell.className = "system-head";
+          cell.setAttribute("role", "columnheader");
+          cell.textContent = system.name;
+          head.append(cell);
+        });
+        grid.append(head);
+
+        data.criteria.forEach((criterion, criterionIndex) => {
+          const row = document.createElement("div");
+          const strength = /сильн|где особенно сильна/i.test(criterion);
+          const weak = /слаб|чего не хватает/i.test(criterion);
+          row.className = "focused-row" + (strength ? " tone-strength" : "") + (weak ? " tone-weak" : "");
+          row.setAttribute("role", "row");
+          const criterionCell = document.createElement("div");
+          criterionCell.className = "criterion-cell";
+          criterionCell.setAttribute("role", "rowheader");
+          criterionCell.textContent = criterion;
+          row.append(criterionCell);
+          chosen.forEach((system) => {
+            const cell = document.createElement("div");
+            cell.className = "matrix-value";
+            cell.setAttribute("role", "cell");
+            const name = document.createElement("strong");
+            name.textContent = system.name;
+            const value = document.createElement("span");
+            value.textContent = system.values[criterionIndex];
+            cell.append(name, value);
+            row.append(cell);
+          });
+          grid.append(row);
+        });
+        host.replaceChildren(grid);
+      }
+
+      function renderSelector(host, config, data, selected, onChange) {
+        const fieldset = document.createElement("fieldset");
+        const legend = document.createElement("legend");
+        legend.textContent = config.legend;
+        const options = document.createElement("div");
+        options.className = "matrix-option-list";
+        const status = document.createElement("span");
+        status.className = "matrix-selection-status";
+        status.setAttribute("aria-live", "polite");
+        status.textContent = selected.length === 3 ? "Выбрано 3 из 3" : "Выбрано 2. Можно добавить ещё одну систему.";
+
+        data.systems.forEach((system) => {
+          const label = document.createElement("label");
+          label.className = "matrix-option";
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.value = system.key;
+          input.checked = selected.includes(system.key);
+          input.disabled = selected.length === 3 && !input.checked;
+          input.addEventListener("change", () => {
+            let next = [...selected];
+            if (input.checked && next.length < 3) next.push(system.key);
+            if (!input.checked && next.length > 2) next = next.filter((key) => key !== system.key);
+            if (next.length === selected.length && !input.checked) {
+              input.checked = true;
+              status.textContent = "Для сравнения нужно оставить минимум две системы.";
+              return;
+            }
+            onChange(next);
+          });
+          const text = document.createElement("span");
+          text.textContent = system.name;
+          label.append(input, text);
+          options.append(label);
+        });
+        fieldset.append(legend, options, status);
+        host.replaceChildren(fieldset);
+      }
+
+      function initMatrixExplorer(root) {
+        const config = MATRIX_CONFIG[root.dataset.matrixKind];
+        const data = readMatrix(config);
+        let selected = readSelection(config, data.systems);
+        const selectorHost = root.querySelector(".matrix-selector");
+        const matrixHost = root.querySelector(".focused-matrix");
+        const render = () => {
+          renderSelector(selectorHost, config, data, selected, (next) => {
+            selected = next;
+            writeSelection(config, selected);
+            trackFunnelEvent("comparison_matrix_selection", { matrix_kind: root.dataset.matrixKind, selected_systems: selected.join(",") });
+            render();
+          });
+          renderFocusedMatrix(matrixHost, data, selected);
+        };
+        render();
+      }
       if (window.matchMedia("(max-width: 760px)").matches) {
         document.querySelectorAll(".corpus-evidence").forEach((node) => node.removeAttribute("open"));
       }
@@ -616,6 +833,7 @@
       function trackFunnelEvent(name, params = {}) { trackEvent(name, { funnel_name: FUNNEL_NAME, page_variant: PAGE_VARIANT, page_location: window.location.href, ...params }); }
       trackFunnelEvent("comparison_view", { page_title: document.title });
       trackFunnelEvent("comparison_page_view", { content_group: "comparison", content_mode: "full_text" });
+      document.querySelectorAll(".matrix-explorer").forEach(initMatrixExplorer);
       const observed = new Set();
       const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (!entry.isIntersecting) return; const section = entry.target.dataset.observe || entry.target.id; if (!section || observed.has(section)) return; observed.add(section); trackFunnelEvent(`comparison_${section}_visible`, { section_id: entry.target.id || section }); }); }, { threshold: 0.3 });
       let tableIndex = 0;
