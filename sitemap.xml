@@ -38,9 +38,15 @@
   </url>
   <url>
     <loc>https://app.imt.dev/comparison/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://app.imt.dev/comparison/stoicism-imt/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://app.imt.dev/case-feedback-truth-01/</loc>

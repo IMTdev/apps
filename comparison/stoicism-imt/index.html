@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "AW-16453014043");
+    </script>
+    <script>
+      window.mainTracker = "gtag";
+      window.gtagTrackerID = "G-B2JG56FKGP";
+      setTimeout(function(){
+        (function(w,d,s,i){
+          var f=d.getElementsByTagName(s)[0], j=d.createElement(s);
+          j.async=true;
+          j.src="https://www.googletagmanager.com/gtag/js?id=" + i;
+          f.parentNode.insertBefore(j,f);
+          gtag("js", new Date());
+          gtag("config", i, {});
+        })(window,document,"script",window.gtagTrackerID);
+      }, 2000);
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Стоицизм и ИДЕАЛ-метод Тойча (ИМТ) — сравнение подходов</title>
+    <meta name="description" content="Парное сравнение стоицизма и ИДЕАЛ-метода Тойча (ИМТ): что даёт стоическая работа с суждением, где нужен слой диагностики паттерна и переобучения реакции." />
+    <link rel="canonical" href="https://app.imt.dev/comparison/stoicism-imt/" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Стоицизм и ИМТ: где граница между выдержкой и переобучением" />
+    <meta property="og:description" content="Стоицизм тренирует суждение и границу контроля. ИМТ добавляет диагностику повторяющегося закона и процедуру переобучения привычной реакции." />
+    <meta property="og:url" content="https://app.imt.dev/comparison/stoicism-imt/" />
+    <meta property="og:image" content="https://app.imt.dev/comparison/assets/comparison-og.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta property="og:image:alt" content="Сравнение стоицизма и ИМТ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Стоицизм и ИМТ" />
+    <meta name="twitter:description" content="Парное сравнение: стоическая практика суждения и технология переобучения по ИМТ." />
+    <meta name="twitter:image" content="https://app.imt.dev/comparison/assets/comparison-og.webp" />
+    <meta name="twitter:image:alt" content="Сравнение стоицизма и ИМТ" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Стоицизм и ИДЕАЛ-метод Тойча (ИМТ)",
+        "description": "Парное сравнение стоицизма и ИДЕАЛ-метода Тойча (ИМТ): суждение, граница контроля, повторяющийся внутренний закон и переобучение реакции.",
+        "inLanguage": "ru",
+        "dateModified": "2026-06-18",
+        "author": {
+          "@type": "Person",
+          "name": "Дмитрий Компанец",
+          "url": "https://app.imt.dev/consultant/"
+        },
+        "mainEntityOfPage": "https://app.imt.dev/comparison/stoicism-imt/",
+        "isPartOf": {
+          "@type": "WebPage",
+          "name": "Сравнение систем изменения человека",
+          "url": "https://app.imt.dev/comparison/"
+        }
+      }
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@1,400&display=swap");
+      :root{
+        --ink:#101623;
+        --ink-soft:rgba(16,22,35,.70);
+        --ink-mute:rgba(16,22,35,.48);
+        --paper:#fff;
+        --warm:#f3ece2;
+        --warm-soft:#f9f5ee;
+        --line:rgba(16,22,35,.13);
+        --line-strong:rgba(16,22,35,.22);
+        --green:#247c68;
+        --green-dark:#174f45;
+        --mint:#67c9ae;
+        --blue:#2854b8;
+        --gold:#d99a45;
+        --red:#9b3a32;
+        --dark:#09111f;
+        --dark-soft:#121b2d;
+        --shadow:0 18px 60px rgba(16,22,35,.10);
+        --max-w:1240px;
+        --measure:72ch;
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{margin:0;color:var(--ink);background:var(--paper);font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+      a{color:inherit;text-decoration:none}
+      img{display:block;width:100%;max-width:100%}
+      h1,h2,h3,p,ol,ul{margin:0}
+      ol,ul{padding:0}
+      section[id]{scroll-margin-top:88px}
+      .mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+      .ital{font-family:"IBM Plex Serif",Georgia,serif;font-style:italic}
+      .container{width:min(var(--max-w),100%);margin:0 auto;padding:0 46px}
+      .site-header{border-bottom:1px solid rgba(16,22,35,.08);background:rgba(255,255,255,.95);backdrop-filter:blur(12px)}
+      .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:70px}
+      .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+      .brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#f2dfc1,var(--mint));font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px}
+      .brand-sub{color:var(--ink-soft);font-size:14px;font-weight:500}
+      .nav-links{display:flex;align-items:center;gap:20px;color:var(--ink-soft);font-size:15px;font-weight:700}
+      .nav-links a:hover{color:var(--green-dark)}
+      .hero{position:relative;overflow:hidden;padding:82px 0 70px;background:radial-gradient(circle at 82% 20%,rgba(103,201,174,.22),transparent 30%),radial-gradient(circle at 18% 12%,rgba(217,154,69,.12),transparent 28%),linear-gradient(110deg,var(--warm-soft),#fff 56%,rgba(243,236,226,.72))}
+      .hero:after{content:"";position:absolute;inset:auto -8% -34% 44%;height:420px;background:radial-gradient(circle,rgba(40,84,184,.10),transparent 62%);pointer-events:none}
+      .hero-layout{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:50px;align-items:center}
+      .eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:26px;color:var(--ink-mute);font-size:13px;font-weight:800;letter-spacing:.02em}
+      .eyebrow span{display:inline-flex;align-items:center;min-height:34px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
+      .hero h1{max-width:850px;font-size:62px;line-height:1.01;letter-spacing:-.04em;font-weight:800}
+      .hero-lead{max-width:720px;margin-top:24px;color:var(--ink-soft);font-size:21px;line-height:1.52}
+      .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+      .btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:15px 25px;border:1.5px solid transparent;border-radius:999px;font-weight:800;line-height:1}
+      .btn-primary{color:#fff;background:var(--ink);box-shadow:0 10px 26px rgba(16,22,35,.18)}
+      .btn-secondary{color:var(--ink);border-color:var(--line-strong);background:rgba(255,255,255,.42)}
+      .comparison-visual{position:relative;min-height:492px;border:1px solid rgba(255,255,255,.18);border-radius:8px;overflow:hidden;background:linear-gradient(160deg,#070e1b,#17223a 58%,#0b1f28);box-shadow:var(--shadow)}
+      .visual-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;filter:saturate(.85) contrast(1.1)}
+      .comparison-visual:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:radial-gradient(circle at 52% 45%,#000 20%,transparent 70%)}
+      .axis{position:absolute;inset:42px;display:grid;grid-template-columns:1fr 70px 1fr;align-items:center;gap:18px;color:#fff}
+      .system-panel{min-height:292px;padding:28px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.06);backdrop-filter:blur(10px)}
+      .system-panel h2{font-size:34px;line-height:1.05;letter-spacing:-.03em}
+      .system-panel p{margin-top:16px;color:rgba(255,255,255,.72)}
+      .system-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+      .system-tags span{display:inline-flex;padding:6px 9px;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:rgba(255,255,255,.76);font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;font-weight:700}
+      .bridge{display:grid;place-items:center;width:70px;height:70px;border:1px solid rgba(103,201,174,.42);border-radius:50%;background:rgba(103,201,174,.12);color:var(--mint);font-weight:800}
+      .visual-caption{position:absolute;left:24px;right:24px;bottom:24px;padding:18px 20px;border:1px solid rgba(255,255,255,.18);border-radius:8px;color:rgba(255,255,255,.82);background:rgba(9,17,31,.78);backdrop-filter:blur(10px)}
+      .summary-strip{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1px;margin-top:28px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--line)}
+      .summary-cell{padding:22px 20px;background:#fff}
+      .summary-cell strong{display:block;margin-bottom:6px;font-size:28px;line-height:1;font-weight:800;letter-spacing:-.03em}
+      .summary-cell span{color:var(--ink-soft);font-size:14px}
+      .page-shell{display:grid;grid-template-columns:260px minmax(0,1fr);gap:52px;align-items:start;padding:70px 46px 96px;width:min(var(--max-w),100%);margin:0 auto}
+      .toc{position:sticky;top:22px;padding:14px;border:1px solid var(--line);border-radius:8px;background:#fff;box-shadow:0 10px 34px rgba(16,22,35,.07)}
+      .toc-title{margin-bottom:8px;color:var(--ink);font-size:13px;font-weight:800}
+      .toc-link{display:block;padding:6px 7px;border-radius:5px;color:var(--ink-soft);font-size:13px;line-height:1.18;font-weight:700}
+      .toc-link:hover{color:var(--green-dark);background:rgba(103,201,174,.10)}
+      .reader{min-width:0}
+      .reader h2{margin:0 0 22px;font-size:44px;line-height:1.08;letter-spacing:-.03em;font-weight:800}
+      .reader h3{margin:0 0 12px;font-size:26px;line-height:1.15;letter-spacing:-.02em}
+      .reader p{max-width:var(--measure);margin:0 0 18px;color:var(--ink-soft)}
+      .reader strong{color:var(--ink)}
+      .section{margin-bottom:64px}
+      .module{padding:30px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,#fff 0%,rgba(249,245,238,.45) 100%);box-shadow:0 8px 30px rgba(16,22,35,.045)}
+      .module+.module{margin-top:18px}
+      .lead{color:var(--ink)!important;font-size:19px;line-height:1.55}
+      .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+      .soft-card{padding:24px;border:1px solid var(--line);border-radius:8px;background:#fff}
+      .soft-card p:last-child{margin-bottom:0}
+      .soft-card.stoic{border-top:4px solid var(--gold)}
+      .soft-card.imt{border-top:4px solid var(--green)}
+      .signal{display:grid;grid-template-columns:minmax(130px,.28fr) minmax(0,1fr);gap:14px;margin:18px 0!important;padding:16px 18px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink-soft)}
+      .signal strong{font-size:13px;line-height:1.3;text-transform:uppercase;letter-spacing:.045em}
+      .signal span{display:block}
+      .signal-strength{border-color:rgba(36,124,104,.30);background:rgba(36,124,104,.08)}
+      .signal-strength strong{color:var(--green-dark)}
+      .signal-weak{border-color:rgba(155,58,50,.28);background:rgba(155,58,50,.075)}
+      .signal-weak strong{color:var(--red)}
+      .signal-note{border-color:rgba(217,154,69,.32);background:rgba(217,154,69,.08)}
+      .signal-note strong{color:#a86822}
+      .table-scroll{width:100%;max-width:100%;margin:22px 0 0;overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff;box-shadow:0 8px 30px rgba(16,22,35,.05)}
+      table{width:100%;min-width:760px;border-collapse:separate;border-spacing:0}
+      th,td{padding:15px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+      th{color:var(--ink);background:var(--warm-soft);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+      td{color:var(--ink-soft);font-size:14px;line-height:1.42}
+      th:first-child,td:first-child{position:sticky;left:0;width:178px;color:var(--ink);background:#fff;font-weight:800}
+      th:first-child{z-index:2;background:var(--warm-soft)}
+      tr:last-child td{border-bottom:0}
+      th:last-child,td:last-child{border-right:0}
+      .steps{display:grid;gap:12px;counter-reset:step}
+      .step{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:18px;border:1px solid var(--line);border-radius:8px;background:#fff}
+      .step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;color:#fff;background:var(--ink);font-weight:800}
+      .step h3{font-size:21px}
+      .step p{margin-bottom:0}
+      .choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+      .choice{padding:22px;border:1px solid var(--line);border-radius:8px;background:#fff}
+      .choice strong{display:block;margin-bottom:9px;font-size:18px}
+      .choice p{margin-bottom:0}
+      .radar-grid{display:grid;grid-template-columns:minmax(320px,.92fr) minmax(0,1.08fr);gap:26px;align-items:center}
+      .radar-panel{padding:22px;border:1px solid var(--line);border-radius:8px;background:#fff}
+      .radar-svg{width:100%;height:auto;display:block}
+      .radar-ring{fill:none;stroke:rgba(16,22,35,.10);stroke-width:1}
+      .radar-axis{stroke:rgba(16,22,35,.14);stroke-width:1}
+      .radar-stoic{fill:rgba(217,154,69,.22);stroke:#d99a45;stroke-width:2.5}
+      .radar-imt{fill:rgba(36,124,104,.22);stroke:#247c68;stroke-width:2.5}
+      .radar-label{fill:rgba(16,22,35,.70);font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10px;font-weight:700;text-anchor:middle}
+      .radar-dot-stoic{fill:#d99a45}
+      .radar-dot-imt{fill:#247c68}
+      .radar-legend{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 18px}
+      .legend-item{display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);font-size:14px;font-weight:700}
+      .legend-swatch{width:18px;height:10px;border-radius:999px}
+      .legend-stoic{background:#d99a45}
+      .legend-imt{background:#247c68}
+      .score-list{display:grid;gap:8px;margin-top:18px}
+      .score-row{display:grid;grid-template-columns:minmax(0,1fr) 54px 54px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(16,22,35,.08);color:var(--ink-soft);font-size:14px}
+      .score-row:last-child{border-bottom:0}
+      .score-row strong{color:var(--ink);font-size:14px}
+      .score-pill{display:inline-flex;justify-content:center;padding:3px 8px;border-radius:999px;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:800}
+      .score-stoic{color:#8d5c22;background:rgba(217,154,69,.13)}
+      .score-imt{color:var(--green-dark);background:rgba(36,124,104,.12)}
+      .quote-block{padding:34px 36px;border:1px solid rgba(36,124,104,.24);border-radius:8px;background:radial-gradient(circle at 92% 18%,rgba(103,201,174,.18),transparent 34%),linear-gradient(135deg,#fff,var(--warm-soft))}
+      .quote-block p{max-width:980px;color:var(--ink);font-size:30px;line-height:1.28;letter-spacing:-.02em}
+      .bottom-cta{padding:44px;margin-top:60px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(135deg,#fffdf9 0%,var(--warm-soft) 100%)}
+      .footer{padding:44px 0;color:rgba(255,255,255,.72);background:var(--dark)}
+      .footer-grid{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+      .footer-links{display:flex;flex-wrap:wrap;gap:16px;font-weight:700}
+      .footer a:hover{color:#fff}
+      @media(max-width:1060px){
+        .hero-layout,.page-shell{grid-template-columns:1fr}
+        .comparison-visual{min-height:430px}
+        .axis{inset:28px;grid-template-columns:1fr;gap:12px}
+        .bridge{width:48px;height:48px;margin:0 auto}
+        .system-panel{min-height:auto}
+        .visual-caption{position:relative;left:auto;right:auto;bottom:auto;margin:28px}
+        .toc{position:static;display:flex;gap:6px;overflow:auto}
+        .toc-title{display:none}
+        .toc-link{white-space:nowrap}
+        .choice-grid{grid-template-columns:1fr}
+      }
+      @media(max-width:760px){
+        body{font-size:16px}
+        .container{padding:0 22px}
+        .nav-inner{align-items:flex-start;flex-direction:column;gap:10px;padding:14px 0}
+        .nav-links{flex-wrap:wrap;gap:8px 14px;font-size:14px}
+        .hero{padding:42px 0 40px}
+        .hero h1{font-size:42px;letter-spacing:-.03em}
+        .hero-lead{font-size:18px}
+        .hero-actions,.hero-actions .btn{width:100%}
+        .comparison-visual{min-height:auto}
+        .axis{position:relative;inset:auto;padding:18px}
+        .system-panel{padding:22px}
+        .system-panel h2{font-size:28px}
+        .visual-caption{margin:0 18px 18px}
+        .summary-strip{grid-template-columns:1fr}
+        .page-shell{padding:42px 22px 68px;gap:30px}
+        .toc{margin:0 -22px;padding:12px 22px;border-left:0;border-right:0;border-radius:0}
+        .reader h2{font-size:34px}
+        .split{grid-template-columns:1fr}
+        .radar-grid{grid-template-columns:1fr}
+        .radar-panel{padding:16px}
+        .score-row{grid-template-columns:minmax(0,1fr) 44px 44px;font-size:13px}
+        .module{padding:22px 18px}
+        .signal{grid-template-columns:1fr;gap:7px;padding:14px 15px}
+        .table-scroll{margin-left:-22px;width:calc(100% + 44px);border-left:0;border-right:0;border-radius:0}
+        th,td{padding:12px 10px}
+        th:first-child,td:first-child{width:142px;min-width:142px}
+        .step{grid-template-columns:1fr}
+        .quote-block{padding:26px 22px}
+        .quote-block p{font-size:24px}
+        .bottom-cta{padding:28px 22px}
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a class="brand" href="https://app.imt.dev/comparison/" data-track-cta="comparison_home" data-placement="header" data-route-destination="https://app.imt.dev/comparison/">
+          <span class="brand-mark">IMT</span>
+          <span>Парные сравнения <span class="brand-sub">стоицизм / ИМТ</span></span>
+        </a>
+        <nav class="nav-links" aria-label="Навигация">
+          <a href="#short">Вывод</a>
+          <a href="#matrix">Матрица</a>
+          <a href="#practice">Практика</a>
+          <a href="#when">Когда выбирать</a>
+          <a href="https://t.me/dkompanets" data-track-cta="telegram_header" data-placement="header" data-route-destination="telegram">Telegram</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero" data-observe="hero">
+        <div class="container">
+          <div class="hero-layout">
+            <div>
+              <div class="eyebrow mono">
+                <span>pair comparison</span>
+                <span>last updated: 2026-06-18</span>
+                <span>reference page</span>
+              </div>
+              <h1>Стоицизм и ИДЕАЛ-метод Тойча (ИМТ)</h1>
+              <p class="hero-lead">Стоицизм хорошо тренирует суждение, границу контроля и выдержку. ИМТ добавляет слой диагностики повторяющегося внутреннего закона и процедуру переобучения привычной реакции.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#formula" data-track-cta="open_pair_formula" data-placement="hero" data-route-destination="#formula">Формула пары</a>
+                <a class="btn btn-secondary" href="https://app.imt.dev/comparison/" data-track-cta="open_full_comparison" data-placement="hero" data-route-destination="https://app.imt.dev/comparison/">Общая матрица</a>
+              </div>
+            </div>
+            <div class="comparison-visual" aria-label="Схема сравнения стоицизма и ИМТ">
+              <img class="visual-bg" src="../assets/comparison-og.webp" alt="" aria-hidden="true" />
+              <div class="axis">
+                <div class="system-panel">
+                  <h2>Стоицизм</h2>
+                  <p>Работа с суждением, желанием, страхом и отношением к внешним обстоятельствам.</p>
+                  <div class="system-tags"><span>суждение</span><span>контроль</span><span>добродетель</span></div>
+                </div>
+                <div class="bridge">+</div>
+                <div class="system-panel">
+                  <h2>ИМТ</h2>
+                  <p>Поиск повторяющегося внутреннего закона и закрепление новой реакции в действии.</p>
+                  <div class="system-tags"><span>паттерн</span><span>причина</span><span>переобучение</span></div>
+                </div>
+              </div>
+              <div class="visual-caption">В этой паре стоицизм даёт дисциплину позиции. ИМТ отвечает на вопрос, почему старая позиция включается снова, даже когда человек уже всё понял.</div>
+            </div>
+          </div>
+          <div class="summary-strip" aria-label="Короткая карта страницы">
+            <div class="summary-cell"><strong>1</strong><span>пара подходов для точного сравнения</span></div>
+            <div class="summary-cell"><strong>7</strong><span>критериев в основной матрице</span></div>
+            <div class="summary-cell"><strong>4</strong><span>шага связки: пауза, диагностика, закон, действие</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="page-shell">
+        <aside class="toc" aria-label="Оглавление">
+          <div class="toc-title">Оглавление</div>
+          <a class="toc-link" href="#short">Короткий вывод</a>
+          <a class="toc-link" href="#radar">Радар</a>
+          <a class="toc-link" href="#roles">Роли подходов</a>
+          <a class="toc-link" href="#matrix">Матрица</a>
+          <a class="toc-link" href="#practice">Как сочетать</a>
+          <a class="toc-link" href="#when">Когда выбирать</a>
+          <a class="toc-link" href="#formula">Формула пары</a>
+        </aside>
+
+        <article class="reader">
+          <section class="section module" id="short" data-observe="short">
+            <h2>Короткий вывод</h2>
+            <p class="lead">Стоицизм и ИМТ не конкурируют напрямую. Стоицизм сильнее как школа внутренней позиции: что считать добром, где граница контроля, как не отдавать власть внешнему. ИМТ сильнее как технология поиска повторяющегося закона: почему человек снова попадает в старую реакцию и как заменить её через новое понимание, действие и повтор.</p>
+            <p>Стоический взгляд полезен в моменте, когда реакция уже поднимается: хочется доказать, обидеться, спрятаться, резко ответить или начать контролировать внешнее. Он возвращает человека к простому вопросу: какое суждение сейчас управляет мной и какое действие будет достойным?</p>
+            <p>ИМТ начинается там, где одной правильной позиции мало. Если похожая реакция включается снова и снова, значит за ней стоит не только ошибка в текущей оценке, а более устойчивая программа. Тогда важно не просто успокоиться, а найти повторяющийся закон и заменить его новой моделью действия.</p>
+            <p class="signal signal-strength"><strong>Сильная связка</strong><span>Стоицизм помогает остановить импульс и вернуть власть суждению. ИМТ помогает найти, какая внутренняя программа снова запускает этот импульс.</span></p>
+            <p class="signal signal-weak"><strong>Слабое место</strong><span>Если взять только стоическую выдержку, можно начать терпеть старый сценарий вместо его переобучения. Если взять только объяснение паттерна без ежедневной дисциплины, понимание не станет новой реакцией.</span></p>
+          </section>
+
+          <section class="section module" id="radar" data-observe="radar">
+            <h2>Радар различий</h2>
+            <p class="lead">Шесть осей показывают не абсолютную “истинность” подхода, а его практический профиль на этой странице. Чем дальше контур от центра, тем сильнее подход закрывает конкретный критерий.</p>
+            <p>По форме видно главное различие: стоицизм собирает человека вокруг разума, добродетели и дисциплины отношения к внешнему. ИМТ сильнее раскрывается на осях причины, повторения и переобучения, где нужно увидеть не отдельную эмоцию, а устойчивый сценарий.</p>
+            <div class="radar-grid">
+              <div class="radar-panel" aria-label="Радар-диаграмма сравнения стоицизма и ИМТ">
+                <svg class="radar-svg" viewBox="0 0 320 320" role="img" aria-labelledby="radar-title radar-desc">
+                  <title id="radar-title">Радар-диаграмма: стоицизм и ИМТ</title>
+                  <desc id="radar-desc">Стоицизм сильнее в суждении и этике. ИМТ сильнее в диагностике паттерна, причине и переобучении действием.</desc>
+                  <polygon class="radar-ring" points="160.0,137.6 179.4,148.8 179.4,171.2 160.0,182.4 140.6,171.2 140.6,148.8" />
+                  <polygon class="radar-ring" points="160.0,115.2 198.8,137.6 198.8,182.4 160.0,204.8 121.2,182.4 121.2,137.6" />
+                  <polygon class="radar-ring" points="160.0,92.8 218.2,126.4 218.2,193.6 160.0,227.2 101.8,193.6 101.8,126.4" />
+                  <polygon class="radar-ring" points="160.0,70.4 237.6,115.2 237.6,204.8 160.0,249.6 82.4,204.8 82.4,115.2" />
+                  <polygon class="radar-ring" points="160.0,48.0 257.0,104.0 257.0,216.0 160.0,272.0 63.0,216.0 63.0,104.0" />
+                  <line class="radar-axis" x1="160" y1="160" x2="160" y2="48" />
+                  <line class="radar-axis" x1="160" y1="160" x2="257" y2="104" />
+                  <line class="radar-axis" x1="160" y1="160" x2="257" y2="216" />
+                  <line class="radar-axis" x1="160" y1="160" x2="160" y2="272" />
+                  <line class="radar-axis" x1="160" y1="160" x2="63" y2="216" />
+                  <line class="radar-axis" x1="160" y1="160" x2="63" y2="104" />
+                  <polygon class="radar-stoic" points="160.0,59.2 198.8,137.6 218.2,193.6 160.0,260.8 140.6,171.2 82.4,115.2" />
+                  <polygon class="radar-imt" points="160.0,92.8 247.3,109.6 247.3,210.4 160.0,249.6 72.7,210.4 82.4,115.2" />
+                  <circle class="radar-dot-stoic" cx="160.0" cy="59.2" r="3.5" />
+                  <circle class="radar-dot-stoic" cx="198.8" cy="137.6" r="3.5" />
+                  <circle class="radar-dot-stoic" cx="218.2" cy="193.6" r="3.5" />
+                  <circle class="radar-dot-stoic" cx="160.0" cy="260.8" r="3.5" />
+                  <circle class="radar-dot-stoic" cx="140.6" cy="171.2" r="3.5" />
+                  <circle class="radar-dot-stoic" cx="82.4" cy="115.2" r="3.5" />
+                  <circle class="radar-dot-imt" cx="160.0" cy="92.8" r="3.5" />
+                  <circle class="radar-dot-imt" cx="247.3" cy="109.6" r="3.5" />
+                  <circle class="radar-dot-imt" cx="247.3" cy="210.4" r="3.5" />
+                  <circle class="radar-dot-imt" cx="160.0" cy="249.6" r="3.5" />
+                  <circle class="radar-dot-imt" cx="72.7" cy="210.4" r="3.5" />
+                  <circle class="radar-dot-imt" cx="82.4" cy="115.2" r="3.5" />
+                  <text class="radar-label" x="160" y="30">Суждение</text>
+                  <text class="radar-label" x="274" y="98">Паттерн</text>
+                  <text class="radar-label" x="274" y="226">Действие</text>
+                  <text class="radar-label" x="160" y="300">Этика</text>
+                  <text class="radar-label" x="46" y="226">Причина</text>
+                  <text class="radar-label" x="46" y="98">Практика</text>
+                </svg>
+              </div>
+              <div>
+                <div class="radar-legend">
+                  <span class="legend-item"><span class="legend-swatch legend-stoic"></span>Стоицизм</span>
+                  <span class="legend-item"><span class="legend-swatch legend-imt"></span>ИМТ</span>
+                </div>
+                <p>Оценки условные, по 10-балльной шкале, и относятся только к задаче этой страницы: работа с повторяющейся реакцией и эволюцией сознания.</p>
+                <p>Поэтому близкие значения по “ежедневной практике” не означают одинаковый тип практики. У стоицизма это тренировка внимания, суждения и добродетели. У ИМТ это регулярное закрепление нового понимания через письменную фиксацию, действие и проверку результата.</p>
+                <div class="score-list" aria-label="Оценки по шести осям">
+                  <div class="score-row"><strong>Суждение и контроль</strong><span class="score-pill score-stoic">9</span><span class="score-pill score-imt">6</span></div>
+                  <div class="score-row"><strong>Диагностика паттерна</strong><span class="score-pill score-stoic">4</span><span class="score-pill score-imt">9</span></div>
+                  <div class="score-row"><strong>Переобучение действием</strong><span class="score-pill score-stoic">6</span><span class="score-pill score-imt">9</span></div>
+                  <div class="score-row"><strong>Этика и направление</strong><span class="score-pill score-stoic">9</span><span class="score-pill score-imt">8</span></div>
+                  <div class="score-row"><strong>Сценарии и причина</strong><span class="score-pill score-stoic">2</span><span class="score-pill score-imt">9</span></div>
+                  <div class="score-row"><strong>Ежедневная практика</strong><span class="score-pill score-stoic">8</span><span class="score-pill score-imt">8</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="roles" data-observe="roles">
+            <h2>Роли подходов</h2>
+            <div class="split">
+              <div class="soft-card stoic">
+                <h3>Что даёт стоицизм</h3>
+                <p>Стоицизм учит различать то, что зависит от человека, и то, что не зависит. Он тренирует суждение, внутреннюю свободу, выдержку, отношение к страху, обиде, потере, оценке и внешнему давлению.</p>
+                <p>Его ключевая сила: не событие управляет человеком, а суждение о событии. Поэтому первая работа начинается не с внешнего мира, а с проверки внутренней оценки.</p>
+                <p>В практическом смысле это особенно ценно для людей, которые много думают, быстро видят причинно-следственные связи и хотят не быть игрушкой обстоятельств. Стоицизм даёт ясный внутренний каркас: не всё нужно контролировать, но за свою позицию и действие человек отвечает полностью.</p>
+              </div>
+              <div class="soft-card imt">
+                <h3>Что добавляет ИМТ</h3>
+                <p>ИДЕАЛ-метод Тойча (ИМТ) смотрит на повторяющийся результат как на следствие устойчивого внутреннего закона. Вопрос не только в том, как отнестись к событию, а почему человек снова создаёт или выбирает условия для старого результата.</p>
+                <p>Его ключевая сила: связать триггер, повтор, наследуемую или закреплённую программу, новое понимание и новое действие в одну процедуру переобучения.</p>
+                <p>В этом месте ИМТ переводит разговор из плоскости “я всё понял” в плоскость “я начал действовать иначе”. Если старый сценарий был устойчивым, новое понимание тоже должно стать устойчивым: через формулировку, действие, повтор и наблюдение результата.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section module" id="matrix" data-observe="matrix">
+            <h2>Сравнительная матрица</h2>
+            <p class="lead">Эта таблица нужна не для выбора победителя, а для точного разведения функций. У стоицизма и ИМТ разные языки, но они сходятся в работе с автоматической реакцией.</p>
+            <p>Если читать матрицу слева направо, стоицизм отвечает на вопрос о внутренней позиции: как не дать внешнему событию стать хозяином реакции. ИМТ отвечает на следующий вопрос: почему именно эта реакция стала привычной и какой новый закон должен начать работать вместо неё.</p>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Критерий</th>
+                    <th>Стоицизм</th>
+                    <th>ИДЕАЛ-метод Тойча (ИМТ)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Тип системы</td>
+                    <td>Философская школа жизни: логика, физика и этика связаны в цельную картину человека и мира.</td>
+                    <td>Учение и прикладная технология переобучения: диагностика повторяющегося закона плюс закрепление новой реакции.</td>
+                  </tr>
+                  <tr>
+                    <td>Главная проблема</td>
+                    <td>Ложное суждение о добре и зле, зависимость от внешнего, рабство страстей и мнения.</td>
+                    <td>Ложный внутренний закон, который снова производит старый результат, даже если человек хочет другого.</td>
+                  </tr>
+                  <tr>
+                    <td>Единица работы</td>
+                    <td>Представление, суждение, желание, страх, импульс, поступок.</td>
+                    <td>Повторяющийся результат, паттерн, генограмма, причина, новая формулировка, действие и проверка.</td>
+                  </tr>
+                  <tr>
+                    <td>Как меняет реакцию</td>
+                    <td>Через остановку импульса, проверку суждения, дихотомию контроля, дневник, упражнение добродетели.</td>
+                    <td>Через разбор старой программы, новое понимание, письменную фиксацию, новое действие, повторение и проверяемый результат.</td>
+                  </tr>
+                  <tr>
+                    <td>Где особенно силён</td>
+                    <td>Тревога, обида, страх внешней оценки, потери, давление обстоятельств, необходимость сохранять достоинство.</td>
+                    <td>Повторяющиеся сценарии, внутренний саботаж, откаты после инсайта, привычные реакции в отношениях, целях и действиях.</td>
+                  </tr>
+                  <tr>
+                    <td>Риск упрощения</td>
+                    <td>Свести стоицизм к фразе «просто не реагируй» и рационально терпеть то, что нужно менять глубже.</td>
+                    <td>Свести ИМТ к красивому объяснению причины без точного нового действия и регулярной проверки результата.</td>
+                  </tr>
+                  <tr>
+                    <td>Лучший совместный эффект</td>
+                    <td>Даёт внутреннюю паузу и дисциплину суждения.</td>
+                    <td>Использует эту паузу как вход в диагностику и переобучение устойчивой реакции.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" id="practice" data-observe="practice">
+            <h2>Как сочетать на практике</h2>
+            <p>Рабочая связка выглядит как короткий маршрут. Сначала нужна стоическая остановка, чтобы не усилить старую реакцию. Затем нужен ИМТ-разбор, чтобы увидеть повтор и причину. После этого новое понимание проверяется не настроением, а конкретным действием.</p>
+            <div class="steps">
+              <div class="step">
+                <div>
+                  <h3>Стоическая пауза</h3>
+                  <p>Остановить автоматическую реакцию и разделить событие, суждение и действие. Что реально зависит от меня сейчас?</p>
+                </div>
+              </div>
+              <div class="step">
+                <div>
+                  <h3>ИМТ-диагностика</h3>
+                  <p>Посмотреть, не повторяется ли этот результат в разных сферах. Где та же логика уже проявлялась раньше?</p>
+                </div>
+              </div>
+              <div class="step">
+                <div>
+                  <h3>Новый закон</h3>
+                  <p>Сформулировать не просто более спокойную мысль, а новое понимание, которое заменяет старую программу действия.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div>
+                  <h3>Проверка действием</h3>
+                  <p>Закрепить новое понимание конкретным действием, повтором и наблюдением результата, а не только внутренним согласием.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="when" data-observe="when">
+            <h2>Когда что выбирать</h2>
+            <p>Выбор зависит от того, где именно застрял процесс. Если человек захвачен текущим событием, начинать лучше со стоической ясности. Если событие уже разобрано, но сценарий возвращается, нужен слой ИМТ. Если задача серьёзная и повторяющаяся, обычно полезна связка обоих подходов.</p>
+            <div class="choice-grid">
+              <div class="choice">
+                <strong>Начать со стоицизма</strong>
+                <p>Если реакция связана с внешней оценкой, тревогой, ожиданием, потерей контроля, обидой или страхом будущего.</p>
+              </div>
+              <div class="choice">
+                <strong>Идти в ИМТ</strong>
+                <p>Если сценарий повторяется, понимание уже есть, но в моменте человек всё равно выбирает старую реакцию.</p>
+              </div>
+              <div class="choice">
+                <strong>Соединять оба слоя</strong>
+                <p>Если нужна не только выдержка, но и переобучение устойчивого паттерна: новое понимание, новое действие, новый результат.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section quote-block" id="formula" data-observe="formula">
+            <p class="ital">Стоицизм учит не отдавать власть внешнему. ИМТ ищет внутренний закон, который снова отдаёт эту власть внешнему, и переучивает его через новое действие.</p>
+          </section>
+
+          <section class="bottom-cta" id="next-step" data-observe="next_step">
+            <h2>Куда идти дальше</h2>
+            <p>Если нужен широкий контекст, откройте общую матрицу систем. Если вопрос уже про повторяющуюся реакцию и личный сценарий, полезнее перейти к странице метода или написать в Telegram.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://app.imt.dev/imt/" data-track-cta="open_method_page" data-placement="bottom" data-route-destination="https://app.imt.dev/imt/">ИМТ Wiki</a>
+              <a class="btn btn-secondary" href="https://app.imt.dev/comparison/" data-track-cta="open_comparison_page" data-placement="bottom" data-route-destination="https://app.imt.dev/comparison/">Общая матрица</a>
+              <a class="btn btn-secondary" href="https://t.me/dkompanets" data-track-cta="telegram_bottom" data-placement="bottom" data-route-destination="telegram">Написать в Telegram</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div><strong>IMT Dev</strong><div class="brand-sub">Парные сравнения систем · версия 1.0</div></div>
+        <nav class="footer-links" aria-label="Связанные страницы">
+          <a href="https://app.imt.dev/comparison/">Общая матрица</a>
+          <a href="https://app.imt.dev/imt/">ИМТ Wiki</a>
+          <a href="https://app.imt.dev/consultant/">Консультант</a>
+          <a href="https://app.imt.dev/">Кейсы</a>
+          <a href="https://app.imt.dev/lp-catalog/">Learning Paths</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const PAGE_VARIANT = "comparison_pair_stoicism_imt_v1";
+      const FUNNEL_NAME = "comparison_pair";
+      const SESSION_ROUTE_KEY = "imt_comparison_pair_route_context";
+      function trackEvent(name, params = {}) { if (typeof window.gtag === "function") window.gtag("event", name, params); }
+      function trackFunnelEvent(name, params = {}) { trackEvent(name, { funnel_name: FUNNEL_NAME, page_variant: PAGE_VARIANT, page_location: window.location.href, ...params }); }
+      trackFunnelEvent("comparison_pair_view", { pair_id: "stoicism_imt", page_title: document.title });
+      trackFunnelEvent("comparison_pair_page_view", { content_group: "comparison", content_mode: "pair", pair_left: "stoicism", pair_right: "imt" });
+      const observed = new Set();
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const section = entry.target.dataset.observe || entry.target.id;
+          if (!section || observed.has(section)) return;
+          observed.add(section);
+          trackFunnelEvent("comparison_pair_section_visible", { pair_id: "stoicism_imt", section_id: section });
+        });
+      }, { threshold: 0.32 });
+      document.querySelectorAll("[data-observe]").forEach((node) => observer.observe(node));
+      document.querySelectorAll("[data-track-cta]").forEach((node) => {
+        node.addEventListener("click", () => {
+          const ctaId = node.dataset.trackCta;
+          const placement = node.dataset.placement || "unknown";
+          const routeDestination = node.dataset.routeDestination || node.getAttribute("href") || "";
+          try {
+            sessionStorage.setItem(SESSION_ROUTE_KEY, JSON.stringify({ source_page: "comparison_pair_stoicism_imt", source_cta_id: ctaId, placement, route_destination: routeDestination, page_variant: PAGE_VARIANT, created_at: new Date().toISOString() }));
+          } catch (error) {}
+          trackFunnelEvent("comparison_pair_cta_click", { pair_id: "stoicism_imt", cta_id: ctaId, placement, route_destination: routeDestination });
+          trackEvent("select_content", { content_type: "cta", item_id: ctaId, route_destination: routeDestination });
+        });
+      });
+      window.setTimeout(() => { trackFunnelEvent("comparison_pair_engaged_45s", { pair_id: "stoicism_imt", engagement_time_msec: 45000 }); }, 45000);
+    </script>
+  </body>
+</html>
