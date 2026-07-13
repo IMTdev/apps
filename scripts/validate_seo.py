@@ -230,6 +230,14 @@ def main() -> int:
         if phrase not in llms:
             errors.append(f"llms.txt: missing fact: {phrase}")
 
+    redirects = (ROOT / "_redirects").read_text(encoding="utf-8")
+    for rule in (
+        "/comparison_v2 /comparison/ 301!",
+        "/comparison_v2/ /comparison/ 301!",
+    ):
+        if rule not in redirects:
+            errors.append(f"_redirects: missing forced canonical redirect: {rule}")
+
     if errors:
         print("SEO validation failed:")
         for error in errors:

@@ -4,8 +4,8 @@
 /selfdev-codex /selfdev-codex/ 301
 /imt /imt/ 301
 /comparison/stoicism-imt /comparison/stoicism-imt/ 301
-/comparison_v2 /comparison/ 301
-/comparison_v2/ /comparison/ 301
+/comparison_v2 /comparison/ 301!
+/comparison_v2/ /comparison/ 301!
 /comparison /comparison_v2/ 200!
 /comparison/ /comparison_v2/ 200!
 # imt.dev is hosted by Tilda. Its cross-domain consultant redirect must be
