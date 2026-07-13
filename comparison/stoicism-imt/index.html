@@ -173,6 +173,7 @@
       .consultation-explainer{margin-top:30px;padding-top:30px;border-top:1px solid var(--line)}
       .consultation-diagram{margin:28px 0 24px;border:1px solid rgba(36,124,104,.20);border-radius:8px;overflow:hidden;background:#fbf7ee;box-shadow:0 12px 36px rgba(16,22,35,.07)}
       .consultation-diagram img{height:auto}
+      .consultation-explainer .signal{width:100%;max-width:none}
       .signal{display:grid;grid-template-columns:minmax(130px,.28fr) minmax(0,1fr);gap:14px;margin:18px 0!important;padding:16px 18px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink-soft)}
       .signal strong{font-size:13px;line-height:1.3;text-transform:uppercase;letter-spacing:.045em}
       .signal span{display:block}
@@ -222,8 +223,16 @@
       .score-pill{display:inline-flex;justify-content:center;padding:3px 8px;border-radius:999px;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:800}
       .score-stoic{color:#8d5c22;background:rgba(217,154,69,.13)}
       .score-imt{color:var(--green-dark);background:rgba(36,124,104,.12)}
-      .quote-block{padding:34px 36px;border:1px solid rgba(36,124,104,.24);border-radius:8px;background:radial-gradient(circle at 92% 18%,rgba(103,201,174,.18),transparent 34%),linear-gradient(135deg,#fff,var(--warm-soft))}
-      .quote-block p{max-width:980px;color:var(--ink);font-size:30px;line-height:1.28;letter-spacing:-.02em}
+      .quote-block{padding:34px 36px;border:1px solid rgba(36,124,104,.24);border-radius:8px;background:rgba(36,124,104,.055)}
+      .formula-eyebrow{display:block;margin-bottom:8px;color:var(--green-dark);font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+      .formula-heading h2{margin-bottom:24px;font-size:32px;letter-spacing:0}
+      .formula-rows{border-top:1px solid rgba(36,124,104,.22);border-bottom:1px solid rgba(36,124,104,.22)}
+      .formula-row{display:grid;grid-template-columns:130px minmax(0,1fr);gap:22px;align-items:start;padding:20px 0}
+      .formula-row+.formula-row{border-top:1px solid rgba(36,124,104,.16)}
+      .formula-row>strong{padding-top:3px;color:var(--green-dark);font-size:14px;text-transform:uppercase}
+      .formula-chain{display:flex;flex-wrap:wrap;align-items:center;gap:7px 10px;color:var(--ink);font-size:21px;line-height:1.4;font-weight:700}
+      .formula-arrow{color:var(--green);font-weight:600}
+      .quote-block .formula-note{max-width:76ch;margin:22px 0 0;color:var(--ink-soft);font-size:16px;line-height:1.6}
       .bottom-cta{padding:44px;margin-top:60px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(135deg,#fffdf9 0%,var(--warm-soft) 100%)}
       .footer{padding:44px 0;color:rgba(255,255,255,.72);background:var(--dark)}
       .footer-grid{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
@@ -271,7 +280,9 @@
         th:first-child,td:first-child{width:142px;min-width:142px}
         .step{grid-template-columns:1fr}
         .quote-block{padding:26px 22px}
-        .quote-block p{font-size:24px}
+        .formula-heading h2{font-size:27px}
+        .formula-row{grid-template-columns:1fr;gap:7px;padding:16px 0}
+        .formula-chain{font-size:18px}
         .bottom-cta{padding:28px 22px}
       }
     </style>
@@ -572,7 +583,21 @@
           </section>
 
           <section class="section quote-block" id="formula" data-observe="formula">
-            <p class="ital">Стоицизм помогает самостоятельно заметить текущее суждение и вернуть свободу выбора. ИМТ продолжает эту работу на уровне неосознаваемого понимания: консультант помогает обнаружить его происхождение и причинную связь с результатом, а клиент выбирает новое направление и закрепляет его действиями до устойчивой способности.</p>
+            <div class="formula-heading">
+              <span class="formula-eyebrow">Короткая формула</span>
+              <h2>Одна логика, разная глубина</h2>
+            </div>
+            <div class="formula-rows">
+              <div class="formula-row">
+                <strong>Стоицизм</strong>
+                <div class="formula-chain"><span>Текущее суждение</span><span class="formula-arrow" aria-hidden="true">→</span><span>свобода выбора</span></div>
+              </div>
+              <div class="formula-row">
+                <strong>ИМТ</strong>
+                <div class="formula-chain"><span>Неосознаваемое понимание</span><span class="formula-arrow" aria-hidden="true">→</span><span>психогенетическая экспертиза</span><span class="formula-arrow" aria-hidden="true">→</span><span>осознанный выбор</span><span class="formula-arrow" aria-hidden="true">→</span><span>новая привычка</span><span class="formula-arrow" aria-hidden="true">→</span><span>желательный результат</span></div>
+              </div>
+            </div>
+            <p class="formula-note">Стоицизм возвращает свободу выбора в текущем моменте. В ИМТ консультант помогает увидеть происхождение скрытого понимания, а клиент выбирает и закрепляет новое действием.</p>
           </section>
 
           <section class="bottom-cta" id="next-step" data-observe="next_step">
