@@ -3,6 +3,7 @@ Allow: /
 Allow: /consultant/
 Allow: /comparison/
 Allow: /comparison/stoicism-imt/
+Allow: /comparison/christianity-imt/
 
 Sitemap: https://app.imt.dev/sitemap.xml
 LLMs: https://app.imt.dev/llms.txt
