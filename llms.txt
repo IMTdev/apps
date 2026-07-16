@@ -27,6 +27,7 @@ IMT is therefore described more broadly than the replacement of habitual reactio
 - [Stoicism and IMT](https://app.imt.dev/comparison/stoicism-imt/) - focused comparison of their shared causal core and the broader IMT practice.
 - [Christianity and IMT](https://app.imt.dev/comparison/christianity-imt/) - focused comparison of inner causality, free choice, guidance, repeated practice, and verification by lived results, with explicit limits on analogy.
 - [Buddhism and IMT](https://app.imt.dev/comparison/buddhism-imt/) - focused comparison of dependent arising, the second arrow, mindfulness, psychogenetic expertise, purpose, retraining, and the explicit limits of analogy between early Buddhism and IMT.
+- [Classical Yoga of Patanjali and IMT](https://app.imt.dev/comparison/classical-yoga-imt/) - focused comparison of avidya, klesha, vritti, samskara, the eight-limbed discipline, psychogenetic expertise, purpose, retraining, and the explicit limits of analogy between classical yoga and IMT.
 - [Learning Paths](https://app.imt.dev/lp-catalog/) - five structured learning trajectories related to the concepts and practice of IMT.
 - [Personal OS](https://app.imt.dev/personalos/) - Dmitry's applied system for context, knowledge, AI support, focus, and continuity between actions; it is not the IDEAL Method itself.
 - [Conscious Debug intensive](https://app.imt.dev/selfdev/) - a Telegram-based practical intensive for one recurring scenario.
