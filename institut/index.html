@@ -1,0 +1,2009 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16453014043");
+      window.mainTracker = "gtag";
+      window.gtagTrackerID = "G-B2JG56FKGP";
+      setTimeout(() => {
+        const gaScript = document.createElement("script");
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${window.gtagTrackerID}`;
+        document.head.appendChild(gaScript);
+        gtag("config", window.gtagTrackerID);
+      }, 2000);
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Институт ИДЕАЛ-метода — Дмитрий Компанец</title>
+    <meta
+      name="description"
+      content="Личный институт совершенных знаний: путь от студента истины к свободному владению системой, консультированию и коллективной практике."
+    >
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#101613">
+    <link rel="canonical" href="https://app.imt.dev/institut/">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Институт ИДЕАЛ-метода — Дмитрий Компанец">
+    <meta property="og:description" content="Личная многолетняя траектория от студента истины к свободному владению системой, консультированию и коллективной практике.">
+    <meta property="og:url" content="https://app.imt.dev/institut/">
+    <meta property="og:image" content="https://app.imt.dev/institut/assets/kod-universuma-og.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Институт ИДЕАЛ-метода Дмитрия Компанца">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Институт ИДЕАЛ-метода — Дмитрий Компанец">
+    <meta name="twitter:description" content="Путь от студента истины к свободному владению системой, консультированию и коллективной практике.">
+    <meta name="twitter:image" content="https://app.imt.dev/institut/assets/kod-universuma-og.webp">
+    <meta name="twitter:image:alt" content="Институт ИДЕАЛ-метода Дмитрия Компанца">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>document.documentElement.classList.add("js");</script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;1,400&display=swap");
+
+      :root {
+        --ink: #101613;
+        --ink-soft: #26312c;
+        --paper: #f4f0e6;
+        --paper-deep: #e6dfd0;
+        --white: #fffdf7;
+        --green: #188c6c;
+        --green-bright: #4bc39a;
+        --sage: #c8d7ca;
+        --brass: #d7c58e;
+        --muted: #6f746f;
+        --line: rgba(16, 22, 19, 0.16);
+        --line-light: rgba(255, 253, 247, 0.18);
+        --radius: 999px;
+        --container: min(1180px, calc(100vw - 64px));
+        --reading-progress: 0%;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 88px;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.55;
+        text-rendering: optimizeLegibility;
+      }
+
+      body::selection {
+        color: var(--white);
+        background: var(--green);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      button,
+      summary {
+        font: inherit;
+      }
+
+      .container {
+        width: var(--container);
+        margin: 0 auto;
+      }
+
+      .reading-progress {
+        position: fixed;
+        z-index: 120;
+        inset: 0 auto auto 0;
+        width: var(--reading-progress);
+        height: 3px;
+        background: var(--green-bright);
+        transition: width 80ms linear;
+      }
+
+      .site-header {
+        position: fixed;
+        z-index: 110;
+        inset: 3px 0 auto;
+        height: 76px;
+        color: var(--white);
+        transition: background 220ms ease, color 220ms ease, backdrop-filter 220ms ease;
+      }
+
+      .site-header.is-scrolled {
+        color: var(--ink);
+        background: rgba(244, 240, 230, 0.92);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 13px;
+        min-width: max-content;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        color: var(--ink);
+        background: var(--brass);
+        border-radius: 50%;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+      }
+
+      .brand-helix {
+        width: 23px;
+        height: 23px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.55;
+      }
+
+      .brand-helix .helix-rung {
+        opacity: 0.58;
+        stroke-width: 1.1;
+      }
+
+      .brand-sub {
+        display: block;
+        margin-top: -3px;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        opacity: 0.68;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        margin-left: auto;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .nav-links a,
+      .footer-links a {
+        position: relative;
+      }
+
+      .nav-links a::after,
+      .footer-links a::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 -5px;
+        height: 1px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 180ms ease;
+      }
+
+      .nav-links a:hover::after,
+      .footer-links a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .btn {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 22px;
+        border: 1px solid transparent;
+        border-radius: var(--radius);
+        font-size: 15px;
+        font-weight: 600;
+        transition: transform 180ms ease, color 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        color: var(--white);
+        background: var(--green);
+      }
+
+      .btn-primary:hover {
+        background: #11775b;
+      }
+
+      .btn-ghost {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.45);
+        background: rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(12px);
+      }
+
+      .site-header.is-scrolled .nav-cta {
+        color: var(--white);
+        background: var(--green);
+        border-color: var(--green);
+      }
+
+      .nav-cta {
+        min-height: 42px;
+        padding-inline: 18px;
+        border-color: rgba(255, 255, 255, 0.42);
+        font-size: 13px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        color: var(--white);
+        background: var(--ink);
+        isolation: isolate;
+      }
+
+      .hero-media,
+      .hero-media::after {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-media {
+        z-index: -2;
+        overflow: hidden;
+      }
+
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 44%;
+        transform: scale(1.03);
+        animation: hero-image 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+      }
+
+      .hero-media::after {
+        content: "";
+        z-index: 1;
+        background:
+          linear-gradient(90deg, rgba(7, 12, 10, 0.91) 0%, rgba(7, 12, 10, 0.68) 42%, rgba(7, 12, 10, 0.13) 76%),
+          linear-gradient(0deg, rgba(7, 12, 10, 0.9) 0%, transparent 48%),
+          linear-gradient(180deg, rgba(7, 12, 10, 0.44) 0%, transparent 24%);
+      }
+
+      .hero-inner {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 144px 0 48px;
+      }
+
+      .hero-copy {
+        max-width: 780px;
+      }
+
+      .eyebrow,
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before,
+      .kicker::before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.55;
+      }
+
+      .hero h1 {
+        max-width: 760px;
+        margin: 24px 0 20px;
+        font-size: clamp(58px, 7.8vw, 106px);
+        line-height: 0.92;
+        letter-spacing: -0.064em;
+        text-wrap: balance;
+      }
+
+      .hero-lead {
+        max-width: 720px;
+        margin: 0;
+        color: rgba(255, 253, 247, 0.86);
+        font-size: clamp(19px, 2vw, 25px);
+        line-height: 1.42;
+      }
+
+      .hero-lead em {
+        color: var(--white);
+        font-family: "IBM Plex Serif", Georgia, serif;
+        font-weight: 400;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .hero-meta {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        margin-top: 52px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line-light);
+      }
+
+      .hero-meta-item {
+        padding-right: 36px;
+      }
+
+      .hero-meta-item + .hero-meta-item {
+        padding-left: 36px;
+        border-left: 1px solid var(--line-light);
+      }
+
+      .hero-meta strong {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 18px;
+      }
+
+      .hero-meta span {
+        color: rgba(255, 253, 247, 0.64);
+        font-size: 14px;
+      }
+
+      .hero-copy > *,
+      .hero-meta {
+        opacity: 0;
+        transform: translateY(18px);
+        animation: hero-enter 620ms ease forwards;
+      }
+
+      .hero-copy .eyebrow { animation-delay: 120ms; }
+      .hero-copy h1 { animation-delay: 220ms; }
+      .hero-copy .hero-lead { animation-delay: 320ms; }
+      .hero-copy .hero-actions { animation-delay: 420ms; }
+      .hero-meta { animation-delay: 560ms; }
+
+      @keyframes hero-enter {
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes hero-image {
+        to { transform: scale(1); }
+      }
+
+      .section {
+        position: relative;
+        padding: 128px 0;
+      }
+
+      .section-paper {
+        background: var(--paper);
+      }
+
+      .section-white {
+        background: var(--white);
+      }
+
+      .section-dark {
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .section-green {
+        color: var(--white);
+        background: #0f5f4c;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.55fr);
+        gap: 80px;
+        align-items: end;
+        margin-bottom: 72px;
+      }
+
+      .section-head h2,
+      .sticky-intro h2,
+      .format-copy h2,
+      .ai-copy h2,
+      .sorin-copy h2,
+      .final-copy h2 {
+        margin: 20px 0 0;
+        font-size: clamp(29.4px, 3.64vw, 50.4px);
+        line-height: 1.02;
+        letter-spacing: -0.05em;
+        text-wrap: balance;
+      }
+
+      .section-lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 19px;
+      }
+
+      .section-dark .section-lead,
+      .section-green .section-lead {
+        color: rgba(255, 253, 247, 0.66);
+      }
+
+      .truth-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+        gap: 88px;
+        align-items: start;
+      }
+
+      .truth-manifesto {
+        position: sticky;
+        top: 128px;
+        padding-right: 48px;
+      }
+
+      .truth-manifesto blockquote {
+        margin: 28px 0 0;
+        font-family: "IBM Plex Serif", Georgia, serif;
+        font-size: clamp(23.8px, 2.87vw, 40.6px);
+        font-weight: 400;
+        line-height: 1.12;
+        letter-spacing: -0.035em;
+      }
+
+      .truth-copy {
+        padding-top: 4px;
+        border-top: 1px solid var(--line);
+      }
+
+      .truth-definition {
+        margin: 0;
+        padding: 30px 0 36px;
+        font-size: clamp(17.5px, 1.96vw, 26.6px);
+        line-height: 1.28;
+        letter-spacing: -0.03em;
+      }
+
+      .truth-not {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px;
+        padding-top: 32px;
+        border-top: 1px solid var(--line);
+      }
+
+      .truth-not strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .truth-not p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .recursion-intro {
+        max-width: 780px;
+      }
+
+      .recursion-intro h2 {
+        margin: 20px 0 22px;
+        font-size: clamp(32.2px, 4.2vw, 57.4px);
+        line-height: 0.98;
+        letter-spacing: -0.055em;
+      }
+
+      .recursion-intro p {
+        max-width: 690px;
+        margin: 0;
+        color: rgba(255, 253, 247, 0.7);
+        font-size: 20px;
+      }
+
+      .recursion-path {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 36px;
+        margin-top: 86px;
+      }
+
+      .recursion-path::before {
+        content: "";
+        position: absolute;
+        top: 19px;
+        right: 0;
+        left: 0;
+        height: 1px;
+        background: var(--line-light);
+      }
+
+      .recursion-step {
+        position: relative;
+        padding-top: 56px;
+      }
+
+      .recursion-step::before {
+        content: "";
+        position: absolute;
+        top: 13px;
+        left: 0;
+        width: 13px;
+        height: 13px;
+        background: var(--green-bright);
+        border: 6px solid var(--ink);
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px var(--green-bright);
+      }
+
+      .recursion-step span {
+        color: var(--green-bright);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .recursion-step h3 {
+        margin: 12px 0 10px;
+        font-size: 24px;
+        line-height: 1.16;
+        letter-spacing: -0.03em;
+      }
+
+      .recursion-step p {
+        margin: 0;
+        color: rgba(255, 253, 247, 0.6);
+        font-size: 15px;
+      }
+
+      .recursion-return {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 64px;
+        padding-top: 28px;
+        border-top: 1px solid var(--line-light);
+        color: rgba(255, 253, 247, 0.72);
+        font-family: "IBM Plex Serif", Georgia, serif;
+        font-size: 22px;
+        font-style: italic;
+      }
+
+      .recursion-return::before {
+        content: "↺";
+        color: var(--green-bright);
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 34px;
+        font-style: normal;
+      }
+
+      .split-layout {
+        display: grid;
+        grid-template-columns: minmax(300px, 0.62fr) minmax(0, 1.38fr);
+        gap: 100px;
+        align-items: start;
+      }
+
+      .sticky-intro {
+        position: sticky;
+        top: 126px;
+      }
+
+      .sticky-intro p {
+        margin: 24px 0 0;
+        color: var(--muted);
+      }
+
+      .horizon-list,
+      .skills-list,
+      .course-list {
+        border-top: 1px solid var(--line);
+      }
+
+      .horizon-row {
+        display: grid;
+        grid-template-columns: 74px minmax(0, 1fr);
+        gap: 30px;
+        padding: 32px 0 38px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .horizon-number,
+      .skill-number,
+      .course-number {
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+      }
+
+      .horizon-row h3 {
+        margin: 0 0 10px;
+        font-size: clamp(18.9px, 2.1vw, 28px);
+        line-height: 1.12;
+        letter-spacing: -0.04em;
+      }
+
+      .horizon-row p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .horizon-row.final h3 {
+        color: var(--green);
+      }
+
+      .skills-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .skill-row {
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 18px;
+        min-height: 205px;
+        padding: 28px 32px 30px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .skill-row:nth-child(even) {
+        padding-right: 0;
+        padding-left: 32px;
+        border-left: 1px solid var(--line);
+      }
+
+      .skill-row h3 {
+        margin: 0 0 10px;
+        font-size: 22px;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+      }
+
+      .skill-row p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .program-layout {
+        display: grid;
+        grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.32fr);
+        gap: 96px;
+        align-items: start;
+      }
+
+      .program-intro {
+        position: sticky;
+        top: 126px;
+      }
+
+      .program-intro h2 {
+        margin: 20px 0 22px;
+        font-size: clamp(22.5px, 2.7vw, 36px);
+        line-height: 1;
+        letter-spacing: -0.055em;
+      }
+
+      .program-intro > p {
+        color: rgba(255, 253, 247, 0.64);
+      }
+
+      .tempo {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 38px;
+        padding-top: 30px;
+        border-top: 1px solid var(--line-light);
+      }
+
+      .tempo strong {
+        display: block;
+        color: var(--green-bright);
+        font-size: 34px;
+        line-height: 1;
+      }
+
+      .tempo span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(255, 253, 247, 0.66);
+        font-size: 14px;
+      }
+
+      .course-list {
+        border-color: var(--line-light);
+      }
+
+      .course-row {
+        display: grid;
+        grid-template-columns: 56px 112px minmax(0, 1fr);
+        gap: 22px;
+        align-items: start;
+        padding: 25px 0 29px;
+        border-bottom: 1px solid var(--line-light);
+        transition: padding-left 180ms ease, color 180ms ease;
+      }
+
+      .course-row:hover {
+        padding-left: 10px;
+      }
+
+      .course-number {
+        color: var(--green-bright);
+      }
+
+      .course-code {
+        font-size: 23px;
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+      }
+
+      .course-row p {
+        margin: 0;
+        color: rgba(255, 253, 247, 0.62);
+        font-size: 15px;
+      }
+
+      .course-row.final .course-code,
+      .course-row.final p {
+        color: var(--brass);
+      }
+
+      .payment-note {
+        margin-top: 34px;
+        padding: 24px 0 0 190px;
+        border-top: 1px solid var(--line-light);
+        color: rgba(255, 253, 247, 0.7);
+        font-size: 15px;
+      }
+
+      .payment-note strong {
+        color: var(--white);
+      }
+
+      .format-section {
+        overflow: hidden;
+      }
+
+      .format-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(370px, 0.95fr);
+        gap: 88px;
+        align-items: center;
+      }
+
+      .format-copy > p {
+        max-width: 700px;
+        margin: 24px 0 0;
+        color: rgba(255, 253, 247, 0.7);
+        font-size: 19px;
+      }
+
+      .format-principles {
+        margin-top: 46px;
+        border-top: 1px solid var(--line-light);
+      }
+
+      .format-principle {
+        display: grid;
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: 24px;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .format-principle strong {
+        color: var(--brass);
+      }
+
+      .format-principle span {
+        color: rgba(255, 253, 247, 0.66);
+      }
+
+      .format-portrait {
+        position: relative;
+      }
+
+      .format-portrait img {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center 22%;
+        filter: saturate(0.82) contrast(1.04);
+      }
+
+      .capacity-mark {
+        position: absolute;
+        right: -28px;
+        bottom: -38px;
+        width: 188px;
+        height: 188px;
+        display: grid;
+        place-content: center;
+        padding: 28px;
+        color: var(--ink);
+        background: var(--brass);
+        border-radius: 50%;
+        text-align: center;
+      }
+
+      .capacity-mark strong {
+        display: block;
+        font-size: 58px;
+        line-height: 0.9;
+        letter-spacing: -0.06em;
+      }
+
+      .capacity-mark span {
+        display: block;
+        margin-top: 9px;
+        font-size: 13px;
+        line-height: 1.2;
+      }
+
+      .ai-section {
+        overflow: hidden;
+      }
+
+      .ai-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(410px, 1.1fr);
+        gap: 86px;
+        align-items: center;
+      }
+
+      .ai-copy p {
+        margin: 24px 0 0;
+        color: var(--muted);
+        font-size: 19px;
+      }
+
+      .ai-list {
+        margin-top: 38px;
+        border-top: 1px solid var(--line);
+      }
+
+      .ai-list div {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .ai-list span {
+        color: var(--green);
+        font-size: 13px;
+      }
+
+      .ai-media {
+        position: relative;
+        min-height: 650px;
+      }
+
+      .ai-media img {
+        width: 100%;
+        height: 650px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .ai-caption {
+        position: absolute;
+        right: 26px;
+        bottom: 26px;
+        left: 26px;
+        padding: 22px 24px;
+        color: var(--white);
+        background: rgba(11, 18, 15, 0.84);
+        backdrop-filter: blur(12px);
+      }
+
+      .ai-caption strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .ai-caption span {
+        color: rgba(255, 253, 247, 0.65);
+        font-size: 14px;
+      }
+
+      .sorin-layout {
+        display: block;
+      }
+
+      .sorin-copy {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .sorin-copy h2 {
+        margin-top: 0;
+      }
+
+      .sorin-copy > p {
+        margin: 24px 0 0;
+        color: rgba(255, 253, 247, 0.74);
+        font-size: 19px;
+      }
+
+      .sorin-difference {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 34px;
+        margin: 38px 0;
+        border-top: 1px solid var(--line-light);
+      }
+
+      .sorin-difference span {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line-light);
+        color: rgba(255, 253, 247, 0.76);
+      }
+
+      .faq-layout {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1.38fr);
+        gap: 98px;
+        align-items: start;
+      }
+
+      .faq-intro {
+        position: sticky;
+        top: 128px;
+      }
+
+      .faq-intro h2 {
+        margin: 20px 0 0;
+        font-size: clamp(30.8px, 3.5vw, 47.6px);
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+
+      .faq-list {
+        border-top: 1px solid var(--line);
+      }
+
+      details {
+        border-bottom: 1px solid var(--line);
+      }
+
+      summary {
+        position: relative;
+        display: block;
+        padding: 26px 48px 26px 0;
+        cursor: pointer;
+        list-style: none;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        content: "+";
+        position: absolute;
+        top: 22px;
+        right: 0;
+        color: var(--green);
+        font-size: 28px;
+        font-weight: 400;
+        transition: transform 180ms ease;
+      }
+
+      details[open] summary::after {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        max-width: 760px;
+        padding: 0 48px 28px 0;
+        color: var(--muted);
+      }
+
+      .faq-answer p {
+        margin: 0 0 12px;
+      }
+
+      .faq-answer a {
+        color: var(--green);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .final-section {
+        min-height: 720px;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        background:
+          linear-gradient(90deg, rgba(8, 15, 12, 0.96) 0%, rgba(8, 15, 12, 0.73) 58%, rgba(8, 15, 12, 0.38) 100%),
+          url("assets/kod-universuma-hero.webp") center 60% / cover;
+      }
+
+      .final-copy {
+        max-width: 760px;
+      }
+
+      .final-copy > p {
+        max-width: 660px;
+        margin: 24px 0 0;
+        color: rgba(255, 253, 247, 0.72);
+        font-size: 20px;
+      }
+
+      .final-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .site-footer {
+        color: rgba(255, 253, 247, 0.68);
+        background: #090d0b;
+        font-size: 13px;
+      }
+
+      .footer-inner {
+        min-height: 92px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 680ms ease, transform 680ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+
+      .js .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (min-width: 641px) and (max-height: 780px) {
+        .hero-inner {
+          padding-top: 104px;
+          padding-bottom: 24px;
+        }
+
+        .hero h1 {
+          margin-top: 18px;
+          margin-bottom: 12px;
+          font-size: clamp(58px, 6.4vw, 82px);
+        }
+
+        .hero-lead {
+          max-width: 680px;
+          font-size: 20px;
+        }
+
+        .hero-actions {
+          margin-top: 22px;
+        }
+
+        .hero-meta {
+          margin-top: 28px;
+          padding-top: 18px;
+        }
+
+        .hero-meta strong {
+          font-size: 16px;
+        }
+
+        .hero-meta span {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 980px) {
+        :root {
+          --container: min(100% - 40px, 760px);
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .section {
+          padding: 94px 0;
+        }
+
+        .section-head,
+        .truth-grid,
+        .split-layout,
+        .program-layout,
+        .format-layout,
+        .ai-layout,
+        .faq-layout {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 54px;
+        }
+
+        .truth-manifesto,
+        .sticky-intro,
+        .program-intro,
+        .faq-intro {
+          position: static;
+        }
+
+        .truth-manifesto {
+          max-width: 660px;
+          padding-right: 0;
+        }
+
+        .recursion-path {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .recursion-path::before {
+          display: none;
+        }
+
+        .recursion-step {
+          padding-top: 42px;
+          border-top: 1px solid var(--line-light);
+        }
+
+        .recursion-step::before {
+          top: -7px;
+        }
+
+        .format-portrait {
+          max-width: 620px;
+        }
+
+        .ai-media {
+          min-height: 520px;
+        }
+
+        .ai-media img {
+          height: 520px;
+        }
+
+        .payment-note {
+          padding-left: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        :root {
+          --container: calc(100% - 32px);
+        }
+
+        body {
+          font-size: 16px;
+        }
+
+        .site-header,
+        .nav {
+          height: 66px;
+        }
+
+        .brand > span:last-child {
+          font-size: 14px;
+          line-height: 1.08;
+        }
+
+        .brand-sub {
+          display: none;
+        }
+
+        .brand-mark {
+          width: 34px;
+          height: 34px;
+        }
+
+        .brand-helix {
+          width: 20px;
+          height: 20px;
+        }
+
+        .nav-cta {
+          min-height: 38px;
+          padding-inline: 14px;
+          font-size: 12px;
+        }
+
+        .hero {
+          min-height: 100svh;
+        }
+
+        .hero-media img {
+          object-position: 64% center;
+        }
+
+        .hero-media::after {
+          background:
+            linear-gradient(90deg, rgba(7, 12, 10, 0.9) 0%, rgba(7, 12, 10, 0.62) 100%),
+            linear-gradient(0deg, rgba(7, 12, 10, 0.94) 0%, transparent 62%);
+        }
+
+        .hero-inner {
+          padding: 112px 0 28px;
+        }
+
+        .hero h1 {
+          margin-top: 18px;
+          font-size: clamp(46px, 15vw, 66px);
+          line-height: 0.94;
+        }
+
+        .hero-lead {
+          font-size: 18px;
+        }
+
+        .hero-actions {
+          margin-top: 24px;
+        }
+
+        .hero-actions .btn {
+          width: 100%;
+        }
+
+        .hero-meta {
+          grid-template-columns: 1fr;
+          gap: 10px;
+          margin-top: 28px;
+          padding-top: 18px;
+        }
+
+        .hero-meta-item,
+        .hero-meta-item + .hero-meta-item {
+          display: grid;
+          grid-template-columns: 92px 1fr;
+          gap: 12px;
+          padding: 0;
+          border: 0;
+        }
+
+        .hero-meta strong {
+          font-size: 14px;
+        }
+
+        .hero-meta span {
+          font-size: 12px;
+        }
+
+        .section {
+          padding: 78px 0;
+        }
+
+        .section-head {
+          gap: 24px;
+          margin-bottom: 48px;
+        }
+
+        .section-head h2,
+        .sticky-intro h2,
+        .format-copy h2,
+        .ai-copy h2,
+        .sorin-copy h2,
+        .final-copy h2 {
+          font-size: 29.4px;
+        }
+
+        .program-intro h2 {
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+
+        .truth-grid,
+        .split-layout,
+        .program-layout,
+        .format-layout,
+        .ai-layout,
+        .faq-layout {
+          gap: 42px;
+        }
+
+        .truth-manifesto blockquote {
+          font-size: 26.6px;
+        }
+
+        .truth-not,
+        .recursion-path,
+        .skills-list,
+        .sorin-difference {
+          grid-template-columns: 1fr;
+        }
+
+        .truth-not {
+          gap: 22px;
+        }
+
+        .recursion-path {
+          gap: 32px;
+          margin-top: 58px;
+        }
+
+        .horizon-row {
+          grid-template-columns: 44px minmax(0, 1fr);
+          gap: 16px;
+        }
+
+        .horizon-row h3 {
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+
+        .skill-row,
+        .skill-row:nth-child(even) {
+          min-height: 0;
+          padding: 26px 0 30px;
+          border-left: 0;
+        }
+
+        .course-row {
+          grid-template-columns: 42px 80px minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        .course-code {
+          overflow-wrap: anywhere;
+          font-size: 18px;
+        }
+
+        .tempo {
+          gap: 12px;
+        }
+
+        .format-principle {
+          grid-template-columns: 1fr;
+          gap: 6px;
+        }
+
+        .capacity-mark {
+          right: -8px;
+          bottom: -30px;
+          width: 150px;
+          height: 150px;
+        }
+
+        .capacity-mark strong {
+          font-size: 46px;
+        }
+
+        .ai-media,
+        .ai-media img {
+          min-height: 0;
+          height: 430px;
+        }
+
+        .sorin-difference {
+          gap: 0;
+        }
+
+        summary {
+          font-size: 18px;
+        }
+
+        .final-section {
+          min-height: 650px;
+        }
+
+        .footer-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          padding: 28px 0;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .nav {
+          gap: 10px;
+        }
+
+        .brand {
+          min-width: 0;
+          gap: 9px;
+        }
+
+        .brand > span:last-child {
+          max-width: 125px;
+          font-size: 12px;
+        }
+
+        .nav-cta {
+          flex: 0 0 auto;
+          padding-inline: 11px;
+          font-size: 11px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .js .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reading-progress" aria-hidden="true"></div>
+
+    <header class="site-header" id="site-header">
+      <div class="container">
+        <nav class="nav" aria-label="Основная навигация">
+          <a class="brand" href="#top" aria-label="Институт ИДЕАЛ-метода — к началу страницы">
+            <span class="brand-mark" aria-hidden="true">
+              <svg class="brand-helix" viewBox="0 0 24 24" focusable="false">
+                <path d="M7 3c0 4.5 10 4.5 10 9S7 16.5 7 21"></path>
+                <path d="M17 3c0 4.5-10 4.5-10 9s10 4.5 10 9"></path>
+                <path class="helix-rung" d="M8.4 6h7.2M7.2 10h9.6M7.2 14h9.6M8.4 18h7.2"></path>
+              </svg>
+            </span>
+            <span>
+              Институт ИДЕАЛ-метода
+              <small class="brand-sub">Компанца Дмитрия</small>
+            </span>
+          </a>
+          <div class="nav-links">
+            <a href="#horizons">Траектория</a>
+            <a href="#skills">Результаты</a>
+            <a href="#program">Программа</a>
+            <a href="#format">Формат</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <a class="btn btn-ghost nav-cta" href="https://t.me/dkompanets" target="_blank" rel="noopener" data-track="nav_telegram" data-placement="header">Обсудить вход</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <picture class="hero-media" aria-hidden="true">
+          <source srcset="assets/kod-universuma-hero.webp" type="image/webp">
+          <img src="assets/kod-universuma-hero.png" alt="" fetchpriority="high" decoding="async">
+        </picture>
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <div class="eyebrow">Личный институт совершенных знаний</div>
+            <h1 id="hero-title">Стань солью земли</h1>
+            <p class="hero-lead">
+              Стать <em>студентом истины</em> — самое ценное, что можно сделать на земном этапе эволюции.
+              Здесь знание становится не правильными словами, а твоей жизнью, решениями и результатами.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://t.me/dkompanets" target="_blank" rel="noopener" data-track="hero_telegram" data-placement="hero">Проверить готовность <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-ghost" href="#program">Увидеть весь путь</a>
+            </div>
+          </div>
+          <div class="hero-meta" aria-label="Ключевые параметры института">
+            <div class="hero-meta-item">
+              <strong>10 ступеней</strong>
+              <span>строго последовательно, до свободного владения на ДП-4</span>
+            </div>
+            <div class="hero-meta-item">
+              <strong>5–10 лет</strong>
+              <span>темп выбирается по способности применять, а не потреблять</span>
+            </div>
+            <div class="hero-meta-item">
+              <strong>До 30</strong>
+              <span>активных студентов, потому что всю работу веду лично</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-paper" id="truth" aria-labelledby="truth-title">
+        <div class="container truth-grid">
+          <div class="truth-manifesto reveal">
+            <div class="kicker">Что здесь считается знанием</div>
+            <blockquote id="truth-title">Не знать ответы. Владеть основанием, из которого ответы становятся видны.</blockquote>
+          </div>
+          <div class="truth-copy reveal">
+            <p class="truth-definition">
+              Совершенное знание — это evergreen-инвариант: принцип не меняется вместе с человеческими представлениями и обстоятельствами.
+              Меняется масштаб его постижения и способность применять его в новых ситуациях. Такие инварианты составляют фундамент ИДЕАЛ-метода.
+            </p>
+            <div class="truth-not">
+              <div>
+                <strong>Это не претензия знать всё</strong>
+                <p>Наука, технологии и культура меняются. Инвариант помогает видеть, как действовать внутри изменившихся условий.</p>
+              </div>
+              <div>
+                <strong>Это не зависимость от учителя</strong>
+                <p>Задача пути — вырастить внутреннюю систему видения, которая работает и перед новым вопросом.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark" id="recursion" aria-labelledby="recursion-title">
+        <div class="container">
+          <div class="recursion-intro reveal">
+            <div class="kicker">Рекурсия роста</div>
+            <h2 id="recursion-title">Когда начинаешь помогать другим, сам видишь больше</h2>
+            <p>
+              Эволюция сознания — самая большая ценность. Институт выводит на уровень, где собственный результат привлекает живые вопросы других людей,
+              а разнообразие их примеров углубляет и ускоряет твоё понимание.
+            </p>
+          </div>
+          <div class="recursion-path reveal">
+            <article class="recursion-step">
+              <span>01 · прожить</span>
+              <h3>Применить к себе</h3>
+              <p>Увидеть причины собственных результатов и начать переобучение на живом материале.</p>
+            </article>
+            <article class="recursion-step">
+              <span>02 · проявить</span>
+              <h3>Стать видимым примером</h3>
+              <p>Изменения становятся заметны не по рассказам, а по твоей жизни, выбору и устойчивости.</p>
+            </article>
+            <article class="recursion-step">
+              <span>03 · передать</span>
+              <h3>Работать с другими</h3>
+              <p>Люди приходят на результат. Ты понимаешь, что можешь им дать и где проходят границы помощи.</p>
+            </article>
+            <article class="recursion-step">
+              <span>04 · расширить</span>
+              <h3>Увидеть больше законов</h3>
+              <p>Чужие случаи показывают новые формы тех же причин и возвращаются в твоё собственное развитие.</p>
+            </article>
+          </div>
+          <div class="recursion-return reveal">
+            Без института обучение может остаться потреблением знаний. Здесь применение постепенно становится носительством и практикой передачи.
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-white" id="horizons" aria-labelledby="horizons-title">
+        <div class="container split-layout">
+          <div class="sticky-intro reveal">
+            <div class="kicker">Горизонты зрелости</div>
+            <h2 id="horizons-title">От своей жизни — к глобальной практике</h2>
+            <p>Это не обещание одинакового результата для всех. Скорость и глубина зависят от личной ответственности, практики и принятого переобучения.</p>
+          </div>
+          <div class="horizon-list reveal">
+            <article class="horizon-row">
+              <div class="horizon-number">01</div>
+              <div>
+                <h3>Первый курс: радостное и эффективное проживание</h3>
+                <p>Ты начинаешь видеть жизнь не как набор случайностей и помех, а как точную среду наблюдения, выбора и получения желаемого.</p>
+              </div>
+            </article>
+            <article class="horizon-row">
+              <div class="horizon-number">02</div>
+              <div>
+                <h3>Второй курс и переобучение: основные баги теряют власть</h3>
+                <p>При собственной работе повторяющиеся ложные понимания обычно перестают управлять главными решениями. Результат становится заметен другим.</p>
+              </div>
+            </article>
+            <article class="horizon-row">
+              <div class="horizon-number">03</div>
+              <div>
+                <h3>Профессиональный контур: появляется практика консультанта</h3>
+                <p>Ты понимаешь, что дать человеку сейчас, учишься разбирать реальные случаи и растёшь за счёт разнообразия чужого опыта.</p>
+              </div>
+            </article>
+            <article class="horizon-row final">
+              <div class="horizon-number">04</div>
+              <div>
+                <h3>ДП-4: свободное владение полной Базой знаний</h3>
+                <p>Ты свободно решаешь собственные вопросы, уверенно работаешь с широкой аудиторией и интересными кейсами. Коллективная и глобальная практика становится рабочим контуром.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-paper" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="kicker">Что станет твоим</div>
+              <h2 id="skills-title">10 результатов, которые нельзя просто скачать</h2>
+            </div>
+            <p class="section-lead">Информация передаётся быстро. Владение появляется, когда знание проходит через пережитый опыт, решения и последствия.</p>
+          </div>
+          <div class="skills-list reveal">
+            <article class="skill-row">
+              <div class="skill-number">01</div>
+              <div><h3>Увидишь причины событий</h3><p>Перестанешь бесконечно чинить симптомы и соберёшь причинную карту повторяющихся результатов.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">02</div>
+              <div><h3>Осмыслишь весь прожитый опыт</h3><p>Пережитое перестанет быть балластом: ты увидишь его ценность, причинность и место в собственной траектории.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">03</div>
+              <div><h3>Отделишь факт от интерпретации</h3><p>Научишься распознавать смысл, который сознание автоматически добавляет к событию, и выбирать новый.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">04</div>
+              <div><h3>Освоишь совершенное суждение</h3><p>Будешь принимать решения из непротиворечивого основания, а не из спешки, тревоги или чужой оценки.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">05</div>
+              <div><h3>Прояснишь долгосрочную стратегию</h3><p>Соберёшь развитие на годы: какие ограничения преодолеваешь, какие способности растишь и к какой практике идёшь.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">06</div>
+              <div><h3>Научишься управлять движущими силами</h3><p>Свяжешь внимание, цели, ответственность и направление, чтобы действовать ближе к принципу наименьшего действия.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">07</div>
+              <div><h3>Выйдешь из автоматических реакций</h3><p>Станешь видеть стресс, роль жертвы и наказание как управляемые системы, а не как неизбежную личность.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">08</div>
+              <div><h3>Увидишь сознание в движении</h3><p>Научишься различать рост и падение, прогнозировать траекторию и выбирать точное воздействие.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">09</div>
+              <div><h3>Соберёшь личную программу роста</h3><p>Соединишь предназначение, продление жизни, переобучение и цифровой контекст в единую рабочую среду.</p></div>
+            </article>
+            <article class="skill-row">
+              <div class="skill-number">10</div>
+              <div><h3>Станешь говорящим примером</h3><p>Жизнь, решения и результаты станут основанием доверия. На этой базе открывается профессия консультанта.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark" id="program" aria-labelledby="program-title">
+        <div class="container program-layout">
+          <div class="program-intro reveal">
+            <div class="kicker">Программа</div>
+            <h2 id="program-title">10 ступеней. Только последовательно.</h2>
+            <p>Следующая ступень опирается на проживание предыдущей. Оплатить материал — не значит получить допуск: важны выполненная работа, понимание и применение.</p>
+            <div class="tempo" aria-label="Варианты темпа">
+              <div><strong>10 лет</strong><span>один курс в год — глубокий базовый темп</span></div>
+              <div><strong>5 лет</strong><span>два курса в год — интенсивный темп при готовности</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="course-list reveal">
+              <article class="course-row">
+                <div class="course-number">01</div><div class="course-code">МГ-1</div><p>Генограмма, повторяющиеся сценарии, наследуемые паттерны и первая причинная картина жизни.</p>
+              </article>
+              <article class="course-row">
+                <div class="course-number">02</div><div class="course-code">ДП-1</div><p>Духовно-нравственная ось, внимание, ответственность и первые совершенные знания как опора решений.</p>
+              </article>
+              <article class="course-row">
+                <div class="course-number">03</div><div class="course-code">АФ-1</div><p>Сознание как динамическая система: силы, движение, изменение состояния и прогноз результата.</p>
+              </article>
+              <article class="course-row">
+                <div class="course-number">04</div><div class="course-code">МГ-2</div><p>Разум-закон, обусловленные реакции, стресс, BID, ТПС, девиктимизация и практическое переобучение.</p>
+              </article>
+              <article class="course-row">
+                <div class="course-number">05</div><div class="course-code">ДП-2</div><p>Углубление совершенного суждения, предназначение, ценность опыта и созидательная ответственность.</p>
+              </article>
+              <article class="course-row">
+                <div class="course-number">06</div><div class="course-code">АФ-2</div><p>Работа со сложными системами сознания, траекториями роста и программой продления жизни.</p>
+              </article>
+              <article class="course-row">
+                <div class="course-number">07</div><div class="course-code">ДП-3</div><p>Зрелое применение принципов к новым областям жизни и переход от личной практики к носительству.</p>
+              </article>
+              <article class="course-row">
+                <div class="course-number">08</div><div class="course-code">Спецкурс</div><p>Мастер-классы Бориса Сорина и разборы реальных 1:1 консультаций профессионалов.</p>
+              </article>
+              <article class="course-row">
+                <div class="course-number">09</div><div class="course-code">МГ-3</div><p>Углублённый слой ментальной генетики, сложные причинные конструкции и материалы Кулакова.</p>
+              </article>
+              <article class="course-row final">
+                <div class="course-number">10</div><div class="course-code">ДП-4</div><p>Свободное владение полной Базой знаний, самостоятельная работа с новыми вопросами и переход к коллективной практике.</p>
+              </article>
+            </div>
+            <p class="payment-note reveal">
+              <strong>Оплата:</strong> можно идти по одному курсу или оплатить три — тогда третий предоставляется бесплатно.
+              При этом оплата трёх курсов не ускоряет доступ: каждая следующая ступень открывается после принятой работы по предыдущей.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark format-section" id="format" aria-labelledby="format-title">
+        <div class="container format-layout">
+          <div class="format-copy reveal">
+            <div class="kicker">Личная мастерская</div>
+            <h2 id="format-title">Я не масштабирую то, что требует личного различения</h2>
+            <p>Лекции можно записать. Проверку понимания, точность вопроса и качество применения нельзя быстро передать отделу кураторов без изменения самого формата.</p>
+            <div class="format-principles">
+              <div class="format-principle"><strong>Только я</strong><span>Проверяю и принимаю лично я. Никакой преподавательской команды и анонимной проверки.</span></div>
+              <div class="format-principle"><strong>Только личная работа</strong><span>Индивидуальные семинары в удобное время. Корпоративных и командных программ нет.</span></div>
+              <div class="format-principle"><strong>Гибкий маршрут</strong><span>Можно выбирать темп, формат оплаты и график, но нельзя перепрыгивать непрожитую ступень.</span></div>
+              <div class="format-principle"><strong>Профессиональный выход</strong><span>Профессия консультанта появляется из свободного владения, собственной практики и принятых разборов — не автоматически из оплаты.</span></div>
+            </div>
+          </div>
+          <figure class="format-portrait reveal">
+            <img src="assets/dmitry-kompanets-consultant.jpeg" alt="Дмитрий Компанец, автор и единственный преподаватель Института" loading="lazy" decoding="async">
+            <figcaption class="capacity-mark"><strong>30</strong><span>активных студентов на разных ступенях — предел личного формата</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-white ai-section" id="ai" aria-labelledby="ai-title">
+        <div class="container ai-layout">
+          <div class="ai-copy reveal">
+            <div class="kicker">После автоматизации информации</div>
+            <h2 id="ai-title">Расти на следующем ограничении после ИИ</h2>
+            <p>
+              ИИ ускоряет поиск, формулировки и обработку материалов. Институт развивает то, что становится следующим ограничением после ИИ:
+              совершенное суждение, ответственность, понимание причин, выбор направления и способность воплощать знание собственной жизнью.
+            </p>
+            <div class="ai-list" aria-label="Компетенции и технологическая среда">
+              <div><strong>Человеческая компетенция</strong><span>различать истинное по плодам</span></div>
+              <div><strong>Человеческая компетенция</strong><span>нести ответственность за выбор</span></div>
+              <div><strong>Технологическая среда</strong><span>База знаний, MCP, боты, Prism</span></div>
+              <div><strong>Технологическая среда</strong><span>контекст, скиллы, промпты, агенты</span></div>
+            </div>
+          </div>
+          <figure class="ai-media reveal">
+            <picture>
+              <source srcset="assets/kod-universuma-tools.webp" type="image/webp">
+              <img src="assets/kod-universuma-tools.png" alt="Рабочая среда Института с Базой знаний и картой связей" loading="lazy" decoding="async">
+            </picture>
+            <figcaption class="ai-caption"><strong>ИИ не заменяет путь</strong><span>Он уменьшает рутину между наблюдением, семинаром и применением — и помогает сохранять личный контекст.</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-green" id="sorin" aria-labelledby="sorin-title">
+        <div class="container sorin-layout">
+          <div class="sorin-copy reveal">
+            <h2 id="sorin-title">Чем этот Институт отличается от Института Бориса Сорина?</h2>
+            <p>
+              Я искренне рекомендую учиться у Бориса Сорина и считаю его Институт первоисточником этой образовательной традиции.
+              Мой формат не является заменой или заявлением «лучше». Он снижает несколько практических сложностей для тех, кому нужен другой способ идти по тому же большому пути.
+            </p>
+            <div class="sorin-difference">
+              <span>индивидуальные, а не групповые семинары</span>
+              <span>время подбирается лично, без жёсткой сетки</span>
+              <span>гибкость тарифов и графика оплаты</span>
+              <span>боты, контекст, скиллы, MCP, Prism и AI-агенты</span>
+            </div>
+            <p>Каждый консультант — индивидуальное проявление жизни. Выбирать человека и формат тебе.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-paper" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-layout">
+          <div class="faq-intro reveal">
+            <div class="kicker">Перед входом</div>
+            <h2 id="faq-title">Честные границы</h2>
+          </div>
+          <div class="faq-list reveal">
+            <details open>
+              <summary>Можно ли пройти программу быстрее?</summary>
+              <div class="faq-answer"><p>Есть два допустимых темпа: один курс в год — путь на 10 лет; два курса в год — путь на 5 лет. Более высокая скорость не предусмотрена, потому что следующей ступени нужна практика предыдущей.</p></div>
+            </details>
+            <details>
+              <summary>Когда открывается следующая ступень?</summary>
+              <div class="faq-answer"><p>После выполненной и принятой работы по предыдущему курсу. Предварительная оплата не заменяет понимание, применение и экзаменационную готовность.</p></div>
+            </details>
+            <details>
+              <summary>Что означает «третий курс бесплатно»?</summary>
+              <div class="faq-answer"><p>Можно оплатить пакет из трёх последовательных курсов — стоимость третьего не начисляется. Доступ при этом всё равно открывается поэтапно после принятия предыдущей ступени.</p></div>
+            </details>
+            <details>
+              <summary>Институт гарантирует профессию и клиентов?</summary>
+              <div class="faq-answer"><p>Нет. Институт даёт знания, практику разборов и траекторию к профессии консультанта. Доверие людей, качество практики и профессиональный результат зависят от твоего владения, ответственности и реальной жизни.</p></div>
+            </details>
+            <details>
+              <summary>Почему одновременно только 30 активных студентов?</summary>
+              <div class="faq-answer"><p>Потому что я сам веду, проверяю и принимаю работы. Консультант не масштабируется быстро без потери индивидуального различения — и я не хочу заменять его потоком кураторов.</p></div>
+            </details>
+            <details>
+              <summary>Есть ли обучение для компаний и команд?</summary>
+              <div class="faq-answer"><p>Нет. Институт работает только как личная траектория. Корпоративных программ, командных тарифов и делегированной преподавательской команды нет.</p></div>
+            </details>
+            <details>
+              <summary>Нужно ли уже уметь пользоваться MCP и AI-агентами?</summary>
+              <div class="faq-answer"><p>Нет. Технологии осваиваются по мере необходимости. Они поддерживают работу с контекстом и Базой знаний, но не являются условием готовности к первому курсу.</p></div>
+            </details>
+            <details>
+              <summary>Как выбрать между этим Институтом и Институтом Бориса Сорина?</summary>
+              <div class="faq-answer"><p>Если тебе подходит исходный формат — я рекомендую идти напрямую к Борису. <a href="https://iimt.ru/study" target="_blank" rel="noopener">Посмотри программу ИИМТ</a>, затем сравни личный формат, расписание, способы оплаты и технологическую среду. Выбор остаётся за тобой.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-section" id="apply" aria-labelledby="apply-title">
+        <div class="container">
+          <div class="final-copy reveal">
+            <div class="kicker">Следующий шаг</div>
+            <h2 id="apply-title">Не выбрать тариф. Проверить взаимную готовность.</h2>
+            <p>Напиши, какой системный вопрос остаётся живым в твоей жизни, что ты уже пробовал и почему рассматриваешь многолетнее обучение сейчас.</p>
+            <div class="final-actions">
+              <a class="btn btn-primary" href="https://t.me/dkompanets" target="_blank" rel="noopener" data-track="final_telegram" data-placement="final">Написать Дмитрию <span aria-hidden="true">↗</span></a>
+              <a class="btn btn-ghost" href="#top">Вернуться к началу</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© Дмитрий Компанец · Код Универсума</div>
+        <div class="footer-links">
+          <a href="https://app.imt.dev/imt/" target="_blank" rel="noopener">IMT Wiki</a>
+          <a href="https://t.me/dkompanets" target="_blank" rel="noopener" data-track="footer_telegram" data-placement="footer">Telegram</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.querySelector("#site-header");
+      const root = document.documentElement;
+      const revealItems = document.querySelectorAll(".reveal");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const updateScrollState = () => {
+        const scrollable = root.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? Math.min(100, (window.scrollY / scrollable) * 100) : 0;
+        root.style.setProperty("--reading-progress", `${progress}%`);
+        header.classList.toggle("is-scrolled", window.scrollY > 36);
+      };
+
+      window.addEventListener("scroll", updateScrollState, { passive: true });
+      window.addEventListener("load", updateScrollState, { once: true });
+      updateScrollState();
+
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: "0px 0px -8%", threshold: 0.08 });
+
+        revealItems.forEach((item) => observer.observe(item));
+      }
+
+      const FUNNEL_NAME = "ideal_method_institut";
+      const PAGE_VARIANT = "institut_02_v1";
+
+      window.trackEvent = (name, params = {}) => {
+        if (typeof window.gtag !== "function") return;
+        window.gtag("event", name, {
+          event_category: FUNNEL_NAME,
+          page_variant: PAGE_VARIANT,
+          ...params,
+        });
+      };
+
+      window.trackFunnelEvent = (name, params = {}) => {
+        window.trackEvent(name, {
+          funnel_name: FUNNEL_NAME,
+          page_variant: PAGE_VARIANT,
+          ...params,
+        });
+      };
+
+      const observeOnce = (selector, eventName) => {
+        const element = document.querySelector(selector);
+        if (!element) return;
+        if (!("IntersectionObserver" in window)) {
+          window.trackEvent(eventName, { section_id: selector.slice(1) });
+          return;
+        }
+        const visibilityObserver = new IntersectionObserver((entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          window.trackEvent(eventName, { section_id: selector.slice(1) });
+          visibilityObserver.disconnect();
+        }, { threshold: 0.25 });
+        visibilityObserver.observe(element);
+      };
+
+      document.querySelectorAll("[data-track]").forEach((element) => {
+        element.addEventListener("click", () => {
+          const ctaId = element.dataset.track;
+          const routeDestination = element.getAttribute("href") || "";
+          const eventParams = {
+            cta_id: ctaId,
+            placement: element.dataset.placement || "page",
+            route_destination: routeDestination,
+          };
+          window.trackEvent("institut_cta_click", eventParams);
+          window.trackEvent("select_content", {
+            content_type: "cta",
+            item_id: ctaId,
+            ...eventParams,
+          });
+        });
+      });
+
+      observeOnce("#program", "institut_program_visible");
+      window.trackFunnelEvent("page_view");
+      window.trackEvent("institut_view", { page_path: window.location.pathname });
+      window.trackEvent("institut_page_view", { page_path: window.location.pathname });
+      window.setTimeout(() => {
+        window.trackEvent("institut_engaged_30s", { engagement_seconds: 30 });
+      }, 30000);
+    </script>
+  </body>
+</html>

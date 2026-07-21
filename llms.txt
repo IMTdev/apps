@@ -21,6 +21,7 @@ IMT is therefore described more broadly than the replacement of habitual reactio
 ## Primary pages
 
 - [Consultant](https://app.imt.dev/consultant/) - canonical person and service page, audience, 1:1 format, experience, cases, and Telegram contact.
+- [IDEAL Method Institute](https://app.imt.dev/institut/) - Dmitry Kompanets' personal, sequential training path in perfect knowledge, consultation practice, and the applied IDEAL Method.
 - [IMT Wiki](https://app.imt.dev/imt/) - canonical method page: creators, concepts, mental genetics, androphysics, spiritual principles, purpose, and retraining practice.
 - [Case catalog](https://app.imt.dev/) - 21 anonymized case narratives with recurring results, patterns, and practical next steps.
 - [Comparison](https://app.imt.dev/comparison/) - teachings and practical methods of consciousness development, including IMT, CBT, coaching-related approaches, Stoicism, Christianity, Buddhism, and logotherapy.
