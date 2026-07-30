@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Focus Observer — локальный инструмент фокус-сессий</title>
+    <meta name="description" content="Focus Observer локально замечает выход из фокус-сессии и помогает вернуться к выбранной задаче. Формат, личный результат и ограничения.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://app.imt.dev/artifacts/focus-observer/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Focus Observer">
+    <meta property="og:description" content="Локальная система, которая замечает потерю фокуса во время работы.">
+    <meta property="og:url" content="https://app.imt.dev/artifacts/focus-observer/">
+    <meta property="og:image" content="https://app.imt.dev/artifacts/assets/og-focus-observer.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Focus Observer — локальный инструмент фокус-сессий">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Focus Observer">
+    <meta name="twitter:description" content="Локально замечает выход из фокус-сессии и помогает вернуться к выбранной задаче.">
+    <meta name="twitter:image" content="https://app.imt.dev/artifacts/assets/og-focus-observer.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/artifacts/styles.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "AW-16453014043");
+      window.mainTracker = "gtag";
+      window.gtagTrackerID = "G-B2JG56FKGP";
+      setTimeout(function(){
+        (function(w,d,s,i){
+          var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + i;
+          f.parentNode.insertBefore(j,f);
+          gtag("js", new Date());
+          gtag("config", i, {});
+        })(window,document,"script",window.gtagTrackerID);
+      }, 2000);
+    </script>
+  </head>
+  <body data-page="detail">
+    <main>
+      <section class="detail-hero" aria-labelledby="focus-title">
+        <div class="section-shell">
+          <a class="back-link" href="/artifacts/" data-back-link>
+            <span aria-hidden="true">←</span>
+            Все артефакты
+          </a>
+          <div class="detail-hero__copy">
+            <p class="eyebrow">Данные и оборудование · используется</p>
+            <h1 id="focus-title">Focus<br>Observer</h1>
+            <p class="detail-hero__lead">Локальная система, которая замечает потерю фокуса во время работы.</p>
+          </div>
+          <div class="detail-stage" role="img" aria-label="Место для будущего изображения Focus Observer">
+            <span class="detail-stage__index">FO · 01</span>
+            <div class="detail-stage__center">
+              <span>Focus Observer</span>
+              <small>изображение будет добавлено</small>
+            </div>
+            <span class="detail-stage__format">macOS app + skill</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="focus-content" id="focus-content" aria-label="Описание Focus Observer">
+        <div class="section-shell">
+          <article class="detail-row detail-row--lead">
+            <div class="detail-row__label">
+              <span class="section-index">01</span>
+              <h2>Для кого и какая задача</h2>
+            </div>
+            <div class="detail-row__body detail-columns">
+              <div>
+                <h3>Для кого</h3>
+                <p>Для человека, который умеет выбрать задачу, но во время фокус-сессии незаметно уходит в соседние окна, сообщения или поиск нового решения.</p>
+              </div>
+              <div>
+                <h3>Запрос</h3>
+                <p>Доводить выбранную работу до результата без постоянного внешнего контроля и видеть собственный паттерн переключений.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail-row">
+            <div class="detail-row__label">
+              <span class="section-index">02</span>
+              <h2>Личный результат</h2>
+            </div>
+            <div class="detail-row__body">
+              <p class="detail-statement">С помощью Focus Observer я доделал несколько дел, которые откладывал около месяца.</p>
+              <p>Это наблюдение из моей практики, а не обещание универсального эффекта. Инструмент стал частью фокус-сессий и помогает увидеть момент выхода из выбранной работы раньше, чем он превращается в длинное отвлечение.</p>
+            </div>
+          </article>
+
+          <article class="detail-row">
+            <div class="detail-row__label">
+              <span class="section-index">03</span>
+              <h2>Как работает</h2>
+            </div>
+            <ol class="detail-row__body process-list">
+              <li><span>01</span><p>Перед началом фиксируется объявленный фокус: что именно должно быть сделано в этой сессии.</p></li>
+              <li><span>02</span><p>Локальное приложение наблюдает активное окно и последовательность действий на компьютере.</p></li>
+              <li><span>03</span><p>При признаках ухода из фокуса система возвращает внимание к объявленной задаче.</p></li>
+              <li><span>04</span><p>После сессии остаётся материал для короткого ретро о повторяющихся переключениях.</p></li>
+            </ol>
+          </article>
+
+          <article class="detail-row">
+            <div class="detail-row__label">
+              <span class="section-index">04</span>
+              <h2>Формат и статус</h2>
+            </div>
+            <div class="detail-row__body definition-list">
+              <div><span>Формат</span><strong>локальное macOS-приложение + skill</strong></div>
+              <div><span>Статус</span><strong>используется в личной практике</strong></div>
+              <div><span>Данные</span><strong>обрабатываются локально в рабочем контуре</strong></div>
+            </div>
+          </article>
+
+          <article class="detail-row">
+            <div class="detail-row__label">
+              <span class="section-index">05</span>
+              <h2>Стоимость применения и настройка</h2>
+            </div>
+            <div class="detail-row__body">
+              <p class="pending-note">Требования, время настройки и стоимость применения будут добавлены после публичной упаковки.</p>
+              <p>До этого момента здесь намеренно нет приблизительных цифр: они должны опираться на воспроизводимый сценарий установки, а не на опыт одного рабочего компьютера.</p>
+            </div>
+          </article>
+
+          <article class="detail-row">
+            <div class="detail-row__label">
+              <span class="section-index">06</span>
+              <h2>Ограничения</h2>
+            </div>
+            <div class="detail-row__body">
+              <p>Focus Observer видит активность и переключения, но не определяет психологическую причину поведения и не решает, какая задача является «правильной» для человека.</p>
+              <p>Он не заменяет постановку цели, отдых или работу с причиной избегания. Если объявленный фокус выбран формально, точное наблюдение не сделает его своим.</p>
+            </div>
+          </article>
+
+          <article class="detail-row">
+            <div class="detail-row__label">
+              <span class="section-index">07</span>
+              <h2>Что можно показать</h2>
+            </div>
+            <div class="detail-row__body">
+              <p>Безопасный демонстрационный сценарий и изображения будут добавлены после публичной упаковки.</p>
+              <p>Показ будет строиться на синтетической фокус-сессии без истории личных приложений, переписок и содержимого рабочих документов.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/artifacts/app.js"></script>
+  </body>
+</html>

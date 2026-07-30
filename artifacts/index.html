@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Артефакты — рабочие инструменты Дмитрия</title>
+    <meta name="description" content="Личная коллекция работающих инструментов для self-development, создания контента, консультирования и практичных автоматизаций.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://app.imt.dev/artifacts/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Артефакты — рабочие инструменты">
+    <meta property="og:description" content="Личная коллекция систем, которые используются на практике: self-development, контент, ИМТ, данные и автоматизации.">
+    <meta property="og:url" content="https://app.imt.dev/artifacts/">
+    <meta property="og:image" content="https://app.imt.dev/artifacts/assets/og-artifacts.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Артефакты — коллекция работающих инструментов">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Артефакты — рабочие инструменты">
+    <meta name="twitter:description" content="Системы и процессы, которые используются на практике, а не перечислены как будущие идеи.">
+    <meta name="twitter:image" content="https://app.imt.dev/artifacts/assets/og-artifacts.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/artifacts/styles.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16453014043"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "AW-16453014043");
+      window.mainTracker = "gtag";
+      window.gtagTrackerID = "G-B2JG56FKGP";
+      setTimeout(function(){
+        (function(w,d,s,i){
+          var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtag/js?id=" + i;
+          f.parentNode.insertBefore(j,f);
+          gtag("js", new Date());
+          gtag("config", i, {});
+        })(window,document,"script",window.gtagTrackerID);
+      }, 2000);
+    </script>
+  </head>
+  <body data-page="catalog">
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <p class="eyebrow">Личная коллекция · 17 объектов</p>
+            <h1 id="page-title">Артефакты</h1>
+            <p class="hero__lead">Инструменты и процессы, которыми я пользуюсь на практике. Здесь важен не замысел, а наблюдаемый результат и честная степень готовности.</p>
+          </div>
+          <div class="artifact-mosaic" id="artifact-mosaic" aria-label="Выборка артефактов"></div>
+        </div>
+      </section>
+
+      <section class="catalog-controls" aria-labelledby="catalog-title">
+        <div class="section-shell controls-layout">
+          <div class="controls-heading">
+            <p class="eyebrow">Каталог</p>
+            <h2 id="catalog-title">Области работы</h2>
+            <p id="result-count" class="result-count" aria-live="polite"></p>
+          </div>
+          <div class="controls">
+            <div class="filter-scroll" id="category-filters" aria-label="Фильтр по области"></div>
+            <button class="ready-toggle" id="ready-filter" type="button" aria-pressed="false">
+              <span class="ready-toggle__mark" aria-hidden="true"></span>
+              Готов показать
+            </button>
+            <div class="status-legend" id="status-legend" aria-label="Статусы зрелости"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="artifact-sections" class="artifact-sections" aria-live="polite"></div>
+
+      <noscript>
+        <section class="noscript-catalog section-shell">
+          <h2>Состав каталога</h2>
+          <p>Для фильтрации нужен JavaScript. В коллекцию входят 17 рабочих объектов: скилл обработки лекций ИМТ, система трекинга ЖС, Telegram/OpenClaw-бот, сессионные саммари, БСЗ, БСК, сайт 2033, контентные конвейеры, инструменты консультанта, Muse, Focus Observer, проверка генома и Shopping Monitor.</p>
+        </section>
+      </noscript>
+    </main>
+
+    <script type="module" src="/artifacts/app.js"></script>
+  </body>
+</html>
