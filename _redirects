@@ -12,6 +12,7 @@
 # imt.dev is hosted by Tilda. Its cross-domain consultant redirect must be
 # configured in front of Tilda; Netlify only receives app.imt.dev requests.
 /consultant /consultant/ 301
+/institut /institut/ 301
 /lp-self-doc /lp-self-doc/ 301
 /lp-relearn-doc /lp-relearn-doc/ 301
 /lp-science-doc /lp-science-doc/ 301

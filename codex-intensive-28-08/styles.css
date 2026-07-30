@@ -206,7 +206,7 @@ nav a:hover,
 .final-cta h2 {
   margin: 14px 0 18px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 5.4vw, 72px);
+  font-size: clamp(29px, 3.8vw, 50px);
   line-height: 0.99;
   letter-spacing: -0.055em;
 }
@@ -299,7 +299,7 @@ nav a:hover,
 .hero h1 {
   margin: 18px 0 24px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(50px, 5.3vw, 72px);
+  font-size: clamp(35px, 3.7vw, 50px);
   line-height: 0.95;
   letter-spacing: -0.066em;
 }
@@ -366,11 +366,7 @@ nav a:hover,
 }
 
 .hero-portrait::before {
-  content: "";
-  position: absolute;
-  inset: -18px 18px 18px -18px;
-  border: 1px solid rgba(30, 98, 82, 0.28);
-  border-radius: 48% 48% 24px 24px;
+  display: none;
 }
 
 .hero-portrait img {
@@ -379,7 +375,7 @@ nav a:hover,
   height: min(65vh, 555px);
   object-fit: cover;
   object-position: center top;
-  border-radius: 48% 48% 24px 24px;
+  border-radius: 16px;
   filter: saturate(0.82) contrast(1.02);
   box-shadow: 0 30px 80px rgba(17, 58, 49, 0.24);
 }
@@ -877,7 +873,7 @@ input[type="range"] {
 
 .program-copy h3 {
   margin: 0;
-  font-size: clamp(26px, 3.2vw, 42px);
+  font-size: clamp(18px, 2.25vw, 29px);
   line-height: 1.08;
   letter-spacing: -0.045em;
 }
@@ -925,7 +921,7 @@ input[type="range"] {
 
 .evidence-columns h3 {
   margin: 38px 0 16px;
-  font-size: 28px;
+  font-size: 20px;
   line-height: 1.12;
   letter-spacing: -0.04em;
 }
@@ -963,7 +959,7 @@ input[type="range"] {
   aspect-ratio: 0.85;
   object-fit: cover;
   object-position: center top;
-  border-radius: 48% 48% 22px 22px;
+  border-radius: 16px;
   filter: saturate(0.8);
   box-shadow: 0 28px 70px rgba(18, 63, 54, 0.18);
 }
@@ -971,7 +967,7 @@ input[type="range"] {
 .author-copy h2 {
   margin: 14px 0 46px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 5vw, 68px);
+  font-size: clamp(29px, 3.5vw, 48px);
   line-height: 1;
   letter-spacing: -0.055em;
 }
@@ -992,7 +988,7 @@ input[type="range"] {
 
 .author-layer h3 {
   margin: 0 0 8px;
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .author-layer p {
@@ -1274,7 +1270,7 @@ footer a {
   }
 
   .hero h1 {
-    font-size: clamp(49px, 12vw, 76px);
+    font-size: clamp(34px, 8.4vw, 53px);
   }
 
   .hero-portrait {
@@ -1329,7 +1325,7 @@ footer a {
   .section-intro h2,
   .final-cta h2,
   .author-copy h2 {
-    font-size: clamp(38px, 12vw, 56px);
+    font-size: clamp(27px, 8.4vw, 39px);
   }
 
   .site-header .button {
@@ -1356,7 +1352,7 @@ footer a {
   }
 
   .hero h1 {
-    font-size: clamp(47px, 14.5vw, 64px);
+    font-size: clamp(33px, 10.2vw, 45px);
   }
 
   .hero-lead {
