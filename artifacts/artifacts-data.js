@@ -98,7 +98,7 @@ export const artifacts = [
   {
     id: "bsz",
     slug: "bsz",
-    title: "БСЗ",
+    title: "База совершенных знаний",
     category: "self-development",
     status: "ready",
     outcome: "Сохраняет совершенные знания как проверяемую структуру с источниками и связями.",
@@ -112,7 +112,7 @@ export const artifacts = [
   {
     id: "bsk",
     slug: "bsk",
-    title: "БСК",
+    title: "База смысловых кодов",
     category: "self-development",
     status: "ready",
     outcome: "Собирает смысловые коды из материалов и делает их доступными для повторного использования.",

@@ -109,7 +109,7 @@ p {
 h1 {
   margin: 14px 0 24px;
   max-width: 720px;
-  font-size: 8.5rem;
+  font-size: 4.25rem;
   font-weight: 500;
   line-height: 0.86;
   letter-spacing: 0;
@@ -350,7 +350,7 @@ h1 {
 
 .artifact-section h2 {
   margin: 20px 0 12px;
-  font-size: 3.65rem;
+  font-size: 1.825rem;
   font-weight: 500;
   line-height: 1;
 }
@@ -781,7 +781,7 @@ a.artifact-card:hover .artifact-media {
   }
 
   h1 {
-    font-size: 6.5rem;
+    font-size: 3.25rem;
   }
 
   .artifact-mosaic {
@@ -843,7 +843,7 @@ a.artifact-card:hover .artifact-media {
 
   h1 {
     margin: 10px 0 18px;
-    font-size: 4.15rem;
+    font-size: 2.075rem;
   }
 
   .hero__lead {
@@ -896,7 +896,7 @@ a.artifact-card:hover .artifact-media {
 
   .artifact-section h2 {
     margin-top: 14px;
-    font-size: 2.45rem;
+    font-size: 1.225rem;
   }
 
   .artifact-grid {
@@ -957,7 +957,7 @@ a.artifact-card:hover .artifact-media {
 
 @media (max-width: 360px) {
   h1 {
-    font-size: 3.65rem;
+    font-size: 1.825rem;
   }
 
   .artifact-mosaic {
