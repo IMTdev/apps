@@ -21,6 +21,7 @@ const pageConfigs = {
     variant: "artifacts_catalog_v1",
     funnel: "artifacts_portfolio",
     viewEvent: "artifacts_catalog_view",
+    pageViewEvent: "artifacts_catalog_page_view",
     visibilityEvent: "artifacts_catalog_visible",
     engagementEvent: "artifacts_catalog_engaged_30s",
   },
@@ -28,6 +29,7 @@ const pageConfigs = {
     variant: "focus_observer_detail_v1",
     funnel: "artifacts_portfolio",
     viewEvent: "focus_observer_view",
+    pageViewEvent: "focus_observer_page_view",
     visibilityEvent: "focus_observer_content_visible",
     engagementEvent: "focus_observer_engaged_30s",
   },
@@ -284,6 +286,7 @@ function initPageTracking() {
   if (!config) return;
 
   trackFunnelEvent(config.viewEvent);
+  trackFunnelEvent(config.pageViewEvent);
   const visibilityTarget =
     document.querySelector("#artifact-sections") ||
     document.querySelector("#focus-content");
